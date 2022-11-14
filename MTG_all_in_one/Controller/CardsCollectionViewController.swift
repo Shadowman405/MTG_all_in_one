@@ -32,6 +32,10 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 //        // #warning Incomplete implementation, return the number of sections
 //        return 0
 //    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetails", sender: nil)
+    }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,6 +54,17 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 300, height: 350)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+            let selectedIndexPath = sender as! NSIndexPath
+            let detailsVC = segue.destination as! CardDetailsViewController
+            detailsVC.card = cards[selectedIndexPath.row] as CardMTG
+        }
+    }
+    
+    
+    //MARK: - Helpers
     
     func fetcCards() {
         manager.fetchCards { card in

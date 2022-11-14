@@ -12,7 +12,7 @@ class CardDetailsViewController: UIViewController {
     var card: CardMTG?
     
     @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var cardImg: UIImageView!
+    @IBOutlet weak var cardImg: CardImageView!
     @IBOutlet weak var setNameLbl: UILabel!
     @IBOutlet weak var rarityLbl: UILabel!
     @IBOutlet weak var manaCostLbl: UILabel!
@@ -22,7 +22,17 @@ class CardDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        guard let card = card else {return}
+        configView(with: card)
+    }
+    
+    func configView(with card: CardMTG) {
+        nameLbl.text = card.name
+        cardImg.fetchImage(from: card.imageURL)
+        setNameLbl.text = card.setName
+        rarityLbl.text = card.rarity
+        manaCostLbl.text = card.manaCost
+        descriptionLbl.text = card.text
     }
 
 }
