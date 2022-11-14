@@ -15,6 +15,7 @@
 		BF1417D32922869E000B041E /* CardsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417D22922869E000B041E /* CardsCollectionViewController.swift */; };
 		BF1417D529228700000B041E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417D429228700000B041E /* Card.swift */; };
 		BF1417D829228748000B041E /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417D729228748000B041E /* CardCollectionViewCell.swift */; };
+		BF1417DB292287C8000B041E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417DA292287C8000B041E /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BF1417D22922869E000B041E /* CardsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewController.swift; sourceTree = "<group>"; };
 		BF1417D429228700000B041E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		BF1417D729228748000B041E /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF1417DA292287C8000B041E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +62,10 @@
 		BF1417BB29228606000B041E /* MTG_all_in_one */ = {
 			isa = PBXGroup;
 			children = (
+				BF1417D9292287AD000B041E /* Support Files */,
 				BF1417D629228728000B041E /* Controller */,
 				BF1417D12922861E000B041E /* Model */,
 				BF1417D029228617000B041E /* View */,
-				BF1417BC29228606000B041E /* AppDelegate.swift */,
-				BF1417BE29228606000B041E /* SceneDelegate.swift */,
 				BF1417C229228606000B041E /* Main.storyboard */,
 				BF1417C529228607000B041E /* Assets.xcassets */,
 				BF1417C729228607000B041E /* LaunchScreen.storyboard */,
@@ -95,6 +96,16 @@
 				BF1417D22922869E000B041E /* CardsCollectionViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF1417D9292287AD000B041E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF1417BC29228606000B041E /* AppDelegate.swift */,
+				BF1417BE29228606000B041E /* SceneDelegate.swift */,
+				BF1417DA292287C8000B041E /* NetworkManager.swift */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1417DB292287C8000B041E /* NetworkManager.swift in Sources */,
 				BF1417BD29228606000B041E /* AppDelegate.swift in Sources */,
 				BF1417D32922869E000B041E /* CardsCollectionViewController.swift in Sources */,
 				BF1417BF29228606000B041E /* SceneDelegate.swift in Sources */,
