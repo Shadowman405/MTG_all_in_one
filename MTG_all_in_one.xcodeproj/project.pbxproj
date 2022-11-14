@@ -13,6 +13,8 @@
 		BF1417C629228607000B041E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF1417C529228607000B041E /* Assets.xcassets */; };
 		BF1417C929228607000B041E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1417C729228607000B041E /* LaunchScreen.storyboard */; };
 		BF1417D32922869E000B041E /* CardsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417D22922869E000B041E /* CardsCollectionViewController.swift */; };
+		BF1417D529228700000B041E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417D429228700000B041E /* Card.swift */; };
+		BF1417D829228748000B041E /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417D729228748000B041E /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		BF1417C829228607000B041E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF1417CA29228607000B041E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF1417D22922869E000B041E /* CardsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewController.swift; sourceTree = "<group>"; };
+		BF1417D429228700000B041E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		BF1417D729228748000B041E /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		BF1417BB29228606000B041E /* MTG_all_in_one */ = {
 			isa = PBXGroup;
 			children = (
+				BF1417D629228728000B041E /* Controller */,
 				BF1417D12922861E000B041E /* Model */,
 				BF1417D029228617000B041E /* View */,
 				BF1417BC29228606000B041E /* AppDelegate.swift */,
@@ -71,7 +76,7 @@
 		BF1417D029228617000B041E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BF1417D22922869E000B041E /* CardsCollectionViewController.swift */,
+				BF1417D729228748000B041E /* CardCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -79,8 +84,17 @@
 		BF1417D12922861E000B041E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF1417D429228700000B041E /* Card.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BF1417D629228728000B041E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF1417D22922869E000B041E /* CardsCollectionViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +171,8 @@
 				BF1417BD29228606000B041E /* AppDelegate.swift in Sources */,
 				BF1417D32922869E000B041E /* CardsCollectionViewController.swift in Sources */,
 				BF1417BF29228606000B041E /* SceneDelegate.swift in Sources */,
+				BF1417D829228748000B041E /* CardCollectionViewCell.swift in Sources */,
+				BF1417D529228700000B041E /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
