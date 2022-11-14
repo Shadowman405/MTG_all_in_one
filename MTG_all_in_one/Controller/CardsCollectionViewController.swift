@@ -9,7 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class CardsCollectionViewController: UICollectionViewController {
+class CardsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let manager = NetworkManager.shared
     var cards: [CardMTG] = []
@@ -45,6 +45,10 @@ class CardsCollectionViewController: UICollectionViewController {
         cell.configureCell(with: card)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 300, height: 350)
     }
     
     func fetcCards() {
