@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CardMTG: Codable {
+class CardMTG: Codable {
     let name: String
 //    let cmc: Int
 //    let colorIdentity: [String]
     let type: String
     let rarity: String
     let setName: String
-    let imageURL: String
+    var imageURL: String
     let manaCost: String
     let text: String
 //    let foreignNames: [ForeignName]

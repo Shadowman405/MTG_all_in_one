@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cards Collection View Controller-->
+        <!--Cards-->
         <scene sceneID="XVr-xB-ueB">
             <objects>
                 <collectionViewController id="fYT-pC-YE9" customClass="CardsCollectionViewController" customModule="MTG_all_in_one" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="fYT-pC-YE9" id="lOh-EP-g7Q"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="DK1-tE-Wxc"/>
+                    <navigationItem key="navigationItem" title="Cards" id="DK1-tE-Wxc"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPQ-vY-Hak" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
