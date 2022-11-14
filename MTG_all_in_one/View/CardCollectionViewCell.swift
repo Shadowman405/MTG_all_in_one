@@ -9,6 +9,10 @@ import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var cardImg: UIImageView!
+    @IBOutlet weak var cardImg: CardImageView!
     
+    
+    func configureCell(with card: CardMTG) {
+        cardImg.fetchImage(from: card.imageURL)
+    }
 }
