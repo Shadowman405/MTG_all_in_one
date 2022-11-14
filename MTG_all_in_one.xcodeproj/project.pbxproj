@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		267CDC9D52212C5BB8F9B662 /* Pods_MTG_all_in_one.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D46E350F45D5BE52B0F66F9 /* Pods_MTG_all_in_one.framework */; };
 		BF1417BD29228606000B041E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417BC29228606000B041E /* AppDelegate.swift */; };
 		BF1417BF29228606000B041E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417BE29228606000B041E /* SceneDelegate.swift */; };
 		BF1417C429228606000B041E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1417C229228606000B041E /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D46E350F45D5BE52B0F66F9 /* Pods_MTG_all_in_one.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MTG_all_in_one.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AA4A4326814303F559B9CDC /* Pods-MTG_all_in_one.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG_all_in_one.debug.xcconfig"; path = "Target Support Files/Pods-MTG_all_in_one/Pods-MTG_all_in_one.debug.xcconfig"; sourceTree = "<group>"; };
 		BF1417B929228606000B041E /* MTG_all_in_one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTG_all_in_one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1417BC29228606000B041E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF1417BE29228606000B041E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		BF1417D429228700000B041E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		BF1417D729228748000B041E /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF1417DA292287C8000B041E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DB744A7AC2C49F40A811B90D /* Pods-MTG_all_in_one.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG_all_in_one.release.xcconfig"; path = "Target Support Files/Pods-MTG_all_in_one/Pods-MTG_all_in_one.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +41,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				267CDC9D52212C5BB8F9B662 /* Pods_MTG_all_in_one.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10B2B88EA3CB368F490155A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D46E350F45D5BE52B0F66F9 /* Pods_MTG_all_in_one.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3711C9245CD2E6EE7970D94 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9AA4A4326814303F559B9CDC /* Pods-MTG_all_in_one.debug.xcconfig */,
+				DB744A7AC2C49F40A811B90D /* Pods-MTG_all_in_one.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF1417B029228606000B041E = {
 			isa = PBXGroup;
 			children = (
 				BF1417BB29228606000B041E /* MTG_all_in_one */,
 				BF1417BA29228606000B041E /* Products */,
+				B3711C9245CD2E6EE7970D94 /* Pods */,
+				10B2B88EA3CB368F490155A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,9 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF1417CD29228607000B041E /* Build configuration list for PBXNativeTarget "MTG_all_in_one" */;
 			buildPhases = (
+				5AB37B29AFC669A895E7D405 /* [CP] Check Pods Manifest.lock */,
 				BF1417B529228606000B041E /* Sources */,
 				BF1417B629228606000B041E /* Frameworks */,
 				BF1417B729228606000B041E /* Resources */,
+				587C139EC1C1B930D4A1F436 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,6 +200,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		587C139EC1C1B930D4A1F436 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MTG_all_in_one/Pods-MTG_all_in_one-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MTG_all_in_one/Pods-MTG_all_in_one-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MTG_all_in_one/Pods-MTG_all_in_one-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AB37B29AFC669A895E7D405 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MTG_all_in_one-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF1417B529228606000B041E /* Sources */ = {
@@ -326,6 +395,7 @@
 		};
 		BF1417CE29228607000B041E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AA4A4326814303F559B9CDC /* Pods-MTG_all_in_one.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -354,6 +424,7 @@
 		};
 		BF1417CF29228607000B041E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB744A7AC2C49F40A811B90D /* Pods-MTG_all_in_one.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
