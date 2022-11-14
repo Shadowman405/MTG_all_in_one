@@ -31,7 +31,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
 //    override func numberOfSections(in collectionView: UICollectionView) -> Int {
 //        // #warning Incomplete implementation, return the number of sections
-//        return 0
+//        return 3
 //    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -54,7 +54,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 350)
+        return CGSize(width: 300, height: 300)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
