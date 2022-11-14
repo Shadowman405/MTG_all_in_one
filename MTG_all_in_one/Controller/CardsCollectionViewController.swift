@@ -13,6 +13,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     
     private let manager = NetworkManager.shared
     var cards: [CardMTG] = []
+    var selectedCard: CardMTG!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 //    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCard = cards[indexPath.item]
         performSegue(withIdentifier: "toDetails", sender: nil)
     }
 
@@ -57,9 +59,9 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
-            let selectedIndexPath = sender as! NSIndexPath
-            let detailsVC = segue.destination as! CardDetailsViewController
-            detailsVC.card = cards[selectedIndexPath.row] as CardMTG
+            if let detailsVC = segue.destination as? CardDetailsViewController {
+                detailsVC.card = selectedCard
+            }
         }
     }
     

@@ -29,10 +29,12 @@ class CardDetailsViewController: UIViewController {
     func configView(with card: CardMTG) {
         nameLbl.text = card.name
         cardImg.fetchImage(from: card.imageURL)
-        setNameLbl.text = card.setName
-        rarityLbl.text = card.rarity
-        manaCostLbl.text = card.manaCost
+        setNameLbl.text = "Set name: " + card.setName
+        rarityLbl.text = "Card rarity: " + card.rarity
+        manaCostLbl.text = "Mana cost: " + card.manaCost
         descriptionLbl.text = card.text
+        
+        print(card.name)
     }
 
 }
