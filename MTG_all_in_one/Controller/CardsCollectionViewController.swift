@@ -54,7 +54,12 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 300)
+        //return CGSize(width: 300, height: 300)
+        let width = view.frame.width
+        let cellWidth = (width - 50) / 2
+        let cellHeight = cellWidth * 1.5
+        
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
