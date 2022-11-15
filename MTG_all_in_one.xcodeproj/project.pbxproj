@@ -19,6 +19,7 @@
 		BF1417DB292287C8000B041E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417DA292287C8000B041E /* NetworkManager.swift */; };
 		BF1417DD292289AE000B041E /* CardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417DC292289AE000B041E /* CardImageView.swift */; };
 		BF1417DF2922982F000B041E /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417DE2922982F000B041E /* CardDetailsViewController.swift */; };
+		BF1417E129242A89000B041E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417E029242A89000B041E /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		BF1417DA292287C8000B041E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BF1417DC292289AE000B041E /* CardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageView.swift; sourceTree = "<group>"; };
 		BF1417DE2922982F000B041E /* CardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
+		BF1417E029242A89000B041E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DB744A7AC2C49F40A811B90D /* Pods-MTG_all_in_one.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG_all_in_one.release.xcconfig"; path = "Target Support Files/Pods-MTG_all_in_one/Pods-MTG_all_in_one.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 			children = (
 				BF1417D22922869E000B041E /* CardsCollectionViewController.swift */,
 				BF1417DE2922982F000B041E /* CardDetailsViewController.swift */,
+				BF1417E029242A89000B041E /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				BF1417DD292289AE000B041E /* CardImageView.swift in Sources */,
 				BF1417D32922869E000B041E /* CardsCollectionViewController.swift in Sources */,
 				BF1417BF29228606000B041E /* SceneDelegate.swift in Sources */,
+				BF1417E129242A89000B041E /* MainViewController.swift in Sources */,
 				BF1417D829228748000B041E /* CardCollectionViewCell.swift in Sources */,
 				BF1417D529228700000B041E /* Card.swift in Sources */,
 			);
