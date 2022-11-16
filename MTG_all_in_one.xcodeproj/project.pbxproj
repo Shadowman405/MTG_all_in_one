@@ -21,6 +21,7 @@
 		BF1417DF2922982F000B041E /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417DE2922982F000B041E /* CardDetailsViewController.swift */; };
 		BF1417E129242A89000B041E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417E029242A89000B041E /* MainViewController.swift */; };
 		BF1417E3292582CA000B041E /* CollectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417E2292582CA000B041E /* CollectionsTableViewController.swift */; };
+		BF1417E529258499000B041E /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1417E429258499000B041E /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		BF1417DE2922982F000B041E /* CardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		BF1417E029242A89000B041E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BF1417E2292582CA000B041E /* CollectionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsTableViewController.swift; sourceTree = "<group>"; };
+		BF1417E429258499000B041E /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		DB744A7AC2C49F40A811B90D /* Pods-MTG_all_in_one.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG_all_in_one.release.xcconfig"; path = "Target Support Files/Pods-MTG_all_in_one/Pods-MTG_all_in_one.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 				BF1417BC29228606000B041E /* AppDelegate.swift */,
 				BF1417BE29228606000B041E /* SceneDelegate.swift */,
 				BF1417DA292287C8000B041E /* NetworkManager.swift */,
+				BF1417E429258499000B041E /* StorageManager.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				BF1417DB292287C8000B041E /* NetworkManager.swift in Sources */,
 				BF1417DF2922982F000B041E /* CardDetailsViewController.swift in Sources */,
+				BF1417E529258499000B041E /* StorageManager.swift in Sources */,
 				BF1417BD29228606000B041E /* AppDelegate.swift in Sources */,
 				BF1417DD292289AE000B041E /* CardImageView.swift in Sources */,
 				BF1417D32922869E000B041E /* CardsCollectionViewController.swift in Sources */,
