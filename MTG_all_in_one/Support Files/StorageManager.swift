@@ -15,5 +15,11 @@ class StorageManager {
     
     private init() {}
     
+    func fetchCollections() {
+        // load data from UserDefaults
+    }
     
+    func saveCollection() {
+        //saving to UserDefaults
+    }
 }
