@@ -31,6 +31,16 @@
                                     <segue destination="fYT-pC-YE9" kind="show" id="pg7-oT-M48"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoJ-Yu-cFw">
+                                <rect key="frame" x="127" y="653" width="137" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="My Collections"/>
+                                <connections>
+                                    <segue destination="jik-cL-H7g" kind="show" id="UXK-C7-seR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H2e-fc-yO8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -40,6 +50,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4z-15-0q8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1230.7692307692307" y="-150"/>
+        </scene>
+        <!--Collections-->
+        <scene sceneID="6YI-8x-kpn">
+            <objects>
+                <tableViewController id="jik-cL-H7g" customClass="CollectionsTableViewController" customModule="MTG_all_in_one" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="GNo-P5-23P">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tfR-nu-1Br">
+                                <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tfR-nu-1Br" id="ucx-OB-K4M">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jik-cL-H7g" id="w40-wc-4GK"/>
+                            <outlet property="delegate" destination="jik-cL-H7g" id="N7g-7c-P7l"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Collections" id="8FY-gQ-i48"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H7x-SI-RdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="-38"/>
         </scene>
         <!--Cards-->
         <scene sceneID="XVr-xB-ueB">
@@ -87,7 +126,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPQ-vY-Hak" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2050.7692307692305" y="-150"/>
+            <point key="canvasLocation" x="1998" y="-712"/>
         </scene>
         <!--Card Details View Controller-->
         <scene sceneID="9cE-kh-Xek">
@@ -152,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3G-eZ-HFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2816.9230769230767" y="-150"/>
+            <point key="canvasLocation" x="2818" y="-712"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yxb-ms-Chv">
