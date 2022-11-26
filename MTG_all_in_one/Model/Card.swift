@@ -6,22 +6,23 @@
 //
 
 import Foundation
+import RealmSwift
 
-class CardMTG: Codable {
-    let name: String
+class CardMTG: Object, Codable {
+    @objc dynamic var name: String
 //    let cmc: Int
 //    let colorIdentity: [String]
-    let type: String
-    let rarity: String
-    let setName: String
-    var imageURL: String
-    let manaCost: String
-    let text: String
+    @objc dynamic var type: String
+    @objc dynamic var rarity: String
+    @objc dynamic var setName: String
+    @objc dynamic var imageURL: String
+    @objc dynamic var manaCost: String
+    @objc dynamic var text: String
 //    let foreignNames: [ForeignName]
 //    let printings: [String]
-    let originalType: String
+    @objc dynamic var originalType: String
 //    let legalities: [LegalityElement]
-    let id: String
+    @objc dynamic var id: String
     
     init?(cardData: [String: Any]) {
         name = cardData["name"] as? String ?? ""
@@ -39,5 +40,25 @@ class CardMTG: Codable {
         guard let value = value as? [String: Any] else { return []}
         guard let results = value["cards"] as? [[String: Any]] else {return []}
         return results.compactMap { CardMTG(cardData: $0) }
+    }
+}
+
+extension List: Decodable where Element: Decodable {
+    public convenience init(from decoder: Decoder) throws {
+        self.init()
+        var container = try decoder.unkeyedContainer()
+        while !container.isAtEnd {
+            let element = try container.decode(Element.self)
+            self.append(element)
+        }
+    }
+}
+
+extension List: Encodable where Element: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        for element in self {
+            try element.encode(to: container.superEncoder())
+        }
     }
 }
