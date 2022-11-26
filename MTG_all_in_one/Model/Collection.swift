@@ -9,8 +9,11 @@ import Foundation
 
 
 class CardCollection: Codable {
-    let name: String = ""
-    let cards: [CardMTG] = []
+    let collectionName: String
+    let cards: [CardMTG]
     
-    
+    init(name: String, cards: [CardMTG]) {
+        self.collectionName = name
+        self.cards = cards
+    }
 }
