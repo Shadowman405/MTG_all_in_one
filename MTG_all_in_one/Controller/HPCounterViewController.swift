@@ -24,8 +24,8 @@ class HPCounterViewController: UIViewController {
         greenMinLbl.contentHorizontalAlignment = .left
         greenPlsLbl.contentHorizontalAlignment = .left
         
-        redMinLbl.contentHorizontalAlignment = .left
-        redPlsLbl.contentHorizontalAlignment = .left
+        redMinLbl.contentHorizontalAlignment = .right
+        redPlsLbl.contentHorizontalAlignment = .right
     }
     
     //MARK: - Green

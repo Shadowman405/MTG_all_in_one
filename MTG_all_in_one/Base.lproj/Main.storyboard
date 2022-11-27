@@ -105,41 +105,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmE-Sm-Tpx">
-                                <rect key="frame" x="0.0" y="91" width="390" height="173"/>
+                                <rect key="frame" x="0.0" y="91" width="411" height="173"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="-" titleAlignment="trailing"/>
+                                <buttonConfiguration key="configuration" style="plain" title="-" titleAlignment="trailing">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
+                                    <color key="baseForegroundColor" red="1" green="0.61928155340000002" blue="0.22052652410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="greenMinHP:" destination="NbS-hL-WAn" eventType="touchUpInside" id="w6l-vg-wRz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xck-mz-zDf">
-                                <rect key="frame" x="0.0" y="426" width="390" height="205"/>
+                                <rect key="frame" x="0.0" y="426" width="400" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.1233595962" blue="0.1883685507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="-" titleAlignment="trailing"/>
+                                <buttonConfiguration key="configuration" style="plain" title="-" titleAlignment="trailing">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="redMinHP:" destination="NbS-hL-WAn" eventType="touchUpInside" id="YGa-of-c8j"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blv-nA-JiC">
-                                <rect key="frame" x="0.0" y="626" width="390" height="218"/>
+                                <rect key="frame" x="0.0" y="626" width="400" height="239"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.1233595962" blue="0.1883685507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+" titleAlignment="trailing"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+" titleAlignment="trailing">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
+                                    <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="redPlusHP:" destination="NbS-hL-WAn" eventType="touchUpInside" id="osQ-ps-trQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhy-Ic-mLe">
-                                <rect key="frame" x="0.0" y="260" width="390" height="169"/>
+                                <rect key="frame" x="0.0" y="260" width="411" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+" titleAlignment="trailing"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+" titleAlignment="trailing">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
+                                    <color key="baseForegroundColor" red="1" green="0.61928155340000002" blue="0.22052652410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="greenPlusHP:" destination="NbS-hL-WAn" eventType="touchUpInside" id="zb4-T2-bgs"/>
                                 </connections>
@@ -295,6 +307,9 @@
     <resources>
         <image name="mtg_green" width="563" height="789"/>
         <image name="placeholder" width="340" height="471"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
