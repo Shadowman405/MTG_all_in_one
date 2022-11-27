@@ -156,14 +156,30 @@
                                     <action selector="greenPlusHP:" destination="NbS-hL-WAn" eventType="touchUpInside" id="zb4-T2-bgs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyx-bq-PmI">
+                                <rect key="frame" x="80" y="187" width="225" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <color key="textColor" red="1" green="0.61928155340000002" blue="0.22052652410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLt-uW-en7">
+                                <rect key="frame" x="80" y="591" width="225" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7pM-7w-SHf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Health Counter" id="l45-yQ-fTT"/>
                     <connections>
+                        <outlet property="greenHPLbl" destination="dyx-bq-PmI" id="UQz-ej-g1k"/>
                         <outlet property="greenMinLbl" destination="SmE-Sm-Tpx" id="PYx-fV-12X"/>
                         <outlet property="greenPlsLbl" destination="Mhy-Ic-mLe" id="Jeu-8N-3fw"/>
+                        <outlet property="redHPLbl" destination="oLt-uW-en7" id="568-8Z-tK9"/>
                         <outlet property="redMinLbl" destination="Xck-mz-zDf" id="icE-yX-czo"/>
                         <outlet property="redPlsLbl" destination="blv-nA-JiC" id="QVa-qw-EQR"/>
                     </connections>

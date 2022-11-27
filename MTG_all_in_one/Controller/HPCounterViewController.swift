@@ -15,6 +15,8 @@ class HPCounterViewController: UIViewController {
     @IBOutlet weak var redMinLbl: UIButton!
     @IBOutlet weak var redPlsLbl: UIButton!
     
+    @IBOutlet weak var greenHPLbl: UILabel!
+    @IBOutlet weak var redHPLbl: UILabel!
     
     
 
