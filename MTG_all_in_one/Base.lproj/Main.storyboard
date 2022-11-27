@@ -22,23 +22,39 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-Vd-1dM">
-                                <rect key="frame" x="161" y="593" width="69" height="35"/>
+                                <rect key="frame" x="152" y="314" width="94" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cards"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cards">
+                                    <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="30"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="fYT-pC-YE9" kind="show" id="pg7-oT-M48"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoJ-Yu-cFw">
-                                <rect key="frame" x="127" y="653" width="137" height="35"/>
+                                <rect key="frame" x="94" y="405" width="210" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="My Collections"/>
+                                <buttonConfiguration key="configuration" style="plain" title="My Collections">
+                                    <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="30"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="jik-cL-H7g" kind="show" id="UXK-C7-seR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGZ-lb-bQe">
+                                <rect key="frame" x="96" y="488" width="209" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Health Counter">
+                                    <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="30"/>
+                                    <color key="baseForegroundColor" red="1" green="0.61928155340000002" blue="0.22052652410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="NbS-hL-WAn" kind="show" id="6rT-ns-Dvh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,6 +95,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7x-SI-RdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2019" y="-38"/>
+        </scene>
+        <!--Counter View Controller-->
+        <scene sceneID="cpU-bi-q4D">
+            <objects>
+                <viewController id="NbS-hL-WAn" customClass="HPCounterViewController" customModule="MTG_all_in_one" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UEj-Ed-dza">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="7pM-7w-SHf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="l45-yQ-fTT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gKR-FJ-Gqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1231" y="617"/>
         </scene>
         <!--Cards-->
         <scene sceneID="XVr-xB-ueB">

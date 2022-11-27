@@ -17,7 +17,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .systemIndigo
+        collectionView.backgroundColor = .gray
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

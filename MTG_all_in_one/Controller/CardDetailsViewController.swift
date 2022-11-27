@@ -24,6 +24,7 @@ class CardDetailsViewController: UIViewController {
 
         guard let card = card else {return}
         configView(with: card)
+        view.backgroundColor = .systemMint
     }
     
     func configView(with card: CardMTG) {
