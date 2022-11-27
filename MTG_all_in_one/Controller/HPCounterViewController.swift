@@ -37,6 +37,8 @@ class HPCounterViewController: UIViewController {
         if Int(greenHP) != 0 {
             greenHP = String((Int(greenHP) ?? 0) - 1)
             greenHPLbl.text = greenHP
+        } else {
+            alertMessage()
         }
     }
     
@@ -54,6 +56,8 @@ class HPCounterViewController: UIViewController {
         if Int(redHP) != 0 {
             redHP = String((Int(redHP) ?? 0) - 1)
             redHPLbl.text = redHP
+        } else {
+            alertMessage()
         }
     }
     
@@ -63,6 +67,16 @@ class HPCounterViewController: UIViewController {
             redHP = String((Int(redHP) ?? 0) + 1)
             redHPLbl.text = redHP
         }
+    }
+    
+    private func alertMessage() {
+        let alert = UIAlertController(title: "Defeated", message: "You lost all HP", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Accept Defeat", style: .destructive, handler: { _ in
+            self.redHPLbl.text = "20"
+            self.greenHPLbl.text = "20"
+        }))
+        self.present(alert, animated: true)
+        
     }
     
 
