@@ -33,16 +33,36 @@ class HPCounterViewController: UIViewController {
     //MARK: - Green
     
     @IBAction func greenMinHP(_ sender: Any) {
+        guard var greenHP = greenHPLbl.text else {return}
+        if Int(greenHP) != 0 {
+            greenHP = String((Int(greenHP) ?? 0) - 1)
+            greenHPLbl.text = greenHP
+        }
     }
     
     @IBAction func greenPlusHP(_ sender: Any) {
+        guard var greenHP = greenHPLbl.text else {return}
+        if Int(greenHP) != 0 {
+            greenHP = String((Int(greenHP) ?? 0) + 1)
+            greenHPLbl.text = greenHP
+        }
     }
     
     //MARK: - Red
     @IBAction func redMinHP(_ sender: Any) {
+        guard var redHP = redHPLbl.text else {return}
+        if Int(redHP) != 0 {
+            redHP = String((Int(redHP) ?? 0) - 1)
+            redHPLbl.text = redHP
+        }
     }
     
     @IBAction func redPlusHP(_ sender: Any) {
+        guard var redHP = redHPLbl.text else {return}
+        if Int(redHP) != 0 {
+            redHP = String((Int(redHP) ?? 0) + 1)
+            redHPLbl.text = redHP
+        }
     }
     
 
