@@ -8,22 +8,40 @@
 import UIKit
 
 class HPCounterViewController: UIViewController {
+    
+    @IBOutlet weak var greenMinLbl: UIButton!
+    @IBOutlet weak var greenPlsLbl: UIButton!
+    
+    @IBOutlet weak var redMinLbl: UIButton!
+    @IBOutlet weak var redPlsLbl: UIButton!
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        greenMinLbl.contentHorizontalAlignment = .left
+        greenPlsLbl.contentHorizontalAlignment = .left
+        
+        redMinLbl.contentHorizontalAlignment = .left
+        redPlsLbl.contentHorizontalAlignment = .left
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Green
+    
+    @IBAction func greenMinHP(_ sender: Any) {
     }
-    */
+    
+    @IBAction func greenPlusHP(_ sender: Any) {
+    }
+    
+    //MARK: - Red
+    @IBAction func redMinHP(_ sender: Any) {
+    }
+    
+    @IBAction func redPlusHP(_ sender: Any) {
+    }
+    
 
 }
