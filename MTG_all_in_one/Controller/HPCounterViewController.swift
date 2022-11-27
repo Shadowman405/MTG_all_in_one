@@ -22,7 +22,6 @@ class HPCounterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         greenMinLbl.contentHorizontalAlignment = .left
         greenPlsLbl.contentHorizontalAlignment = .left
         
@@ -30,7 +29,7 @@ class HPCounterViewController: UIViewController {
         redPlsLbl.contentHorizontalAlignment = .right
     }
     
-    //MARK: - Green
+    //MARK: - GreenHP
     
     @IBAction func greenMinHP(_ sender: Any) {
         guard var greenHP = greenHPLbl.text else {return}
@@ -50,7 +49,7 @@ class HPCounterViewController: UIViewController {
         }
     }
     
-    //MARK: - Red
+    //MARK: - RedHP
     @IBAction func redMinHP(_ sender: Any) {
         guard var redHP = redHPLbl.text else {return}
         if Int(redHP) != 0 {
@@ -69,6 +68,8 @@ class HPCounterViewController: UIViewController {
         }
     }
     
+    //MARK: - AlertController
+    
     private func alertMessage() {
         let alert = UIAlertController(title: "Defeated", message: "You lost all HP", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Accept Defeat", style: .destructive, handler: { _ in
@@ -78,6 +79,4 @@ class HPCounterViewController: UIViewController {
         self.present(alert, animated: true)
         
     }
-    
-
 }
