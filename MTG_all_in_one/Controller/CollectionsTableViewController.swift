@@ -22,7 +22,6 @@ class CollectionsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return cardCollection.count
     }
     
@@ -32,7 +31,7 @@ class CollectionsTableViewController: UITableViewController {
         let collection = cardCollection[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = collection.collectionName
-        content.secondaryText = "Cards: \(collection.cards.count)"
+        content.secondaryText = "Cards: \(collection.cards.count)/60"
         cell.contentConfiguration = content
 
         return cell
