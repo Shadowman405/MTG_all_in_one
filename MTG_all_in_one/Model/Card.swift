@@ -8,23 +8,26 @@
 import Foundation
 import RealmSwift
 
-class CardMTG: Codable {
-    var name: String
+class CardMTG: Object, Codable {
+    @objc dynamic var name: String
 //    let cmc: Int
 //    let colorIdentity: [String]
-    var type: String
-    var rarity: String
-    var setName: String
-    var imageURL: String
-    var manaCost: String
-    var text: String
+    @objc dynamic var type: String
+    @objc dynamic var rarity: String
+    @objc dynamic var setName: String
+    @objc dynamic var imageURL: String
+    @objc dynamic var manaCost: String
+    @objc dynamic var text: String
 //    let foreignNames: [ForeignName]
 //    let printings: [String]
-    var originalType: String
+    @objc dynamic var originalType: String
 //    let legalities: [LegalityElement]
-    var id: String
+    @objc dynamic var id: String
     
-    init?(cardData: [String: Any]) {
+    
+    convenience init?(cardData: [String: Any]) {
+        self.init()
+        
         name = cardData["name"] as? String ?? ""
         type = cardData["type"] as? String ?? ""
         imageURL = cardData["imageUrl"] as? String ?? ""
@@ -35,6 +38,8 @@ class CardMTG: Codable {
         setName = cardData["setName"] as? String ?? ""
         text = cardData["text"] as? String ?? ""
     }
+    
+    
     
     static func getAllCards(from value: Any) -> [CardMTG]? {
         guard let value = value as? [String: Any] else { return []}
