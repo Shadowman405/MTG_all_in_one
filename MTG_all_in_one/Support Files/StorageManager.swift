@@ -5,21 +5,18 @@
 //  Created by Maxim Mitin on 16.11.22.
 //
 
-import Foundation
+import RealmSwift
 
 class StorageManager {
-    static let shared = NetworkManager()
+    static let shared = StorageManager()
     
-    private let userDefaults = UserDefaults.standard
-    private let collectionKey = "collection"
+    let realm = try! Realm()
     
     private init() {}
     
-    func fetchCollections() {
-        // load data from UserDefaults
-    }
-    
-    func saveCollection() {
-        //saving to UserDefaults
+    func save(cardCollection: [CardCollection]) {
+        try! realm.write {
+            realm.add(cardCollection)
+        }
     }
 }
