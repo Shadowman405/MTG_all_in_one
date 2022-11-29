@@ -16,6 +16,7 @@ class CollectionsTableViewController: UITableViewController {
         super.viewDidLoad()
         cardCollection = StorageManager.shared.realm.objects(CardCollection.self)
 
+        //createTestData()
     }
 
     // MARK: - Table view data source
@@ -35,5 +36,27 @@ class CollectionsTableViewController: UITableViewController {
         cell.contentConfiguration = content
 
         return cell
+    }
+    
+    private func createTestData(){
+        let firstList = CardCollection()
+        firstList.collectionName = "Main Deck"
+        
+        let cardOne = CardMTG()
+        cardOne.name = "Forest"
+        cardOne.type = "Basic Land — Forest"
+        cardOne.rarity = "Common"
+        cardOne.setName = "KHM"
+        cardOne.imageURL = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=507589&type=card"
+        cardOne.manaCost = ""
+        cardOne.text = "({T}: Add {G}.)"
+        cardOne.originalType = "Basic Land — Forest"
+        cardOne.id = "4ac153f5-8a7c-5128-8135-64b1c0c851e5"
+        
+        firstList.cards.insert(cardOne, at: 0)
+        
+        DispatchQueue.main.async {
+            StorageManager.shared.save(cardCollection: [firstList])
+        }
     }
 }
