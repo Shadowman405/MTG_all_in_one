@@ -309,7 +309,13 @@
                         <viewLayoutGuide key="safeArea" id="S4V-sh-yw2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sAh-jo-c4O"/>
+                    <navigationItem key="navigationItem" id="sAh-jo-c4O">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Nlk-W2-AZj">
+                            <connections>
+                                <action selector="addButton:" destination="VA0-Qs-3Li" id="gdc-Vb-4i2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cardImg" destination="fqS-et-zJ6" id="Pik-YN-uFh"/>
                         <outlet property="descriptionLbl" destination="oal-rH-QFT" id="2og-6K-suk"/>

@@ -27,6 +27,10 @@ class CardDetailsViewController: UIViewController {
         view.backgroundColor = .systemMint
     }
     
+    @IBAction func addButton(_ sender: Any) {
+        showAlert()
+    }
+    
     func configView(with card: CardMTG) {
         nameLbl.text = card.name
         cardImg.fetchImage(from: card.imageURL)
@@ -37,5 +41,23 @@ class CardDetailsViewController: UIViewController {
         
         print(card.name)
     }
+}
 
+extension CardDetailsViewController {
+    private func showAlert() {
+        let alert = UIAlertController.createAlert(withTitle: "New Card",
+                                                  andMessage: "Save this card to your collection")
+        
+        alert.action { newValue in
+            self.saveCard(withCard: self.card!, inCollection: newValue)
+        }
+        
+        present(alert, animated: true)
+    }
+    
+    private func saveCard(withCard card: CardMTG,inCollection collection: String) {
+        let cardToSave = CardCollection(value: [card, collection])
+        
+        StorageManager.shared.save(card: card, in: cardToSave)
+    }
 }
