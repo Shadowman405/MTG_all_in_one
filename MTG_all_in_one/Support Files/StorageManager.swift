@@ -15,8 +15,24 @@ class StorageManager {
     private init() {}
     
     func save(cardCollection: [CardCollection]) {
-        try! realm.write {
+        write {
             realm.add(cardCollection)
+        }
+    }
+    
+    func save(cardCollection: CardCollection) {
+        write {
+            realm.add(cardCollection)
+        }
+    }
+    
+    private func write(_ completion: () -> Void) {
+        do {
+            try realm.write {
+                completion()
+            }
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 }
