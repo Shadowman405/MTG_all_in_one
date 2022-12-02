@@ -14,15 +14,25 @@ class StorageManager {
     
     private init() {}
     
+    //MARK: - Saving collection
     func save(cardCollection: [CardCollection]) {
         write {
             realm.add(cardCollection)
         }
     }
     
+    
     func save(cardCollection: CardCollection) {
         write {
             realm.add(cardCollection)
+        }
+        
+        //MARK: - Saving card to Collection
+        
+        func save(card: CardMTG, in cardCollectio: CardCollection){
+            write {
+                cardCollection.cards.append(card)
+            }
         }
     }
     
