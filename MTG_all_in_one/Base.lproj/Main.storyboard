@@ -106,7 +106,13 @@
                             <outlet property="delegate" destination="jik-cL-H7g" id="N7g-7c-P7l"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Collections" id="8FY-gQ-i48"/>
+                    <navigationItem key="navigationItem" title="Collections" id="8FY-gQ-i48">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ubw-eT-ttf">
+                            <connections>
+                                <action selector="addNewCollection:" destination="jik-cL-H7g" id="Kj5-OA-iA8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7x-SI-RdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

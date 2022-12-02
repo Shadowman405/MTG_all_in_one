@@ -37,6 +37,13 @@ class CollectionsTableViewController: UITableViewController {
         return cell
     }
     
+    
+    @IBAction func addNewCollection(_ sender: Any) {
+        
+    }
+    
+    //MARK: - Mock Data
+    
     private func createTestData(){
         let firstList = CardCollection()
         firstList.collectionName = "Main Deck"
