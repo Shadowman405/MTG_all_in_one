@@ -67,3 +67,15 @@ class CollectionsTableViewController: UITableViewController {
     }
 }
 
+extension CollectionsTableViewController {
+    private func showAlert() {
+        let alert = UIAlertController.createAlert(withTitle: "New Collection",
+                                                  andMessage: "Please enter collection name")
+        
+        alert.action { newValue in
+            
+        }
+        
+        present(alert, animated: true)
+    }
+}
