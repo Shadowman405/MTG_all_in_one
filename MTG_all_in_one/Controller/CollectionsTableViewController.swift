@@ -39,7 +39,7 @@ class CollectionsTableViewController: UITableViewController {
     
     
     @IBAction func addNewCollection(_ sender: Any) {
-        
+        showAlert()
     }
     
     //MARK: - Mock Data
