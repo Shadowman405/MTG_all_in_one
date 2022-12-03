@@ -29,6 +29,7 @@ class CardDetailsViewController: UIViewController {
     
     @IBAction func addButton(_ sender: Any) {
         //showAlert()
+        performSegue(withIdentifier: "toSaveCard", sender: self)
     }
     
     func configView(with card: CardMTG) {
@@ -41,23 +42,31 @@ class CardDetailsViewController: UIViewController {
         
         print(card.name)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSaveCard" {
+            if let saveVC = segue.destination as? SaveCardInCollectioVC {
+                saveVC.card = card
+            }
+        }
+    }
 }
 
-extension CardDetailsViewController {
-    private func showAlert() {
-        let alert = UIAlertController.createAlert(withTitle: "New Card",
-                                                  andMessage: "Save this card to your collection")
-        
-        alert.action { newValue in
-            self.saveCard(withCard: self.card!, inCollection: newValue)
-        }
-        
-        present(alert, animated: true)
-    }
-    
-    private func saveCard(withCard card: CardMTG,inCollection collection: String) {
-        let cardToSave = CardCollection(value: [card, collection])
-        
-        StorageManager.shared.save(card: card, in: cardToSave)
-    }
-}
+//extension CardDetailsViewController {
+//    private func showAlert() {
+//        let alert = UIAlertController.createAlert(withTitle: "New Card",
+//                                                  andMessage: "Save this card to your collection")
+//
+//        alert.action { newValue in
+//            self.saveCard(withCard: self.card!, inCollection: newValue)
+//        }
+//
+//        present(alert, animated: true)
+//    }
+//
+//    private func saveCard(withCard card: CardMTG,inCollection collection: String) {
+//        let cardToSave = CardCollection(value: [card, collection])
+//
+//        StorageManager.shared.save(card: card, in: cardToSave)
+//    }
+//}
