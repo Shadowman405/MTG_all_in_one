@@ -28,7 +28,7 @@ class CardDetailsViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: Any) {
-        showAlert()
+        //showAlert()
     }
     
     func configView(with card: CardMTG) {

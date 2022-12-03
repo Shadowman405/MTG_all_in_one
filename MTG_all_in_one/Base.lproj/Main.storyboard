@@ -313,6 +313,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Nlk-W2-AZj">
                             <connections>
                                 <action selector="addButton:" destination="VA0-Qs-3Li" id="gdc-Vb-4i2"/>
+                                <segue destination="BiR-6l-fE2" kind="show" identifier="toSaveCard" id="N13-ct-Vz1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -328,6 +329,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3G-eZ-HFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2818" y="-712"/>
+        </scene>
+        <!--Save In Collection-->
+        <scene sceneID="IFy-eR-MMZ">
+            <objects>
+                <tableViewController id="BiR-6l-fE2" customClass="SaveCardInCollectioVC" customModule="MTG_all_in_one" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="goa-HT-6ZH">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="xxe-Ox-rcV" detailTextLabel="Utd-gG-3nh" style="IBUITableViewCellStyleValue1" id="AKF-YG-XuY">
+                                <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AKF-YG-XuY" id="8Sj-NY-1sL">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xxe-Ox-rcV">
+                                            <rect key="frame" x="20" y="15" width="25" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Utd-gG-3nh">
+                                            <rect key="frame" x="337.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BiR-6l-fE2" id="KiY-Kd-YcU"/>
+                            <outlet property="delegate" destination="BiR-6l-fE2" id="oCI-vY-968"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Save In Collection" id="cfH-3P-WvI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXu-IK-0nk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3829" y="-712"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yxb-ms-Chv">
