@@ -11,6 +11,7 @@ import RealmSwift
 class CollectionsTableViewController: UITableViewController {
     
     private var cardCollection : Results<CardCollection>!
+    private var selectedCollection: CardCollection?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,19 @@ class CollectionsTableViewController: UITableViewController {
         cell.contentConfiguration = content
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCollection = cardCollection[indexPath.row]
+        performSegue(withIdentifier: "toCards", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCards" {
+            if let cardsTVC = segue.destination as? CardsInCollectionTableViewController {
+                cardsTVC.cardCollection = selectedCollection
+            }
+        }
     }
     
     

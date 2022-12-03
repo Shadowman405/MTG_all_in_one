@@ -9,7 +9,7 @@ import UIKit
 
 class CardsInCollectionTableViewController: UITableViewController {
     
-    private var cardCollection: CardCollection?
+    var cardCollection: CardCollection?
 
     override func viewDidLoad() {
         super.viewDidLoad()
