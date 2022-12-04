@@ -145,6 +145,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="0bE-mY-X0u"/>
+                    <connections>
+                        <segue destination="VA0-Qs-3Li" kind="show" identifier="toCardDetails" id="jyt-pY-5nX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iva-S9-MuL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -288,7 +291,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPQ-vY-Hak" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1998" y="-712"/>
+            <point key="canvasLocation" x="2018" y="-833"/>
         </scene>
         <!--Card Details View Controller-->
         <scene sceneID="9cE-kh-Xek">
@@ -360,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3G-eZ-HFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2818" y="-712"/>
+            <point key="canvasLocation" x="2817" y="-833"/>
         </scene>
         <!--Save In Collection-->
         <scene sceneID="IFy-eR-MMZ">
@@ -405,7 +408,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXu-IK-0nk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3829" y="-712"/>
+            <point key="canvasLocation" x="3823" y="-833"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yxb-ms-Chv">
@@ -426,6 +429,9 @@
             <point key="canvasLocation" x="430.76923076923077" y="-150"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jyt-pY-5nX"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="mtg_green" width="563" height="789"/>
         <image name="placeholder" width="340" height="471"/>

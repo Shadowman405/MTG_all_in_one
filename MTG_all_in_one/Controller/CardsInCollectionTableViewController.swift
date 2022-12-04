@@ -10,6 +10,7 @@ import UIKit
 class CardsInCollectionTableViewController: UITableViewController {
     
     var cardCollection: CardCollection?
+    var selectedCard: CardMTG?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +20,12 @@ class CardsInCollectionTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return cardCollection?.cards.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCard = cardCollection?.cards[indexPath.row]
+        performSegue(withIdentifier: "toCardDetails", sender: self)
     }
 
     
@@ -34,5 +39,12 @@ class CardsInCollectionTableViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCardDetails" {
+            if let detailsVC = segue.destination as? CardDetailsViewController {
+                detailsVC.card = selectedCard
+            }
+        }
+    }
 
 }
