@@ -67,6 +67,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
         if segue.identifier == "toDetails" {
             if let detailsVC = segue.destination as? CardDetailsViewController {
                 detailsVC.card = selectedCard
+                detailsVC.activateButon = true
             }
         }
     }

@@ -10,6 +10,7 @@ import UIKit
 class CardDetailsViewController: UIViewController {
     
     var card: CardMTG?
+    var activateButon: Bool?
     
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var cardImg: CardImageView!
@@ -17,6 +18,7 @@ class CardDetailsViewController: UIViewController {
     @IBOutlet weak var rarityLbl: UILabel!
     @IBOutlet weak var manaCostLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -41,6 +43,10 @@ class CardDetailsViewController: UIViewController {
         descriptionLbl.text = card.text
         
         print(card.name)
+    }
+    
+    func hideButton() {
+        addButton.isEnabled = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

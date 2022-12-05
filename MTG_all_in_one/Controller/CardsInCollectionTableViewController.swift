@@ -43,6 +43,7 @@ class CardsInCollectionTableViewController: UITableViewController {
         if segue.identifier == "toCardDetails" {
             if let detailsVC = segue.destination as? CardDetailsViewController {
                 detailsVC.card = selectedCard
+                detailsVC.hideButton()
             }
         }
     }

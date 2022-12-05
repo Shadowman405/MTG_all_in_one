@@ -353,6 +353,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="Nlk-W2-AZj" id="Aso-mH-FPI"/>
                         <outlet property="cardImg" destination="fqS-et-zJ6" id="Pik-YN-uFh"/>
                         <outlet property="descriptionLbl" destination="oal-rH-QFT" id="2og-6K-suk"/>
                         <outlet property="manaCostLbl" destination="dpE-4r-uGW" id="UNJ-eR-HjP"/>
