@@ -15,6 +15,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     private let manager = NetworkManager.shared
     var cards: [CardMTG] = []
     var selectedCard: CardMTG!
+    private let testUrl = "https://api.magicthegathering.io/v1/cards?page=311"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
         // Register cell classes
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        fetcCards()
+        fetcCards(url: testUrl)
         setupSearchController()
         
     }
@@ -77,8 +78,13 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     
     //MARK: - Helpers
     
-    func fetcCards() {
-        manager.fetchCards { card in
+    func fetcCards(url: String) {
+//        manager.fetchCards() { card in
+//            self.cards = card
+//            self.collectionView.reloadData()
+//        }
+        
+        manager.fetchCards(url: url) { card in
             self.cards = card
             self.collectionView.reloadData()
         }
