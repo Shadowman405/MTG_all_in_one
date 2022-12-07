@@ -26,7 +26,7 @@ class CardDetailsViewController: UIViewController {
 
         guard let card = card else {return}
         configView(with: card)
-        view.backgroundColor = .systemMint
+        view.backgroundColor = .lightGray
     }
     
     @IBAction func addButton(_ sender: Any) {
@@ -46,7 +46,7 @@ class CardDetailsViewController: UIViewController {
     }
     
     func hideButton() {
-        addButton.isEnabled = false
+        addButton.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
