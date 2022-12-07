@@ -19,24 +19,11 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .gray
+        collectionView.backgroundColor = .lightGray
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         fetcCards(url: testUrl)
         setupSearchController()
-        
     }
-
-    // MARK: UICollectionViewDataSource
-
-//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 3
-//    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedCard = cards[indexPath.item]
@@ -96,6 +83,9 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
 
 extension CardsCollectionViewController: UISearchResultsUpdating {
+    
+    //MARK: - Search Bar and logic
+    
     func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
