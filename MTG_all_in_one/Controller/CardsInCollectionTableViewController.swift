@@ -18,9 +18,26 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Main Deck"
+        } else {
+            return "Side Deck"
+        }
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cardCollection?.cards.count ?? 0
+        //return cardCollection?.cards.count ?? 0
+        if section == 0 {
+            return cardCollection?.cards.count ?? 0
+        } else {
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
