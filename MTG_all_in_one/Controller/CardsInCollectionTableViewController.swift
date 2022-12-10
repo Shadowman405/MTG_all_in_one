@@ -39,14 +39,12 @@ class CardsInCollectionTableViewController: UITableViewController {
             } else {
                 return cardCollection?.cards[0...59].count ?? 0
             }
-        } else if section == 1 {
+        } else {
             if (cardCollection?.cards.count)! > 59 {
                 return cardCollection?.cards[59...].count ?? 0
             } else {
                 return 0
             }
-        } else {
-            return 0
         }
     }
     
