@@ -11,6 +11,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     
     var cardCollection: CardCollection?
     var selectedCard: CardMTG?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class CardsInCollectionTableViewController: UITableViewController {
             }
         } else {
             if (cardCollection?.cards.count)! > 59 {
-                return cardCollection?.cards[59...].count ?? 0
+                return cardCollection?.cards[59...cardCollection!.cards.count - 1].count ?? 0
             } else {
                 return 0
             }
@@ -62,14 +63,15 @@ class CardsInCollectionTableViewController: UITableViewController {
 //        cell.contentConfiguration = content
         switch indexPath.section {
         case 0:
-            let cards = cardCollection!.cards[...59]
+            let cards = cardCollection!.cards
             let card = cards[indexPath.row]
             var content = cell.defaultContentConfiguration()
             content.text = card.name
             cell.contentConfiguration = content
         case 1:
-            let sideCards = cardCollection!.cards[59...66]
-            let card = sideCards[indexPath.row]
+            let sideCards = cardCollection!.cards
+            var mapedCards = sideCards.enumerated().filter { $0.offset >= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
+            let card = mapedCards[indexPath.row]
             var content = cell.defaultContentConfiguration()
             content.text = card.name
             cell.contentConfiguration = content
