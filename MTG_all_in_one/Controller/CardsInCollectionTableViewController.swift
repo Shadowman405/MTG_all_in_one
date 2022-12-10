@@ -56,10 +56,26 @@ class CardsInCollectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
-        let card = cardCollection!.cards[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = card.name
-        cell.contentConfiguration = content
+//        let card = cardCollection!.cards[indexPath.row]
+//        var content = cell.defaultContentConfiguration()
+//        content.text = card.name
+//        cell.contentConfiguration = content
+        switch indexPath.section {
+        case 0:
+            let cards = cardCollection!.cards[...59]
+            let card = cards[indexPath.row]
+            var content = cell.defaultContentConfiguration()
+            content.text = card.name
+            cell.contentConfiguration = content
+        case 1:
+            let sideCards = cardCollection!.cards[59...66]
+            let card = sideCards[indexPath.row]
+            var content = cell.defaultContentConfiguration()
+            content.text = card.name
+            cell.contentConfiguration = content
+        default:
+            break
+        }
 
         return cell
     }
