@@ -144,7 +144,13 @@
                             <outlet property="delegate" destination="DMy-MA-yLQ" id="WNh-SX-arv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="0bE-mY-X0u"/>
+                    <navigationItem key="navigationItem" id="0bE-mY-X0u">
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="kiO-J6-7EI">
+                            <connections>
+                                <action selector="didTapSort" destination="DMy-MA-yLQ" id="aWz-0U-E9t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="X07-AA-PDb" id="F5O-5q-NmM"/>
                         <segue destination="VA0-Qs-3Li" kind="show" identifier="toCardDetails" id="jyt-pY-5nX"/>
