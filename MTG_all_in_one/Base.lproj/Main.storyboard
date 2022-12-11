@@ -146,6 +146,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="0bE-mY-X0u"/>
                     <connections>
+                        <outlet property="table" destination="X07-AA-PDb" id="F5O-5q-NmM"/>
                         <segue destination="VA0-Qs-3Li" kind="show" identifier="toCardDetails" id="jyt-pY-5nX"/>
                     </connections>
                 </tableViewController>

@@ -9,6 +9,7 @@ import UIKit
 
 class CardsInCollectionTableViewController: UITableViewController {
     
+    @IBOutlet var table: UITableView!
     var cardCollection: CardCollection?
     var selectedCard: CardMTG?
     
@@ -72,8 +73,20 @@ class CardsInCollectionTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         cardCollection?.cards.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+    }
+    
+    @IBAction func didTapSort() {
+        if table.isEditing {
+            table.isEditing = false
+        } else {
+            table.isEditing = true
+        }
     }
     
     //MARK: - Segue Logic
