@@ -29,6 +29,7 @@ class StorageManager {
     
     func delete(cardCollection: CardCollection) {
         write {
+            realm.delete(cardCollection.cards)
             realm.delete(cardCollection)
         }
     }
