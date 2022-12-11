@@ -33,7 +33,6 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return cardCollection?.cards.count ?? 0
         if section == 0 {
             if (cardCollection?.cards.count)! <= 59{
                 return cardCollection?.cards.count ?? 0
@@ -48,19 +47,10 @@ class CardsInCollectionTableViewController: UITableViewController {
             }
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCard = cardCollection?.cards[indexPath.row]
-        performSegue(withIdentifier: "toCardDetails", sender: self)
-    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
-//        let card = cardCollection!.cards[indexPath.row]
-//        var content = cell.defaultContentConfiguration()
-//        content.text = card.name
-//        cell.contentConfiguration = content
         switch indexPath.section {
         case 0:
             let cards = cardCollection!.cards
@@ -80,6 +70,17 @@ class CardsInCollectionTableViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        cardCollection?.cards.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+    }
+    
+    //MARK: - Segue Logic
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCard = cardCollection?.cards[indexPath.row]
+        performSegue(withIdentifier: "toCardDetails", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
