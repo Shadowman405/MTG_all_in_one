@@ -32,7 +32,6 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return cards.count
     }
 
@@ -43,6 +42,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
         
         return cell
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //return CGSize(width: 300, height: 300)
@@ -78,6 +78,8 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
         
         cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0"
     }
+    
+    
 
 }
 

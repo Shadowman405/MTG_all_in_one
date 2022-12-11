@@ -51,6 +51,17 @@ class CollectionsTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let currentCollection = cardCollection[indexPath.row]
+        let deleteActtion = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            StorageManager.shared.delete(cardCollection: currentCollection)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteActtion])
+    }
+    
     
     @IBAction func addNewCollection(_ sender: Any) {
         showAlert()

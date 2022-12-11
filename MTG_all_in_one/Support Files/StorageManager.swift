@@ -27,6 +27,12 @@ class StorageManager {
         }
     }
     
+    func delete(cardCollection: CardCollection) {
+        write {
+            realm.delete(cardCollection)
+        }
+    }
+    
     //MARK: - Save CArd
     
     func save(card: CardMTG,in cardCollection: CardCollection){
