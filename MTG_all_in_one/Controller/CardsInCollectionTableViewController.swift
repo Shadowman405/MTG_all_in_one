@@ -84,6 +84,18 @@ class CardsInCollectionTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let currentCard = cardCollection?.cards[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [self] _, _, _ in
+            try! cardCollection?.realm!.write {
+                cardCollection?.cards.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
     @IBAction func didTapSort() {
         if table.isEditing {
             table.isEditing = false
