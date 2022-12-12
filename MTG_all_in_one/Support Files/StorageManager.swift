@@ -14,7 +14,7 @@ class StorageManager {
     
     private init() {}
     
-    //MARK: - Saving collection
+    //MARK: - Save/delete collection
     func save(cardCollection: [CardCollection]) {
         write {
             realm.add(cardCollection)
@@ -41,6 +41,8 @@ class StorageManager {
             cardCollection.cards.append(card)
         }
     }
+    
+    
     
     private func write(_ completion: () -> Void) {
         do {

@@ -78,7 +78,10 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        cardCollection?.cards.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        //cardCollection?.cards.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        try! cardCollection?.realm!.write {
+            cardCollection?.cards.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
+        }
     }
     
     @IBAction func didTapSort() {
