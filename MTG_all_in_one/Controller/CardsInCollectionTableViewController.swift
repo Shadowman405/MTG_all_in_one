@@ -16,6 +16,8 @@ class CardsInCollectionTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.isIdleTimerDisabled = false
+
 
     }
 

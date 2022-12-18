@@ -22,6 +22,7 @@ class HPCounterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.isIdleTimerDisabled = true
         greenMinLbl.contentHorizontalAlignment = .left
         greenPlsLbl.contentHorizontalAlignment = .left
         

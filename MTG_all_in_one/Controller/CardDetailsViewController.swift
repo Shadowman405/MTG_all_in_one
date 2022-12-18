@@ -23,6 +23,7 @@ class CardDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.isIdleTimerDisabled = false
 
         guard let card = card else {return}
         configView(with: card)

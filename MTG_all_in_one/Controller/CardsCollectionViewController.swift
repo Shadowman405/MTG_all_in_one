@@ -19,6 +19,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.isIdleTimerDisabled = false
         collectionView.backgroundColor = .lightGray
 
         fetcCards(url: testUrl)
