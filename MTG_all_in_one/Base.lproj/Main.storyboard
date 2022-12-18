@@ -238,7 +238,13 @@
                         <viewLayoutGuide key="safeArea" id="7pM-7w-SHf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Health Counter" id="l45-yQ-fTT"/>
+                    <navigationItem key="navigationItem" title="Health Counter" id="l45-yQ-fTT">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="xuM-lY-hIq">
+                            <connections>
+                                <action selector="editViewStyle:" destination="NbS-hL-WAn" id="2XF-zq-eUA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="greenHPLbl" destination="dyx-bq-PmI" id="UQz-ej-g1k"/>
                         <outlet property="greenMinLbl" destination="SmE-Sm-Tpx" id="PYx-fV-12X"/>

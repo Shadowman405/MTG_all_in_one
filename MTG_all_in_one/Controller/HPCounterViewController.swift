@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HPCounterViewController: UIViewController {
+class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var greenMinLbl: UIButton!
     @IBOutlet weak var greenPlsLbl: UIButton!
@@ -18,6 +18,9 @@ class HPCounterViewController: UIViewController {
     @IBOutlet weak var greenHPLbl: UILabel!
     @IBOutlet weak var redHPLbl: UILabel!
     
+    private var magicSchools = ["Red","Green","Blue","White","Black"]
+    var pickerView = UIPickerView()
+    var selectedValue = ""
     
 
     override func viewDidLoad() {
@@ -31,6 +34,47 @@ class HPCounterViewController: UIViewController {
         
         greenHPLbl.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
     }
+    
+    
+    @IBAction func editViewStyle(_ sender: Any) {
+        let alert = UIAlertController(title: "Choose School", message: "", preferredStyle: .alert)
+        
+        let pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 00, width: 250, height: 300))
+        alert.view.addSubview(pickerFrame)
+        pickerView.dataSource = self
+        pickerFrame.delegate = self
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        magicSchools.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        magicSchools[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row == 0{
+            selectedValue = "Red"
+        } else if row == 1 {
+            selectedValue = "Green"
+        } else if row == 2 {
+            selectedValue = "Blue"
+        } else if row == 3 {
+            selectedValue = "White"
+        } else if row == 4 {
+            selectedValue = "Black"
+        }
+    }
+    
     
     //MARK: - GreenHP
     
