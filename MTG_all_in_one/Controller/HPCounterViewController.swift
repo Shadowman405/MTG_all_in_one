@@ -28,6 +28,8 @@ class HPCounterViewController: UIViewController {
         
         redMinLbl.contentHorizontalAlignment = .right
         redPlsLbl.contentHorizontalAlignment = .right
+        
+        greenHPLbl.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
     }
     
     //MARK: - GreenHP
