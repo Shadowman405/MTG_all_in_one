@@ -37,9 +37,10 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     @IBAction func editViewStyle(_ sender: Any) {
-        let alert = UIAlertController(title: "Choose School", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Choose School", message: "", preferredStyle: .actionSheet)
         
-        let pickerFrame = UIPickerView(frame: CGRect(x: 0, y: 00, width: 250, height: 300))
+        
+        let pickerFrame = UIPickerView(frame: CGRect(x: 5, y: 20, width: 250, height: 300))
         alert.view.addSubview(pickerFrame)
         pickerView.dataSource = self
         pickerFrame.delegate = self
@@ -50,28 +51,49 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
+        2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        magicSchools.count
+        switch component {
+            case 0: return magicSchools.count
+            default : return magicSchools.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        magicSchools[row]
+        switch component {
+        case 0 : return magicSchools[row]
+        default: return magicSchools[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if row == 0{
-            selectedValue = "Red"
-        } else if row == 1 {
-            selectedValue = "Green"
-        } else if row == 2 {
-            selectedValue = "Blue"
-        } else if row == 3 {
-            selectedValue = "White"
-        } else if row == 4 {
-            selectedValue = "Black"
+        switch component {
+        case 0:
+            if row == 0{
+                selectedValue = "Red"
+            } else if row == 1 {
+                selectedValue = "Green"
+            } else if row == 2 {
+                selectedValue = "Blue"
+            } else if row == 3 {
+                selectedValue = "White"
+            } else if row == 4 {
+                selectedValue = "Black"
+            }
+        default :
+            if row == 0{
+                selectedValue = "Red"
+            } else if row == 1 {
+                selectedValue = "Green"
+            } else if row == 2 {
+                selectedValue = "Blue"
+            } else if row == 3 {
+                selectedValue = "White"
+            } else if row == 4 {
+                selectedValue = "Black"
+            }
         }
     }
     
