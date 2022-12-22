@@ -39,11 +39,11 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func editViewStyle(_ sender: Any) {
         let alert = UIAlertController(title: "Choose School", message: "", preferredStyle: .actionSheet)
         
-        
         let pickerFrame = UIPickerView(frame: CGRect(x: 5, y: 20, width: 250, height: 300))
         alert.view.addSubview(pickerFrame)
         pickerView.dataSource = self
         pickerFrame.delegate = self
+        
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
@@ -73,14 +73,24 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         case 0:
             if row == 0{
                 selectedValue = "Red"
+                greenMinLbl.backgroundColor = .red
+                greenPlsLbl.backgroundColor = .red
             } else if row == 1 {
                 selectedValue = "Green"
+                greenMinLbl.backgroundColor = .green
+                greenPlsLbl.backgroundColor = .green
             } else if row == 2 {
                 selectedValue = "Blue"
+                greenMinLbl.backgroundColor = .blue
+                greenPlsLbl.backgroundColor = .blue
             } else if row == 3 {
                 selectedValue = "White"
+                greenMinLbl.backgroundColor = .cyan
+                greenPlsLbl.backgroundColor = .cyan
             } else if row == 4 {
                 selectedValue = "Black"
+                greenMinLbl.backgroundColor = .purple
+                greenPlsLbl.backgroundColor = .purple
             }
         default :
             if row == 0{
