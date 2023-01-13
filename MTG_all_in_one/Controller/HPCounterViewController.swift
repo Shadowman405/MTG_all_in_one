@@ -39,12 +39,18 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func editViewStyle(_ sender: Any) {
         let alert = UIAlertController(title: "Choose School", message: "", preferredStyle: .alert)
         
-        let pickerFrame = UIPickerView(frame: CGRect(x: 55, y: 20, width: 250, height: 300))
+        //let pickerFrame = UIPickerView(frame: CGRect(x: 55, y: 20, width: 250, height: 300))
         //pickerFrame.frame = CGRectMake(0, 15, 250, 300)
-        alert.view.addSubview(pickerFrame)
-        pickerView.dataSource = self
-        pickerFrame.delegate = self
+        let pickeViewFrame: CGRect = CGRect(x: 0, y: 0, width: 250, height: 300)
+        let pickerViewRadius: UIPickerView = UIPickerView(frame: pickeViewFrame)
+        pickerViewRadius.delegate = self
+        pickerViewRadius.dataSource = self
         
+        alert.view.addSubview(pickerViewRadius)
+        pickerView.dataSource = self
+        //pickerFrame.delegate = self
+        alert.view.addConstraint(NSLayoutConstraint(item: alert.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.3))
+
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
@@ -96,14 +102,24 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         default :
             if row == 0{
                 selectedValue = "Red"
+                redMinLbl.backgroundColor = .red
+                redPlsLbl.backgroundColor = .red
             } else if row == 1 {
                 selectedValue = "Green"
+                redMinLbl.backgroundColor = .green
+                redPlsLbl.backgroundColor = .green
             } else if row == 2 {
                 selectedValue = "Blue"
+                redMinLbl.backgroundColor = .blue
+                redPlsLbl.backgroundColor = .blue
             } else if row == 3 {
                 selectedValue = "White"
+                redMinLbl.backgroundColor = .cyan
+                redPlsLbl.backgroundColor = .cyan
             } else if row == 4 {
                 selectedValue = "Black"
+                redMinLbl.backgroundColor = .purple
+                redPlsLbl.backgroundColor = .purple
             }
         }
     }
