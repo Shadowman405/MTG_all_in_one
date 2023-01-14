@@ -37,14 +37,15 @@ class CardDetailsViewController: UIViewController {
     }
     
     func configView(with card: CardMTG) {
-        var manaCostImageString = addManaImages()
+        var manaCostImageString = addManaImages(someString: card.manaCost)
+        var descTextWithImage = addManaImages(someString: card.text)
         
         nameLbl.text = card.name
         cardImg.fetchImage(from: card.imageURL)
         setNameLbl.text = "Set name: " + card.setName
         rarityLbl.text = "Card rarity: " + card.rarity
         manaCostLbl.attributedText = manaCostImageString
-        descriptionLbl.text = card.text
+        descriptionLbl.attributedText = descTextWithImage
         
         if card.manaCost.isEmpty {
             manaCostTextLbl.isHidden = true
@@ -57,9 +58,9 @@ class CardDetailsViewController: UIViewController {
         addButton.isHidden = true
     }
     
-    func addManaImages() -> NSMutableAttributedString {
-        guard let manaCost = card?.manaCost else {return NSMutableAttributedString()}
-        let imagesDict: [String:String] = ["{W}":"W", "{R}":"R","{B}":"B","{G}":"G","{U}":"U", "{1}":"One", "{2}":"Two", "{3}":"Three", "{4}":"Four", "{5}":"Five", "{6}":"Six", "{7}":"Seven", "{8}":"Eight", "{9}":"Nine", "{0}":"Zero"]
+    func addManaImages(someString: String?) -> NSMutableAttributedString {
+        guard let manaCost = someString else {return NSMutableAttributedString()}
+        let imagesDict: [String:String] = ["{W}":"W", "{R}":"R","{B}":"B","{G}":"G","{U}":"U", "{1}":"One", "{2}":"Two", "{3}":"Three", "{4}":"Four", "{5}":"Five", "{6}":"Six", "{7}":"Seven", "{8}":"Eight", "{9}":"Nine", "{0}":"Zero", "{T}":"T_2nd"]
         let fullString = NSMutableAttributedString(string: manaCost)
         
         for (imageTag, imageName) in imagesDict {
@@ -70,7 +71,7 @@ class CardDetailsViewController: UIViewController {
                 for aMtach in matches.reversed() {
                     let attachment = NSTextAttachment()
                     attachment.image = UIImage(named: imageName)
-                    attachment.bounds = CGRectMake(0, 0, 32, 32)
+                    attachment.bounds = CGRectMake(0, 0, 24, 24)
                     let replacement = NSAttributedString(attachment: attachment)
                     fullString.replaceCharacters(in: aMtach.range, with: replacement)
                 }
