@@ -17,6 +17,7 @@ class CardDetailsViewController: UIViewController {
     @IBOutlet weak var setNameLbl: UILabel!
     @IBOutlet weak var rarityLbl: UILabel!
     @IBOutlet weak var manaCostLbl: UILabel!
+    @IBOutlet weak var manaCostTextLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
@@ -45,6 +46,10 @@ class CardDetailsViewController: UIViewController {
         manaCostLbl.attributedText = manaCostImageString
         descriptionLbl.text = card.text
         
+        if card.manaCost.isEmpty {
+            manaCostTextLbl.isHidden = true
+        }
+        
         print(card.name)
     }
     
@@ -54,7 +59,7 @@ class CardDetailsViewController: UIViewController {
     
     func addManaImages() -> NSMutableAttributedString {
         guard let manaCost = card?.manaCost else {return NSMutableAttributedString()}
-        let imagesDict: [String:String] = ["{W}":"W", "{R}":"R","{B}":"B","{G}":"G","{U}":"U"]
+        let imagesDict: [String:String] = ["{W}":"W", "{R}":"R","{B}":"B","{G}":"G","{U}":"U", "{1}":"One", "{2}":"Two", "{3}":"Three", "{4}":"Four", "{5}":"Five", "{6}":"Six", "{7}":"Seven", "{8}":"Eight", "{9}":"Nine", "{0}":"Zero"]
         let fullString = NSMutableAttributedString(string: manaCost)
         
         for (imageTag, imageName) in imagesDict {

@@ -340,7 +340,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mana cost: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpE-4r-uGW">
-                                <rect key="frame" x="16" y="594" width="358" height="41"/>
+                                <rect key="frame" x="142" y="594" width="232" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                 <nil key="textColor"/>
@@ -350,6 +350,13 @@
                                 <rect key="frame" x="16" y="643" width="358" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mana cost: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHn-pF-MTQ">
+                                <rect key="frame" x="16" y="593" width="118" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -370,6 +377,7 @@
                         <outlet property="cardImg" destination="fqS-et-zJ6" id="Pik-YN-uFh"/>
                         <outlet property="descriptionLbl" destination="oal-rH-QFT" id="2og-6K-suk"/>
                         <outlet property="manaCostLbl" destination="dpE-4r-uGW" id="UNJ-eR-HjP"/>
+                        <outlet property="manaCostTextLbl" destination="XHn-pF-MTQ" id="HOi-ZC-eqm"/>
                         <outlet property="nameLbl" destination="2hj-NJ-xwD" id="xeE-sE-M49"/>
                         <outlet property="rarityLbl" destination="6Xv-hS-U31" id="DRb-8m-T0j"/>
                         <outlet property="setNameLbl" destination="lu5-rg-rbw" id="Bca-eR-xKT"/>
@@ -377,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3G-eZ-HFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817" y="-833"/>
+            <point key="canvasLocation" x="2816.9230769230767" y="-833.17535545023691"/>
         </scene>
         <!--Save In Collection-->
         <scene sceneID="IFy-eR-MMZ">
