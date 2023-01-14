@@ -65,6 +65,7 @@ class CardDetailsViewController: UIViewController {
                 for aMtach in matches.reversed() {
                     let attachment = NSTextAttachment()
                     attachment.image = UIImage(named: imageName)
+                    attachment.bounds = CGRectMake(0, 0, 32, 32)
                     let replacement = NSAttributedString(attachment: attachment)
                     fullString.replaceCharacters(in: aMtach.range, with: replacement)
                 }
