@@ -36,11 +36,13 @@ class CardDetailsViewController: UIViewController {
     }
     
     func configView(with card: CardMTG) {
+        var manaCostImageString = addManaImages()
+        
         nameLbl.text = card.name
         cardImg.fetchImage(from: card.imageURL)
         setNameLbl.text = "Set name: " + card.setName
         rarityLbl.text = "Card rarity: " + card.rarity
-        manaCostLbl.text = "Mana cost: " + card.manaCost
+        manaCostLbl.attributedText = manaCostImageString
         descriptionLbl.text = card.text
         
         print(card.name)
@@ -48,6 +50,29 @@ class CardDetailsViewController: UIViewController {
     
     func hideButton() {
         addButton.isHidden = true
+    }
+    
+    func addManaImages() -> NSMutableAttributedString {
+        guard let manaCost = card?.manaCost else {return NSMutableAttributedString()}
+        let imagesDict: [String:String] = ["{W}":"W", "{R}":"R","{B}":"B","{G}":"G","{U}":"U"]
+        let fullString = NSMutableAttributedString(string: manaCost)
+        
+        for (imageTag, imageName) in imagesDict {
+            let pattern = NSRegularExpression.escapedPattern(for: imageTag)
+            let regex = try? NSRegularExpression(pattern: pattern,
+                                                 options: [])
+            if let matches = regex?.matches(in: fullString.string, range: NSRange(location: 0, length: fullString.string.utf16.count)) {
+                for aMtach in matches.reversed() {
+                    let attachment = NSTextAttachment()
+                    attachment.image = UIImage(named: imageName)
+                    let replacement = NSAttributedString(attachment: attachment)
+                    fullString.replaceCharacters(in: aMtach.range, with: replacement)
+                }
+            }
+        }
+        
+        return fullString
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
