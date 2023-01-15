@@ -60,7 +60,6 @@ class CardsInCollectionTableViewController: UITableViewController {
             let cards = cardCollection!.cards
             let card = cards[indexPath.row]
             var content = cell.defaultContentConfiguration()
-            //content.text = card.name
             content.attributedText = manager.addManaImages(someString: card.name)
             content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
             cell.contentConfiguration = content
@@ -69,7 +68,8 @@ class CardsInCollectionTableViewController: UITableViewController {
             var mapedCards = sideCards.enumerated().filter { $0.offset >= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
             let card = mapedCards[indexPath.row]
             var content = cell.defaultContentConfiguration()
-            content.text = card.name
+            content.attributedText = manager.addManaImages(someString: card.name)
+            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
             cell.contentConfiguration = content
         default:
             break
