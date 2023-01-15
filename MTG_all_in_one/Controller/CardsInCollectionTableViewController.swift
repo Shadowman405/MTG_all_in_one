@@ -12,7 +12,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     @IBOutlet var table: UITableView!
     var cardCollection: CardCollection?
     var selectedCard: CardMTG?
-    
+    private var manager = NetworkManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,9 @@ class CardsInCollectionTableViewController: UITableViewController {
             let cards = cardCollection!.cards
             let card = cards[indexPath.row]
             var content = cell.defaultContentConfiguration()
-            content.text = card.name
+            //content.text = card.name
+            content.attributedText = manager.addManaImages(someString: card.name)
+            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
             cell.contentConfiguration = content
         case 1:
             let sideCards = cardCollection!.cards
