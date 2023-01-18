@@ -34,7 +34,9 @@ class NetworkManager {
     // MARK: - Change mana cost string to images
     func addManaImages(someString: String?) -> NSMutableAttributedString {
         guard let manaCost = someString else {return NSMutableAttributedString()}
-        let imagesDict: [String:String] = ["{W}":"W", "{R}":"R","{B}":"B","{G}":"G","{U}":"U", "{1}":"One", "{2}":"Two", "{3}":"Three", "{4}":"Four", "{5}":"Five", "{6}":"Six", "{7}":"Seven", "{8}":"Eight", "{9}":"Nine", "{0}":"Zero", "{T}":"T_2nd"]
+        let imagesDict: [String:String] = ["{W}":"W", "{R}":"R","{B}":"B","{G}":"G","{U}":"U", "{1}":"One", "{2}":"Two", "{3}":"Three",
+                                           "{4}":"Four", "{5}":"Five", "{6}":"Six", "{7}":"Seven", "{8}":"Eight", "{9}":"Nine", "{0}":"Zero",
+                                           "{T}":"T_2nd", "{G/W}":"GW", "{G/U}":"GU"]
         let fullString = NSMutableAttributedString(string: manaCost)
         
         for (imageTag, imageName) in imagesDict {
