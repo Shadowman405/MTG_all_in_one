@@ -49,7 +49,7 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         alert.view.addSubview(pickerViewRadius)
         pickerView.dataSource = self
         //pickerFrame.delegate = self
-        alert.view.addConstraint(NSLayoutConstraint(item: alert.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.3))
+        alert.view.addConstraint(NSLayoutConstraint(item: alert.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.3))
 
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))

@@ -38,8 +38,8 @@ class CardDetailsViewController: UIViewController {
     }
     
     func configView(with card: CardMTG) {
-        var manaCostImageString = manager.addManaImages(someString: card.manaCost)
-        var descTextWithImage = manager.addManaImages(someString: card.text)
+        let manaCostImageString = manager.addManaImages(someString: card.manaCost)
+        let descTextWithImage = manager.addManaImages(someString: card.text)
         
         nameLbl.text = card.name
         cardImg.fetchImage(from: card.imageURL)

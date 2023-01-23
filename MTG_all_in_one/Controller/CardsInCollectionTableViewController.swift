@@ -65,7 +65,7 @@ class CardsInCollectionTableViewController: UITableViewController {
             cell.contentConfiguration = content
         case 1:
             let sideCards = cardCollection!.cards
-            var mapedCards = sideCards.enumerated().filter { $0.offset >= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
+            let mapedCards = sideCards.enumerated().filter { $0.offset >= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
             let card = mapedCards[indexPath.row]
             var content = cell.defaultContentConfiguration()
             content.attributedText = manager.addManaImages(someString: card.name)
