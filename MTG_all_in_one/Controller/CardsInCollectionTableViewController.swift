@@ -12,6 +12,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     @IBOutlet var table: UITableView!
     var cardCollection: CardCollection?
     var selectedCard: CardMTG?
+    private var editTable = true
     private var manager = NetworkManager.shared
 
     override func viewDidLoad() {
@@ -24,7 +25,11 @@ class CardsInCollectionTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        if editTable {
+            return 2
+        } else {
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -103,8 +108,12 @@ class CardsInCollectionTableViewController: UITableViewController {
     @IBAction func didTapSort() {
         if table.isEditing {
             table.isEditing = false
+            editTable = true
+            tableView.reloadData()
         } else {
             table.isEditing = true
+            editTable = false
+            tableView.reloadData()
         }
     }
     
