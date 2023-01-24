@@ -54,18 +54,17 @@ class CardsInCollectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
+        let cards = cardCollection!.cards
         
         switch indexPath.section {
         case 0:
-            let cards = cardCollection!.cards
             let card = cards[indexPath.row]
             var content = cell.defaultContentConfiguration()
             content.attributedText = manager.addManaImages(someString: card.name)
             content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
             cell.contentConfiguration = content
         case 1:
-            let sideCards = cardCollection!.cards
-            let mapedCards = sideCards.enumerated().filter { $0.offset >= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
+            let mapedCards = cards.enumerated().filter { $0.offset >= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
             let card = mapedCards[indexPath.row]
             var content = cell.defaultContentConfiguration()
             content.attributedText = manager.addManaImages(someString: card.name)
