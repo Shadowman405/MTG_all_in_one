@@ -58,6 +58,7 @@ class CardsInCollectionTableViewController: UITableViewController {
         
         switch indexPath.section {
         case 0:
+//            let mapedCards = cards.enumerated().filter { $0.offset <= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
             let card = cards[indexPath.row]
             var content = cell.defaultContentConfiguration()
             content.attributedText = manager.addManaImages(someString: card.name)
@@ -110,8 +111,19 @@ class CardsInCollectionTableViewController: UITableViewController {
     //MARK: - Segue Logic
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCard = cardCollection?.cards[indexPath.row]
-        performSegue(withIdentifier: "toCardDetails", sender: self)
+        let mapedCards = cardCollection!.cards.enumerated().filter { $0.offset >= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
+//        selectedCard = cardCollection?.cards[indexPath.row]
+//        performSegue(withIdentifier: "toCardDetails", sender: self)
+        switch indexPath.section {
+        case 0:
+            selectedCard = cardCollection?.cards[indexPath.row]
+            performSegue(withIdentifier: "toCardDetails", sender: self)
+        case 1:
+            selectedCard = mapedCards[indexPath.row]
+            performSegue(withIdentifier: "toCardDetails", sender: self)
+        default:
+            print("Error")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
