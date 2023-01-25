@@ -41,18 +41,22 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            if (cardCollection?.cards.count)! <= 59{
-                return cardCollection?.cards.count ?? 0
+        if editTable {
+            if section == 0 {
+                if (cardCollection?.cards.count)! <= 59{
+                    return cardCollection?.cards.count ?? 0
+                } else {
+                    return cardCollection?.cards[0...59].count ?? 0
+                }
             } else {
-                return cardCollection?.cards[0...59].count ?? 0
+                if (cardCollection?.cards.count)! > 59 {
+                    return cardCollection?.cards[59...cardCollection!.cards.count - 1].count ?? 0
+                } else {
+                    return 0
+                }
             }
         } else {
-            if (cardCollection?.cards.count)! > 59 {
-                return cardCollection?.cards[59...cardCollection!.cards.count - 1].count ?? 0
-            } else {
-                return 0
-            }
+            return cardCollection!.cards.count
         }
     }
 
