@@ -19,7 +19,7 @@ class CardDetailsViewController: UIViewController {
     @IBOutlet weak var rarityLbl: UILabel!
     @IBOutlet weak var manaCostLbl: UILabel!
     @IBOutlet weak var manaCostTextLbl: UILabel!
-    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     
@@ -30,6 +30,7 @@ class CardDetailsViewController: UIViewController {
         guard let card = card else {return}
         configView(with: card)
         view.backgroundColor = .lightGray
+        descriptionTextView.backgroundColor = .lightGray
     }
     
     @IBAction func addButton(_ sender: Any) {
@@ -46,7 +47,8 @@ class CardDetailsViewController: UIViewController {
         setNameLbl.text = "Set name: " + card.setName
         rarityLbl.text = "Card rarity: " + card.rarity
         manaCostLbl.attributedText = manaCostImageString
-        descriptionLbl.attributedText = descTextWithImage
+        descriptionTextView.attributedText = descTextWithImage
+        descriptionTextView.attributedText = descTextWithImage
         
         if card.manaCost.isEmpty {
             manaCostTextLbl.isHidden = true
