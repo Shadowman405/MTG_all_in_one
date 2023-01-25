@@ -33,10 +33,18 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Main Deck"
+        if editTable {
+            if section == 0 {
+                return "Main Deck"
+            } else {
+                return "Side Deck"
+            }
         } else {
-            return "Side Deck"
+            if section == 0 {
+                return "\(cardCollection!.collectionName)"
+            } else {
+                return "Deck"
+            }
         }
     }
 
