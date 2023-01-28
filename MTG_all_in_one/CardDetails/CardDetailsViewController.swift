@@ -23,6 +23,17 @@ class CardDetailsViewController: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     
+    var viewModel: CardDetailsViewModelProtocol! {
+        didSet {
+            nameLbl.text = viewModel.cardName
+            setNameLbl.text = viewModel.setName
+            rarityLbl.text = viewModel.cardRarity
+            manaCostLbl.attributedText = viewModel.manaCost
+            descriptionTextView.attributedText = viewModel.descriptionText
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = false
