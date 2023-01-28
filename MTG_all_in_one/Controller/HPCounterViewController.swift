@@ -52,8 +52,11 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         alert.view.addConstraint(NSLayoutConstraint(item: alert.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.3))
 
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        alert.addAction(UIAlertAction(title: "Refresh HP", style: .destructive, handler: { _ in
+            self.redHPLbl.text = "20"
+            self.greenHPLbl.text = "20"
+        }))
         self.present(alert, animated: true)
     }
     
@@ -92,8 +95,8 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 greenPlsLbl.backgroundColor = .blue
             } else if row == 3 {
                 selectedValue = "White"
-                greenMinLbl.backgroundColor = .cyan
-                greenPlsLbl.backgroundColor = .cyan
+                greenMinLbl.backgroundColor = #colorLiteral(red: 1, green: 0.8168858886, blue: 0.6812224388, alpha: 1)
+                greenPlsLbl.backgroundColor = #colorLiteral(red: 1, green: 0.8168858886, blue: 0.6812224388, alpha: 1)
             } else if row == 4 {
                 selectedValue = "Black"
                 greenMinLbl.backgroundColor = .purple
@@ -114,8 +117,8 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 redPlsLbl.backgroundColor = .blue
             } else if row == 3 {
                 selectedValue = "White"
-                redMinLbl.backgroundColor = .cyan
-                redPlsLbl.backgroundColor = .cyan
+                redMinLbl.backgroundColor = #colorLiteral(red: 1, green: 0.8168858886, blue: 0.6812224388, alpha: 1)
+                redPlsLbl.backgroundColor = #colorLiteral(red: 1, green: 0.8168858886, blue: 0.6812224388, alpha: 1)
             } else if row == 4 {
                 selectedValue = "Black"
                 redMinLbl.backgroundColor = .purple
