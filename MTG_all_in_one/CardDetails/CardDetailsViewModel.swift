@@ -12,8 +12,8 @@ protocol CardDetailsViewModelProtocol {
     var cardName: String {get}
     var setName: String {get}
     var cardRarity: String {get}
-    var manaCost: String {get}
-    var descriptionText: String {get}
+    var manaCost: NSAttributedString {get}
+    var descriptionText: NSAttributedString {get}
     var cardImage: String {get}
     
     init(card: CardMTG)
@@ -32,16 +32,16 @@ class CardDetailsViewModel: CardDetailsViewModelProtocol {
         card.rarity
     }
     
-    var manaCost: String {
-        card.manaCost
-    }
-    
-    var descriptionText: String {
-        card.description
-    }
-    
     var cardImage: String {
         card.imageURL // need to create cardImageModelView - and work with new VM
+    }
+    
+    var manaCost: NSAttributedString {
+        NetworkManager.shared.addManaImages(someString: card.manaCost)
+    }
+    
+    var descriptionText: NSAttributedString {
+        NetworkManager.shared.addManaImages(someString: card.text)
     }
     
     private let card: CardMTG

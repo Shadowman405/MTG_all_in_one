@@ -36,6 +36,7 @@ class CardDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = CardDetailsViewModel(card: card!)
         UIApplication.shared.isIdleTimerDisabled = false
 
         guard let card = card else {return}
@@ -55,13 +56,13 @@ class CardDetailsViewController: UIViewController {
         let manaCostImageString = manager.addManaImages(someString: card.manaCost)
         let descTextWithImage = manager.addManaImages(someString: card.text)
         
-        nameLbl.text = card.name
+//        nameLbl.text = card.name
         cardImg.fetchImage(from: card.imageURL)
-        setNameLbl.text = "Set name: " + card.setName
-        rarityLbl.text = "Card rarity: " + card.rarity
-        manaCostLbl.attributedText = manaCostImageString
-        descriptionTextView.attributedText = descTextWithImage
-        descriptionTextView.attributedText = descTextWithImage
+//        setNameLbl.text = "Set name: " + card.setName
+//        rarityLbl.text = "Card rarity: " + card.rarity
+//        manaCostLbl.attributedText = manaCostImageString
+//        descriptionTextView.attributedText = descTextWithImage
+//        descriptionTextView.attributedText = descTextWithImage
         
         if card.manaCost.isEmpty {
             manaCostTextLbl.isHidden = true
