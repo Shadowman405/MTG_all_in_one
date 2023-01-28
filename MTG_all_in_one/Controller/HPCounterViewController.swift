@@ -38,9 +38,7 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func editViewStyle(_ sender: Any) {
         let alert = UIAlertController(title: "Choose School", message: "", preferredStyle: .alert)
-        
-        //let pickerFrame = UIPickerView(frame: CGRect(x: 55, y: 20, width: 250, height: 300))
-        //pickerFrame.frame = CGRectMake(0, 15, 250, 300)
+
         let pickeViewFrame: CGRect = CGRect(x: 0, y: 0, width: 250, height: 300)
         let pickerViewRadius: UIPickerView = UIPickerView(frame: pickeViewFrame)
         pickerViewRadius.delegate = self
@@ -48,7 +46,6 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         alert.view.addSubview(pickerViewRadius)
         pickerView.dataSource = self
-        //pickerFrame.delegate = self
         alert.view.addConstraint(NSLayoutConstraint(item: alert.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.3))
 
         
@@ -59,6 +56,53 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         }))
         self.present(alert, animated: true)
     }
+    
+    
+    //MARK: - GreenHP
+    
+    @IBAction func greenMinHP(_ sender: Any) {
+        guard var greenHP = greenHPLbl.text else {return}
+        if Int(greenHP) != 0 {
+            greenHP = String((Int(greenHP) ?? 0) - 1)
+            greenHPLbl.text = greenHP
+        } else {
+            alertMessage()
+        }
+    }
+    
+    @IBAction func greenPlusHP(_ sender: Any) {
+        guard var greenHP = greenHPLbl.text else {return}
+        if Int(greenHP) != 0 {
+            greenHP = String((Int(greenHP) ?? 0) + 1)
+            greenHPLbl.text = greenHP
+        }
+    }
+    
+    //MARK: - RedHP
+    @IBAction func redMinHP(_ sender: Any) {
+        guard var redHP = redHPLbl.text else {return}
+        if Int(redHP) != 0 {
+            redHP = String((Int(redHP) ?? 0) - 1)
+            redHPLbl.text = redHP
+        } else {
+            alertMessage()
+        }
+    }
+    
+    @IBAction func redPlusHP(_ sender: Any) {
+        guard var redHP = redHPLbl.text else {return}
+        if Int(redHP) != 0 {
+            redHP = String((Int(redHP) ?? 0) + 1)
+            redHPLbl.text = redHP
+        }
+    }
+}
+
+// MARK: - Extension
+
+
+extension HPCounterViewController {
+    //MARK: - UIPickerView
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         2
@@ -124,46 +168,6 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 redMinLbl.backgroundColor = .purple
                 redPlsLbl.backgroundColor = .purple
             }
-        }
-    }
-    
-    
-    //MARK: - GreenHP
-    
-    @IBAction func greenMinHP(_ sender: Any) {
-        guard var greenHP = greenHPLbl.text else {return}
-        if Int(greenHP) != 0 {
-            greenHP = String((Int(greenHP) ?? 0) - 1)
-            greenHPLbl.text = greenHP
-        } else {
-            alertMessage()
-        }
-    }
-    
-    @IBAction func greenPlusHP(_ sender: Any) {
-        guard var greenHP = greenHPLbl.text else {return}
-        if Int(greenHP) != 0 {
-            greenHP = String((Int(greenHP) ?? 0) + 1)
-            greenHPLbl.text = greenHP
-        }
-    }
-    
-    //MARK: - RedHP
-    @IBAction func redMinHP(_ sender: Any) {
-        guard var redHP = redHPLbl.text else {return}
-        if Int(redHP) != 0 {
-            redHP = String((Int(redHP) ?? 0) - 1)
-            redHPLbl.text = redHP
-        } else {
-            alertMessage()
-        }
-    }
-    
-    @IBAction func redPlusHP(_ sender: Any) {
-        guard var redHP = redHPLbl.text else {return}
-        if Int(redHP) != 0 {
-            redHP = String((Int(redHP) ?? 0) + 1)
-            redHPLbl.text = redHP
         }
     }
     
