@@ -25,11 +25,11 @@ class CardDetailsViewModel: CardDetailsViewModelProtocol {
     }
     
     var setName: String {
-        card.setName
+        "Set name: " + card.setName
     }
     
     var cardRarity: String {
-        card.rarity
+        "Card rarity: " + card.rarity
     }
     
     var cardImage: String {
