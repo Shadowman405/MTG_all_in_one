@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CardCollectionViewModelProtocol {
-    
+    // ishould pass another ViewModel I guess
 }
