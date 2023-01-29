@@ -28,6 +28,7 @@
 		BF141815293B89E1000B041E /* SaveCardInCollectioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF141814293B89E1000B041E /* SaveCardInCollectioVC.swift */; };
 		BF141817293B913A000B041E /* CardsInCollectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF141816293B913A000B041E /* CardsInCollectionTableViewController.swift */; };
 		BFDAFD582985AAF600D018B3 /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */; };
+		BFDAFD5B298709B800D018B3 /* CardsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		BF141814293B89E1000B041E /* SaveCardInCollectioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCardInCollectioVC.swift; sourceTree = "<group>"; };
 		BF141816293B913A000B041E /* CardsInCollectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsInCollectionTableViewController.swift; sourceTree = "<group>"; };
 		BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
+		BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewModel.swift; sourceTree = "<group>"; };
 		DB744A7AC2C49F40A811B90D /* Pods-MTG_all_in_one.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTG_all_in_one.release.xcconfig"; path = "Target Support Files/Pods-MTG_all_in_one/Pods-MTG_all_in_one.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 		BF1417BB29228606000B041E /* MTG_all_in_one */ = {
 			isa = PBXGroup;
 			children = (
+				BFDAFD592987096E00D018B3 /* CardsCollection */,
 				BFDAFD562985AAD900D018B3 /* CardDetails */,
 				BF1417D9292287AD000B041E /* Support Files */,
 				BF1417D629228728000B041E /* Controller */,
@@ -143,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				BF1417E029242A89000B041E /* MainViewController.swift */,
-				BF1417D22922869E000B041E /* CardsCollectionViewController.swift */,
 				BF1417E2292582CA000B041E /* CollectionsTableViewController.swift */,
 				BF1418102933FC3E000B041E /* HPCounterViewController.swift */,
 				BF141812293A7CEA000B041E /* AlertController.swift */,
@@ -171,6 +173,15 @@
 				BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */,
 			);
 			path = CardDetails;
+			sourceTree = "<group>";
+		};
+		BFDAFD592987096E00D018B3 /* CardsCollection */ = {
+			isa = PBXGroup;
+			children = (
+				BF1417D22922869E000B041E /* CardsCollectionViewController.swift */,
+				BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */,
+			);
+			path = CardsCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +305,7 @@
 				BF1417E529258499000B041E /* StorageManager.swift in Sources */,
 				BF141813293A7CEA000B041E /* AlertController.swift in Sources */,
 				BF1417E7292585AD000B041E /* Collection.swift in Sources */,
+				BFDAFD5B298709B800D018B3 /* CardsCollectionViewModel.swift in Sources */,
 				BF141815293B89E1000B041E /* SaveCardInCollectioVC.swift in Sources */,
 				BF1417BD29228606000B041E /* AppDelegate.swift in Sources */,
 				BF1417DD292289AE000B041E /* CardImageView.swift in Sources */,
