@@ -16,13 +16,25 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     var cards: [CardMTG] = []
     var selectedCard: CardMTG!
     private let testUrl = "https://api.magicthegathering.io/v1/cards?page=311"
+    
+    private var viewModel: CardCollectionViewModelProtocol! {
+        didSet {
+            viewModel.fetchCards(url: testUrl) {
+                self.collectionView.reloadData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = CardCollectionViewModel()
+        
+        print(viewModel.cards.count)
+        
         UIApplication.shared.isIdleTimerDisabled = false
         collectionView.backgroundColor = .lightGray
 
-        fetcCards(url: testUrl)
+        //fetcCards(url: testUrl)
         setupSearchController()
     }
     
@@ -33,12 +45,13 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cards.count
+        //return cards.count
+        viewModel.numberOfRows()
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CardCollectionViewCell
-        let card = cards[indexPath.row]
+        let card = viewModel.cards[indexPath.row]
         cell.configureCell(with: card)
         
         return cell
