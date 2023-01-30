@@ -40,8 +40,7 @@ class CardDetailsViewController: UIViewController {
         viewModel = CardDetailsViewModel(card: card!)
         UIApplication.shared.isIdleTimerDisabled = false
 
-        guard let card = card else {return}
-        configView(with: card)
+        configView()
         view.backgroundColor = .lightGray
         descriptionTextView.backgroundColor = .lightGray
         descriptionTextView.font = UIFont(name: "Futura", size: 15)
@@ -52,17 +51,7 @@ class CardDetailsViewController: UIViewController {
         performSegue(withIdentifier: "toSaveCard", sender: self)
     }
     
-    func configView(with card: CardMTG) {
-//        let manaCostImageString = manager.addManaImages(someString: card.manaCost)
-//        let descTextWithImage = manager.addManaImages(someString: card.text)
-        
-//        nameLbl.text = card.name
-//        cardImg.fetchImage(from: card.imageURL)
-//        setNameLbl.text = "Set name: " + card.setName
-//        rarityLbl.text = "Card rarity: " + card.rarity
-//        manaCostLbl.attributedText = manaCostImageString
-//        descriptionTextView.attributedText = descTextWithImage
-//        descriptionTextView.attributedText = descTextWithImage
+    func configView() {
         if viewModel.manaCost.isEmpty {
             manaCostTextLbl.isHidden = true
         }
