@@ -8,5 +8,26 @@
 import Foundation
 
 protocol CardCollectionViewModelProtocol {
-    // ishould pass another ViewModel I guess
+    var cards: [CardMTG] { get }
+    
+    
+    func fetchCards(completion: @escaping () -> Void)
+    
+    func numberOfRows() -> Int
+}
+
+class CardCollectionViewModel: CardCollectionViewModelProtocol {
+    var cards: [CardMTG] = []
+    
+    func fetchCards(completion: @escaping () -> Void) {
+        NetworkManager.shared.fetchCards(url: "https://api.magicthegathering.io/v1/cards?page=311") { cards in
+            self.cards = cards
+        }
+    }
+    
+    func numberOfRows() -> Int {
+        cards.count
+    }
+    
+    
 }
