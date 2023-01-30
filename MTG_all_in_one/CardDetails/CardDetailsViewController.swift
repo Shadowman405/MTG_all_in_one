@@ -30,6 +30,7 @@ class CardDetailsViewController: UIViewController {
             rarityLbl.text = viewModel.cardRarity
             manaCostLbl.attributedText = viewModel.manaCost
             descriptionTextView.attributedText = viewModel.descriptionText
+            cardImg.fetchImage(from: viewModel.cardImage)
         }
     }
     
@@ -57,7 +58,7 @@ class CardDetailsViewController: UIViewController {
 //        let descTextWithImage = manager.addManaImages(someString: card.text)
         
 //        nameLbl.text = card.name
-        cardImg.fetchImage(from: card.imageURL)
+//        cardImg.fetchImage(from: card.imageURL)
 //        setNameLbl.text = "Set name: " + card.setName
 //        rarityLbl.text = "Card rarity: " + card.rarity
 //        manaCostLbl.attributedText = manaCostImageString
@@ -67,8 +68,6 @@ class CardDetailsViewController: UIViewController {
         if card.manaCost.isEmpty {
             manaCostTextLbl.isHidden = true
         }
-        
-        print(card.name)
     }
     
     func hideButton() {
