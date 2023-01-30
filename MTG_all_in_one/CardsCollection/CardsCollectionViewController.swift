@@ -39,14 +39,14 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCard = cards[indexPath.item]
+        selectedCard = viewModel.cards[indexPath.item]
         performSegue(withIdentifier: "toDetails", sender: nil)
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return cards.count
-        viewModel.numberOfRows()
+        viewModel.cards.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
