@@ -28,8 +28,8 @@ class CardDetailsViewController: UIViewController {
             nameLbl.text = viewModel.cardName
             setNameLbl.text = viewModel.setName
             rarityLbl.text = viewModel.cardRarity
-            manaCostLbl.attributedText = viewModel.manaCost
-            descriptionTextView.attributedText = viewModel.descriptionText
+            manaCostLbl.attributedText = manager.addManaImages(someString: viewModel.manaCost)
+            descriptionTextView.attributedText = manager.addManaImages(someString: viewModel.descriptionText)
             cardImg.fetchImage(from: viewModel.cardImage)
         }
     }
@@ -49,7 +49,6 @@ class CardDetailsViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: Any) {
-        //showAlert()
         performSegue(withIdentifier: "toSaveCard", sender: self)
     }
     
@@ -64,8 +63,7 @@ class CardDetailsViewController: UIViewController {
 //        manaCostLbl.attributedText = manaCostImageString
 //        descriptionTextView.attributedText = descTextWithImage
 //        descriptionTextView.attributedText = descTextWithImage
-        
-        if card.manaCost.isEmpty {
+        if viewModel.manaCost.isEmpty {
             manaCostTextLbl.isHidden = true
         }
     }
