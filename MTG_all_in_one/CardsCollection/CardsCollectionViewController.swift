@@ -29,8 +29,6 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
         super.viewDidLoad()
         viewModel = CardCollectionViewModel()
         
-        print(viewModel.cards.count)
-        
         UIApplication.shared.isIdleTimerDisabled = false
         collectionView.backgroundColor = .lightGray
 
@@ -45,8 +43,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return cards.count
-        viewModel.cards.count
+        viewModel.numberOfRows()
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
