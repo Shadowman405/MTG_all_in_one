@@ -103,14 +103,21 @@ extension CardsCollectionViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
-      }
+    }
     
     func filterContentForSearchText(_ searchText: String) {
-        manager.fetchCards(url: "https://api.magicthegathering.io/v1/cards?name=\(searchText)") { card in
-            self.cards = card
+        //        manager.fetchCards(url: "https://api.magicthegathering.io/v1/cards?name=\(searchText)") { card in
+        //            self.cards = card
+        //            self.collectionView.reloadData()
+        //        }
+        //
+        //
+        //        cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0"
+        //    }
+        
+        viewModel.fetchCards(url: "https://api.magicthegathering.io/v1/cards?name=\(searchText)") {
             self.collectionView.reloadData()
         }
         
-        cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0"
     }
 }
