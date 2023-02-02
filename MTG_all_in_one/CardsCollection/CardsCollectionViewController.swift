@@ -7,14 +7,14 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-let searchController = UISearchController(searchResultsController: nil)
-
 class CardsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
+    private let reuseIdentifier = "Cell"
     private let manager = NetworkManager.shared
-    var selectedCard: CardMTG!
     private let testUrl = "https://api.magicthegathering.io/v1/cards?page=311"
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    var selectedCard: CardMTG!
+    
     
     private var viewModel: CardCollectionViewModelProtocol! {
         didSet {
