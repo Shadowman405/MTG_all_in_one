@@ -41,10 +41,6 @@ class CardDetailsViewController: UIViewController {
         UIApplication.shared.isIdleTimerDisabled = false
 
         configView()
-        view.backgroundColor = .lightGray
-        descriptionTextView.backgroundColor = .lightGray
-        descriptionTextView.font = UIFont(name: "Futura", size: 15)
-        descriptionTextView.textColor = .white
     }
     
     @IBAction func addButton(_ sender: Any) {
@@ -52,6 +48,11 @@ class CardDetailsViewController: UIViewController {
     }
     
     func configView() {
+        view.backgroundColor = .lightGray
+        descriptionTextView.backgroundColor = .lightGray
+        descriptionTextView.font = UIFont(name: "Futura", size: 15)
+        descriptionTextView.textColor = .white
+        
         if viewModel.manaCost.isEmpty {
             manaCostTextLbl.isHidden = true
         }
