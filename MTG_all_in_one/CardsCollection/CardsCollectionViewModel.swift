@@ -13,10 +13,11 @@ protocol CardCollectionViewModelProtocol {
     
     func fetchCards(url: String, completion: @escaping () -> Void)
     func numberOfRows() -> Int
+    
+    func cellViewModel(at indexPath: IndexPath) -> CardCollectionCellViewModelProtocol
 }
 
 class CardCollectionViewModel: CardCollectionViewModelProtocol {
-    
     var cards: [CardMTG] = []
     
     func fetchCards(url: String, completion: @escaping () -> Void) {
@@ -31,4 +32,8 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
         cards.count
     }
     
+    func cellViewModel(at indexPath: IndexPath) -> CardCollectionCellViewModelProtocol {
+        let card = cards[indexPath.row]
+        return CardCollectionCellViewModel(card: card)
+    }
 }

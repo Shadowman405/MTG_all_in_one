@@ -8,11 +8,11 @@
 import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
+    var viewModel: CardCollectionCellViewModelProtocol! {
+        didSet {
+            cardImg.fetchImage(from: viewModel.cardImg)
+        }
+    }
     
     @IBOutlet weak var cardImg: CardImageView!
-    
-    
-    func configureCell(with card: CardMTG) {
-        cardImg.fetchImage(from: card.imageURL)
-    }
 }

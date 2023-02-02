@@ -45,8 +45,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CardCollectionViewCell
-        let card = viewModel.cards[indexPath.row]
-        cell.configureCell(with: card)
+        cell.viewModel = viewModel.cellViewModel(at: indexPath)
         
         return cell
     }
