@@ -13,7 +13,6 @@ let searchController = UISearchController(searchResultsController: nil)
 class CardsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private let manager = NetworkManager.shared
-    var cards: [CardMTG] = []
     var selectedCard: CardMTG!
     private let testUrl = "https://api.magicthegathering.io/v1/cards?page=311"
     
@@ -31,8 +30,6 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
         
         UIApplication.shared.isIdleTimerDisabled = false
         collectionView.backgroundColor = .lightGray
-
-        //fetcCards(url: testUrl)
         setupSearchController()
     }
     
@@ -56,7 +53,6 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //return CGSize(width: 300, height: 300)
         let width = view.frame.width
         let cellWidth = (width - 40) / 2
         let cellHeight = cellWidth * 1.5
@@ -72,26 +68,12 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
             }
         }
     }
-    
-    
-    //MARK: - Helpers
-    
-    func fetcCards(url: String) {
-        manager.fetchCards(url: url) { card in
-            self.cards = card
-            self.collectionView.reloadData()
-        }
-        
-        cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0"
-    }
-
 }
 
 
+//MARK: - Search Bar and logic
+
 extension CardsCollectionViewController: UISearchResultsUpdating {
-    
-    //MARK: - Search Bar and logic
-    
     func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -106,21 +88,10 @@ extension CardsCollectionViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(_ searchText: String) {
-        //        manager.fetchCards(url: "https://api.magicthegathering.io/v1/cards?name=\(searchText)") { card in
-        //            self.cards = card
-        //            self.collectionView.reloadData()
-        //        }
-        //
-        //
-        //        cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0"
-        //    }
-        
         viewModel.fetchCards(url: "https://api.magicthegathering.io/v1/cards?name=\(searchText)") {
             self.collectionView.reloadData()
-            
         }
         
-        viewModel.cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0" 
-        
+        viewModel.cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0"
     }
 }
