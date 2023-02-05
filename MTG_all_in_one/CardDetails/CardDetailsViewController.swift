@@ -37,7 +37,7 @@ class CardDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CardDetailsViewModel(card: card!)
+        viewModel = CardDetailsViewModel(card: <#T##CardMTG#>)
         UIApplication.shared.isIdleTimerDisabled = false
 
         configView()

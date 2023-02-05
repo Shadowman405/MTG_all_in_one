@@ -34,8 +34,9 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCard = viewModel.cards[indexPath.item]
-        performSegue(withIdentifier: "toDetails", sender: nil)
+        //selectedCard = viewModel.cards[indexPath.item]
+        let detailsCardViewModel = viewModel.cellViewModel(at: indexPath)
+        performSegue(withIdentifier: "toDetails", sender: detailsCardViewModel)
     }
 
 
@@ -62,7 +63,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
             if let detailsVC = segue.destination as? CardDetailsViewController {
-                detailsVC.card = selectedCard
+                detailsVC.viewModel = sender as? CardDetailsViewModelProtocol
                 detailsVC.activateButon = true
             }
         }
