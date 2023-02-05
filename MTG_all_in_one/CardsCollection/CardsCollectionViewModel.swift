@@ -15,6 +15,7 @@ protocol CardCollectionViewModelProtocol {
     func numberOfRows() -> Int
     
     func cellViewModel(at indexPath: IndexPath) -> CardCollectionCellViewModelProtocol
+    func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol
 }
 
 class CardCollectionViewModel: CardCollectionViewModelProtocol {
@@ -35,5 +36,10 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
     func cellViewModel(at indexPath: IndexPath) -> CardCollectionCellViewModelProtocol {
         let card = cards[indexPath.row]
         return CardCollectionCellViewModel(card: card)
+    }
+    
+    func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol {
+        let card = cards[indexPath.row]
+        return CardDetailsViewModel(card: card)
     }
 }

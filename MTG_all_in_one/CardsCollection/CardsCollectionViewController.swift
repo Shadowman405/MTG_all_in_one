@@ -35,7 +35,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //selectedCard = viewModel.cards[indexPath.item]
-        let detailsCardViewModel = viewModel.cellViewModel(at: indexPath)
+        let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
         performSegue(withIdentifier: "toDetails", sender: detailsCardViewModel)
     }
 
