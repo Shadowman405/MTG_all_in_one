@@ -28,6 +28,7 @@
 		BF141815293B89E1000B041E /* SaveCardInCollectioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF141814293B89E1000B041E /* SaveCardInCollectioVC.swift */; };
 		BF141817293B913A000B041E /* CardsInCollectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF141816293B913A000B041E /* CardsInCollectionTableViewController.swift */; };
 		BF4B01B3298C5334005865AF /* CardCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01B2298C5334005865AF /* CardCollectionCellViewModel.swift */; };
+		BF4B01B6298FEC62005865AF /* CardsInCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01B5298FEC62005865AF /* CardsInCollectionViewModel.swift */; };
 		BFDAFD582985AAF600D018B3 /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */; };
 		BFDAFD5B298709B800D018B3 /* CardsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */; };
 		BFDAFD5E298719BE00D018B3 /* SaveCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD5D298719BE00D018B3 /* SaveCardViewModel.swift */; };
@@ -58,6 +59,7 @@
 		BF141814293B89E1000B041E /* SaveCardInCollectioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCardInCollectioVC.swift; sourceTree = "<group>"; };
 		BF141816293B913A000B041E /* CardsInCollectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsInCollectionTableViewController.swift; sourceTree = "<group>"; };
 		BF4B01B2298C5334005865AF /* CardCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		BF4B01B5298FEC62005865AF /* CardsInCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsInCollectionViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD5D298719BE00D018B3 /* SaveCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCardViewModel.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		BF1417BB29228606000B041E /* MTG_all_in_one */ = {
 			isa = PBXGroup;
 			children = (
+				BF4B01B4298FEC2E005865AF /* CardsInCollection */,
 				BF4B01B1298C5303005865AF /* CardCollectionCell */,
 				BFDAFD5C2987199900D018B3 /* SaveCard */,
 				BFDAFD592987096E00D018B3 /* CardsCollection */,
@@ -154,7 +157,6 @@
 				BF1417E2292582CA000B041E /* CollectionsTableViewController.swift */,
 				BF1418102933FC3E000B041E /* HPCounterViewController.swift */,
 				BF141812293A7CEA000B041E /* AlertController.swift */,
-				BF141816293B913A000B041E /* CardsInCollectionTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,6 +179,15 @@
 				BF4B01B2298C5334005865AF /* CardCollectionCellViewModel.swift */,
 			);
 			path = CardCollectionCell;
+			sourceTree = "<group>";
+		};
+		BF4B01B4298FEC2E005865AF /* CardsInCollection */ = {
+			isa = PBXGroup;
+			children = (
+				BF141816293B913A000B041E /* CardsInCollectionTableViewController.swift */,
+				BF4B01B5298FEC62005865AF /* CardsInCollectionViewModel.swift */,
+			);
+			path = CardsInCollection;
 			sourceTree = "<group>";
 		};
 		BFDAFD562985AAD900D018B3 /* CardDetails */ = {
@@ -328,6 +339,7 @@
 				BF1417E529258499000B041E /* StorageManager.swift in Sources */,
 				BF141813293A7CEA000B041E /* AlertController.swift in Sources */,
 				BF1417E7292585AD000B041E /* Collection.swift in Sources */,
+				BF4B01B6298FEC62005865AF /* CardsInCollectionViewModel.swift in Sources */,
 				BFDAFD5B298709B800D018B3 /* CardsCollectionViewModel.swift in Sources */,
 				BF141815293B89E1000B041E /* SaveCardInCollectioVC.swift in Sources */,
 				BF1417BD29228606000B041E /* AppDelegate.swift in Sources */,
