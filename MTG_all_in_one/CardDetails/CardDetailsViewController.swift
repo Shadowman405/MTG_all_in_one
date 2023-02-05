@@ -23,21 +23,12 @@ class CardDetailsViewController: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     
-    var viewModel: CardDetailsViewModelProtocol! {
-        didSet {
-            nameLbl.text = viewModel.cardName
-            setNameLbl.text = viewModel.setName
-            rarityLbl.text = viewModel.cardRarity
-            manaCostLbl.attributedText = manager.addManaImages(someString: viewModel.manaCost)
-            descriptionTextView.attributedText = manager.addManaImages(someString: viewModel.descriptionText)
-            cardImg.fetchImage(from: viewModel.cardImage)
-        }
-    }
+    var viewModel: CardDetailsViewModelProtocol! 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CardDetailsViewModel(card: <#T##CardMTG#>)
+        //viewModel = CardDetailsViewModel(card: card)
         UIApplication.shared.isIdleTimerDisabled = false
 
         configView()
@@ -48,6 +39,13 @@ class CardDetailsViewController: UIViewController {
     }
     
     func configView() {
+        nameLbl.text = viewModel.cardName
+        setNameLbl.text = viewModel.setName
+        rarityLbl.text = viewModel.cardRarity
+        manaCostLbl.attributedText = manager.addManaImages(someString: viewModel.manaCost)
+        descriptionTextView.attributedText = manager.addManaImages(someString: viewModel.descriptionText)
+        cardImg.fetchImage(from: viewModel.cardImage)
+        
         view.backgroundColor = .lightGray
         descriptionTextView.backgroundColor = .lightGray
         descriptionTextView.font = UIFont(name: "Futura", size: 15)
