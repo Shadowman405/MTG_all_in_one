@@ -25,14 +25,12 @@ class CollectionsTableViewController: UITableViewController {
         UIApplication.shared.isIdleTimerDisabled = false
 
         //cardCollection = StorageManager.shared.realm.objects(CardCollection.self)
-
-        //createTestData()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cardCollection.count
+        viewModel.numberOfRows()
     }
     
     

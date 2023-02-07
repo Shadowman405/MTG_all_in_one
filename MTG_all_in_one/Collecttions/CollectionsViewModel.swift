@@ -12,6 +12,7 @@ protocol CollectionsViewModelProtocol {
     var cardCollection : Results<CardCollection>! {get}
     var selectedCollection: CardCollection? {get}
     
+    func numberOfRows() -> Int
 }
 
 class CollectionsViewModel: CollectionsViewModelProtocol {
@@ -21,5 +22,8 @@ class CollectionsViewModel: CollectionsViewModelProtocol {
     
     var selectedCollection: CardCollection?
     
+    func numberOfRows() -> Int {
+        cardCollection.count
+    }
     
 }
