@@ -12,12 +12,19 @@ class CollectionsTableViewController: UITableViewController {
     
     private var cardCollection : Results<CardCollection>!
     private var selectedCollection: CardCollection?
+    
+    private var viewModel: CollectionsViewModelProtocol! {
+        didSet {
+            cardCollection = viewModel.cardCollection
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = CollectionsViewModel()
         UIApplication.shared.isIdleTimerDisabled = false
 
-        cardCollection = StorageManager.shared.realm.objects(CardCollection.self)
+        //cardCollection = StorageManager.shared.realm.objects(CardCollection.self)
 
         //createTestData()
     }

@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import RealmSwift
+
+protocol CollectionsViewModelProtocol {
+    var cardCollection : Results<CardCollection>! {get}
+    var selectedCollection: CardCollection? {get}
+    
+}
+
+class CollectionsViewModel: CollectionsViewModelProtocol {
+    var cardCollection: RealmSwift.Results<CardCollection>! {
+        StorageManager.shared.realm.objects(CardCollection.self)
+    }
+    
+    var selectedCollection: CardCollection?
+    
+    
+}
