@@ -8,9 +8,15 @@
 import Foundation
 
 protocol CardsInCollectionViewModelProtocol {
+    var card: CardMTG {get}
+    var collection: CardCollection {get}
+    
     
 }
 
 class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
+    var card: CardMTG = CardMTG()
+    var collection: CardCollection = CardCollection()
+    
     
 }
