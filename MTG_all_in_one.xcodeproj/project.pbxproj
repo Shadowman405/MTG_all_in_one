@@ -29,6 +29,7 @@
 		BF141817293B913A000B041E /* CardsInCollectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF141816293B913A000B041E /* CardsInCollectionTableViewController.swift */; };
 		BF4B01B3298C5334005865AF /* CardCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01B2298C5334005865AF /* CardCollectionCellViewModel.swift */; };
 		BF4B01B6298FEC62005865AF /* CardsInCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01B5298FEC62005865AF /* CardsInCollectionViewModel.swift */; };
+		BF4B01B92992E12C005865AF /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01B82992E12C005865AF /* CollectionsViewModel.swift */; };
 		BFDAFD582985AAF600D018B3 /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */; };
 		BFDAFD5B298709B800D018B3 /* CardsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */; };
 		BFDAFD5E298719BE00D018B3 /* SaveCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD5D298719BE00D018B3 /* SaveCardViewModel.swift */; };
@@ -60,6 +61,7 @@
 		BF141816293B913A000B041E /* CardsInCollectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsInCollectionTableViewController.swift; sourceTree = "<group>"; };
 		BF4B01B2298C5334005865AF /* CardCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		BF4B01B5298FEC62005865AF /* CardsInCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsInCollectionViewModel.swift; sourceTree = "<group>"; };
+		BF4B01B82992E12C005865AF /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD5D298719BE00D018B3 /* SaveCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCardViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		BF1417BB29228606000B041E /* MTG_all_in_one */ = {
 			isa = PBXGroup;
 			children = (
+				BF4B01B72992E10E005865AF /* Collecttions */,
 				BF4B01B4298FEC2E005865AF /* CardsInCollection */,
 				BF4B01B1298C5303005865AF /* CardCollectionCell */,
 				BFDAFD5C2987199900D018B3 /* SaveCard */,
@@ -154,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				BF1417E029242A89000B041E /* MainViewController.swift */,
-				BF1417E2292582CA000B041E /* CollectionsTableViewController.swift */,
 				BF1418102933FC3E000B041E /* HPCounterViewController.swift */,
 				BF141812293A7CEA000B041E /* AlertController.swift */,
 			);
@@ -188,6 +190,15 @@
 				BF4B01B5298FEC62005865AF /* CardsInCollectionViewModel.swift */,
 			);
 			path = CardsInCollection;
+			sourceTree = "<group>";
+		};
+		BF4B01B72992E10E005865AF /* Collecttions */ = {
+			isa = PBXGroup;
+			children = (
+				BF1417E2292582CA000B041E /* CollectionsTableViewController.swift */,
+				BF4B01B82992E12C005865AF /* CollectionsViewModel.swift */,
+			);
+			path = Collecttions;
 			sourceTree = "<group>";
 		};
 		BFDAFD562985AAD900D018B3 /* CardDetails */ = {
@@ -346,6 +357,7 @@
 				BF1417DD292289AE000B041E /* CardImageView.swift in Sources */,
 				BF1417D32922869E000B041E /* CardsCollectionViewController.swift in Sources */,
 				BF1417BF29228606000B041E /* SceneDelegate.swift in Sources */,
+				BF4B01B92992E12C005865AF /* CollectionsViewModel.swift in Sources */,
 				BF1417E129242A89000B041E /* MainViewController.swift in Sources */,
 				BF141817293B913A000B041E /* CardsInCollectionTableViewController.swift in Sources */,
 				BF1417D829228748000B041E /* CardCollectionViewCell.swift in Sources */,
