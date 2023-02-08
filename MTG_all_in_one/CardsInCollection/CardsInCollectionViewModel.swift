@@ -11,12 +11,14 @@ protocol CardsInCollectionViewModelProtocol {
     var card: CardMTG {get}
     var collection: CardCollection {get}
     
-    
+    init(collection: CardCollection)
 }
 
 class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     var card: CardMTG = CardMTG()
-    var collection: CardCollection = CardCollection()
+    var collection: CardCollection
     
-    
+    required init(collection: CardCollection) {
+        self.collection = collection
+    }
 }
