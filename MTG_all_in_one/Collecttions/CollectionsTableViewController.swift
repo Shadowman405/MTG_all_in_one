@@ -10,12 +10,12 @@ import RealmSwift
 
 class CollectionsTableViewController: UITableViewController {
     
-    private var cardCollection : Results<CardCollection>!
+    //private var cardCollection : Results<CardCollection>!
     private var selectedCollection: CardCollection?
     
     private var viewModel: CollectionsViewModelProtocol! {
         didSet {
-            cardCollection = viewModel.cardCollection
+            //cardCollection = viewModel.cardCollection
         }
     }
 
@@ -36,7 +36,8 @@ class CollectionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let collection = cardCollection[indexPath.row]
+        //let collection = cardCollection[indexPath.row]
+        let collection = viewModel.cardCollection[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = collection.collectionName
         content.secondaryText = "Cards: \(collection.cards.count)/60"
@@ -46,7 +47,8 @@ class CollectionsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCollection = cardCollection[indexPath.row]
+        //selectedCollection = cardCollection[indexPath.row]
+        selectedCollection = viewModel.cardCollection[indexPath.row]
         performSegue(withIdentifier: "toCards", sender: self)
     }
     
@@ -60,7 +62,8 @@ class CollectionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let currentCollection = cardCollection[indexPath.row]
+        //let currentCollection = cardCollection[indexPath.row]
+        let currentCollection = viewModel.cardCollection[indexPath.row]
         let deleteActtion = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
             StorageManager.shared.delete(cardCollection: currentCollection)
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -93,7 +96,7 @@ extension CollectionsTableViewController {
         let cardCollections = CardCollection(value: [cardCollections])
         
         StorageManager.shared.save(cardCollection: cardCollections)
-        let rowIndex = IndexPath(row: cardCollection.count - 1, section: 0)
+        let rowIndex = IndexPath(row: viewModel.cardCollection.count - 1, section: 0)
         tableView.insertRows(at: [rowIndex], with: .automatic)
     }
 }
