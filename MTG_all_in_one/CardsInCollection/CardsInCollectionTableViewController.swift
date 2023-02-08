@@ -14,6 +14,12 @@ class CardsInCollectionTableViewController: UITableViewController {
     var selectedCard: CardMTG?
     private var editTable = true
     private var manager = NetworkManager.shared
+    
+    var viewModel: CardsInCollectionViewModelProtocol! {
+        didSet{
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,27 +57,28 @@ class CardsInCollectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if editTable {
             if section == 0 {
-                if (cardCollection?.cards.count)! <= 59{
-                    return cardCollection?.cards.count ?? 0
+                if (viewModel.collection.cards.count) <= 59{
+                    return viewModel.collection.cards.count ?? 0
                 } else {
-                    return cardCollection?.cards[0...59].count ?? 0
+                    return viewModel.collection.cards[0...59].count ?? 0
                 }
             } else {
-                if (cardCollection?.cards.count)! > 59 {
-                    return cardCollection?.cards[59...cardCollection!.cards.count - 1].count ?? 0
+                if (viewModel.collection.cards.count) > 59 {
+                    return viewModel.collection.cards[59...viewModel.collection.cards.count - 1].count ?? 0
                 } else {
                     return 0
                 }
             }
         } else {
-            return cardCollection!.cards.count
+            return viewModel.collection.cards.count
         }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
-        let cards = cardCollection!.cards
+        //let cards = cardCollection!.cards
+        let cards = viewModel.collection.cards
         
         switch indexPath.section {
         case 0:

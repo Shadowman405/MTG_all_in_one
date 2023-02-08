@@ -48,14 +48,16 @@ class CollectionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //selectedCollection = cardCollection[indexPath.row]
-        selectedCollection = viewModel.cardCollection[indexPath.row]
-        performSegue(withIdentifier: "toCards", sender: self)
+        //selectedCollection = viewModel.cardCollection[indexPath.row]
+        let selectedCollection = viewModel.collectionViewModel(at: indexPath)
+        performSegue(withIdentifier: "toCards", sender: selectedCollection)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCards" {
             if let cardsTVC = segue.destination as? CardsInCollectionTableViewController {
-                cardsTVC.cardCollection = selectedCollection
+                //cardsTVC.cardCollection = selectedCollection
+                cardsTVC.viewModel = sender as? CardsInCollectionViewModelProtocol
             }
         }
     }
