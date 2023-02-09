@@ -12,12 +12,12 @@ class CardsInCollectionTableViewController: UITableViewController {
     @IBOutlet var table: UITableView!
     var cardCollection: CardCollection?
     var selectedCard: CardMTG?
-    private var editTable = true
+    //private var editTable = true
     private var manager = NetworkManager.shared
     
     var viewModel: CardsInCollectionViewModelProtocol! {
-        didSet{
-            
+        didSet {
+            viewModel.editable = true
         }
     }
 
@@ -31,7 +31,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if editTable {
+        if viewModel.editable {
             return 2
         } else {
             return 1
@@ -39,7 +39,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if editTable {
+        if viewModel.editable {
             if section == 0 {
                 return "Main Deck"
             } else {
@@ -55,7 +55,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if editTable {
+        if viewModel.editable {
             if section == 0 {
                 if (viewModel.collection.cards.count) <= 59{
                     return viewModel.collection.cards.count
@@ -89,7 +89,7 @@ class CardsInCollectionTableViewController: UITableViewController {
             content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
             cell.contentConfiguration = content
         case 1:
-            let mapedCards = cards.enumerated().filter { $0.offset >= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
+            let mapedCards = cards.enumerated().filter { $0.offset >= 59 && $0.offset <= viewModel.collection.cards.count - 1 }.map { $0.element }
             let card = mapedCards[indexPath.row]
             var content = cell.defaultContentConfiguration()
             content.attributedText = manager.addManaImages(someString: card.name)
@@ -127,11 +127,11 @@ class CardsInCollectionTableViewController: UITableViewController {
     @IBAction func didTapSort() {
         if table.isEditing {
             table.isEditing = false
-            editTable = true
+            viewModel.editable = true
             tableView.reloadData()
         } else {
             table.isEditing = true
-            editTable = false
+            viewModel.editable = false
             tableView.reloadData()
         }
     }
