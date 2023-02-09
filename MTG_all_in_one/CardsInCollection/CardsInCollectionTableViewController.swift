@@ -15,11 +15,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     //private var editTable = true
     private var manager = NetworkManager.shared
     
-    var viewModel: CardsInCollectionViewModelProtocol! {
-        didSet {
-            viewModel.editable = true
-        }
-    }
+    var viewModel: CardsInCollectionViewModelProtocol! 
 
     override func viewDidLoad() {
         super.viewDidLoad()
