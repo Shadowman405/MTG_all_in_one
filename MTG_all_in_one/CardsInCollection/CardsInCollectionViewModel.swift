@@ -16,6 +16,7 @@ protocol CardsInCollectionViewModelProtocol {
     
     //func numberRows() -> Int
     func numberOfSections() -> Int
+    func titleForHeader(section: Int) -> String?
 }
 
 class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
@@ -35,6 +36,21 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
         }
     }
     
+    func titleForHeader(section: Int) -> String? {
+        if editable {
+            if section == 0 {
+                return "Main Deck"
+            } else {
+                return "Side Deck"
+            }
+        } else {
+            if section == 0 {
+                return "\(collection.collectionName)"
+            } else {
+                return "Deck"
+            }
+        }
+    }
 //    func numberRows() -> Int {
 //        <#code#>
 //    }
