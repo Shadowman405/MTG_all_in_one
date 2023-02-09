@@ -14,8 +14,8 @@ protocol CardsInCollectionViewModelProtocol {
     
     init(collection: CardCollection)
     
-    //func numberRows() -> Int
     func numberOfSections() -> Int
+    func numberOfRows(section: Int) -> Int
     func titleForHeader(section: Int) -> String?
 }
 
@@ -51,7 +51,24 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
             }
         }
     }
-//    func numberRows() -> Int {
-//        <#code#>
-//    }
+    
+    func numberOfRows(section: Int) -> Int {
+        if editable {
+            if section == 0 {
+                if (collection.cards.count) <= 59{
+                    return collection.cards.count
+                } else {
+                    return collection.cards[0...59].count
+                }
+            } else {
+                if (collection.cards.count) > 59 {
+                    return collection.cards[59...collection.cards.count - 1].count
+                } else {
+                    return 0
+                }
+            }
+        } else {
+            return collection.cards.count
+        }
+    }
 }

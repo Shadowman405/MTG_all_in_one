@@ -34,23 +34,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if viewModel.editable {
-            if section == 0 {
-                if (viewModel.collection.cards.count) <= 59{
-                    return viewModel.collection.cards.count
-                } else {
-                    return viewModel.collection.cards[0...59].count
-                }
-            } else {
-                if (viewModel.collection.cards.count) > 59 {
-                    return viewModel.collection.cards[59...viewModel.collection.cards.count - 1].count
-                } else {
-                    return 0
-                }
-            }
-        } else {
-            return viewModel.collection.cards.count
-        }
+        viewModel.numberOfRows(section: section)
     }
 
     
