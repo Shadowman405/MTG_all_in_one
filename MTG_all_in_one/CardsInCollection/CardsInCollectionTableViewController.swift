@@ -12,10 +12,9 @@ class CardsInCollectionTableViewController: UITableViewController {
     @IBOutlet var table: UITableView!
     var cardCollection: CardCollection?
     var selectedCard: CardMTG?
-    //private var editTable = true
     private var manager = NetworkManager.shared
     
-    var viewModel: CardsInCollectionViewModelProtocol! 
+    var viewModel: CardsInCollectionViewModelProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +26,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if viewModel.editable {
-            return 2
-        } else {
-            return 1
-        }
+        viewModel.numberOfSections()
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

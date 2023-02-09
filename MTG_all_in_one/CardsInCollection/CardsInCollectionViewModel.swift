@@ -15,6 +15,7 @@ protocol CardsInCollectionViewModelProtocol {
     init(collection: CardCollection)
     
     //func numberRows() -> Int
+    func numberOfSections() -> Int
 }
 
 class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
@@ -24,6 +25,14 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     
     required init(collection: CardCollection) {
         self.collection = collection
+    }
+    
+    func numberOfSections() -> Int {
+        if editable {
+            return 2
+        } else {
+            return 1
+        }
     }
     
 //    func numberRows() -> Int {
