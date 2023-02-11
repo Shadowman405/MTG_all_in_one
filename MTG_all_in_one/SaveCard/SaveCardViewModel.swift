@@ -16,6 +16,7 @@ protocol SaveCardViewModelProtocol {
     
     func loadCollcetions(completion: @escaping () -> Void)
     func saveInCollection(at indexPath: IndexPath)
+    func numverOfRows() -> Int
 }
 
 class SaveCardViewModel: SaveCardViewModelProtocol {
@@ -34,6 +35,10 @@ class SaveCardViewModel: SaveCardViewModelProtocol {
     func saveInCollection(at indexPath: IndexPath) {
         let collectionToSave = collection[indexPath.row]
         StorageManager.shared.save(card: card, in: collectionToSave)
+    }
+    
+    func numverOfRows() -> Int {
+        collection.count
     }
 }
 

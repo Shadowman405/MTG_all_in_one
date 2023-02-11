@@ -23,21 +23,15 @@ class SaveCardInCollectioVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = false
-        //viewModel = SaveCardViewModel(card: CardMTG())
-
-        //cardCollection = StorageManager.shared.realm.objects(CardCollection.self)
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return viewModel.collection.count
+        viewModel.numverOfRows()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let collection = viewModel.collection[indexPath.row]
-//        StorageManager.shared.save(card: viewModel.card, in: collection)
         viewModel.saveInCollection(at: indexPath)
         tableView.reloadData()
     }
