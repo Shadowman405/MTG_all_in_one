@@ -70,10 +70,6 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        //cardCollection?.cards.swapAt(sourceIndexPath.row, destinationIndexPath.row)
-//        try! cardCollection?.realm!.write {
-//            cardCollection?.cards.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
-//        }
         try! viewModel.collection.realm!.write {
             viewModel.collection.cards.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
         }
@@ -105,12 +101,12 @@ class CardsInCollectionTableViewController: UITableViewController {
     //MARK: - Segue Logic
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mapedCards = cardCollection!.cards.enumerated().filter { $0.offset >= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
+        let mapedCards = viewModel.collection.cards.enumerated().filter { $0.offset >= 59 && $0.offset <= viewModel.collection.cards.count - 1 }.map { $0.element }
 //        selectedCard = cardCollection?.cards[indexPath.row]
 //        performSegue(withIdentifier: "toCardDetails", sender: self)
         switch indexPath.section {
         case 0:
-            selectedCard = cardCollection?.cards[indexPath.row]
+            selectedCard = viewModel.collection.cards[indexPath.row]
             performSegue(withIdentifier: "toCardDetails", sender: self)
         case 1:
             selectedCard = mapedCards[indexPath.row]
