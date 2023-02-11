@@ -71,15 +71,18 @@ class CardsInCollectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         //cardCollection?.cards.swapAt(sourceIndexPath.row, destinationIndexPath.row)
-        try! cardCollection?.realm!.write {
-            cardCollection?.cards.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
+//        try! cardCollection?.realm!.write {
+//            cardCollection?.cards.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
+//        }
+        try! viewModel.collection.realm!.write {
+            viewModel.collection.cards.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
         }
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [self] _, _, _ in
-            try! cardCollection?.realm!.write {
-                cardCollection?.cards.remove(at: indexPath.row)
+            try! viewModel.collection.realm!.write {
+                viewModel.collection.cards.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
