@@ -9,6 +9,7 @@ import Foundation
 
 protocol CardsInCollectionViewModelProtocol {
     var card: CardMTG {get}
+    var selectedCard: CardMTG {get}
     var collection: CardCollection {get}
     var editable: Bool {get set}
     
@@ -17,11 +18,13 @@ protocol CardsInCollectionViewModelProtocol {
     func numberOfSections() -> Int
     func numberOfRows(section: Int) -> Int
     func titleForHeader(section: Int) -> String?
+    func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol
 }
 
 class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     var editable: Bool = true
     var card: CardMTG = CardMTG()
+    var selectedCard: CardMTG = CardMTG()
     var collection: CardCollection
     
     required init(collection: CardCollection) {
@@ -69,6 +72,20 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
             }
         } else {
             return collection.cards.count
+        }
+    }
+    
+    func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol {
+        let mapedCards = collection.cards.enumerated().filter { $0.offset >= 59 && $0.offset <= collection.cards.count - 1 }.map { $0.element }
+        switch indexPath.section {
+        case 0:
+            selectedCard = collection.cards[indexPath.row]
+            return CardDetailsViewModel(card: selectedCard)
+        case 1:
+            selectedCard = mapedCards[indexPath.row]
+            return CardDetailsViewModel(card: selectedCard)
+        default:
+            return CardDetailsViewModel(card: collection.cards[indexPath.row])
         }
     }
 }
