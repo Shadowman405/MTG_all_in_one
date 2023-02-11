@@ -55,6 +55,7 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
         }
     }
     
+    
     func numberOfRows(section: Int) -> Int {
         if editable {
             if section == 0 {
@@ -74,6 +75,7 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
             return collection.cards.count
         }
     }
+    
     
     func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol {
         let mapedCards = collection.cards.enumerated().filter { $0.offset >= 59 && $0.offset <= collection.cards.count - 1 }.map { $0.element }

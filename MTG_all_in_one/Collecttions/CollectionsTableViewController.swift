@@ -9,22 +9,15 @@ import UIKit
 import RealmSwift
 
 class CollectionsTableViewController: UITableViewController {
-    
     //private var cardCollection : Results<CardCollection>!
-    private var selectedCollection: CardCollection?
-    
-    private var viewModel: CollectionsViewModelProtocol! {
-        didSet {
-            //cardCollection = viewModel.cardCollection
-        }
-    }
+    //private var selectedCollection: CardCollection?
+    private var viewModel: CollectionsViewModelProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = CollectionsViewModel()
         UIApplication.shared.isIdleTimerDisabled = false
 
-        //cardCollection = StorageManager.shared.realm.objects(CardCollection.self)
     }
 
     // MARK: - Table view data source
@@ -36,7 +29,6 @@ class CollectionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        //let collection = cardCollection[indexPath.row]
         let collection = viewModel.cardCollection[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = collection.collectionName
@@ -47,8 +39,6 @@ class CollectionsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //selectedCollection = cardCollection[indexPath.row]
-        //selectedCollection = viewModel.cardCollection[indexPath.row]
         let selectedCollection = viewModel.collectionViewModel(at: indexPath)
         performSegue(withIdentifier: "toCards", sender: selectedCollection)
     }
@@ -56,15 +46,12 @@ class CollectionsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCards" {
             if let cardsTVC = segue.destination as? CardsInCollectionTableViewController {
-                //cardsTVC.cardCollection = selectedCollection
                 cardsTVC.viewModel = sender as? CardsInCollectionViewModelProtocol
             }
         }
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        //let currentCollection = cardCollection[indexPath.row]
         let currentCollection = viewModel.cardCollection[indexPath.row]
         let deleteActtion = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
             StorageManager.shared.delete(cardCollection: currentCollection)
