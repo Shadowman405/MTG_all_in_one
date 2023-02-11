@@ -19,12 +19,9 @@ class CardsInCollectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = false
-
-
     }
 
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.numberOfSections()
     }
@@ -40,12 +37,10 @@ class CardsInCollectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
-        //let cards = cardCollection!.cards
         let cards = viewModel.collection.cards
         
         switch indexPath.section {
         case 0:
-//            let mapedCards = cards.enumerated().filter { $0.offset <= 59 && $0.offset <= cardCollection!.cards.count - 1 }.map { $0.element }
             let card = cards[indexPath.row]
             var content = cell.defaultContentConfiguration()
             content.attributedText = manager.addManaImages(someString: card.name)
@@ -61,7 +56,6 @@ class CardsInCollectionTableViewController: UITableViewController {
         default:
             break
         }
-
         return cell
     }
     
@@ -101,25 +95,14 @@ class CardsInCollectionTableViewController: UITableViewController {
     //MARK: - Segue Logic
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mapedCards = viewModel.collection.cards.enumerated().filter { $0.offset >= 59 && $0.offset <= viewModel.collection.cards.count - 1 }.map { $0.element }
-//        selectedCard = cardCollection?.cards[indexPath.row]
-//        performSegue(withIdentifier: "toCardDetails", sender: self)
-        switch indexPath.section {
-        case 0:
-            selectedCard = viewModel.collection.cards[indexPath.row]
-            performSegue(withIdentifier: "toCardDetails", sender: self)
-        case 1:
-            selectedCard = mapedCards[indexPath.row]
-            performSegue(withIdentifier: "toCardDetails", sender: self)
-        default:
-            print("Error")
-        }
+        let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
+        performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCardDetails" {
             if let detailsVC = segue.destination as? CardDetailsViewController {
-                detailsVC.card = selectedCard
+                detailsVC.viewModel = sender as? CardDetailsViewModelProtocol
                 detailsVC.hideButton()
             }
         }
