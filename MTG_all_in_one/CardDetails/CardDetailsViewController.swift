@@ -63,7 +63,8 @@ class CardDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSaveCard" {
             if let saveVC = segue.destination as? SaveCardInCollectioVC {
-                saveVC.card = card
+                //saveVC.card = card
+                saveVC.viewModel = SaveCardViewModel(card: viewModel.card)
             }
         }
     }

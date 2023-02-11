@@ -15,6 +15,7 @@ protocol CardDetailsViewModelProtocol {
     var manaCost: String {get}
     var descriptionText: String {get}
     var cardImage: String {get}
+    var card: CardMTG {get}
     
     init(card: CardMTG)
 }
@@ -44,7 +45,7 @@ class CardDetailsViewModel: CardDetailsViewModelProtocol {
         card.text
     }
     
-    private let card: CardMTG
+    var card: CardMTG = CardMTG()
     
     required init(card: CardMTG) {
         self.card = card
