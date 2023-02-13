@@ -16,6 +16,7 @@ protocol CardCollectionViewModelProtocol {
     
     func cellViewModel(at indexPath: IndexPath) -> CardCollectionCellViewModelProtocol
     func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol
+    func frameSize(width: CGFloat) -> CGSize
 }
 
 class CardCollectionViewModel: CardCollectionViewModelProtocol {
@@ -42,4 +43,12 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
         let card = cards[indexPath.row]
         return CardDetailsViewModel(card: card)
     }
+    
+    func frameSize(width: CGFloat) -> CGSize {
+        let cellWidth = (width - 40) / 2
+        let cellHeight = cellWidth * 1.5
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
 }
