@@ -9,8 +9,6 @@ import UIKit
 import RealmSwift
 
 class CollectionsTableViewController: UITableViewController {
-    //private var cardCollection : Results<CardCollection>!
-    //private var selectedCollection: CardCollection?
     private var viewModel: CollectionsViewModelProtocol!
 
     override func viewDidLoad() {
