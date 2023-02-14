@@ -18,6 +18,8 @@ class CardsInCollectionTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let sectionTitles = viewModel.uniqueCards()
+        print(sectionTitles.count)
         UIApplication.shared.isIdleTimerDisabled = false
     }
 
@@ -26,7 +28,6 @@ class CardsInCollectionTableViewController: UITableViewController {
         //viewModel.numberOfSections()
         
         let sectionTitles = viewModel.uniqueCards()
-        print(sectionTitles)
         return sectionTitles.count
     }
     
@@ -45,29 +46,59 @@ class CardsInCollectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfRows(section: section)
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
         let cards = viewModel.collection.cards
+        let sectionTitles = viewModel.uniqueCards()
         
-        switch indexPath.section {
-        case 0:
-            let card = cards[indexPath.row]
-            var content = cell.defaultContentConfiguration()
-            content.attributedText = manager.addManaImages(someString: card.name)
-            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-            cell.contentConfiguration = content
-        case 1:
-            let mapedCards = cards.enumerated().filter { $0.offset >= 59 && $0.offset <= viewModel.collection.cards.count - 1 }.map { $0.element }
-            let card = mapedCards[indexPath.row]
-            var content = cell.defaultContentConfiguration()
-            content.attributedText = manager.addManaImages(someString: card.name)
-            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-            cell.contentConfiguration = content
-        default:
-            break
+        let card = cards[indexPath.row]
+        
+//        switch indexPath.section {
+//        case 0:
+//            let card = cards[indexPath.row]
+//            var content = cell.defaultContentConfiguration()
+//            content.attributedText = manager.addManaImages(someString: card.name)
+//            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+//            cell.contentConfiguration = content
+//        case 1:
+//            let mapedCards = cards.enumerated().filter { $0.offset >= 59 && $0.offset <= viewModel.collection.cards.count - 1 }.map { $0.element }
+//            let card = mapedCards[indexPath.row]
+//            var content = cell.defaultContentConfiguration()
+//            content.attributedText = manager.addManaImages(someString: card.name)
+//            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+//            cell.contentConfiguration = content
+//        default:
+//            break
+//        }
+        
+//        for i in 0...cards.count {
+//
+//            if card.name == sectionTitles[i] {
+//                for indexSection in 0...sectionTitles.count {
+//                    if indexPath.section == indexSection {
+//                        var content = cell.defaultContentConfiguration()
+//                        content.attributedText = manager.addManaImages(someString: card.name)
+//                        content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+//                        cell.contentConfiguration = content
+//                    }
+//                }
+//            } else {
+//                print("Beep")
+//            }
+//       }
+        
+        for inexSect in 0...sectionTitles.count {
+            if indexPath.section == inexSect {
+                if card.name == sectionTitles[inexSect] {
+                    var content = cell.defaultContentConfiguration()
+                    content.attributedText = manager.addManaImages(someString: card.name)
+                    content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+                    cell.contentConfiguration = content
+                }
+            }
         }
+        
         return cell
     }
     
