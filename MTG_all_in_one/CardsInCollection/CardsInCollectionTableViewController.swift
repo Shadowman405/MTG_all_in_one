@@ -23,7 +23,11 @@ class CardsInCollectionTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.numberOfSections()
+        //viewModel.numberOfSections()
+        
+        let sectionTitles = viewModel.uniqueCards()
+        print(sectionTitles)
+        return sectionTitles.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

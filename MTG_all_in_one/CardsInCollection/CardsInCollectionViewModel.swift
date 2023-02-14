@@ -40,7 +40,7 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
             namesArray.append(card.name)
         }
         
-        return namesArray
+        return Array(Set(namesArray))
     }
     
     func numberOfSections() -> Int {
