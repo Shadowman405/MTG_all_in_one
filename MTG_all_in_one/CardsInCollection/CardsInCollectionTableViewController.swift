@@ -95,6 +95,11 @@ class CardsInCollectionTableViewController: UITableViewController {
                     content.attributedText = manager.addManaImages(someString: card.name)
                     content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
                     cell.contentConfiguration = content
+                } else {
+                    var content = cell.defaultContentConfiguration()
+                    content.attributedText = manager.addManaImages(someString: card.name)
+                    content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+                    cell.contentConfiguration = content
                 }
             }
         }
