@@ -72,37 +72,34 @@ class CardsInCollectionTableViewController: UITableViewController {
 //            break
 //        }
         
-//        for i in 0...cards.count {
-//
-//            if card.name == sectionTitles[i] {
-//                for indexSection in 0...sectionTitles.count {
-//                    if indexPath.section == indexSection {
-//                        var content = cell.defaultContentConfiguration()
-//                        content.attributedText = manager.addManaImages(someString: card.name)
-//                        content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-//                        cell.contentConfiguration = content
-//                    }
-//                }
-//            } else {
-//                print("Beep")
-//            }
-//       }
-        
-        for inexSect in 0...sectionTitles.count {
-            if indexPath.section == inexSect {
-                if card.name == sectionTitles[inexSect] {
-                    var content = cell.defaultContentConfiguration()
-                    content.attributedText = manager.addManaImages(someString: card.name)
-                    content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-                    cell.contentConfiguration = content
-                } else {
-                    var content = cell.defaultContentConfiguration()
-                    content.attributedText = manager.addManaImages(someString: card.name)
-                    content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-                    cell.contentConfiguration = content
+        for _ in 0...cards.count - 1 {
+                for indexSection in 0...sectionTitles.count - 1 {
+                    if card.name == sectionTitles[indexSection] {
+                        if indexPath.section == indexSection {
+                            var content = cell.defaultContentConfiguration()
+                            content.attributedText = manager.addManaImages(someString: card.name)
+                            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+                            cell.contentConfiguration = content
+                        }
+                    }
                 }
-            }
-        }
+       }
+        
+//        for inexSect in 0...sectionTitles.count {
+//            if indexPath.section == inexSect {
+//                if card.name == sectionTitles[inexSect] {
+//                    var content = cell.defaultContentConfiguration()
+//                    content.attributedText = manager.addManaImages(someString: card.name)
+//                    content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+//                    cell.contentConfiguration = content
+//                } else {
+//                    var content = cell.defaultContentConfiguration()
+//                    content.attributedText = manager.addManaImages(someString: card.name)
+//                    content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+//                    cell.contentConfiguration = content
+//                }
+//            }
+//        }
         
         return cell
     }
