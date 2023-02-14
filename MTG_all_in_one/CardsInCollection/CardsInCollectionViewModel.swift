@@ -19,6 +19,7 @@ protocol CardsInCollectionViewModelProtocol {
     func numberOfRows(section: Int) -> Int
     func titleForHeader(section: Int) -> String?
     func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol
+    func uniqueCards() -> [String] 
 }
 
 class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
@@ -29,6 +30,17 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     
     required init(collection: CardCollection) {
         self.collection = collection
+    }
+    
+    func uniqueCards() -> [String] {
+        let uniqueCards = Array(Set(collection.cards))
+        var namesArray = [String]()
+        
+        for card in uniqueCards {
+            namesArray.append(card.name)
+        }
+        
+        return namesArray
     }
     
     func numberOfSections() -> Int {

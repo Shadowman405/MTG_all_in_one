@@ -27,7 +27,15 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        viewModel.titleForHeader(section: section)
+        //viewModel.titleForHeader(section: section)
+        
+        let sectionTitles = viewModel.uniqueCards()
+        
+        guard sectionTitles.indices ~= section else {
+            return nil
+        }
+        
+        return sectionTitles[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
