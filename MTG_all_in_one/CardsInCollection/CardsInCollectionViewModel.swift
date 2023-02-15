@@ -11,6 +11,7 @@ protocol CardsInCollectionViewModelProtocol {
     var card: CardMTG {get}
     var selectedCard: CardMTG {get}
     var collection: CardCollection {get}
+    var filteredCollectionsArrays: [[CardMTG]] {get set}
     var editable: Bool {get set}
     
     init(collection: CardCollection)
@@ -19,7 +20,8 @@ protocol CardsInCollectionViewModelProtocol {
     func numberOfRows(section: Int) -> Int
     func titleForHeader(section: Int) -> String?
     func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol
-    func uniqueCards() -> [String] 
+    func uniqueCards() -> [String]
+    func filteredCollections(counts: Int) -> [[CardMTG]]
 }
 
 class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
@@ -27,6 +29,7 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     var card: CardMTG = CardMTG()
     var selectedCard: CardMTG = CardMTG()
     var collection: CardCollection
+    var filteredCollectionsArrays: [[CardMTG]] = []
     
     required init(collection: CardCollection) {
         self.collection = collection
@@ -41,6 +44,17 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
         }
         
         return Array(Set(namesArray))
+    }
+    
+    func filteredCollections(counts: Int) -> [[CardMTG]] {
+        for i in 0...collection.cards.count - 1 {
+            filteredCollectionsArrays.append([])
+            for j in 0...counts - 1 {
+                filteredCollectionsArrays[i].append(collection.cards[j])
+            }
+        }
+        
+        return filteredCollectionsArrays
     }
     
     func numberOfSections() -> Int {
