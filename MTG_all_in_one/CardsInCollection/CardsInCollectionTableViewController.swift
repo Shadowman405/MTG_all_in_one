@@ -44,15 +44,21 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfRows(section: section)
+        //viewModel.numberOfRows(section: section)
+        let sectionTitles = viewModel.uniqueCards()
+        let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
+        return filterArrays[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
         let cards = viewModel.collection.cards
         let sectionTitles = viewModel.uniqueCards()
+        let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
         
-        let card = cards[indexPath.row]
+        //let card = cards[indexPath.row]
+        
+        let filterCard = filterArrays[indexPath.section][indexPath.row]
         
 //        switch indexPath.section {
 //        case 0:
@@ -72,18 +78,27 @@ class CardsInCollectionTableViewController: UITableViewController {
 //            break
 //        }
         
-        for _ in 0...cards.count - 1 {
-                for indexSection in 0...sectionTitles.count - 1 {
-                    if card.name == sectionTitles[indexSection] {
-                        if indexPath.section == indexSection {
-                            var content = cell.defaultContentConfiguration()
-                            content.attributedText = manager.addManaImages(someString: card.name)
-                            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-                            cell.contentConfiguration = content
-                        }
-                    }
-                }
-       }
+//        for _ in 0...cards.count - 1 {
+//                for indexSection in 0...sectionTitles.count - 1 {
+//                    if card.name == sectionTitles[indexSection] {
+//                        if indexPath.section == indexSection {
+//                            var content = cell.defaultContentConfiguration()
+//                            content.attributedText = manager.addManaImages(someString: card.name)
+//                            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+//                            cell.contentConfiguration = content
+//                        }
+//                    }
+//                }
+//       }
+        
+        for i in 0...sectionTitles.count - 1 {
+            if sectionTitles[i] == filterCard.name {
+                var content = cell.defaultContentConfiguration()
+                content.attributedText = manager.addManaImages(someString: filterCard.name)
+                content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
+                cell.contentConfiguration = content
+            }
+        }
         
         return cell
     }
