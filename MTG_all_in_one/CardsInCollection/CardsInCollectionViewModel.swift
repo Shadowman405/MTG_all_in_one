@@ -39,6 +39,7 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
         let uniqueCards = Array(Set(collection.cards))
         var namesArray = [String]()
         
+        
         for card in uniqueCards {
             namesArray.append(card.name)
         }
