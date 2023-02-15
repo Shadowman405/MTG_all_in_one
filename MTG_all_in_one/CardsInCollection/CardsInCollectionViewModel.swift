@@ -11,7 +11,7 @@ protocol CardsInCollectionViewModelProtocol {
     var card: CardMTG {get}
     var selectedCard: CardMTG {get}
     var collection: CardCollection {get}
-    var filteredCollectionsArrays: [[CardMTG]] {get set}
+    //var filteredCollectionsArrays: [[CardMTG]] {get set}
     var editable: Bool {get set}
     
     init(collection: CardCollection)
@@ -29,7 +29,7 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     var card: CardMTG = CardMTG()
     var selectedCard: CardMTG = CardMTG()
     var collection: CardCollection
-    var filteredCollectionsArrays: [[CardMTG]] = []
+    //var filteredCollectionsArrays: [[CardMTG]] = []
     
     required init(collection: CardCollection) {
         self.collection = collection
@@ -48,13 +48,16 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     }
     
     func filteredCollections(counts: Int) -> [[CardMTG]] {
-        var titles = uniqueCards()
+        var filteredCollectionsArrays: [[CardMTG]] = []
+        let titles = uniqueCards()
+        print(counts)
         
         for i in 0...counts - 1 {
             filteredCollectionsArrays.append([])
             for j in 0...collection.cards.count - 1 {
-                if titles[i] == collection.cards[j].name{
-                    filteredCollectionsArrays[i].append(collection.cards[j])
+                var card = collection.cards[j]
+                if titles[i] == card.name{
+                    filteredCollectionsArrays[i].append(card)
                 }
             }
         }
