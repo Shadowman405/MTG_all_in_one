@@ -85,23 +85,13 @@ class CardsInCollectionTableViewController: UITableViewController {
                 }
        }
         
-//        for inexSect in 0...sectionTitles.count {
-//            if indexPath.section == inexSect {
-//                if card.name == sectionTitles[inexSect] {
-//                    var content = cell.defaultContentConfiguration()
-//                    content.attributedText = manager.addManaImages(someString: card.name)
-//                    content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-//                    cell.contentConfiguration = content
-//                } else {
-//                    var content = cell.defaultContentConfiguration()
-//                    content.attributedText = manager.addManaImages(someString: card.name)
-//                    content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-//                    cell.contentConfiguration = content
-//                }
-//            }
-//        }
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let buton = UIButton(type: .system)
+        buton.setTitle("Close", for: .normal)
+        return buton
     }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
