@@ -91,7 +91,17 @@ class CardsInCollectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let buton = UIButton(type: .system)
         buton.setTitle("Close", for: .normal)
+        
+        buton.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
         return buton
+    }
+    
+    @objc func handleExpandClose() {
+        print("Section closed")
+        let indexPaths = [IndexPath]()
+        
+        viewModel.collection.cards.removeAll()
+        tableView.deleteRows(at: indexPaths, with: .fade)
     }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
