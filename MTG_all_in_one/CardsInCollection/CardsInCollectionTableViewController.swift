@@ -27,14 +27,16 @@ class CardsInCollectionTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         //viewModel.numberOfSections()
         
-        let sectionTitles = viewModel.uniqueCards()
+        var sectionTitles = viewModel.uniqueCards()
+        sectionTitles = sectionTitles.sorted()
         return sectionTitles.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         //viewModel.titleForHeader(section: section)
         
-        let sectionTitles = viewModel.uniqueCards()
+        var sectionTitles = viewModel.uniqueCards()
+        sectionTitles = sectionTitles.sorted()
         
         guard sectionTitles.indices ~= section else {
             return nil
@@ -45,7 +47,8 @@ class CardsInCollectionTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //viewModel.numberOfRows(section: section)
-        let sectionTitles = viewModel.uniqueCards()
+        var sectionTitles = viewModel.uniqueCards()
+        sectionTitles = sectionTitles.sorted()
         let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
         return filterArrays[section].count
     }

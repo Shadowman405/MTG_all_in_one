@@ -44,18 +44,22 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
             namesArray.append(card.name)
         }
         
-        return Array(Set(namesArray))
+        namesArray = Array(Set(namesArray))
+        namesArray = namesArray.sorted()
+        
+        return namesArray
     }
     
     func filteredCollections(counts: Int) -> [[CardMTG]] {
         var filteredCollectionsArrays: [[CardMTG]] = []
-        let titles = uniqueCards()
+        var titles = uniqueCards()
+        titles = titles.sorted()
         print(counts)
         
         for i in 0...counts - 1 {
             filteredCollectionsArrays.append([])
             for j in 0...collection.cards.count - 1 {
-                var card = collection.cards[j]
+                let card = collection.cards[j]
                 if titles[i] == card.name{
                     filteredCollectionsArrays[i].append(card)
                 }
