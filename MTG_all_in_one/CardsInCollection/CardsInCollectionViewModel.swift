@@ -59,7 +59,7 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
         for i in 0...counts - 1 {
             filteredCollectionsArrays.append([])
             for j in 0...collection.cards.count - 1 {
-                let card = collection.cards[j]
+                var card = collection.cards[j]
                 if titles[i] == card.name{
                     filteredCollectionsArrays[i].append(card)
                 }
