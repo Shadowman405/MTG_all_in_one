@@ -80,7 +80,7 @@ class CardsInCollectionTableViewController: UITableViewController {
         //let cards = viewModel.collection.cards
         
         let sectionTitles = viewModel.uniqueCards()
-        let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
+        //let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
         
         //let card = cards[indexPath.row]
         let section = sections[indexPath.section]
@@ -127,13 +127,12 @@ class CardsInCollectionTableViewController: UITableViewController {
         
         if indexPath.row == 0 {
             let filterCard = section.duplicateCards[indexPath.row]
-            var cardCounter: NSMutableAttributedString = NSMutableAttributedString(string: "\(section.duplicateCards.count)")
-            
             for i in 0...sectionTitles.count - 1 {
                 if sectionTitles[i] == filterCard.name {
                     var content = cell.defaultContentConfiguration()
-                    content.attributedText = manager.addManaImages(someString: filterCard.name)
-                    content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
+                    //content.attributedText = manager.addManaImages(someString: filterCard.name)
+                    content.text = "\(filterCard.name) x\(section.duplicateCards.count)"
+                    //content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
                     cell.contentConfiguration = content
                 }
             }
