@@ -10,7 +10,7 @@ import Foundation
 class Section {
     let title: String
     let duplicateCards: [CardMTG]
-    var isOpened = false
+    var isOpened = true
     
     init(title: String, duplicateCards: [CardMTG], isOpened: Bool = false) {
         self.title = title

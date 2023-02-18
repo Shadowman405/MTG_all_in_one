@@ -13,6 +13,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     var cardCollection: CardCollection?
     var selectedCard: CardMTG?
     private var manager = NetworkManager.shared
+    private var sections = [Section]()
     
     var viewModel: CardsInCollectionViewModelProtocol!
 
@@ -21,15 +22,28 @@ class CardsInCollectionTableViewController: UITableViewController {
         let sectionTitles = viewModel.uniqueCards()
         print(sectionTitles.count)
         UIApplication.shared.isIdleTimerDisabled = false
+        
+        createSections()
+    }
+    
+    func createSections() {
+        var sectionTitles = viewModel.uniqueCards()
+        sectionTitles = sectionTitles.sorted()
+        let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
+        
+        for i in 0...sectionTitles.count - 1 {
+            sections.append(Section(title: i.description, duplicateCards: filterArrays[i]))
+        }
     }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         //viewModel.numberOfSections()
         
-        var sectionTitles = viewModel.uniqueCards()
-        sectionTitles = sectionTitles.sorted()
-        return sectionTitles.count
+//        var sectionTitles = viewModel.uniqueCards()
+//        sectionTitles = sectionTitles.sorted()
+//        return sectionTitles.count
+        sections.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -47,10 +61,18 @@ class CardsInCollectionTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //viewModel.numberOfRows(section: section)
-        var sectionTitles = viewModel.uniqueCards()
-        sectionTitles = sectionTitles.sorted()
-        let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
-        return filterArrays[section].count
+//        var sectionTitles = viewModel.uniqueCards()
+//        sectionTitles = sectionTitles.sorted()
+//        let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
+//        return filterArrays[section].count
+        
+        let section = sections[section]
+        
+        if section.isOpened{
+            return section.duplicateCards.count + 1
+        } else {
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,13 +116,25 @@ class CardsInCollectionTableViewController: UITableViewController {
 //                }
 //       }
         
-        for i in 0...sectionTitles.count - 1 {
-            if sectionTitles[i] == filterCard.name {
-                var content = cell.defaultContentConfiguration()
-                content.attributedText = manager.addManaImages(someString: filterCard.name)
-                content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
-                cell.contentConfiguration = content
+//        for i in 0...sectionTitles.count - 1 {
+//            if sectionTitles[i] == filterCard.name {
+//                var content = cell.defaultContentConfiguration()
+//                content.attributedText = manager.addManaImages(someString: filterCard.name)
+//                content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
+//                cell.contentConfiguration = content
+//            }
+//        }
+        
+        if indexPath.row == 0 {
+            for i in 0...sectionTitles.count - 1 {
+                if sectionTitles[i] == filterCard.name {
+                    var content = cell.defaultContentConfiguration()
+                    content.attributedText = manager.addManaImages(someString: filterCard.name)
+                    content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
+                    cell.contentConfiguration = content
+                }
             }
+
         }
         
         return cell
@@ -143,7 +177,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
-        performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
+        performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel) 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
