@@ -13,7 +13,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     var cardCollection: CardCollection?
     var selectedCard: CardMTG?
     private var manager = NetworkManager.shared
-    private var sections = [Section]()
+    var sections = [Section]()
     
     var viewModel: CardsInCollectionViewModelProtocol!
 
@@ -46,18 +46,18 @@ class CardsInCollectionTableViewController: UITableViewController {
         sections.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        //viewModel.titleForHeader(section: section)
-        
-        var sectionTitles = viewModel.uniqueCards()
-        sectionTitles = sectionTitles.sorted()
-        
-        guard sectionTitles.indices ~= section else {
-            return nil
-        }
-        
-        return sectionTitles[section]
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        //viewModel.titleForHeader(section: section)
+//
+//        var sectionTitles = viewModel.uniqueCards()
+//        sectionTitles = sectionTitles.sorted()
+//
+//        guard sectionTitles.indices ~= section else {
+//            return nil
+//        }
+//
+//        return sectionTitles[section]
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //viewModel.numberOfRows(section: section)
@@ -71,19 +71,19 @@ class CardsInCollectionTableViewController: UITableViewController {
         if section.isOpened{
             return section.duplicateCards.count + 1
         } else {
-            return 0
+            return 1
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
-        let cards = viewModel.collection.cards
+        //let cards = viewModel.collection.cards
+        
         let sectionTitles = viewModel.uniqueCards()
         let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
         
         //let card = cards[indexPath.row]
-        
-        let filterCard = filterArrays[indexPath.section][indexPath.row]
+        let section = sections[indexPath.section]
         
 //        switch indexPath.section {
 //        case 0:
@@ -126,6 +126,9 @@ class CardsInCollectionTableViewController: UITableViewController {
 //        }
         
         if indexPath.row == 0 {
+            let filterCard = section.duplicateCards[indexPath.row]
+            var cardCounter: NSMutableAttributedString = NSMutableAttributedString(string: "\(section.duplicateCards.count)")
+            
             for i in 0...sectionTitles.count - 1 {
                 if sectionTitles[i] == filterCard.name {
                     var content = cell.defaultContentConfiguration()
@@ -134,7 +137,16 @@ class CardsInCollectionTableViewController: UITableViewController {
                     cell.contentConfiguration = content
                 }
             }
-
+        } else {
+            let filterCard = section.duplicateCards[indexPath.row - 1]
+            for i in 0...sectionTitles.count - 1 {
+                if sectionTitles[i] == filterCard.name {
+                    var content = cell.defaultContentConfiguration()
+                    content.attributedText = manager.addManaImages(someString: filterCard.name)
+                    content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
+                    cell.contentConfiguration = content
+                }
+            }
         }
         
         return cell
@@ -176,8 +188,12 @@ class CardsInCollectionTableViewController: UITableViewController {
     //MARK: - Segue Logic
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
-        performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel) 
+        tableView.deselectRow(at: indexPath, animated: true)
+        sections[indexPath.section].isOpened = !sections[indexPath.section].isOpened
+        tableView.reloadSections([indexPath.section], with: .automatic)
+        
+        //let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
+        //performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
