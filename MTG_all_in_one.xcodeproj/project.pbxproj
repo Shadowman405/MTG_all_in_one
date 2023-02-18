@@ -30,6 +30,7 @@
 		BF4B01B3298C5334005865AF /* CardCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01B2298C5334005865AF /* CardCollectionCellViewModel.swift */; };
 		BF4B01B6298FEC62005865AF /* CardsInCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01B5298FEC62005865AF /* CardsInCollectionViewModel.swift */; };
 		BF4B01B92992E12C005865AF /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01B82992E12C005865AF /* CollectionsViewModel.swift */; };
+		BF4B01BB29A119FF005865AF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01BA29A119FF005865AF /* Section.swift */; };
 		BFDAFD582985AAF600D018B3 /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */; };
 		BFDAFD5B298709B800D018B3 /* CardsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */; };
 		BFDAFD5E298719BE00D018B3 /* SaveCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD5D298719BE00D018B3 /* SaveCardViewModel.swift */; };
@@ -62,6 +63,7 @@
 		BF4B01B2298C5334005865AF /* CardCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		BF4B01B5298FEC62005865AF /* CardsInCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsInCollectionViewModel.swift; sourceTree = "<group>"; };
 		BF4B01B82992E12C005865AF /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
+		BF4B01BA29A119FF005865AF /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD5D298719BE00D018B3 /* SaveCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCardViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				BF1417D429228700000B041E /* Card.swift */,
 				BF1417E6292585AD000B041E /* Collection.swift */,
+				BF4B01BA29A119FF005865AF /* Section.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				BF1417D32922869E000B041E /* CardsCollectionViewController.swift in Sources */,
 				BF1417BF29228606000B041E /* SceneDelegate.swift in Sources */,
 				BF4B01B92992E12C005865AF /* CollectionsViewModel.swift in Sources */,
+				BF4B01BB29A119FF005865AF /* Section.swift in Sources */,
 				BF1417E129242A89000B041E /* MainViewController.swift in Sources */,
 				BF141817293B913A000B041E /* CardsInCollectionTableViewController.swift in Sources */,
 				BF1417D829228748000B041E /* CardCollectionViewCell.swift in Sources */,
