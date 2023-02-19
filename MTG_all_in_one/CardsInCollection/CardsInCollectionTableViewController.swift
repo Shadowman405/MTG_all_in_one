@@ -79,7 +79,7 @@ class CardsInCollectionTableViewController: UITableViewController {
                 return 1
             }
         } else {
-            return 1
+            return viewModel.collection.cards.count
         }
     }
     
@@ -133,27 +133,35 @@ class CardsInCollectionTableViewController: UITableViewController {
 //            }
 //        }
         
-        if indexPath.row == 0 {
-            let filterCard = section.duplicateCards[indexPath.row]
-            for i in 0...sectionTitles.count - 1 {
-                if sectionTitles[i] == filterCard.name {
-                    var content = cell.defaultContentConfiguration()
-                    //content.attributedText = manager.addManaImages(someString: filterCard.name)
-                    content.text = "\(filterCard.name) x\(section.duplicateCards.count)"
-                    //content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
-                    cell.contentConfiguration = content
+        if viewModel.editable {
+            if indexPath.row == 0 {
+                let filterCard = section.duplicateCards[indexPath.row]
+                for i in 0...sectionTitles.count - 1 {
+                    if sectionTitles[i] == filterCard.name {
+                        var content = cell.defaultContentConfiguration()
+                        //content.attributedText = manager.addManaImages(someString: filterCard.name)
+                        content.text = "\(filterCard.name) x\(section.duplicateCards.count)"
+                        //content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
+                        cell.contentConfiguration = content
+                    }
+                }
+            } else {
+                let filterCard = section.duplicateCards[indexPath.row - 1]
+                for i in 0...sectionTitles.count - 1 {
+                    if sectionTitles[i] == filterCard.name {
+                        var content = cell.defaultContentConfiguration()
+                        content.attributedText = manager.addManaImages(someString: filterCard.name)
+                        content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
+                        cell.contentConfiguration = content
+                    }
                 }
             }
         } else {
-            let filterCard = section.duplicateCards[indexPath.row - 1]
-            for i in 0...sectionTitles.count - 1 {
-                if sectionTitles[i] == filterCard.name {
-                    var content = cell.defaultContentConfiguration()
-                    content.attributedText = manager.addManaImages(someString: filterCard.name)
-                    content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
-                    cell.contentConfiguration = content
-                }
-            }
+            let card = viewModel.collection.cards[indexPath.row]
+            var content = cell.defaultContentConfiguration()
+            content.attributedText = manager.addManaImages(someString: card.name)
+            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
+            cell.contentConfiguration = content
         }
         
         return cell
