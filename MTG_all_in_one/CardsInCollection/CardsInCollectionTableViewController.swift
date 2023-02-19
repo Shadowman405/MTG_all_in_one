@@ -72,8 +72,12 @@ class CardsInCollectionTableViewController: UITableViewController {
         
         let section = sections[section]
         
-        if section.isOpened{
-            return section.duplicateCards.count + 1
+        if viewModel.editable {
+            if section.isOpened{
+                return section.duplicateCards.count + 1
+            } else {
+                return 1
+            }
         } else {
             return 1
         }
