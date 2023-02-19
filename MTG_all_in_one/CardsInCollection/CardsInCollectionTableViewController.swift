@@ -43,7 +43,11 @@ class CardsInCollectionTableViewController: UITableViewController {
 //        var sectionTitles = viewModel.uniqueCards()
 //        sectionTitles = sectionTitles.sorted()
 //        return sectionTitles.count
-        sections.count
+        if viewModel.editable {
+            return sections.count
+        } else {
+           return 1
+        }
     }
     
 //    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
