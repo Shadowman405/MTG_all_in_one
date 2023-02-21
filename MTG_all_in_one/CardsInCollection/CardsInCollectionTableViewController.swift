@@ -28,11 +28,16 @@ class CardsInCollectionTableViewController: UITableViewController {
     
     func createSections() {
         var sectionTitles = viewModel.uniqueCards()
-        sectionTitles = sectionTitles.sorted()
-        let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
         
-        for i in 0...sectionTitles.count - 1 {
-            sections.append(Section(title: i.description, duplicateCards: filterArrays[i]))
+        if sectionTitles.count != 0 {
+            sectionTitles = sectionTitles.sorted()
+            let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
+            
+            for i in 0...sectionTitles.count - 1 {
+                sections.append(Section(title: i.description, duplicateCards: filterArrays[i]))
+            }
+        } else {
+            sections = []
         }
     }
 
@@ -82,6 +87,7 @@ class CardsInCollectionTableViewController: UITableViewController {
             return viewModel.collection.cards.count
         }
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
