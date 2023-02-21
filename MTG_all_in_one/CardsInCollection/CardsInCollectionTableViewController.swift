@@ -139,9 +139,7 @@ class CardsInCollectionTableViewController: UITableViewController {
                 for i in 0...sectionTitles.count - 1 {
                     if sectionTitles[i] == filterCard.name {
                         var content = cell.defaultContentConfiguration()
-                        //content.attributedText = manager.addManaImages(someString: filterCard.name)
                         content.text = "\(filterCard.name) x\(section.duplicateCards.count)"
-                        //content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
                         cell.contentConfiguration = content
                     }
                 }
@@ -193,12 +191,18 @@ class CardsInCollectionTableViewController: UITableViewController {
         if table.isEditing {
             table.isEditing = false
             viewModel.editable = true
-            tableView.reloadData()
+            updateSectionData()
         } else {
             table.isEditing = true
             viewModel.editable = false
-            tableView.reloadData()
+            updateSectionData()
         }
+    }
+    
+    private func updateSectionData() {
+        sections = []
+        createSections()
+        tableView.reloadData()
     }
     
     //MARK: - Segue Logic
