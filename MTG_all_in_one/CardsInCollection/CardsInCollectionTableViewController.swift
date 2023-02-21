@@ -184,6 +184,7 @@ class CardsInCollectionTableViewController: UITableViewController {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
+        tableView.reloadData()
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
