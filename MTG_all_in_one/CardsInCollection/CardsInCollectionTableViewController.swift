@@ -175,11 +175,15 @@ class CardsInCollectionTableViewController: UITableViewController {
         return true
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         try! viewModel.collection.realm!.write {
             viewModel.collection.cards.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
         }
     }
+    
+    
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [self] _, _, _ in
@@ -218,8 +222,8 @@ class CardsInCollectionTableViewController: UITableViewController {
         sections[indexPath.section].isOpened = !sections[indexPath.section].isOpened
         tableView.reloadSections([indexPath.section], with: .automatic)
         
-        //let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
-        //performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
+        let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
+        performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
