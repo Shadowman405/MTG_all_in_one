@@ -218,6 +218,8 @@ class CardsInCollectionTableViewController: UITableViewController {
     //MARK: - Segue Logic
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         if indexPath.row == 0 {
             tableView.deselectRow(at: indexPath, animated: true)
             sections[indexPath.section].isOpened = !sections[indexPath.section].isOpened
@@ -225,7 +227,11 @@ class CardsInCollectionTableViewController: UITableViewController {
         } else {
             switch indexPath.section {
             default:
-                let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
+                let section = sections[indexPath.section]
+                let filterCard = section.duplicateCards[indexPath.row - 1]
+                
+                //let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
+                let detailsCardViewModel = CardDetailsViewModel(card: filterCard)
                 performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
             }
         }
