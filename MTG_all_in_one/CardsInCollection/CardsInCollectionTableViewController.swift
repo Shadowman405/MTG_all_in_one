@@ -223,9 +223,11 @@ class CardsInCollectionTableViewController: UITableViewController {
             sections[indexPath.section].isOpened = !sections[indexPath.section].isOpened
             tableView.reloadSections([indexPath.section], with: .automatic)
         } else {
-            print("row \(indexPath.row)")
-            let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
-            performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
+            switch indexPath.section {
+            default:
+                let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
+                performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
+            }
         }
         
 //        switch indexPath.section {
