@@ -127,19 +127,13 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
 //        default:
 //            return CardDetailsViewModel(card: collection.cards[indexPath.row])
 //        }
-        let cards = collection.cards
-        selectedCard = cards[indexPath.row]
-        return CardDetailsViewModel(card: selectedCard)
+        var cards = collection.cards
+        var sortedCards = cards.sorted(by: {$0.name < $1.name})
+        selectedCard = sortedCards[indexPath.row]
         
-//        switch indexPath.section {
-//        case 0:
-//            selectedCard = collection.cards[indexPath.row]
-//            return CardDetailsViewModel(card: selectedCard)
-//        case 1:
-//            selectedCard = mapedCards[indexPath.row]
-//            return CardDetailsViewModel(card: selectedCard)
-//        default:
-//            return CardDetailsViewModel(card: collection.cards[indexPath.row])
-//        }
+        switch indexPath.section {
+        default:
+            return CardDetailsViewModel(card: selectedCard)
+        }
     }
 }

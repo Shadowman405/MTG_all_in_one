@@ -218,12 +218,26 @@ class CardsInCollectionTableViewController: UITableViewController {
     //MARK: - Segue Logic
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        sections[indexPath.section].isOpened = !sections[indexPath.section].isOpened
-        tableView.reloadSections([indexPath.section], with: .automatic)
+        if indexPath.row == 0 {
+            tableView.deselectRow(at: indexPath, animated: true)
+            sections[indexPath.section].isOpened = !sections[indexPath.section].isOpened
+            tableView.reloadSections([indexPath.section], with: .automatic)
+        } else {
+            print("row \(indexPath.row)")
+            let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
+            performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
+        }
         
-        let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
-        performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
+//        switch indexPath.section {
+//        default:
+//            let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
+//            performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
+//        }
+//
+        
+//        print("row \(indexPath.row)")
+//        let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
+//        performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
