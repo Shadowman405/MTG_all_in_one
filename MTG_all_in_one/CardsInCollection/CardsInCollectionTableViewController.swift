@@ -20,7 +20,6 @@ class CardsInCollectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let sectionTitles = viewModel.uniqueCards()
-        print(sectionTitles.count)
         UIApplication.shared.isIdleTimerDisabled = false
         
         createSections()
