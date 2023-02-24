@@ -10,7 +10,6 @@ import UIKit
 class CardsInCollectionTableViewController: UITableViewController {
     
     @IBOutlet var table: UITableView!
-    var cardCollection: CardCollection?
     var selectedCard: CardMTG?
     private var manager = NetworkManager.shared
     
@@ -18,25 +17,14 @@ class CardsInCollectionTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let sectionTitles = viewModel.uniqueCards()
         UIApplication.shared.isIdleTimerDisabled = false
         
-        //createSections()
         viewModel.createSections()
     }
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        //viewModel.numberOfSections()
-        
-//        var sectionTitles = viewModel.uniqueCards()
-//        sectionTitles = sectionTitles.sorted()
-//        return sectionTitles.count
-        if viewModel.editable {
-            return viewModel.sections.count
-        } else {
-           return 1
-        }
+        viewModel.numberOfSections()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

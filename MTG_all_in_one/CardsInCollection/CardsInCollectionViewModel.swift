@@ -74,7 +74,7 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     
     func numberOfSections() -> Int {
         if editable {
-            return 2
+            return sections.count
         } else {
             return 1
         }
