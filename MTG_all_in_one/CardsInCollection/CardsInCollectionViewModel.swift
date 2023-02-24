@@ -13,6 +13,7 @@ protocol CardsInCollectionViewModelProtocol {
     var collection: CardCollection {get}
     //var filteredCollectionsArrays: [[CardMTG]] {get set}
     var editable: Bool {get set}
+    var sections: [Section] {get set}
     
     init(collection: CardCollection)
     
@@ -22,6 +23,7 @@ protocol CardsInCollectionViewModelProtocol {
     func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol
     func uniqueCards() -> [String]
     func filteredCollections(counts: Int) -> [[CardMTG]]
+    func createSections()
 }
 
 class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
@@ -29,6 +31,7 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     var card: CardMTG = CardMTG()
     var selectedCard: CardMTG = CardMTG()
     var collection: CardCollection
+    var sections: [Section] = []
     //var filteredCollectionsArrays: [[CardMTG]] = []
     
     required init(collection: CardCollection) {
@@ -111,6 +114,21 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
             }
         } else {
             return collection.cards.count
+        }
+    }
+    
+    func createSections() {
+        var sectionTitles = uniqueCards()
+        
+        if sectionTitles.count != 0 {
+            sectionTitles = sectionTitles.sorted()
+            let filterArrays = filteredCollections(counts: sectionTitles.count)
+            
+            for i in 0...sectionTitles.count - 1 {
+                sections.append(Section(title: i.description, duplicateCards: filterArrays[i]))
+            }
+        } else {
+            sections = []
         }
     }
     

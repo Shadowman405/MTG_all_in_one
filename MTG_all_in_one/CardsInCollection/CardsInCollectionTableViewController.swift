@@ -13,7 +13,6 @@ class CardsInCollectionTableViewController: UITableViewController {
     var cardCollection: CardCollection?
     var selectedCard: CardMTG?
     private var manager = NetworkManager.shared
-    var sections = [Section]()
     
     var viewModel: CardsInCollectionViewModelProtocol!
 
@@ -22,22 +21,8 @@ class CardsInCollectionTableViewController: UITableViewController {
         let sectionTitles = viewModel.uniqueCards()
         UIApplication.shared.isIdleTimerDisabled = false
         
-        createSections()
-    }
-    
-    func createSections() {
-        var sectionTitles = viewModel.uniqueCards()
-        
-        if sectionTitles.count != 0 {
-            sectionTitles = sectionTitles.sorted()
-            let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
-            
-            for i in 0...sectionTitles.count - 1 {
-                sections.append(Section(title: i.description, duplicateCards: filterArrays[i]))
-            }
-        } else {
-            sections = []
-        }
+        //createSections()
+        viewModel.createSections()
     }
 
     // MARK: - Table view data source
@@ -48,24 +33,11 @@ class CardsInCollectionTableViewController: UITableViewController {
 //        sectionTitles = sectionTitles.sorted()
 //        return sectionTitles.count
         if viewModel.editable {
-            return sections.count
+            return viewModel.sections.count
         } else {
            return 1
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        //viewModel.titleForHeader(section: section)
-//
-//        var sectionTitles = viewModel.uniqueCards()
-//        sectionTitles = sectionTitles.sorted()
-//
-//        guard sectionTitles.indices ~= section else {
-//            return nil
-//        }
-//
-//        return sectionTitles[section]
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //viewModel.numberOfRows(section: section)
@@ -74,7 +46,7 @@ class CardsInCollectionTableViewController: UITableViewController {
 //        let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
 //        return filterArrays[section].count
         
-        let section = sections[section]
+        let section = viewModel.sections[section]
         
         if viewModel.editable {
             if section.isOpened{
@@ -96,7 +68,7 @@ class CardsInCollectionTableViewController: UITableViewController {
         //let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
         
         //let card = cards[indexPath.row]
-        let section = sections[indexPath.section]
+        let section = viewModel.sections[indexPath.section]
         
 //        switch indexPath.section {
 //        case 0:
@@ -209,8 +181,9 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
     
     private func updateSectionData() {
-        sections = []
-        createSections()
+        viewModel.sections = []
+        
+        viewModel.createSections()
         tableView.reloadData()
     }
     
@@ -221,12 +194,12 @@ class CardsInCollectionTableViewController: UITableViewController {
         
         if indexPath.row == 0 {
             tableView.deselectRow(at: indexPath, animated: true)
-            sections[indexPath.section].isOpened = !sections[indexPath.section].isOpened
+            viewModel.sections[indexPath.section].isOpened = !viewModel.sections[indexPath.section].isOpened
             tableView.reloadSections([indexPath.section], with: .automatic)
         } else {
             switch indexPath.section {
             default:
-                let section = sections[indexPath.section]
+                let section = viewModel.sections[indexPath.section]
                 let filterCard = section.duplicateCards[indexPath.row - 1]
                 
                 //let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
