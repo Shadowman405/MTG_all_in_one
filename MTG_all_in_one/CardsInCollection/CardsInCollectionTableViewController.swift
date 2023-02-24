@@ -10,9 +10,7 @@ import UIKit
 class CardsInCollectionTableViewController: UITableViewController {
     
     @IBOutlet var table: UITableView!
-    var selectedCard: CardMTG?
     private var manager = NetworkManager.shared
-    
     var viewModel: CardsInCollectionViewModelProtocol!
 
     override func viewDidLoad() {
