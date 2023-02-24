@@ -19,7 +19,6 @@ protocol CardsInCollectionViewModelProtocol {
     
     func numberOfSections() -> Int
     func numberOfRows(section: Int) -> Int
-    func titleForHeader(section: Int) -> String?
     func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol
     func uniqueCards() -> [String]
     func filteredCollections(counts: Int) -> [[CardMTG]]
@@ -80,37 +79,14 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
         }
     }
     
-    func titleForHeader(section: Int) -> String? {
-        if editable {
-            if section == 0 {
-                return "Main Deck"
-            } else {
-                return "Side Deck"
-            }
-        } else {
-            if section == 0 {
-                return "\(collection.collectionName)"
-            } else {
-                return "Deck"
-            }
-        }
-    }
-    
-    
     func numberOfRows(section: Int) -> Int {
+        let section = sections[section]
+        
         if editable {
-            if section == 0 {
-                if (collection.cards.count) <= 59{
-                    return collection.cards.count
-                } else {
-                    return collection.cards[0...59].count
-                }
+            if section.isOpened{
+                return section.duplicateCards.count + 1
             } else {
-                if (collection.cards.count) > 59 {
-                    return collection.cards[59...collection.cards.count - 1].count
-                } else {
-                    return 0
-                }
+                return 1
             }
         } else {
             return collection.cards.count

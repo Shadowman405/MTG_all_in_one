@@ -28,75 +28,14 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //viewModel.numberOfRows(section: section)
-//        var sectionTitles = viewModel.uniqueCards()
-//        sectionTitles = sectionTitles.sorted()
-//        let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
-//        return filterArrays[section].count
-        
-        let section = viewModel.sections[section]
-        
-        if viewModel.editable {
-            if section.isOpened{
-                return section.duplicateCards.count + 1
-            } else {
-                return 1
-            }
-        } else {
-            return viewModel.collection.cards.count
-        }
+        viewModel.numberOfRows(section: section)
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
-        //let cards = viewModel.collection.cards
-        
         let sectionTitles = viewModel.uniqueCards()
-        //let filterArrays = viewModel.filteredCollections(counts: sectionTitles.count)
-        
-        //let card = cards[indexPath.row]
         let section = viewModel.sections[indexPath.section]
-        
-//        switch indexPath.section {
-//        case 0:
-//            let card = cards[indexPath.row]
-//            var content = cell.defaultContentConfiguration()
-//            content.attributedText = manager.addManaImages(someString: card.name)
-//            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-//            cell.contentConfiguration = content
-//        case 1:
-//            let mapedCards = cards.enumerated().filter { $0.offset >= 59 && $0.offset <= viewModel.collection.cards.count - 1 }.map { $0.element }
-//            let card = mapedCards[indexPath.row]
-//            var content = cell.defaultContentConfiguration()
-//            content.attributedText = manager.addManaImages(someString: card.name)
-//            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-//            cell.contentConfiguration = content
-//        default:
-//            break
-//        }
-        
-//        for _ in 0...cards.count - 1 {
-//                for indexSection in 0...sectionTitles.count - 1 {
-//                    if card.name == sectionTitles[indexSection] {
-//                        if indexPath.section == indexSection {
-//                            var content = cell.defaultContentConfiguration()
-//                            content.attributedText = manager.addManaImages(someString: card.name)
-//                            content.secondaryAttributedText = manager.addManaImages(someString: card.manaCost)
-//                            cell.contentConfiguration = content
-//                        }
-//                    }
-//                }
-//       }
-        
-//        for i in 0...sectionTitles.count - 1 {
-//            if sectionTitles[i] == filterCard.name {
-//                var content = cell.defaultContentConfiguration()
-//                content.attributedText = manager.addManaImages(someString: filterCard.name)
-//                content.secondaryAttributedText = manager.addManaImages(someString: filterCard.manaCost)
-//                cell.contentConfiguration = content
-//            }
-//        }
         
         if viewModel.editable {
             if indexPath.row == 0 {
@@ -135,14 +74,11 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
     
     
-    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         try! viewModel.collection.realm!.write {
             viewModel.collection.cards.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
         }
     }
-    
-    
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [self] _, _, _ in
@@ -152,7 +88,7 @@ class CardsInCollectionTableViewController: UITableViewController {
             }
         }
         tableView.reloadData()
-        
+
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
@@ -170,7 +106,6 @@ class CardsInCollectionTableViewController: UITableViewController {
     
     private func updateSectionData() {
         viewModel.sections = []
-        
         viewModel.createSections()
         tableView.reloadData()
     }
@@ -195,17 +130,6 @@ class CardsInCollectionTableViewController: UITableViewController {
                 performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
             }
         }
-        
-//        switch indexPath.section {
-//        default:
-//            let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
-//            performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
-//        }
-//
-        
-//        print("row \(indexPath.row)")
-//        let detailsCardViewModel = viewModel.detailsViewModel(at: indexPath)
-//        performSegue(withIdentifier: "toCardDetails", sender: detailsCardViewModel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -216,5 +140,4 @@ class CardsInCollectionTableViewController: UITableViewController {
             }
         }
     }
-
 }
