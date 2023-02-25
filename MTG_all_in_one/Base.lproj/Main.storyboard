@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mtg_green" translatesAutoresizingMaskIntoConstraints="NO" id="Txn-C1-01S">
-                                <rect key="frame" x="0.0" y="-12" width="398" height="881"/>
+                                <rect key="frame" x="0.0" y="-12" width="390" height="881"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-Vd-1dM">
@@ -470,7 +470,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jyt-pY-5nX"/>
+        <segue reference="EVw-KN-kih"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="mtg_green" width="563" height="789"/>
