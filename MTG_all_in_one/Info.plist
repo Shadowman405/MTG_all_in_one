@@ -30,6 +30,8 @@
 	<dict>
 		<key>UIColorName</key>
 		<string>launch-screen-bck</string>
+		<key>UIImageName</key>
+		<string>launch-screen-logo</string>
 	</dict>
 </dict>
 </plist>
