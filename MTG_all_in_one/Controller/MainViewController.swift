@@ -9,6 +9,11 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var cardsLbl: UIButton!
+    @IBOutlet weak var collectionLbl: UIButton!
+    @IBOutlet weak var hpLbl: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

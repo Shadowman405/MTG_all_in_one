@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mtg_green" translatesAutoresizingMaskIntoConstraints="NO" id="Txn-C1-01S">
-                                <rect key="frame" x="0.0" y="-12" width="390" height="881"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mtg_green" translatesAutoresizingMaskIntoConstraints="NO" id="Txn-C1-01S">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-Vd-1dM">
                                 <rect key="frame" x="152" y="314" width="94" height="48"/>
@@ -60,8 +59,19 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H2e-fc-yO8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Txn-C1-01S" firstAttribute="leading" secondItem="H2e-fc-yO8" secondAttribute="leading" id="2tP-hC-f1j"/>
+                            <constraint firstItem="Txn-C1-01S" firstAttribute="trailing" secondItem="H2e-fc-yO8" secondAttribute="trailing" id="JjP-eG-GUt"/>
+                            <constraint firstAttribute="bottom" secondItem="Txn-C1-01S" secondAttribute="bottom" id="WK8-Hf-Qka"/>
+                            <constraint firstItem="Txn-C1-01S" firstAttribute="top" secondItem="UcL-wm-gX8" secondAttribute="top" id="yrS-rr-G6s"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8BY-rG-btd"/>
+                    <connections>
+                        <outlet property="cardsLbl" destination="l9R-Vd-1dM" id="Qhn-BD-Tia"/>
+                        <outlet property="collectionLbl" destination="uoJ-Yu-cFw" id="EHD-iM-m6S"/>
+                        <outlet property="hpLbl" destination="sGZ-lb-bQe" id="sxW-vJ-Ub8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4z-15-0q8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
