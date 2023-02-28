@@ -16,6 +16,21 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
     }
 
+    func setupUI(){
+        collectionLbl.translatesAutoresizingMaskIntoConstraints = false
+        collectionLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        collectionLbl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        hpLbl.translatesAutoresizingMaskIntoConstraints = false
+        hpLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        hpLbl.topAnchor.constraint(equalTo: collectionLbl.bottomAnchor, constant: 30).isActive = true
+        
+        cardsLbl.translatesAutoresizingMaskIntoConstraints = false
+        cardsLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cardsLbl.bottomAnchor.constraint(equalTo: collectionLbl.topAnchor, constant: -30).isActive = true
+    }
 }
