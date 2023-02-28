@@ -66,5 +66,13 @@ class CardDetailsViewController: UIViewController {
             }
         }
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return .portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }
 
