@@ -36,7 +36,7 @@ class NetworkManager {
         guard let manaCost = someString else {return NSMutableAttributedString()}
         let imagesDict: [String:String] = ["{W}":"W", "{R}":"R","{B}":"B","{G}":"G","{U}":"U", "{1}":"One", "{2}":"Two", "{3}":"Three",
                                            "{4}":"Four", "{5}":"Five", "{6}":"Six", "{7}":"Seven", "{8}":"Eight", "{9}":"Nine", "{0}":"Zero",
-                                           "{T}":"T_2nd", "{G/W}":"GW", "{G/U}":"GU", "{W/B}":"WB", "{W/U}":"WU", "{X}":"X"]
+                                           "{T}":"T_2nd", "{G/W}":"GW", "{G/U}":"GU", "{W/B}":"WB", "{W/U}":"WU", "{X}":"X", "{U/B}":"UB", "{B/R}":"BR", "{R/G}":"RG", "{U/R}":"UR", "{B/G}":"BG", "{R/W}":"RW"]
         let fullString = NSMutableAttributedString(string: manaCost)
         
         for (imageTag, imageName) in imagesDict {
