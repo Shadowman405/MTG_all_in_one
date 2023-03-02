@@ -13,15 +13,19 @@ final class HapticManager {
     private init() {}
     
     public func selectionVibrate() {
-        let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
-        selectionFeedbackGenerator.prepare()
-        selectionFeedbackGenerator.selectionChanged()
+        DispatchQueue.main.async {
+            let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+            selectionFeedbackGenerator.prepare()
+            selectionFeedbackGenerator.selectionChanged()
+        }
     }
     
-    public func vibrate(for type: String) {
-        let notificationGenerator = UINotificationFeedbackGenerator()
-        notificationGenerator.prepare()
-        notificationGenerator.notificationOccurred(.success)
+    public func vibrate(for type: UINotificationFeedbackGenerator.FeedbackType) {
+        DispatchQueue.main.async {
+            let notificationGenerator = UINotificationFeedbackGenerator()
+            notificationGenerator.prepare()
+            notificationGenerator.notificationOccurred(type)
+        }
     }
 }
 
