@@ -20,6 +20,7 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     private var magicSchools = ["Red","Green","Blue","White","Black"]
     var pickerView = UIPickerView()
+    let manager = HapticManager.shared
     var selectedValue = ""
     
 
@@ -65,6 +66,7 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if Int(greenHP) != 0 {
             greenHP = String((Int(greenHP) ?? 0) - 1)
             greenHPLbl.text = greenHP
+            manager.vibrate(for: .success)
         } else {
             alertMessage()
         }
@@ -75,6 +77,7 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if Int(greenHP) != 0 {
             greenHP = String((Int(greenHP) ?? 0) + 1)
             greenHPLbl.text = greenHP
+            manager.vibrate(for: .success)
         }
     }
     
@@ -84,6 +87,7 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if Int(redHP) != 0 {
             redHP = String((Int(redHP) ?? 0) - 1)
             redHPLbl.text = redHP
+            manager.vibrate(for: .success)
         } else {
             alertMessage()
         }
@@ -94,6 +98,7 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if Int(redHP) != 0 {
             redHP = String((Int(redHP) ?? 0) + 1)
             redHPLbl.text = redHP
+            manager.vibrate(for: .success)
         }
     }
 }
