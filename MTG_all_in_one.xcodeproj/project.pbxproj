@@ -32,6 +32,7 @@
 		BF4B01B92992E12C005865AF /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01B82992E12C005865AF /* CollectionsViewModel.swift */; };
 		BF4B01BB29A119FF005865AF /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B01BA29A119FF005865AF /* Section.swift */; };
 		BF4CBB9229B13A0D00EC5626 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBB9129B13A0D00EC5626 /* HapticManager.swift */; };
+		BF4CBB9529B399DC00EC5626 /* AdvancedSearcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBB9429B399DC00EC5626 /* AdvancedSearcViewController.swift */; };
 		BFDAFD582985AAF600D018B3 /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */; };
 		BFDAFD5B298709B800D018B3 /* CardsCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */; };
 		BFDAFD5E298719BE00D018B3 /* SaveCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAFD5D298719BE00D018B3 /* SaveCardViewModel.swift */; };
@@ -66,6 +67,7 @@
 		BF4B01B82992E12C005865AF /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
 		BF4B01BA29A119FF005865AF /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		BF4CBB9129B13A0D00EC5626 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		BF4CBB9429B399DC00EC5626 /* AdvancedSearcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSearcViewController.swift; sourceTree = "<group>"; };
 		BFDAFD572985AAF600D018B3 /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD5A298709B800D018B3 /* CardsCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewModel.swift; sourceTree = "<group>"; };
 		BFDAFD5D298719BE00D018B3 /* SaveCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCardViewModel.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		BF1417BB29228606000B041E /* MTG_all_in_one */ = {
 			isa = PBXGroup;
 			children = (
+				BF4CBB9329B399A900EC5626 /* Advanced Search */,
 				BF4B01B72992E10E005865AF /* Collecttions */,
 				BF4B01B4298FEC2E005865AF /* CardsInCollection */,
 				BF4B01B1298C5303005865AF /* CardCollectionCell */,
@@ -205,6 +208,14 @@
 				BF4B01B82992E12C005865AF /* CollectionsViewModel.swift */,
 			);
 			path = Collecttions;
+			sourceTree = "<group>";
+		};
+		BF4CBB9329B399A900EC5626 /* Advanced Search */ = {
+			isa = PBXGroup;
+			children = (
+				BF4CBB9429B399DC00EC5626 /* AdvancedSearcViewController.swift */,
+			);
+			path = "Advanced Search";
 			sourceTree = "<group>";
 		};
 		BFDAFD562985AAD900D018B3 /* CardDetails */ = {
@@ -363,6 +374,7 @@
 				BF1417BD29228606000B041E /* AppDelegate.swift in Sources */,
 				BF1417DD292289AE000B041E /* CardImageView.swift in Sources */,
 				BF1417D32922869E000B041E /* CardsCollectionViewController.swift in Sources */,
+				BF4CBB9529B399DC00EC5626 /* AdvancedSearcViewController.swift in Sources */,
 				BF1417BF29228606000B041E /* SceneDelegate.swift in Sources */,
 				BF4B01B92992E12C005865AF /* CollectionsViewModel.swift in Sources */,
 				BF4B01BB29A119FF005865AF /* Section.swift in Sources */,

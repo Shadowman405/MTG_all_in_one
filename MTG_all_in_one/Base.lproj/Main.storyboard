@@ -284,6 +284,21 @@
             </objects>
             <point key="canvasLocation" x="1230.7692307692307" y="616.35071090047393"/>
         </scene>
+        <!--Advanced Searc View Controller-->
+        <scene sceneID="oM9-vR-Ejc">
+            <objects>
+                <viewController id="te8-Uw-71U" customClass="AdvancedSearcViewController" customModule="MTG_all_in_one" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rok-sZ-jaA">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mnv-kJ-OcY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hka-Um-oh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2018" y="-1541"/>
+        </scene>
         <!--Cards-->
         <scene sceneID="XVr-xB-ueB">
             <objects>
@@ -323,7 +338,15 @@
                             <outlet property="delegate" destination="fYT-pC-YE9" id="lOh-EP-g7Q"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Cards" id="DK1-tE-Wxc"/>
+                    <navigationItem key="navigationItem" title="Cards" id="DK1-tE-Wxc">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="uc7-hv-SB7">
+                            <connections>
+                                <segue destination="te8-Uw-71U" kind="popoverPresentation" popoverAnchorBarButtonItem="uc7-hv-SB7" id="EFJ-MC-Ufz">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="VA0-Qs-3Li" kind="show" identifier="toDetails" id="EVw-KN-kih"/>
                     </connections>
@@ -365,13 +388,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mana cost: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpE-4r-uGW">
-                                <rect key="frame" x="134" y="567.33333333333337" width="114" height="27.333333333333371"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mana cost: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpE-4r-uGW">
+                                <rect key="frame" x="134" y="567.33333333333337" width="246" height="27.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mana cost: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHn-pF-MTQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Mana cost: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHn-pF-MTQ">
                                 <rect key="frame" x="10" y="567.33333333333337" width="114" height="27.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                 <nil key="textColor"/>
