@@ -36,6 +36,10 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         greenHPLbl.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
     }
     
+    func setupConstraints() {
+        
+    }
+    
     
     @IBAction func editViewStyle(_ sender: Any) {
         let alert = UIAlertController(title: "Choose School", message: "", preferredStyle: .alert)
