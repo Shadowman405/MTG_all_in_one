@@ -34,10 +34,40 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         redPlsLbl.contentHorizontalAlignment = .right
         
         greenHPLbl.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        
+        setupConstraints()
     }
     
     func setupConstraints() {
+        greenMinLbl.translatesAutoresizingMaskIntoConstraints = false
+        greenPlsLbl.translatesAutoresizingMaskIntoConstraints = false
+        greenHPLbl.translatesAutoresizingMaskIntoConstraints = false
         
+        
+        redMinLbl.translatesAutoresizingMaskIntoConstraints = false
+        redPlsLbl.translatesAutoresizingMaskIntoConstraints = false
+        redHPLbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        greenMinLbl.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        greenMinLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        greenMinLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        greenMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20).isActive = true
+        
+        greenPlsLbl.topAnchor.constraint(equalTo: greenMinLbl.bottomAnchor).isActive = true
+        greenPlsLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        greenPlsLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        greenPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20).isActive = true
+        
+        
+        redMinLbl.topAnchor.constraint(equalTo: greenPlsLbl.bottomAnchor).isActive = true
+        redMinLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        redMinLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        redMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20).isActive = true
+        
+        redPlsLbl.topAnchor.constraint(equalTo: redMinLbl.bottomAnchor).isActive = true
+        redPlsLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        redPlsLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        redPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20).isActive = true
     }
     
     
