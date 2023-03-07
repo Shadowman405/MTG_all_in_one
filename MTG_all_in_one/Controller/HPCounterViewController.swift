@@ -38,41 +38,6 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         setupConstraints()
     }
     
-    func setupConstraints() {
-        
-        greenMinLbl.translatesAutoresizingMaskIntoConstraints = false
-        greenPlsLbl.translatesAutoresizingMaskIntoConstraints = false
-        greenHPLbl.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        redMinLbl.translatesAutoresizingMaskIntoConstraints = false
-        redPlsLbl.translatesAutoresizingMaskIntoConstraints = false
-        redHPLbl.translatesAutoresizingMaskIntoConstraints = false
-        
-        greenMinLbl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        greenMinLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        greenMinLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        greenMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
-        
-        greenPlsLbl.topAnchor.constraint(equalTo: greenMinLbl.bottomAnchor).isActive = true
-        greenPlsLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        greenPlsLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        greenPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
-        
-        
-        redMinLbl.bottomAnchor.constraint(equalTo: redPlsLbl.topAnchor).isActive = true
-        redMinLbl.topAnchor.constraint(equalTo: greenPlsLbl.bottomAnchor).isActive = true
-        redMinLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        redMinLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        redMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
-        
-        redPlsLbl.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        redPlsLbl.topAnchor.constraint(equalTo: redMinLbl.bottomAnchor).isActive = true
-        redPlsLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        redPlsLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        redPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
-    }
-    
     
     @IBAction func editViewStyle(_ sender: Any) {
         let alert = UIAlertController(title: "Choose School", message: "", preferredStyle: .alert)
@@ -223,5 +188,46 @@ extension HPCounterViewController {
         }))
         self.present(alert, animated: true)
         
+    }
+    
+    func setupConstraints() {
+        greenMinLbl.translatesAutoresizingMaskIntoConstraints = false
+        greenPlsLbl.translatesAutoresizingMaskIntoConstraints = false
+        greenHPLbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        redMinLbl.translatesAutoresizingMaskIntoConstraints = false
+        redPlsLbl.translatesAutoresizingMaskIntoConstraints = false
+        redHPLbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        greenMinLbl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        greenMinLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        greenMinLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        greenMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        
+        greenPlsLbl.topAnchor.constraint(equalTo: greenMinLbl.bottomAnchor).isActive = true
+        greenPlsLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        greenPlsLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        greenPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        
+        
+        redMinLbl.bottomAnchor.constraint(equalTo: redPlsLbl.topAnchor).isActive = true
+        redMinLbl.topAnchor.constraint(equalTo: greenPlsLbl.bottomAnchor).isActive = true
+        redMinLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        redMinLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        redMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        
+        redPlsLbl.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        redPlsLbl.topAnchor.constraint(equalTo: redMinLbl.bottomAnchor).isActive = true
+        redPlsLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        redPlsLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        redPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        
+        //HP label
+        greenHPLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        greenHPLbl.topAnchor.constraint(equalTo: greenMinLbl.bottomAnchor, constant: -40).isActive = true
+        
+        redHPLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        redHPLbl.topAnchor.constraint(equalTo: redMinLbl.bottomAnchor, constant: -20).isActive = true
     }
 }
