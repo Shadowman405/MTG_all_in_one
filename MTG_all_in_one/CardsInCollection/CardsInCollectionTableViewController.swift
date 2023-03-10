@@ -88,7 +88,6 @@ class CardsInCollectionTableViewController: UITableViewController {
             }
         }
         tableView.reloadData()
-        setupUI()
 
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
@@ -106,13 +105,17 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
     
     private func updateSectionData() {
+        setupUI()
         viewModel.sections = []
         viewModel.createSections()
         tableView.reloadData()
     }
     
     private func setupUI() {
-        if viewModel.numberOfSections() == 0 {
+//        if viewModel.numberOfSections() == 0 {
+//            sortBtnLbl.isHidden = true
+//        }
+        if viewModel.collection.cards.count == 0 {
             sortBtnLbl.isHidden = true
         }
     }
