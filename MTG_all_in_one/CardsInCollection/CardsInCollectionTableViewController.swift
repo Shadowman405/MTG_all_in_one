@@ -19,6 +19,7 @@ class CardsInCollectionTableViewController: UITableViewController {
         UIApplication.shared.isIdleTimerDisabled = false
         
         viewModel.createSections()
+        setupUI()
     }
 
     // MARK: - Table view data source
@@ -87,6 +88,7 @@ class CardsInCollectionTableViewController: UITableViewController {
             }
         }
         tableView.reloadData()
+        setupUI()
 
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
@@ -107,6 +109,12 @@ class CardsInCollectionTableViewController: UITableViewController {
         viewModel.sections = []
         viewModel.createSections()
         tableView.reloadData()
+    }
+    
+    private func setupUI() {
+        if viewModel.numberOfSections() == 0 {
+            sortBtnLbl.isHidden = true
+        }
     }
     
     //MARK: - Segue Logic
