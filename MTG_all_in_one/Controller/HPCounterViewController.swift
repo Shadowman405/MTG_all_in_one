@@ -26,16 +26,8 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.shared.isIdleTimerDisabled = true
-        greenMinLbl.contentHorizontalAlignment = .left
-        greenPlsLbl.contentHorizontalAlignment = .left
         
-        redMinLbl.contentHorizontalAlignment = .right
-        redPlsLbl.contentHorizontalAlignment = .right
-        
-        greenHPLbl.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-        
-        setupConstraints()
+        setupConstraintsAndUI()
     }
     
     
@@ -190,7 +182,16 @@ extension HPCounterViewController {
         
     }
     
-    func setupConstraints() {
+    func setupConstraintsAndUI() {
+        UIApplication.shared.isIdleTimerDisabled = true
+        greenMinLbl.contentHorizontalAlignment = .left
+        greenPlsLbl.contentHorizontalAlignment = .left
+        
+        redMinLbl.contentHorizontalAlignment = .right
+        redPlsLbl.contentHorizontalAlignment = .right
+        
+        greenHPLbl.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        
         greenMinLbl.translatesAutoresizingMaskIntoConstraints = false
         greenPlsLbl.translatesAutoresizingMaskIntoConstraints = false
         greenHPLbl.translatesAutoresizingMaskIntoConstraints = false
