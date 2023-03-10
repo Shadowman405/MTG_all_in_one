@@ -112,9 +112,6 @@ class CardsInCollectionTableViewController: UITableViewController {
     }
     
     private func setupUI() {
-//        if viewModel.numberOfSections() == 0 {
-//            sortBtnLbl.isHidden = true
-//        }
         if viewModel.collection.cards.count == 0 {
             sortBtnLbl.isHidden = true
         }
