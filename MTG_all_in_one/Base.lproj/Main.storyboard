@@ -211,7 +211,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SmE-Sm-Tpx">
                                 <rect key="frame" x="0.0" y="91" width="399" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.82112730479999996" blue="0.58052442169999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.96862745289999996" green="0.80392158030000005" blue="0.61960786580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="-" titleAlignment="trailing">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
@@ -402,7 +402,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KRl-AH-wNx">
-                                <rect key="frame" x="10" y="604.66666666666663" width="370" height="210.33333333333337"/>
+                                <rect key="frame" x="10" y="604.66666666666663" width="370" height="214.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -428,7 +428,6 @@
                             <constraint firstItem="dpE-4r-uGW" firstAttribute="leading" secondItem="XHn-pF-MTQ" secondAttribute="trailing" constant="10" id="WdV-y6-8c9"/>
                             <constraint firstItem="XHn-pF-MTQ" firstAttribute="top" secondItem="6Xv-hS-U31" secondAttribute="bottom" constant="10" id="Wic-g9-Aaz"/>
                             <constraint firstItem="KRl-AH-wNx" firstAttribute="top" secondItem="dpE-4r-uGW" secondAttribute="bottom" constant="10" id="aVV-sL-eap"/>
-                            <constraint firstItem="KRl-AH-wNx" firstAttribute="bottom" secondItem="S4V-sh-yw2" secondAttribute="bottom" constant="5" id="blb-rc-Yqk"/>
                             <constraint firstItem="6Xv-hS-U31" firstAttribute="top" secondItem="lu5-rg-rbw" secondAttribute="bottom" constant="10" id="fnr-Ya-k7S"/>
                             <constraint firstItem="lu5-rg-rbw" firstAttribute="leading" secondItem="S4V-sh-yw2" secondAttribute="leading" constant="10" id="fux-fR-QZM"/>
                             <constraint firstItem="KRl-AH-wNx" firstAttribute="top" secondItem="dpE-4r-uGW" secondAttribute="bottom" constant="10" id="grv-u2-anh"/>
@@ -438,6 +437,7 @@
                             <constraint firstItem="XHn-pF-MTQ" firstAttribute="leading" secondItem="S4V-sh-yw2" secondAttribute="leading" constant="10" id="m3J-kZ-dDa"/>
                             <constraint firstItem="dpE-4r-uGW" firstAttribute="top" secondItem="6Xv-hS-U31" secondAttribute="bottom" constant="10" id="nA6-UI-eaR"/>
                             <constraint firstItem="S4V-sh-yw2" firstAttribute="trailing" secondItem="6Xv-hS-U31" secondAttribute="trailing" constant="10" id="oQB-tJ-IS9"/>
+                            <constraint firstAttribute="bottom" secondItem="KRl-AH-wNx" secondAttribute="bottom" constant="25" id="u1Y-Lj-Ex1"/>
                             <constraint firstItem="S4V-sh-yw2" firstAttribute="trailing" secondItem="KRl-AH-wNx" secondAttribute="trailing" constant="10" id="xpa-ck-gKQ"/>
                         </constraints>
                     </view>

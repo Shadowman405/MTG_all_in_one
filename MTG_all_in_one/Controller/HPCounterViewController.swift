@@ -215,13 +215,13 @@ extension HPCounterViewController {
         redMinLbl.topAnchor.constraint(equalTo: greenPlsLbl.bottomAnchor).isActive = true
         redMinLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         redMinLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        redMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        redMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.24).isActive = true
         
         redPlsLbl.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         redPlsLbl.topAnchor.constraint(equalTo: redMinLbl.bottomAnchor).isActive = true
         redPlsLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         redPlsLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        redPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        redPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.23).isActive = true
         
         //HP label
         greenHPLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
