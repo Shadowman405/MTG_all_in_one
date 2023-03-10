@@ -178,6 +178,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="sortBtnLbl" destination="kiO-J6-7EI" id="dAK-GX-zKr"/>
                         <outlet property="table" destination="X07-AA-PDb" id="F5O-5q-NmM"/>
                         <segue destination="VA0-Qs-3Li" kind="show" identifier="toCardDetails" id="jyt-pY-5nX"/>
                     </connections>
@@ -528,7 +529,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EVw-KN-kih"/>
+        <segue reference="jyt-pY-5nX"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="mtg_green" width="563" height="789"/>

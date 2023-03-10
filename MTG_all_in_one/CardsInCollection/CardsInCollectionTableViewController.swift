@@ -10,6 +10,7 @@ import UIKit
 class CardsInCollectionTableViewController: UITableViewController {
     
     @IBOutlet var table: UITableView!
+    @IBOutlet weak var sortBtnLbl: UIBarButtonItem!
     private var manager = NetworkManager.shared
     var viewModel: CardsInCollectionViewModelProtocol!
 
