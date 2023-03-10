@@ -15,12 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_screen" translatesAutoresizingMaskIntoConstraints="NO" id="YJq-b7-a1e">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo_screen-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="YJq-b7-a1e">
+                                <rect key="frame" x="0.0" y="107" width="390" height="630"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="YJq-b7-a1e" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="0dS-ZM-bp4"/>
+                            <constraint firstItem="YJq-b7-a1e" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JdU-d1-ZHm"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -29,6 +32,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_screen" width="857" height="1200"/>
+        <image name="logo_screen-removebg-preview" width="422" height="591"/>
     </resources>
 </document>
