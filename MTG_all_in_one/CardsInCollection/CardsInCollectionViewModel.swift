@@ -110,25 +110,9 @@ class CardsInCollectionViewModel: CardsInCollectionViewModelProtocol {
     
     
     func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol {
-//        let mapedCards = collection.cards.enumerated().filter { $0.offset >= 59 && $0.offset <= collection.cards.count - 1 }.map { $0.element }
-//        switch indexPath.section {
-//        case 0:
-//            selectedCard = collection.cards[indexPath.row]
-//            return CardDetailsViewModel(card: selectedCard)
-//        case 1:
-//            selectedCard = mapedCards[indexPath.row]
-//            return CardDetailsViewModel(card: selectedCard)
-//        default:
-//            return CardDetailsViewModel(card: collection.cards[indexPath.row])
-//        }
         let cards = collection.cards
         let sortedCards = cards.sorted(by: {$0.name < $1.name})
         selectedCard = sortedCards[indexPath.row]
-        
-//        switch indexPath.section {
-//        default:
-//            return CardDetailsViewModel(card: selectedCard)
-//        }
         
         return CardDetailsViewModel(card: selectedCard)
     }
