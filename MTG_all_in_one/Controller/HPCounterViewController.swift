@@ -213,7 +213,6 @@ extension HPCounterViewController {
         greenPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         
         
-        redMinLbl.bottomAnchor.constraint(equalTo: redPlsLbl.topAnchor).isActive = true
         redMinLbl.topAnchor.constraint(equalTo: greenPlsLbl.bottomAnchor).isActive = true
         redMinLbl.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         redMinLbl.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
