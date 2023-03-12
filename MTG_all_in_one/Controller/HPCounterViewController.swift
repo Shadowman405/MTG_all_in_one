@@ -183,6 +183,9 @@ extension HPCounterViewController {
     }
     
     func setupConstraintsAndUI() {
+        let mainHeight = view.frame.height - view.safeAreaLayoutGuide.layoutFrame.height
+        let labelHeight = mainHeight * 0.25
+        
         UIApplication.shared.isIdleTimerDisabled = true
         greenMinLbl.contentHorizontalAlignment = .left
         greenPlsLbl.contentHorizontalAlignment = .left
@@ -204,7 +207,8 @@ extension HPCounterViewController {
         greenMinLbl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         greenMinLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         greenMinLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        greenMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        //greenMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        greenMinLbl.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
         
         greenPlsLbl.topAnchor.constraint(equalTo: greenMinLbl.bottomAnchor).isActive = true
         greenPlsLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
