@@ -93,6 +93,8 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             redHP = String((Int(redHP) ?? 0) + 1)
             redHPLbl.text = redHP
             manager.vibrate(for: .success)
+            print(greenMinLbl.frame.height)
+            print(greenPlsLbl.frame.height)
         }
     }
 }
@@ -204,16 +206,17 @@ extension HPCounterViewController {
         redPlsLbl.translatesAutoresizingMaskIntoConstraints = false
         redHPLbl.translatesAutoresizingMaskIntoConstraints = false
         
-        greenMinLbl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        greenMinLbl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         greenMinLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         greenMinLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        greenMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        //greenMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        greenMinLbl.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
         
         greenPlsLbl.topAnchor.constraint(equalTo: greenMinLbl.bottomAnchor).isActive = true
         greenPlsLbl.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         greenPlsLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        greenPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
-        
+        //greenPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        greenPlsLbl.heightAnchor.constraint(equalTo: greenMinLbl.heightAnchor, multiplier: 0).isActive = true
         
         redMinLbl.bottomAnchor.constraint(equalTo: redPlsLbl.topAnchor).isActive = true
         redMinLbl.topAnchor.constraint(equalTo: greenPlsLbl.bottomAnchor).isActive = true
