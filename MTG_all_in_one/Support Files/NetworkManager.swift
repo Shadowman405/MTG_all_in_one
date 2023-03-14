@@ -12,6 +12,10 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     let urlMTG = "https://api.magicthegathering.io/v1/cards?page=311"
+    let types = ["artifact", "conspiracy", "creature", "dragon", "elemental", "enchantment", "goblin", "hero",
+                 "instant", "jaguar", "knights", "land", "phenomenon" , "plane" , "planeswalker", "scheme",
+                 "sorcery", "stickers", "summon", "tribal", "universewalker", "vanguard", "wolf"
+    ]
     
     
     func fetchCards(url: String, with completion: @escaping ([CardMTG]) -> ()) {
