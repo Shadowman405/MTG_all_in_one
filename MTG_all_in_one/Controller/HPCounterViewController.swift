@@ -94,12 +94,6 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             redHP = String((Int(redHP) ?? 0) + 1)
             redHPLbl.text = redHP
             manager.vibrate(for: .success)
-            print(redPlsLbl.frame.height)
-            print(redMinLbl.frame.height)
-            print(greenPlsLbl.frame.height)
-            print(greenMinLbl.frame.height)
-
-            
         }
     }
 }
@@ -214,26 +208,22 @@ extension HPCounterViewController {
         greenMinLbl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         greenMinLbl.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         greenMinLbl.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        //greenMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         greenMinLbl.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
         
         greenPlsLbl.topAnchor.constraint(equalTo: greenMinLbl.bottomAnchor).isActive = true
         greenPlsLbl.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         greenPlsLbl.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        //greenPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         greenPlsLbl.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
         
         redMinLbl.topAnchor.constraint(equalTo: greenPlsLbl.bottomAnchor).isActive = true
         redMinLbl.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         redMinLbl.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        //redMinLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.24).isActive = true
         redMinLbl.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
         
         redPlsLbl.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         redPlsLbl.topAnchor.constraint(equalTo: redMinLbl.bottomAnchor).isActive = true
         redPlsLbl.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         redPlsLbl.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        //redPlsLbl.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.23).isActive = true
         redPlsLbl.heightAnchor.constraint(equalToConstant: labelHeight).isActive = true
         
         //HP label
