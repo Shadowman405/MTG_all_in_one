@@ -24,8 +24,6 @@ class NetworkManager {
     
     
     func fetchCards(url: String, with completion: @escaping ([CardMTG]) -> ()) {
-        //let url = "https://api.magicthegathering.io/v1/cards?page=311"
-        
         AF.request(url, method: .get).validate().responseJSON { responseData in
             switch responseData.result {
             case .success(let value):
