@@ -20,6 +20,8 @@ class NetworkManager {
     ]
     
     let supertypes = ["basic", "host", "legendary", "ongoing", "snow", "world"]
+    let formats = ["Alchemy", "Brawl", "Commander", "Duel", "Explorer", "Future", "Gladiator", "Historic", "Historicbrawl", "Legacy", "Modern", "Oldschool", "Pauper", "Paupercommander", "Penny", "Pioneer", "Predh", "Premodern", "Standard", "Vintage"
+      ]
     let sets = [String]() // need fetch data from API
     let subtypes = [String]() // need fetch data from API
     
