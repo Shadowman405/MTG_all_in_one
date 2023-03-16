@@ -8,5 +8,9 @@
 import Foundation
 
 class Subtypes: Codable {
-    
+    let subtypes: [String]
+
+    init(subtypes: [String]) {
+        self.subtypes = subtypes
+    }
 }
