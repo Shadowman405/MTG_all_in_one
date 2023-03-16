@@ -20,7 +20,8 @@ class NetworkManager {
     ]
     
     let supertypes = ["basic", "host", "legendary", "ongoing", "snow", "world"]
-    
+    let sets = [String]() // need fetch data from API
+    let subtypes = [String]() // need fetch data from API
     
     
     func fetchCards(url: String, with completion: @escaping ([CardMTG]) -> ()) {
