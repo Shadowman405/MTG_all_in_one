@@ -41,6 +41,7 @@ class NetworkManager {
         }
     }
     
+    
     // MARK: - Change mana cost string to images
     func addManaImages(someString: String?) -> NSMutableAttributedString {
         guard let manaCost = someString else {return NSMutableAttributedString()}

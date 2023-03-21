@@ -40,7 +40,6 @@ class CardMTG: Object, Codable {
     }
     
     
-    
     static func getAllCards(from value: Any) -> [CardMTG]? {
         guard let value = value as? [String: Any] else { return []}
         guard let results = value["cards"] as? [[String: Any]] else {return []}
