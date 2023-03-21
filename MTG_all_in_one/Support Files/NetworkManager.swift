@@ -41,6 +41,22 @@ class NetworkManager {
         }
     }
     
+    // MARK: - fetching settings for advanced searc
+    
+    func fetchSets(url: String, with completion: @escaping ([Set]) -> ()) {
+        AF.request(url, method: .get).validate().responseJSON { respaonseData in
+            switch respaonseData.result {
+            case .success(let value):
+                guard let setsData = Set.getAllSets(from: value) else {return}
+                
+                DispatchQueue.main.async {
+                    completion(setsData)
+                }
+            case .failure(let error):
+                            print(error.localizedDescription)
+            }
+        }
+    }
     
     // MARK: - Change mana cost string to images
     func addManaImages(someString: String?) -> NSMutableAttributedString {
