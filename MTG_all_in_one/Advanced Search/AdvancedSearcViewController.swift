@@ -9,6 +9,7 @@ import UIKit
 
 class AdvancedSearcViewController: UIViewController {
     
+    @IBOutlet weak var testLbl: UILabel!
     private let testUrl = "https://api.magicthegathering.io/v1/sets"
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
@@ -20,7 +21,8 @@ class AdvancedSearcViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         viewModel = AdvancedSearchViewModel()
     }
 

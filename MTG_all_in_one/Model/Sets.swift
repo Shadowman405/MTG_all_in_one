@@ -7,18 +7,18 @@
 
 import Foundation
 
-class Sets: Codable {
-    let sets: [SetMTG]
-    
-    init(sets: [SetMTG]) {
-        self.sets = sets
-    }
-}
+//class Sets: Codable {
+//    let sets: [SetMTG]
+//    
+//    init(sets: [SetMTG]) {
+//        self.sets = sets
+//    }
+//}
 
 class SetMTG: Codable {
     var code, name, type: String
     var releaseDate, block: String
-    var onlineOnly: Bool
+    //var onlineOnly: Bool
 
 //    init(code: String, name: String, type: String, releaseDate: String, block: String, onlineOnly: Bool) {
 //        self.code = code
@@ -35,7 +35,7 @@ class SetMTG: Codable {
         type = setsData["type"] as? String ?? ""
         releaseDate = setsData["releaseDate"] as? String ?? ""
         block = setsData["block"] as? String ?? ""
-        onlineOnly = setsData["onlineOnly"] as? Bool ?? false
+        //onlineOnly = setsData["onlineOnly"] as? Bool ?? false
     }
     
     static func getAllSets(from value: Any) -> [SetMTG]? {
