@@ -8,14 +8,14 @@
 import Foundation
 
 class Sets: Codable {
-    let sets: [Set]
+    let sets: [SetMTG]
     
-    init(sets: [Set]) {
+    init(sets: [SetMTG]) {
         self.sets = sets
     }
 }
 
-class Set: Codable {
+class SetMTG: Codable {
     var code, name, type: String
     var releaseDate, block: String
     var onlineOnly: Bool
@@ -38,9 +38,9 @@ class Set: Codable {
         onlineOnly = setsData["onlineOnly"] as? Bool ?? false
     }
     
-    static func getAllSets(from value: Any) -> [Set]? {
+    static func getAllSets(from value: Any) -> [SetMTG]? {
         guard let value = value as? [String: Any] else { return []}
         guard let results = value["sets"] as? [[String: Any]] else {return []}
-        return results.compactMap { Set(setsData: $0)}
+        return results.compactMap { SetMTG(setsData: $0)}
     }
 }

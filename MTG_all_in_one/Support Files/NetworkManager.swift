@@ -43,11 +43,11 @@ class NetworkManager {
     
     // MARK: - fetching settings for advanced searc
     
-    func fetchSets(url: String, with completion: @escaping ([Set]) -> ()) {
+    func fetchSets(url: String, with completion: @escaping ([SetMTG]) -> ()) {
         AF.request(url, method: .get).validate().responseJSON { respaonseData in
             switch respaonseData.result {
             case .success(let value):
-                guard let setsData = Set.getAllSets(from: value) else {return}
+                guard let setsData = SetMTG.getAllSets(from: value) else {return}
                 
                 DispatchQueue.main.async {
                     completion(setsData)
