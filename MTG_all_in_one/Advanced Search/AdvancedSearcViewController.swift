@@ -27,7 +27,7 @@ class AdvancedSearcViewController: UIViewController {
                 if viewModel.subtypesMTG.isEmpty {
                     subtypesTestLbl.text = "Waiting for data - subtypes"
                 } else {
-                    subtypesTestLbl.text = viewModel.subtypesMTG[0].subtypes[0]
+                    subtypesTestLbl.text = "\(viewModel.subtypesMTG[0].subtypes)"
                 }
             }
         }
