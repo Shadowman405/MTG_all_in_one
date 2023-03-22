@@ -13,8 +13,9 @@ class AdvancedSearcViewController: UIViewController {
     private let testUrl = "https://api.magicthegathering.io/v1/sets"
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
-            viewModel.fetchSets(url: testUrl) {
+            viewModel.fetchSets(url: testUrl) { [self] in
                 print("success")
+                testLbl.text = viewModel.setsMTG[0].name
             }
         }
     }
