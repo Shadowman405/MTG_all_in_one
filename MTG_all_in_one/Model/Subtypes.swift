@@ -13,4 +13,10 @@ class Subtypes: Codable {
     init(subtypes: [String]) {
         self.subtypes = subtypes
     }
+    
+    static func getAllSubtypes(from value: Any) -> [Subtypes]? {
+        guard let value = value as? [String] else { return []}
+        guard let results = value as? [[String]] else {return []}
+        return results.compactMap { Subtypes(subtypes: $0)}
+    }
 }

@@ -14,7 +14,6 @@ class AdvancedSearcViewController: UIViewController {
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrl) {
-                
                 print("success")
             }
         }
@@ -27,7 +26,7 @@ class AdvancedSearcViewController: UIViewController {
         viewModel = AdvancedSearchViewModel()
         
         if viewModel.setsMTG.isEmpty {
-            testLbl.text = "Waiting for data"
+            testLbl.text = "Sets - Waiting for data"
         } else {
             testLbl.text = viewModel.setsMTG[0].name
         }
