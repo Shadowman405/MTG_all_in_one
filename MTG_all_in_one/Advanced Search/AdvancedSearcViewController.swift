@@ -13,9 +13,9 @@ class AdvancedSearcViewController: UIViewController {
     private let testUrl = "https://api.magicthegathering.io/v1/sets"
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
-            viewModel.fetchSets(url: testUrl) { [self] in
+            viewModel.fetchSets(url: testUrl) {
+                
                 print("success")
-                testLbl.text = viewModel.setsMTG[0].name
             }
         }
     }
@@ -25,6 +25,13 @@ class AdvancedSearcViewController: UIViewController {
         
         
         viewModel = AdvancedSearchViewModel()
+        
+        if viewModel.setsMTG.isEmpty {
+            testLbl.text = "Waiting for data"
+        } else {
+            testLbl.text = viewModel.setsMTG[0].name
+        }
+
     }
 
 }
