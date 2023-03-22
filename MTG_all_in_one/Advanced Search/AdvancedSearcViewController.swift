@@ -10,6 +10,9 @@ import UIKit
 class AdvancedSearcViewController: UIViewController {
     
     @IBOutlet weak var testLbl: UILabel!
+    @IBOutlet weak var subtypesTestLbl: UILabel!
+    
+    
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
     private let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
     
@@ -19,8 +22,13 @@ class AdvancedSearcViewController: UIViewController {
                 print("sets success")
             }
             
-            viewModel.fetchSubtypes(url: testUrlSubtypes) {
+            viewModel.fetchSubtypes(url: testUrlSubtypes) { [self] in
                 print("subtypes success")
+                if viewModel.subtypesMTG.isEmpty {
+                    subtypesTestLbl.text = "Waiting for data - subtypes"
+                } else {
+                    subtypesTestLbl.text = viewModel.subtypesMTG[0].subtypes[0]
+                }
             }
         }
     }
