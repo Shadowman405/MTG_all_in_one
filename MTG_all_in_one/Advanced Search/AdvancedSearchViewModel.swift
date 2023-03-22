@@ -9,12 +9,15 @@ import Foundation
 
 protocol AdvancedSearchViewModelProtocol {
     var setsMTG: [SetMTG] {get}
+    var subtypesMTG: [Subtypes] {get}
     
     func fetchSets(url: String, completion: @escaping () -> Void)
+    func fetchSubtypes(url: String, completion: @escaping () -> Void)
 }
 
 class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     var setsMTG: [SetMTG] = []
+    var subtypesMTG: [Subtypes] = []
     
     func fetchSets(url: String, completion: @escaping () -> Void) {
         NetworkManager.shared.fetchSets(url: url) { sets in
@@ -23,4 +26,10 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
         }
     }
     
+    func fetchSubtypes(url: String, completion: @escaping () -> Void) {
+        NetworkManager.shared.fetchSubtypes(url: url) { subtypes in
+            self.subtypesMTG = subtypes
+            completion()
+        }
+    }
 }

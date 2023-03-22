@@ -59,7 +59,7 @@ class NetworkManager {
     }
     
     //subtypes
-    func fetchSets(url: String, with completion: @escaping ([Subtypes]) -> ()) {
+    func fetchSubtypes(url: String, with completion: @escaping ([Subtypes]) -> ()) {
         AF.request(url, method: .get).validate().responseJSON { respaonseData in
             switch respaonseData.result {
             case .success(let value):
