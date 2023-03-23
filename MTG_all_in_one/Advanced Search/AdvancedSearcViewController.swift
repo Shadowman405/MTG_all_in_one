@@ -7,10 +7,11 @@
 
 import UIKit
 
-class AdvancedSearcViewController: UIViewController {
+class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var testLbl: UILabel!
     @IBOutlet weak var subtypesTestLbl: UILabel!
+    @IBOutlet weak var setsPicker: UIPickerView!
     
     
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
@@ -20,6 +21,7 @@ class AdvancedSearcViewController: UIViewController {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
                 print("sets success")
+                self.setsPicker.reloadAllComponents()
             }
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) { [self] in
@@ -36,6 +38,8 @@ class AdvancedSearcViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setsPicker.delegate = self
+        self.setsPicker.dataSource = self
         
         viewModel = AdvancedSearchViewModel()
         
@@ -45,6 +49,17 @@ class AdvancedSearcViewController: UIViewController {
             testLbl.text = viewModel.setsMTG[0].name
         }
 
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        viewModel.setsMTG.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.setsMTG[row].name
     }
 
 }

@@ -30,7 +30,6 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     func fetchSubtypes(url: String, completion: @escaping () -> Void) {
         NetworkManager.shared.fetchSubtypes(url: url) { subtypes in
             self.subtypesMTG = subtypes
-            print("\(self.subtypesMTG[0])")
             completion()
         }
     }
