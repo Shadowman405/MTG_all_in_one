@@ -29,8 +29,8 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) { [self] in
                 print("subtypes success")
-                self.subtypesTAbleView.reloadData()
                 arrSubs = viewModel.subtypesMTG[0].subtypes
+                self.subtypesTAbleView.reloadData()
                 print(arrSubs)
             }
         }
@@ -80,10 +80,6 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         content.text = arrSubs[indexPath.row]
         cell.contentConfiguration = content
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.reloadData()
     }
     
     class TableViewCell: UITableViewCell {
