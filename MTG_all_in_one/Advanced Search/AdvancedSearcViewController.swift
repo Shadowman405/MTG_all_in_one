@@ -16,6 +16,7 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
     private let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
     
+    var arrSubs = [String]()
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
@@ -26,7 +27,8 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
             viewModel.fetchSubtypes(url: testUrlSubtypes) { [self] in
                 print("subtypes success")
                 self.subtypesPicker.reloadAllComponents()
-                print(viewModel.subtypesMTG)
+                arrSubs = viewModel.subtypesMTG[0].subtypes
+                print(arrSubs)
             }
         }
     }
@@ -46,18 +48,30 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.tag == 0 {
-            return viewModel.subtypesMTG[0].subtypes.count
+        if pickerView.tag == 1 {
+            //return viewModel.subtypesMTG[0].subtypes.count
+            return arrSubs.count
         } else {
             return viewModel.setsMTG.count
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == 0 {
-            return viewModel.subtypesMTG[0].subtypes[row]
+        if pickerView.tag == 1 {
+            return "\(arrSubs[row])"
         } else {
             return viewModel.setsMTG[row].name
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.view.endEditing(false)
+        if pickerView.tag == 1 {
+            subtypesPicker.selectRow(0, inComponent: 0, animated: true)
+            subtypesPicker.reloadAllComponents()
+        } else {
+            subtypesPicker.selectRow(0, inComponent: 0, animated: true)
+            subtypesPicker.reloadAllComponents()
         }
     }
 
