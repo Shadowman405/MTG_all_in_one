@@ -64,7 +64,7 @@ class NetworkManager {
             switch respaonseData.result {
             case .success(let value):
                 guard let subtypesData = Subtypes.getAllSubtypes(from: value) else {return}
-                
+                print("Value: \(value)")
                 DispatchQueue.main.async {
                     completion(subtypesData)
                 }
