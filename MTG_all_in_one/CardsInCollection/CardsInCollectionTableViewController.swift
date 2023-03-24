@@ -33,7 +33,7 @@ class CardsInCollectionTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) 
         let sectionTitles = viewModel.uniqueCards()
         let section = viewModel.sections[indexPath.section]
         

@@ -7,16 +7,19 @@
 
 import UIKit
 
-class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
+    
     
     @IBOutlet weak var setsPicker: UIPickerView!
     @IBOutlet weak var subtypesPicker: UIPickerView!
+    
+    @IBOutlet weak var subtypesTAbleView: UITableView!
     
     
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
     private let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
     
-    var arrSubs = [String]()
+    var arrSubs = ["card"]
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
@@ -26,7 +29,7 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) { [self] in
                 print("subtypes success")
-                self.subtypesPicker.reloadAllComponents()
+                self.subtypesTAbleView.reloadData()
                 arrSubs = viewModel.subtypesMTG[0].subtypes
                 print(arrSubs)
             }
@@ -39,8 +42,11 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.setsPicker.delegate = self
         self.setsPicker.dataSource = self
         
+        self.subtypesTAbleView.delegate = self
+        self.subtypesTAbleView.dataSource = self
+        self.subtypesTAbleView.register(TableViewCell.self, forCellReuseIdentifier: "subCell")
+        
         viewModel = AdvancedSearchViewModel()
-
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -64,15 +70,24 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.view.endEditing(false)
-        if pickerView.tag == 1 {
-            subtypesPicker.selectRow(0, inComponent: 0, animated: true)
-            subtypesPicker.reloadAllComponents()
-        } else {
-            subtypesPicker.selectRow(0, inComponent: 0, animated: true)
-            subtypesPicker.reloadAllComponents()
-        }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrSubs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        content.text = arrSubs[indexPath.row]
+        cell.contentConfiguration = content
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.reloadData()
+    }
+    
+    class TableViewCell: UITableViewCell {
+        
     }
 
 }
