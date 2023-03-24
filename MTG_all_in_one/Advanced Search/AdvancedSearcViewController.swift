@@ -26,6 +26,7 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
             viewModel.fetchSubtypes(url: testUrlSubtypes) { [self] in
                 print("subtypes success")
                 self.subtypesPicker.reloadAllComponents()
+                print(viewModel.subtypesMTG)
             }
         }
     }

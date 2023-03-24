@@ -38,7 +38,7 @@ class SetMTG: Codable {
         //onlineOnly = setsData["onlineOnly"] as? Bool ?? false
     }
     
-    static func getAllSets(from value: Any) -> [SetMTG]? {
+    static func getAllSets(from value: Any) -> [SetMTG]? { 
         guard let value = value as? [String: Any] else { return []}
         guard let results = value["sets"] as? [[String: Any]] else {return []}
         return results.compactMap { SetMTG(setsData: $0)}

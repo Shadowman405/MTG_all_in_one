@@ -15,8 +15,10 @@ class Subtypes: Codable {
     }
     
     static func getAllSubtypes(from value: Any) -> [Subtypes]? {
-        guard let value = value as? [String] else { return []}
-        guard let results = value as? [[String]] else {return []}
-        return results.compactMap { Subtypes(subtypes: $0)}
+        guard let value = value as? [String:Any] else {
+            print(value)
+            return []}
+        guard let results = value as? [Subtypes] else {return []}
+        return results
     }
 }
