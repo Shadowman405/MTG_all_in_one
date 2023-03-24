@@ -9,9 +9,8 @@ import UIKit
 
 class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var testLbl: UILabel!
-    @IBOutlet weak var subtypesTestLbl: UILabel!
     @IBOutlet weak var setsPicker: UIPickerView!
+    @IBOutlet weak var subtypesPicker: UIPickerView!
     
     
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
@@ -22,16 +21,11 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
             viewModel.fetchSets(url: testUrlSets) {
                 print("sets success")
                 self.setsPicker.reloadAllComponents()
-                self.testLbl.reloadInputViews()
             }
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) { [self] in
                 print("subtypes success")
-                if viewModel.subtypesMTG.isEmpty {
-                    subtypesTestLbl.text = "Waiting for data - subtypes"
-                } else {
-                    subtypesTestLbl.text = "\(viewModel.subtypesMTG[0].subtypes)"
-                }
+                self.subtypesPicker.reloadAllComponents()
             }
         }
     }
@@ -43,12 +37,6 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.setsPicker.dataSource = self
         
         viewModel = AdvancedSearchViewModel()
-        
-        if viewModel.setsMTG.isEmpty {
-            testLbl.text = "Sets - Waiting for data"
-        } else {
-            testLbl.text = viewModel.setsMTG[0].name
-        }
 
     }
     
@@ -57,10 +45,19 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        viewModel.setsMTG.count
+        if pickerView.tag == 0 {
+            return viewModel.subtypesMTG[0].subtypes.count
+        } else {
+            return viewModel.setsMTG.count
+        }
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel.setsMTG[row].name
+        if pickerView.tag == 0 {
+            return viewModel.subtypesMTG[0].subtypes[row]
+        } else {
+            return viewModel.setsMTG[row].name
+        }
     }
 
 }
