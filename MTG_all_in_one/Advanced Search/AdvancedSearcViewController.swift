@@ -15,6 +15,7 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var typesPicker: UIPickerView!
     @IBOutlet weak var formatsPicker: UIPickerView!
     @IBOutlet weak var supertypesPicker: UIPickerView!
+    private var manager = NetworkManager.shared
     
     
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
@@ -48,7 +49,10 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.subtypesTAbleView.register(TableViewCell.self, forCellReuseIdentifier: "subCell")
         
         viewModel = AdvancedSearchViewModel()
+        print(manager.types.count)
     }
+    
+    //MARK: - Pickers Logic and Methods
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -58,18 +62,33 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         if pickerView.tag == 1 {
             //return viewModel.subtypesMTG[0].subtypes.count
             return arrSubs.count
-        } else {
-            return viewModel.setsMTG.count
+        } else if pickerView.tag == 2 {
+            return manager.types.count
+        } else if pickerView.tag == 3 {
+            return manager.formats.count
+        } else if pickerView.tag == 4 {
+            return manager.supertypes.count
+        }
+        else {
+            return 3
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
             return "\(arrSubs[row])"
+        } else if pickerView.tag == 2 {
+            return "\(manager.types[row])"
+        } else if pickerView.tag == 3 {
+            return "\(manager.formats[row])"
+        } else if pickerView.tag == 4 {
+            return "\(manager.supertypes[row])"
         } else {
             return viewModel.setsMTG[row].name
         }
     }
+    
+    //MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrSubs.count
