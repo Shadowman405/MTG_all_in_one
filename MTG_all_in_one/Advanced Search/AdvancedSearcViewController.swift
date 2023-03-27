@@ -27,6 +27,9 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
             viewModel.fetchSets(url: testUrlSets) {
                 print("sets success")
                 self.setsPicker.reloadAllComponents()
+                self.typesPicker.reloadAllComponents()
+                self.formatsPicker.reloadAllComponents()
+                self.supertypesPicker.reloadAllComponents()
             }
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) { [self] in
