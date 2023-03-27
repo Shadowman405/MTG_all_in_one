@@ -11,9 +11,10 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     
     @IBOutlet weak var setsPicker: UIPickerView!
-    @IBOutlet weak var subtypesPicker: UIPickerView!
-    
     @IBOutlet weak var subtypesTAbleView: UITableView!
+    @IBOutlet weak var typesPicker: UIPickerView!
+    @IBOutlet weak var formatsPicker: UIPickerView!
+    @IBOutlet weak var supertypesPicker: UIPickerView!
     
     
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
