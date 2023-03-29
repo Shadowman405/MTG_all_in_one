@@ -37,6 +37,10 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
                 arrSubs = viewModel.subtypesMTG[0].subtypes
                 self.subtypesTAbleView.reloadData()
                 print(arrSubs)
+                self.setsPicker.reloadAllComponents()
+                self.typesPicker.reloadAllComponents()
+                self.formatsPicker.reloadAllComponents()
+                self.supertypesPicker.reloadAllComponents()
             }
         }
     }
@@ -79,13 +83,13 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
-            return "\(arrSubs[row])"
+            return arrSubs[row]
         } else if pickerView.tag == 2 {
-            return "\(manager.types[row])"
+            return manager.types[row]
         } else if pickerView.tag == 3 {
-            return "\(manager.formats[row])"
+            return manager.formats[row]
         } else if pickerView.tag == 4 {
-            return "\(manager.supertypes[row])"
+            return manager.supertypes[row]
         } else {
             return viewModel.setsMTG[row].name
         }
