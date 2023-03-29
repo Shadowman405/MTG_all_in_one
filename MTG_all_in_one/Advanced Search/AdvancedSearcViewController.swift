@@ -26,12 +26,16 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
                 print("sets success")
-                self.updateUI()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    self.updateUI()
+                }
             }
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) {
                 print("subtypes success")
-                self.updateUI()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    self.updateUI()
+                }
             }
         }
     }
@@ -48,6 +52,10 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         viewModel = AdvancedSearchViewModel()
         print(manager.types.count)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+            self.updateUI()
+        }
     }
     
     //MARK: - Pickers Logic and Methods
@@ -113,7 +121,7 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
 
     
-    private func updateUI() {
+    func updateUI() {
         subtypesTAbleView.reloadData()
         setsPicker.reloadAllComponents()
         typesPicker.reloadAllComponents()
