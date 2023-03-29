@@ -26,21 +26,12 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
                 print("sets success")
-                self.setsPicker.reloadAllComponents()
-                self.typesPicker.reloadAllComponents()
-                self.formatsPicker.reloadAllComponents()
-                self.supertypesPicker.reloadAllComponents()
+                self.updateUI()
             }
             
-            viewModel.fetchSubtypes(url: testUrlSubtypes) { [self] in
+            viewModel.fetchSubtypes(url: testUrlSubtypes) {
                 print("subtypes success")
-                arrSubs = viewModel.subtypesMTG[0].subtypes
-                self.subtypesTAbleView.reloadData()
-                print(arrSubs)
-                self.setsPicker.reloadAllComponents()
-                self.typesPicker.reloadAllComponents()
-                self.formatsPicker.reloadAllComponents()
-                self.supertypesPicker.reloadAllComponents()
+                self.updateUI()
             }
         }
     }
@@ -95,6 +86,10 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        updateUI()
+    }
+    
     //MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,8 +104,21 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        updateUI()
+    }
+    
     class TableViewCell: UITableViewCell {
         
     }
 
+    
+    private func updateUI() {
+        subtypesTAbleView.reloadData()
+        setsPicker.reloadAllComponents()
+        typesPicker.reloadAllComponents()
+        formatsPicker.reloadAllComponents()
+        supertypesPicker.reloadAllComponents()
+        print("UI updated")
+    }
 }
