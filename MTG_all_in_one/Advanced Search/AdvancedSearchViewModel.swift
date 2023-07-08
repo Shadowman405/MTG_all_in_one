@@ -13,6 +13,7 @@ protocol AdvancedSearchViewModelProtocol {
     
     func fetchSets(url: String, completion: @escaping () -> Void)
     func fetchSubtypes(url: String, completion: @escaping () -> Void)
+    func numberOfRows() -> Int
 }
 
 class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
@@ -32,5 +33,9 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
             self.subtypesMTG = subtypes
             completion()
         }
+    }
+    
+    func numberOfRows() -> Int {
+        subtypesMTG[0].subtypes.count
     }
 }
