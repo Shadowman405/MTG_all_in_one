@@ -47,7 +47,6 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.subtypesTAbleView.register(TableViewCell.self, forCellReuseIdentifier: "subCell")
         
         viewModel = AdvancedSearchViewModel()
-        print(manager.types.count)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
             self.updateUI()

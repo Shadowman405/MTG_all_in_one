@@ -23,7 +23,6 @@ class Subtypes: Codable {
         for (_,val) in results {
             arrRes.append(val as? [String] ?? [""])
         }
-        print(arrRes)
         return [Subtypes(subtypes: arrRes[0])]
      }
 }

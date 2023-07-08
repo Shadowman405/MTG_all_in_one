@@ -23,7 +23,7 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     func fetchSets(url: String, completion: @escaping () -> Void) {
         NetworkManager.shared.fetchSets(url: url) { sets in
             self.setsMTG = sets
-            print("\(self.setsMTG[0].name)")
+            //print("\(self.setsMTG[0].name)")
             completion()
         }
     }
