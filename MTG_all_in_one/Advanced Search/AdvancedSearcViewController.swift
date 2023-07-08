@@ -12,16 +12,13 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     @IBOutlet weak var setsPicker: UIPickerView!
     @IBOutlet weak var subtypesTAbleView: UITableView!
-    @IBOutlet weak var typesPicker: UIPickerView!
-    @IBOutlet weak var formatsPicker: UIPickerView!
-    @IBOutlet weak var supertypesPicker: UIPickerView!
     private var manager = NetworkManager.shared
     
     
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
     private let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
     
-    var arrSubs = ["card"]
+    var arrSubs : [Subtypes] = [Subtypes(subtypes: ["1"])]
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
@@ -35,6 +32,7 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
                 print("subtypes success")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                     self.updateUI()
+                    self.arrSubs = self.viewModel.subtypesMTG
                 }
             }
         }
@@ -82,7 +80,8 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
-            return arrSubs[row]
+            //return arrSubs[row]
+            return "Beep"
         } else if pickerView.tag == 2 {
             return manager.types[row]
         } else if pickerView.tag == 3 {
@@ -101,19 +100,21 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     //MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrSubs.count
+        return arrSubs[0].subtypes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        content.text = arrSubs[indexPath.row]
+        let subType = arrSubs[indexPath.row]
+        content.text = subType.subtypes[indexPath.row]
         cell.contentConfiguration = content
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        updateUI()
+        //updateUI()
+        print(arrSubs[0].subtypes.count)
     }
     
     class TableViewCell: UITableViewCell {
@@ -124,9 +125,6 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     func updateUI() {
         subtypesTAbleView.reloadData()
         setsPicker.reloadAllComponents()
-        typesPicker.reloadAllComponents()
-        formatsPicker.reloadAllComponents()
-        supertypesPicker.reloadAllComponents()
         print("UI updated")
     }
 }
