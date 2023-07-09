@@ -36,7 +36,6 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     }
     
     func numberOfRows() -> Int {
-//        subtypesMTG.count
         if subtypesMTG.isEmpty {
             return 1
         } else {

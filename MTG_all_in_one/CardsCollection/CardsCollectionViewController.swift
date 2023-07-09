@@ -11,6 +11,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     private let reuseIdentifier = "Cell"
     private let manager = NetworkManager.shared
     private let testUrl = "https://api.magicthegathering.io/v1/cards?page=311"
+    var searchUrl = "https://api.magicthegathering.io/v1/cards?name="
     
     let searchController = UISearchController(searchResultsController: nil)
     var selectedCard: CardMTG!
@@ -84,7 +85,7 @@ extension CardsCollectionViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(_ searchText: String) {
-        viewModel.fetchCards(url: "https://api.magicthegathering.io/v1/cards?name=\(searchText)") {
+        viewModel.fetchCards(url: "\(searchUrl)\(searchText)") {
             self.collectionView.reloadData()
         }
         
