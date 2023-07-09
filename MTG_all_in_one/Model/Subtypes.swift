@@ -18,7 +18,7 @@ class Subtypes: Codable {
         guard let value = value as? [String:Any] else { return []}
         guard let results = value as? [String:Any] else {return []}
          //return results.compactMap { Subtypes(subtypes: $0)}
-        //print(results)
+        print(results)
         var arrRes = [[String]]()
         for (_,val) in results {
             arrRes.append(val as? [String] ?? [""])

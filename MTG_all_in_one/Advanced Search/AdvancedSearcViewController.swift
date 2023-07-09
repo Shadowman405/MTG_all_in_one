@@ -97,14 +97,14 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     //MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows()
+        return arrSubs[0].subtypes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let subType = arrSubs[indexPath.row]
-        content.text = subType.subtypes[indexPath.row]
+        let subType = arrSubs[0].subtypes[indexPath.row]
+        content.text = subType
         cell.contentConfiguration = content
         return cell
     }
@@ -122,6 +122,7 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     func updateUI() {
         subtypesTAbleView.reloadData()
         setsPicker.reloadAllComponents()
+        self.arrSubs = self.viewModel.subtypesMTG
         print("UI updated")
     }
 }
