@@ -22,9 +22,14 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    self.updateUI()
+                }
             }
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) {
+                    self.updateUI()
+                    self.arrSubs = self.viewModel.subtypesMTG
             }
         }
     }
