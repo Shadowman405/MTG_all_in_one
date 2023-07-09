@@ -22,16 +22,9 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
-                print("sets success")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                    self.updateUI()
-                }
             }
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) {
-                print("subtypes success")
-                    self.updateUI()
-                    self.arrSubs = self.viewModel.subtypesMTG
             }
         }
     }
@@ -48,9 +41,9 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         viewModel = AdvancedSearchViewModel()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
-            self.updateUI()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+//            self.updateUI()
+//        }
     }
     
     //MARK: - Pickers Logic and Methods
@@ -97,7 +90,8 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     //MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrSubs[0].subtypes.count
+       // return arrSubs[0].subtypes.count
+        viewModel.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,8 +104,7 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        updateUI()
-        //print(arrSubs[0].subtypes.count)
+        print(arrSubs[0].subtypes[indexPath.row])
     }
     
     class TableViewCell: UITableViewCell {
