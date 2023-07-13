@@ -10,6 +10,7 @@ import UIKit
 class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet weak var selectSegmentControl: UISegmentedControl!
     @IBOutlet weak var setsPicker: UIPickerView!
     @IBOutlet weak var subtypesTAbleView: UITableView!
     private var manager = NetworkManager.shared
