@@ -313,6 +313,15 @@
                                     <action selector="segmentControlPressed:" destination="te8-Uw-71U" eventType="valueChanged" id="iHd-7i-nC9"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SB-ml-V6M">
+                                <rect key="frame" x="109" y="538" width="172" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show search value"/>
+                                <connections>
+                                    <action selector="searchBtnPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="yZd-54-zt8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mnv-kJ-OcY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

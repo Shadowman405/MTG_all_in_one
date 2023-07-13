@@ -17,7 +17,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
     private let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
-    var searchString = ""
+    var searchStringValue = ""
+    var searchStringPickerValue = "set"
     
     var arrSubs : [Subtypes] = [Subtypes(subtypes: ["1"])]
     var viewModel: AdvancedSearchViewModelProtocol! {
@@ -55,12 +56,12 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func segmentControlPressed(_ sender: UISegmentedControl) {
         switch selectSegmentControl.selectedSegmentIndex {
-        case 0:print("&set"); searchString.append("&set")
-        case 1:print("&subtype"); searchString.append("&subtype")
-        case 2:print("&supertype"); searchString.append("&supertype")
-        case 3:print("&type"); searchString.append("&type")
-        case 4:print("&format"); searchString.append("&format")
-        default: print("Beep"); searchString.append("&set")
+        case 0: searchStringPickerValue = "&set"
+        case 1: searchStringPickerValue = "&subtype"
+        case 2: searchStringPickerValue = "&supertype"
+        case 3: searchStringPickerValue = "&type"
+        case 4: searchStringPickerValue = "&format"
+        default: searchStringPickerValue = "&set"
         }
         
     }
@@ -88,8 +89,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print(arrSubs[0].subtypes[indexPath.row])
-        searchString = arrSubs[0].subtypes[indexPath.row]
-        print(searchString)
+        searchStringValue = arrSubs[0].subtypes[indexPath.row]
+        print(searchStringValue)
     }
     
     class TableViewCell: UITableViewCell {
@@ -102,4 +103,10 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         self.arrSubs = self.viewModel.subtypesMTG
         print("UI updated")
     }
+    //MARK: - Search button
+    @IBAction func searchBtnPressed(_ sender: Any) {
+        let mainSearchString = "https://api.magicthegathering.io/v1/cards?"
+        print("\(mainSearchString)\(searchStringValue)\(searchStringPickerValue)")
+    }
+    
 }
