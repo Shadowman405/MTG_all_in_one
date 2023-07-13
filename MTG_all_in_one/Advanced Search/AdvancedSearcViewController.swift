@@ -7,11 +7,10 @@
 
 import UIKit
 
-class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
+class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var selectSegmentControl: UISegmentedControl!
-    @IBOutlet weak var setsPicker: UIPickerView!
     @IBOutlet weak var subtypesTAbleView: UITableView!
     private var manager = NetworkManager.shared
     
@@ -38,9 +37,6 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setsPicker.delegate = self
-        self.setsPicker.dataSource = self
-        
         self.subtypesTAbleView.delegate = self
         self.subtypesTAbleView.dataSource = self
         self.subtypesTAbleView.register(TableViewCell.self, forCellReuseIdentifier: "subCell")
@@ -54,44 +50,6 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     //MARK: - Pickers Logic and Methods
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.tag == 1 {
-            //return viewModel.subtypesMTG[0].subtypes.count
-            return arrSubs.count
-        } else if pickerView.tag == 2 {
-            return manager.types.count
-        } else if pickerView.tag == 3 {
-            return manager.formats.count
-        } else if pickerView.tag == 4 {
-            return manager.supertypes.count
-        }
-        else {
-            return 3
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == 1 {
-            //return arrSubs[row]
-            return "Beep"
-        } else if pickerView.tag == 2 {
-            return manager.types[row]
-        } else if pickerView.tag == 3 {
-            return manager.formats[row]
-        } else if pickerView.tag == 4 {
-            return manager.supertypes[row]
-        } else {
-            return viewModel.setsMTG[row].name
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        updateUI()
-    }
     
     //MARK: - TableView Methods
     
@@ -120,7 +78,6 @@ class AdvancedSearcViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func updateUI() {
         subtypesTAbleView.reloadData()
-        setsPicker.reloadAllComponents()
         self.arrSubs = self.viewModel.subtypesMTG
         print("UI updated")
     }
