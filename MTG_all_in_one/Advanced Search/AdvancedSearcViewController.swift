@@ -107,6 +107,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func searchBtnPressed(_ sender: Any) {
         let mainSearchString = "https://api.magicthegathering.io/v1/cards?"
         print("\(mainSearchString)\(searchStringPickerValue)\(searchStringValue)")
+        self.dismiss(animated: true)
     }
     
 }
