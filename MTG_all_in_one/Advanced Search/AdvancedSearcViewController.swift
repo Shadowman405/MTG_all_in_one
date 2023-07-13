@@ -43,13 +43,27 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         
         viewModel = AdvancedSearchViewModel()
         
+        
+        configureSegmentControl()
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
 //            self.updateUI()
 //        }
     }
     
-    //MARK: - Pickers Logic and Methods
+    //MARK: - Segmant control logic
     
+    @IBAction func segmentControlPressed(_ sender: UISegmentedControl) {
+        switch selectSegmentControl.selectedSegmentIndex {
+        case 0:print("sets")
+        default: print("Beep")
+        }
+        
+    }
+    
+    func configureSegmentControl() {
+        selectSegmentControl.setWidth(80, forSegmentAt: 2)
+        selectSegmentControl.backgroundColor = .green
+    }
     
     //MARK: - TableView Methods
     

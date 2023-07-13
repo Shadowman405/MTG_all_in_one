@@ -300,12 +300,18 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kKz-lH-a22">
-                                <rect key="frame" x="16" y="74" width="358" height="31"/>
+                                <rect key="frame" x="16" y="74" width="358" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Sets"/>
+                                    <segment title="Subtypes"/>
+                                    <segment title="Supertypes"/>
+                                    <segment title="Types"/>
+                                    <segment title="Formats"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentControlPressed:" destination="te8-Uw-71U" eventType="valueChanged" id="iHd-7i-nC9"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mnv-kJ-OcY"/>
