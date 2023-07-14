@@ -8,6 +8,8 @@
 import Foundation
 
 protocol AdvancedSearchViewModelProtocol {
+    var searchStringValue: String {get set}
+    var searchStringPickerValue: String {get set}
     var setsMTG: [SetMTG] {get}
     var subtypesMTG: [Subtypes] {get}
     
@@ -17,6 +19,8 @@ protocol AdvancedSearchViewModelProtocol {
 }
 
 class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
+    var searchStringValue = ""
+    var searchStringPickerValue = "set="
     var setsMTG: [SetMTG] = []
     var subtypesMTG: [Subtypes] = []
     

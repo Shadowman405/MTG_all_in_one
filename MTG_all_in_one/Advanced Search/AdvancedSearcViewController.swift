@@ -56,7 +56,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func segmentControlPressed(_ sender: UISegmentedControl) {
         switch selectSegmentControl.selectedSegmentIndex {
-        case 0: searchStringPickerValue = "&set="
+        case 0: searchStringPickerValue = viewModel.searchStringPickerValue
         case 1: searchStringPickerValue = "&subtype="
         case 2: searchStringPickerValue = "&supertype="
         case 3: searchStringPickerValue = "&type="
@@ -89,8 +89,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print(arrSubs[0].subtypes[indexPath.row])
-        searchStringValue = arrSubs[0].subtypes[indexPath.row]
-        print(searchStringValue)
+        viewModel.searchStringValue = arrSubs[0].subtypes[indexPath.row]
+        print(viewModel.searchStringValue)
     }
     
     class TableViewCell: UITableViewCell {
@@ -106,7 +106,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     //MARK: - Search button
     @IBAction func searchBtnPressed(_ sender: Any) {
         let mainSearchString = "https://api.magicthegathering.io/v1/cards?"
-        print("\(mainSearchString)\(searchStringPickerValue)\(searchStringValue)")
+        print("\(mainSearchString)\(viewModel.searchStringPickerValue)\(viewModel.searchStringValue)")
         self.dismiss(animated: true)
     }
     
