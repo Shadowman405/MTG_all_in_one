@@ -24,6 +24,9 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     var setsMTG: [SetMTG] = []
     var subtypesMTG: [Subtypes] = []
     
+    
+    //MARK: - Funcs
+    
     func fetchSets(url: String, completion: @escaping () -> Void) {
         NetworkManager.shared.fetchSets(url: url) { sets in
             self.setsMTG = sets

@@ -26,8 +26,10 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     var searchStringValue = ""
     var searchStringPickerValue = "set="
     
-    var arrSubs : [Subtypes] = [Subtypes(subtypes: ["Waiting for data"])]
-    var arrSets : [SetMTG] = [SetMTG(code: "", name: "Waiting for data", type: "", releaseDate: "", block: "", onlineOnly: false)]
+    var arrSubs : [Subtypes] = NetworkManager.shared.mockSubtypesArr
+    var arrSets : [SetMTG] = NetworkManager.shared.mockSetArr
+    
+    
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {

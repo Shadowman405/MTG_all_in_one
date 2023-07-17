@@ -22,6 +22,12 @@ class NetworkManager {
     let supertypes = ["basic", "host", "legendary", "ongoing", "snow", "world"]
     let formats = ["Alchemy", "Brawl", "Commander", "Duel", "Explorer", "Future", "Gladiator", "Historic", "Historicbrawl", "Legacy", "Modern", "Oldschool", "Pauper", "Paupercommander", "Penny", "Pioneer", "Predh", "Premodern", "Standard", "Vintage"
       ]
+    
+    
+    //MARK: - Mock data
+    var mockSetArr : [SetMTG] = [SetMTG(code: "", name: "Waiting for data", type: "", releaseDate: "", block: "", onlineOnly: false)]
+    var mockSubtypesArr : [Subtypes] = [Subtypes(subtypes: ["Waiting for data"])]
+    
     let sets = [String]() // need fetch data from API
     let subtypes = [String]() // need fetch data from API
     
