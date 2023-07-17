@@ -27,7 +27,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     var searchStringPickerValue = "set="
     
     var arrSubs : [Subtypes] = [Subtypes(subtypes: ["Waiting for data"])]
-    var arrSets : [SetMTG] = []
+    var arrSets : [SetMTG] = [SetMTG(code: "", name: "Waiting for data", type: "", releaseDate: "", block: "", onlineOnly: false)]
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
@@ -84,15 +84,20 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     //MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // return arrSubs[0].subtypes.count
         viewModel.numberOfRows()
+        
+        if arrSets.count == 0 {
+            return 1
+        } else {
+            return arrSets.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let subType = arrSubs[0].subtypes[indexPath.row]
-        content.text = subType
+        let subType = arrSets[indexPath.row]
+        content.text = subType.name
         cell.contentConfiguration = content
         return cell
     }

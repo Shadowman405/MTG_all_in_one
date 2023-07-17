@@ -20,14 +20,13 @@ class SetMTG: Codable {
     var releaseDate, block: String
     //var onlineOnly: Bool
 
-//    init(code: String, name: String, type: String, releaseDate: String, block: String, onlineOnly: Bool) {
-//        self.code = code
-//        self.name = name
-//        self.type = type
-//        self.releaseDate = releaseDate
-//        self.block = block
-//        self.onlineOnly = onlineOnly
-//    }
+    init(code: String, name: String, type: String, releaseDate: String, block: String, onlineOnly: Bool) {
+        self.code = code
+        self.name = name
+        self.type = type
+        self.releaseDate = releaseDate
+        self.block = block
+    }
     
     init(setsData: [String:Any]) {
         name = setsData["name"] as? String ?? ""
