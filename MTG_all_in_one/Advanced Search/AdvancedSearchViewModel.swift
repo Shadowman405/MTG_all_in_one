@@ -20,7 +20,7 @@ protocol AdvancedSearchViewModelProtocol {
 
 class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     var searchSetValue = ""
-    var searchSSetSegmentValue = "&subtype="
+    var searchSSetSegmentValue = "&set="
     var setsMTG: [SetMTG] = []
     var subtypesMTG: [Subtypes] = []
     

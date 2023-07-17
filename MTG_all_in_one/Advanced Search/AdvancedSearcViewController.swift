@@ -26,7 +26,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     var searchStringValue = ""
     var searchStringPickerValue = "set="
     
-    var arrSubs : [Subtypes] = [Subtypes(subtypes: ["1"])]
+    var arrSubs : [Subtypes] = [Subtypes(subtypes: ["Waiting for data"])]
+    var arrSets : [SetMTG] = []
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
@@ -38,6 +39,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             viewModel.fetchSubtypes(url: testUrlSubtypes) {
                     self.updateUI()
                     self.arrSubs = self.viewModel.subtypesMTG
+                    self.arrSets = self.viewModel.setsMTG
             }
         }
     }
