@@ -14,6 +14,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var subtypesTAbleView: UITableView!
     
     @IBOutlet weak var addFilterBtn: UIButton!
+    @IBOutlet weak var clearFilterBtn: UIButton!
+    
     
     
     private var manager = NetworkManager.shared
@@ -54,6 +56,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         
         addFilterBtn.backgroundColor = .green
         addFilterBtn.layer.cornerRadius = 10
+        clearFilterBtn.backgroundColor = .red
+        clearFilterBtn.layer.cornerRadius = 10
     }
     
     //MARK: - Segmant control logic
@@ -112,5 +116,10 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         print("\(mainSearchString)\(viewModel.searchSSetSegmentValue)\(viewModel.searchSetValue)")
         self.dismiss(animated: true)
     }
+    
+    @IBAction func clearFiltersPressed(_ sender: Any) {
+        
+    }
+    
     
 }

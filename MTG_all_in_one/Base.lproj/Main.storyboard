@@ -314,12 +314,31 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SB-ml-V6M">
-                                <rect key="frame" x="109" y="538" width="172" height="35"/>
+                                <rect key="frame" x="16" y="509" width="173" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show search value"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add filter"/>
                                 <connections>
                                     <action selector="searchBtnPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="yZd-54-zt8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHB-2H-EE5">
+                                <rect key="frame" x="201" y="509" width="173" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Clear Filters"/>
+                                <connections>
+                                    <action selector="searchBtnPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="c8X-mE-ueK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krd-eG-6qX">
+                                <rect key="frame" x="201" y="509" width="173" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Clear Filters"/>
+                                <connections>
+                                    <action selector="clearFiltersPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="adb-zH-sZT"/>
+                                    <action selector="searchBtnPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="ngb-RM-eDS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -328,6 +347,7 @@
                     </view>
                     <connections>
                         <outlet property="addFilterBtn" destination="4SB-ml-V6M" id="wal-4P-PcF"/>
+                        <outlet property="clearFilterBtn" destination="Krd-eG-6qX" id="VtQ-6j-bru"/>
                         <outlet property="selectSegmentControl" destination="kKz-lH-a22" id="Unr-Nk-UoG"/>
                         <outlet property="subtypesTAbleView" destination="hRx-J8-qly" id="Z3b-fQ-WPr"/>
                     </connections>
