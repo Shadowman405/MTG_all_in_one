@@ -9,21 +9,16 @@ import UIKit
 
 class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     @IBOutlet weak var selectSegmentControl: UISegmentedControl!
     @IBOutlet weak var subtypesTAbleView: UITableView!
     
     @IBOutlet weak var addFilterBtn: UIButton!
     @IBOutlet weak var clearFilterBtn: UIButton!
     
-    
-    
     private var manager = NetworkManager.shared
-    
     
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
     private let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
-    private var searchStringValue = ""
     private var searchStringPickerValue = "set="
     
     private var arrSubs : [Subtypes] = NetworkManager.shared.mockSubtypesArr
@@ -38,8 +33,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) {
                     self.updateUI()
-//                    self.arrSubs = self.viewModel.subtypesMTG
-//                    self.arrSets = self.viewModel.setsMTG
             }
         }
     }
@@ -73,7 +66,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         case 4: searchStringPickerValue = "&format="
         default: searchStringPickerValue = "&set="
         }
-        
     }
     
     func configureSegmentControl() {
@@ -84,15 +76,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     //MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //viewModel.numberOfRows()
-        
         viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
-        
-//        if selectSegmentControl.selectedSegmentIndex == 0 {
-//            return arrSets.count
-//        } else {
-//            return arrSubs[0].subtypes.count
-//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,24 +96,22 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //print(arrSubs[0].subtypes[indexPath.row])
         viewModel.searchSetValue = arrSubs[0].subtypes[indexPath.row]
         print(viewModel.searchSetValue)
     }
     
-    class TableViewCell: UITableViewCell {
-        
-    }
+    class TableViewCell: UITableViewCell {}
 
-    
+    //MARK: - Other funcs
     func updateUI() {
         subtypesTAbleView.reloadData()
         arrSubs = viewModel.subtypesMTG
         arrSets = viewModel.setsMTG
         
         print(arrSubs.count)
+        
     }
-    //MARK: - Search button
+    //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
         let mainSearchString = "https://api.magicthegathering.io/v1/cards?"
         print("\(mainSearchString)\(viewModel.searchSetSegmentValue)\(viewModel.searchSetValue)")
@@ -139,6 +121,4 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func clearFiltersPressed(_ sender: Any) {
         
     }
-    
-    
 }
