@@ -327,6 +327,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="addFilterBtn" destination="4SB-ml-V6M" id="wal-4P-PcF"/>
                         <outlet property="selectSegmentControl" destination="kKz-lH-a22" id="Unr-Nk-UoG"/>
                         <outlet property="subtypesTAbleView" destination="hRx-J8-qly" id="Z3b-fQ-WPr"/>
                     </connections>

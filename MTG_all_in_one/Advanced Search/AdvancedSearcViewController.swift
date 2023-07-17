@@ -12,6 +12,10 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var selectSegmentControl: UISegmentedControl!
     @IBOutlet weak var subtypesTAbleView: UITableView!
+    
+    @IBOutlet weak var addFilterBtn: UIButton!
+    
+    
     private var manager = NetworkManager.shared
     
     
@@ -47,9 +51,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         
         
         configureSegmentControl()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
-//            self.updateUI()
-//        }
+        
+        addFilterBtn.backgroundColor = .green
+        addFilterBtn.layer.cornerRadius = 10
     }
     
     //MARK: - Segmant control logic
@@ -101,7 +105,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     func updateUI() {
         subtypesTAbleView.reloadData()
         self.arrSubs = self.viewModel.subtypesMTG
-        print("UI updated")
     }
     //MARK: - Search button
     @IBAction func searchBtnPressed(_ sender: Any) {
