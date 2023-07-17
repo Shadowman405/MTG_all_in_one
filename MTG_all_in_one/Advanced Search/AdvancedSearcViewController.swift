@@ -89,7 +89,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         if selectSegmentControl.selectedSegmentIndex == 0 {
             return arrSets.count
         } else {
-            return arrSubs.count
+            return arrSubs[0].subtypes.count
         }
     }
     
