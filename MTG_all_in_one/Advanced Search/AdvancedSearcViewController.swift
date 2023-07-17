@@ -86,11 +86,13 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //viewModel.numberOfRows()
         
-        if selectSegmentControl.selectedSegmentIndex == 0 {
-            return arrSets.count
-        } else {
-            return arrSubs[0].subtypes.count
-        }
+        viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
+        
+//        if selectSegmentControl.selectedSegmentIndex == 0 {
+//            return arrSets.count
+//        } else {
+//            return arrSubs[0].subtypes.count
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -15,10 +15,11 @@ protocol AdvancedSearchViewModelProtocol {
     
     func fetchSets(url: String, completion: @escaping () -> Void)
     func fetchSubtypes(url: String, completion: @escaping () -> Void)
-    func numberOfRows() -> Int
+    func numberOfRows(segmnetedControlIndex: Int) -> Int
 }
 
 class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
+    
     var searchSetValue = ""
     var searchSetSegmentValue = "&set="
     var setsMTG: [SetMTG] = []
@@ -42,11 +43,13 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
         }
     }
     
-    func numberOfRows() -> Int {
-        if subtypesMTG.isEmpty {
-            return 1
-        } else {
+    func numberOfRows(segmnetedControlIndex: Int) -> Int {
+        if segmnetedControlIndex == 0 {
+            return setsMTG.count
+        } else if segmnetedControlIndex == 1 {
             return subtypesMTG[0].subtypes.count
+        } else {
+            return 1
         }
     }
 }
