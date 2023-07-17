@@ -33,15 +33,13 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: testUrlSets) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                     self.updateUI()
-                }
             }
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) {
                     self.updateUI()
-                    self.arrSubs = self.viewModel.subtypesMTG
-                    self.arrSets = self.viewModel.setsMTG
+//                    self.arrSubs = self.viewModel.subtypesMTG
+//                    self.arrSets = self.viewModel.setsMTG
             }
         }
     }
@@ -86,7 +84,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     //MARK: - TableView Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfRows()
+        //viewModel.numberOfRows()
         
         if arrSets.count == 0 {
             return 1
@@ -117,7 +115,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     func updateUI() {
         subtypesTAbleView.reloadData()
-        self.arrSubs = self.viewModel.subtypesMTG
+        arrSubs = viewModel.subtypesMTG
+        arrSets = viewModel.setsMTG
     }
     //MARK: - Search button
     @IBAction func searchBtnPressed(_ sender: Any) {
