@@ -66,8 +66,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func segmentControlPressed(_ sender: UISegmentedControl) {
         switch selectSegmentControl.selectedSegmentIndex {
-        case 0: searchStringPickerValue = viewModel.searchSetSegmentValue
-        case 1: searchStringPickerValue = "&subtype="
+        case 0: searchStringPickerValue = viewModel.searchSetSegmentValue; updateUI()
+        case 1: searchStringPickerValue = "&subtype="; updateUI()
         case 2: searchStringPickerValue = "&supertype="
         case 3: searchStringPickerValue = "&type="
         case 4: searchStringPickerValue = "&format="
@@ -86,20 +86,27 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //viewModel.numberOfRows()
         
-        if arrSets.count == 0 {
-            return 1
-        } else {
+        if selectSegmentControl.selectedSegmentIndex == 0 {
             return arrSets.count
+        } else {
+            return arrSubs.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let subType = arrSets[indexPath.row]
-        content.text = subType.name
-        cell.contentConfiguration = content
-        return cell
+        if selectSegmentControl.selectedSegmentIndex == 0 {
+            let subType = arrSets[indexPath.row]
+            content.text = subType.name
+            cell.contentConfiguration = content
+            return cell
+        } else {
+            let subType = arrSubs[0].subtypes[indexPath.row]
+            content.text = subType
+            cell.contentConfiguration = content
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -117,6 +124,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         subtypesTAbleView.reloadData()
         arrSubs = viewModel.subtypesMTG
         arrSets = viewModel.setsMTG
+        
+        print(arrSubs.count)
     }
     //MARK: - Search button
     @IBAction func searchBtnPressed(_ sender: Any) {
