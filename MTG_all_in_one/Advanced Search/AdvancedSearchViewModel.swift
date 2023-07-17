@@ -9,7 +9,7 @@ import Foundation
 
 protocol AdvancedSearchViewModelProtocol {
     var searchSetValue: String {get set}
-    var searchSSetSegmentValue: String {get set}
+    var searchSetSegmentValue: String {get set}
     var setsMTG: [SetMTG] {get}
     var subtypesMTG: [Subtypes] {get}
     
@@ -20,7 +20,7 @@ protocol AdvancedSearchViewModelProtocol {
 
 class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     var searchSetValue = ""
-    var searchSSetSegmentValue = "&set="
+    var searchSetSegmentValue = "&set="
     var setsMTG: [SetMTG] = []
     var subtypesMTG: [Subtypes] = []
     
