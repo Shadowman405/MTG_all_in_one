@@ -27,6 +27,7 @@ class NetworkManager {
     //MARK: - Mock data
     var mockSetArr : [SetMTG] = [SetMTG(code: "", name: "Waiting for data", type: "", releaseDate: "", block: "", onlineOnly: false)]
     var mockSubtypesArr : [Subtypes] = [Subtypes(subtypes: ["Waiting for data"])]
+    var mockTypesArr: [Types] = [Types(types: ["Waiting for data"])]
     
     let sets = [String]() // need fetch data from API
     let subtypes = [String]() // need fetch data from API
