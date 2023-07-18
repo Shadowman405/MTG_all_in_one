@@ -26,12 +26,11 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     var subtypesMTG: [Subtypes] = []
     
     
-    //MARK: - Funcs
+    //MARK: - Fetching Funcs
     
     func fetchSets(url: String, completion: @escaping () -> Void) {
         NetworkManager.shared.fetchSets(url: url) { sets in
             self.setsMTG = sets
-            //print("\(self.setsMTG[0].name)")
             completion()
         }
     }
@@ -42,6 +41,10 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
             completion()
         }
     }
+    
+    
+    
+    //MARK: - Helpers
     
     func numberOfRows(segmnetedControlIndex: Int) -> Int {
         if segmnetedControlIndex == 0 {
