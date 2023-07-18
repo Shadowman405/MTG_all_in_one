@@ -25,7 +25,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     private var arrSubs : [Subtypes] = NetworkManager.shared.mockSubtypesArr
     private var arrSets : [SetMTG] = NetworkManager.shared.mockSetArr
-    
+    private var arrTypes: [Types] = NetworkManager.shared.mockTypesArr
     
     
     var viewModel: AdvancedSearchViewModelProtocol! {
@@ -67,8 +67,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         switch selectSegmentControl.selectedSegmentIndex {
         case 0: searchStringPickerValue = viewModel.searchSetSegmentValue; updateUI()
         case 1: searchStringPickerValue = "&subtype="; updateUI()
-        case 2: searchStringPickerValue = "&supertype="
-        case 3: searchStringPickerValue = "&type="
+        case 2: searchStringPickerValue = "&type="; updateUI()
+        case 3: searchStringPickerValue = "&supertype="
         case 4: searchStringPickerValue = "&format="
         default: searchStringPickerValue = "&set="
         }
@@ -93,9 +93,14 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             content.text = subType.name
             cell.contentConfiguration = content
             return cell
-        } else {
+        } else if selectSegmentControl.selectedSegmentIndex == 1 {
             let subType = arrSubs[0].subtypes[indexPath.row]
             content.text = subType
+            cell.contentConfiguration = content
+            return cell
+        } else {
+            let type = arrTypes[0].types[indexPath.row]
+            content.text = type
             cell.contentConfiguration = content
             return cell
         }
@@ -113,6 +118,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         subtypesTAbleView.reloadData()
         arrSubs = viewModel.subtypesMTG
         arrSets = viewModel.setsMTG
+        arrTypes = viewModel.typesMTG
         
         print(arrSubs.count)
         

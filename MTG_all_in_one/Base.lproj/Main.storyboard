@@ -305,8 +305,8 @@
                                 <segments>
                                     <segment title="Sets"/>
                                     <segment title="Subtypes"/>
-                                    <segment title="Supertypes"/>
                                     <segment title="Types"/>
+                                    <segment title="Supertypes"/>
                                     <segment title="Formats"/>
                                 </segments>
                                 <connections>

@@ -61,7 +61,10 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
             return setsMTG.count
         } else if segmnetedControlIndex == 1 {
             return subtypesMTG[0].subtypes.count
-        } else {
+        } else if segmnetedControlIndex == 2 {
+            return typesMTG[0].types.count
+        }
+        else {
             return 1
         }
     }
