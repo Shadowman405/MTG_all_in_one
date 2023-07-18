@@ -19,10 +19,13 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
     private let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
+    private let testUrlTypes = "https://api.magicthegathering.io/v1/types"
+    
     private var searchStringPickerValue = "set="
     
     private var arrSubs : [Subtypes] = NetworkManager.shared.mockSubtypesArr
     private var arrSets : [SetMTG] = NetworkManager.shared.mockSetArr
+    
     
     
     var viewModel: AdvancedSearchViewModelProtocol! {
@@ -32,6 +35,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             }
             
             viewModel.fetchSubtypes(url: testUrlSubtypes) {
+                    self.updateUI()
+            }
+            viewModel.fetchTypes(url: testUrlTypes) {
                     self.updateUI()
             }
         }

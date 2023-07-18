@@ -16,6 +16,7 @@ protocol AdvancedSearchViewModelProtocol {
     
     func fetchSets(url: String, completion: @escaping () -> Void)
     func fetchSubtypes(url: String, completion: @escaping () -> Void)
+    func fetchTypes(url: String, completion: @escaping () -> Void)
     func numberOfRows(segmnetedControlIndex: Int) -> Int
 }
 
