@@ -12,6 +12,7 @@ protocol AdvancedSearchViewModelProtocol {
     var searchSetSegmentValue: String {get set}
     var setsMTG: [SetMTG] {get}
     var subtypesMTG: [Subtypes] {get}
+    var typesMTG: [Types] {get}
     
     func fetchSets(url: String, completion: @escaping () -> Void)
     func fetchSubtypes(url: String, completion: @escaping () -> Void)
@@ -24,6 +25,7 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     var searchSetSegmentValue = "&set="
     var setsMTG: [SetMTG] = []
     var subtypesMTG: [Subtypes] = []
+    var typesMTG: [Types] = []
     
     
     //MARK: - Fetching Funcs
@@ -38,6 +40,13 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     func fetchSubtypes(url: String, completion: @escaping () -> Void) {
         NetworkManager.shared.fetchSubtypes(url: url) { subtypes in
             self.subtypesMTG = subtypes
+            completion()
+        }
+    }
+    
+    func fetchTypes(url: String, completion: @escaping () -> Void) {
+        NetworkManager.shared.fetchTypes(url: url) { types in
+            self.typesMTG = types
             completion()
         }
     }
