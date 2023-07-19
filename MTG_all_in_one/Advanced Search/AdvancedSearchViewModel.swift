@@ -13,8 +13,8 @@ protocol AdvancedSearchViewModelProtocol {
     var setsMTG: [SetMTG] {get}
     var subtypesMTG: [Subtypes] {get}
     var typesMTG: [Types] {get}
-    var supertypes: [Supertypes] {get}
-    var formats: [Formats] {get}
+    var supertypesMTG: [Supertypes] {get}
+    var formatsMTG: [Formats] {get}
     
     func fetchSets(url: String, completion: @escaping () -> Void)
     func fetchSubtypes(url: String, completion: @escaping () -> Void)
@@ -29,8 +29,8 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     var setsMTG: [SetMTG] = NetworkManager.shared.mockSetArr
     var subtypesMTG: [Subtypes] = NetworkManager.shared.mockSubtypesArr
     var typesMTG: [Types] = NetworkManager.shared.mockTypesArr
-    var supertypes: [Supertypes] = NetworkManager.shared.mockSupertypes
-    var formats: [Formats] = NetworkManager.shared.mockFormats
+    var supertypesMTG: [Supertypes] = NetworkManager.shared.mockSupertypes
+    var formatsMTG: [Formats] = NetworkManager.shared.mockFormats
     
     
     //MARK: - Fetching Funcs
@@ -56,6 +56,19 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
         }
     }
     
+    func fetchSupertypes(url: String, completion: @escaping () -> Void) {
+        NetworkManager.shared.fetchSupertypes(url: url) { supertypes in
+            self.supertypesMTG = supertypes
+            completion()
+        }
+    }
+    
+    func fetchFormats(url: String, completion: @escaping () -> Void) {
+        NetworkManager.shared.fetchFormats(url: url) { formats in
+            self.formatsMTG = formats
+            completion()
+        }
+    }
     
     
     //MARK: - Helpers
