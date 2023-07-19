@@ -20,13 +20,16 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
     private let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
     private let testUrlTypes = "https://api.magicthegathering.io/v1/types"
+    private let testUrlSupertypes = "https://api.magicthegathering.io/v1/supertypes"
+    private let testUrlFormats = "https://api.magicthegathering.io/v1/formats"
     
     private var searchStringPickerValue = "set="
     
     private var arrSubs : [Subtypes] = NetworkManager.shared.mockSubtypesArr
     private var arrSets : [SetMTG] = NetworkManager.shared.mockSetArr
     private var arrTypes: [Types] = NetworkManager.shared.mockTypesArr
-    
+    private var arrSupertypes: [Supertypes] = NetworkManager.shared.mockSupertypes
+    private var arrFormats: [Formats] = NetworkManager.shared.mockFormats
     
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
@@ -39,6 +42,12 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             }
             viewModel.fetchTypes(url: testUrlTypes) {
                     self.updateUI()
+            }
+            viewModel.fetchSupertypes(url: testUrlSupertypes) {
+                self.updateUI()
+            }
+            viewModel.fetchFormats(url: testUrlFormats) {
+                self.updateUI()
             }
         }
     }
@@ -68,8 +77,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         case 0: searchStringPickerValue = viewModel.searchSetSegmentValue; updateUI()
         case 1: searchStringPickerValue = "&subtype="; updateUI()
         case 2: searchStringPickerValue = "&type="; updateUI()
-        case 3: searchStringPickerValue = "&supertype="
-        case 4: searchStringPickerValue = "&format="
+        case 3: searchStringPickerValue = "&supertype="; updateUI()
+        case 4: searchStringPickerValue = "&format="; updateUI()
         default: searchStringPickerValue = "&set="
         }
     }
@@ -98,9 +107,14 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             content.text = subType
             cell.contentConfiguration = content
             return cell
-        } else {
+        } else if selectSegmentControl.selectedSegmentIndex == 2 {
             let type = arrTypes[0].types[indexPath.row]
             content.text = type
+            cell.contentConfiguration = content
+            return cell
+        } else {
+            let supertype = arrSupertypes[0].supertypes[indexPath.row]
+            content.text = supertype
             cell.contentConfiguration = content
             return cell
         }
@@ -119,9 +133,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         arrSubs = viewModel.subtypesMTG
         arrSets = viewModel.setsMTG
         arrTypes = viewModel.typesMTG
-        
-        print(arrSubs.count)
-        
+        arrSupertypes = viewModel.supertypesMTG
     }
     //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
