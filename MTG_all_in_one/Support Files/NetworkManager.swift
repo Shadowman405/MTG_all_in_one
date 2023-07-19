@@ -11,7 +11,14 @@ import SwiftyJSON
 class NetworkManager {
     
     static let shared = NetworkManager()
+    
+    //MARK: Links
     let urlMTG = "https://api.magicthegathering.io/v1/cards?page=311"
+    let testUrlSets = "https://api.magicthegathering.io/v1/sets"
+    let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
+    let testUrlTypes = "https://api.magicthegathering.io/v1/types"
+    let testUrlSupertypes = "https://api.magicthegathering.io/v1/supertypes"
+    let testUrlFormats = "https://api.magicthegathering.io/v1/formats"
     
     // For advanced search
     //MARK: - Mock data

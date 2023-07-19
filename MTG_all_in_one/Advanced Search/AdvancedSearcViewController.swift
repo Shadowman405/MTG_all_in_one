@@ -16,13 +16,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var clearFilterBtn: UIButton!
     
     private var manager = NetworkManager.shared
-    
-    private let testUrlSets = "https://api.magicthegathering.io/v1/sets"
-    private let testUrlSubtypes = "https://api.magicthegathering.io/v1/subtypes"
-    private let testUrlTypes = "https://api.magicthegathering.io/v1/types"
-    private let testUrlSupertypes = "https://api.magicthegathering.io/v1/supertypes"
-    private let testUrlFormats = "https://api.magicthegathering.io/v1/formats"
-    
     private var searchStringPickerValue = "set="
     
     private var arrSubs : [Subtypes] = NetworkManager.shared.mockSubtypesArr
@@ -33,20 +26,20 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
-            viewModel.fetchSets(url: testUrlSets) {
+            viewModel.fetchSets(url: NetworkManager.shared.testUrlSets) {
                     self.updateUI()
             }
             
-            viewModel.fetchSubtypes(url: testUrlSubtypes) {
+            viewModel.fetchSubtypes(url: NetworkManager.shared.testUrlSubtypes) {
                     self.updateUI()
             }
-            viewModel.fetchTypes(url: testUrlTypes) {
+            viewModel.fetchTypes(url: NetworkManager.shared.testUrlTypes) {
                     self.updateUI()
             }
-            viewModel.fetchSupertypes(url: testUrlSupertypes) {
+            viewModel.fetchSupertypes(url: NetworkManager.shared.testUrlSupertypes) {
                 self.updateUI()
             }
-            viewModel.fetchFormats(url: testUrlFormats) {
+            viewModel.fetchFormats(url: NetworkManager.shared.testUrlFormats) {
                 self.updateUI()
             }
         }
@@ -54,20 +47,13 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.subtypesTAbleView.delegate = self
         self.subtypesTAbleView.dataSource = self
         self.subtypesTAbleView.register(TableViewCell.self, forCellReuseIdentifier: "subCell")
         
         viewModel = AdvancedSearchViewModel()
-        
-        
         configureSegmentControl()
-        
-        addFilterBtn.backgroundColor = .green
-        addFilterBtn.layer.cornerRadius = 10
-        clearFilterBtn.backgroundColor = .red
-        clearFilterBtn.layer.cornerRadius = 10
+        updateButtonsUI()
     }
     
     //MARK: - Segmant control logic
@@ -146,6 +132,13 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         arrTypes = viewModel.typesMTG
         arrSupertypes = viewModel.supertypesMTG
         arrFormats = viewModel.formatsMTG
+    }
+    
+    func updateButtonsUI() {
+        addFilterBtn.backgroundColor = .green
+        addFilterBtn.layer.cornerRadius = 10
+        clearFilterBtn.backgroundColor = .red
+        clearFilterBtn.layer.cornerRadius = 10
     }
     //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
