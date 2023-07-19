@@ -19,6 +19,8 @@ protocol AdvancedSearchViewModelProtocol {
     func fetchSets(url: String, completion: @escaping () -> Void)
     func fetchSubtypes(url: String, completion: @escaping () -> Void)
     func fetchTypes(url: String, completion: @escaping () -> Void)
+    func fetchSupertypes(url: String, completion: @escaping () -> Void)
+    func fetchFormats(url: String, completion: @escaping () -> Void)
     func numberOfRows(segmnetedControlIndex: Int) -> Int
 }
 
@@ -80,6 +82,10 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
             return subtypesMTG[0].subtypes.count
         } else if segmnetedControlIndex == 2 {
             return typesMTG[0].types.count
+        } else if segmnetedControlIndex == 3 {
+            return supertypesMTG[0].supertypes.count
+        } else if segmnetedControlIndex == 4 {
+            return formatsMTG[0].formats.count
         }
         else {
             return 1
