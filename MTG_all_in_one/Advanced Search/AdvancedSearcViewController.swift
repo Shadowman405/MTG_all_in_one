@@ -112,7 +112,18 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             content.text = type
             cell.contentConfiguration = content
             return cell
-        } else {
+        } else if selectSegmentControl.selectedSegmentIndex == 3 {
+            let supertype = arrSupertypes[0].supertypes[indexPath.row]
+            content.text = supertype
+            cell.contentConfiguration = content
+            return cell
+        } else if selectSegmentControl.selectedSegmentIndex == 4 {
+            let format = arrFormats[0].formats[indexPath.row]
+            content.text = format
+            cell.contentConfiguration = content
+            return cell
+        }
+        else {
             let supertype = arrSupertypes[0].supertypes[indexPath.row]
             content.text = supertype
             cell.contentConfiguration = content
@@ -134,6 +145,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         arrSets = viewModel.setsMTG
         arrTypes = viewModel.typesMTG
         arrSupertypes = viewModel.supertypesMTG
+        arrFormats = viewModel.formatsMTG
     }
     //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
