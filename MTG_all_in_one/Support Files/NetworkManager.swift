@@ -102,6 +102,21 @@ class NetworkManager {
         }
     }
     
+    //formats
+    func fetchFormats(url: String, with completion: @escaping ([Formats]) -> ()) {
+        AF.request(url, method: .get).validate().responseJSON { respaonseData in
+            switch respaonseData.result {
+            case .success(let value):
+                guard let typesData = Formats.getAllSubtypes(from: value) else {return}
+                DispatchQueue.main.async {
+                    completion(typesData)
+                }
+            case .failure(let error):
+                            print(error.localizedDescription)
+            }
+        }
+    }
+    
     
     // MARK: - Change mana cost string to images
     func addManaImages(someString: String?) -> NSMutableAttributedString {
