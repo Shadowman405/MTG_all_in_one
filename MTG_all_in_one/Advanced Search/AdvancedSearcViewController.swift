@@ -56,8 +56,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         updateButtonsUI()
     }
     
-    //MARK: - Segmant control logic
-    
+//MARK: - Segmant control logic
     @IBAction func segmentControlPressed(_ sender: UISegmentedControl) {
         switch selectSegmentControl.selectedSegmentIndex {
         case 0: searchStringPickerValue = viewModel.searchSetSegmentValue; updateUI()
@@ -69,13 +68,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    func configureSegmentControl() {
-        selectSegmentControl.setWidth(80, forSegmentAt: 2)
-        selectSegmentControl.backgroundColor = .green
-    }
-    
-    //MARK: - TableView Methods
-    
+//MARK: - TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
     }
@@ -110,9 +103,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         }
         else {
-            let supertype = arrSupertypes[0].supertypes[indexPath.row]
-            content.text = supertype
-            cell.contentConfiguration = content
             return cell
         }
     }
@@ -124,7 +114,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     class TableViewCell: UITableViewCell {}
 
-    //MARK: - Other funcs
+//MARK: - Other funcs
     func updateUI() {
         subtypesTAbleView.reloadData()
         arrSubs = viewModel.subtypesMTG
@@ -140,7 +130,12 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         clearFilterBtn.backgroundColor = .red
         clearFilterBtn.layer.cornerRadius = 10
     }
-    //MARK: - Buttons
+    
+    func configureSegmentControl() {
+        selectSegmentControl.setWidth(80, forSegmentAt: 2)
+        selectSegmentControl.backgroundColor = .green
+    }
+//MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
         let mainSearchString = "https://api.magicthegathering.io/v1/cards?"
         print("\(mainSearchString)\(viewModel.searchSetSegmentValue)\(viewModel.searchSetValue)")
