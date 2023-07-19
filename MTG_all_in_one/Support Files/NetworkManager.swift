@@ -40,7 +40,7 @@ class NetworkManager {
         }
     }
     
-    // MARK: - fetching settings for advanced searc
+    // MARK: - fetching settings for advanced search
     
     func fetchSets(url: String, with completion: @escaping ([SetMTG]) -> ()) {
         AF.request(url, method: .get).validate().responseJSON { respaonseData in
@@ -86,6 +86,22 @@ class NetworkManager {
             }
         }
     }
+    
+    //supertypes
+    func fetchSupertypes(url: String, with completion: @escaping ([Supertypes]) -> ()) {
+        AF.request(url, method: .get).validate().responseJSON { respaonseData in
+            switch respaonseData.result {
+            case .success(let value):
+                guard let typesData = Supertypes.getAllSubtypes(from: value) else {return}
+                DispatchQueue.main.async {
+                    completion(typesData)
+                }
+            case .failure(let error):
+                            print(error.localizedDescription)
+            }
+        }
+    }
+    
     
     // MARK: - Change mana cost string to images
     func addManaImages(someString: String?) -> NSMutableAttributedString {
