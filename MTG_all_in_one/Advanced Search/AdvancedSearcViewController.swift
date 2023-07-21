@@ -156,10 +156,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
-        
-//        print("\(mainSearchString)\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
-//        self.dismiss(animated: true)
-        
         if selectSegmentControl.selectedSegmentIndex == 0 {
             mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
             print(mainSearchString)
@@ -168,9 +164,23 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             mainSearchString.append("\(viewModel.searchSubtypeSegment)\(viewModel.searchSubtypeValue)")
             print(mainSearchString)
         }
+        else if selectSegmentControl.selectedSegmentIndex == 2 {
+            mainSearchString.append("\(viewModel.searchTypeSegment)\(viewModel.searchTypeValue)")
+            print(mainSearchString)
+        }
+        else if selectSegmentControl.selectedSegmentIndex == 3 {
+            mainSearchString.append("\(viewModel.searchSupertypeSegment)\(viewModel.searchSupertypeValue)")
+            print(mainSearchString)
+        }
+        else if selectSegmentControl.selectedSegmentIndex == 4 {
+            mainSearchString.append("\(viewModel.searchFormatSegment)\(viewModel.searchFormatValue)")
+            print(mainSearchString)
+        }
     }
     
     @IBAction func clearFiltersPressed(_ sender: Any) {
-        
+        let tempString = "https://api.magicthegathering.io/v1/cards?"
+        mainSearchString = tempString
+        print(mainSearchString)
     }
 }
