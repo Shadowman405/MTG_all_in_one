@@ -116,6 +116,18 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
             print(viewModel.searchSubtypeValue)
         }
+        else if selectSegmentControl.selectedSegmentIndex == 2 {
+            viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
+            print(viewModel.searchTypeValue)
+        }
+        else if selectSegmentControl.selectedSegmentIndex == 3 {
+            viewModel.searchSupertypeValue = arrSupertypes[0].supertypes[indexPath.row]
+            print(viewModel.searchSupertypeValue)
+        }
+        else if selectSegmentControl.selectedSegmentIndex == 4 {
+            viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
+            print(viewModel.searchFormatValue)
+        }
     }
     
     class TableViewCell: UITableViewCell {}
