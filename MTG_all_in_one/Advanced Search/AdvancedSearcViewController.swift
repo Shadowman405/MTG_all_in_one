@@ -113,7 +113,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             print(viewModel.searchSetValue)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
-            viewModel.searchSetValue = arrSubs[0].subtypes[indexPath.row]
+            viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
             print(viewModel.searchSubtypeValue)
         }
     }
