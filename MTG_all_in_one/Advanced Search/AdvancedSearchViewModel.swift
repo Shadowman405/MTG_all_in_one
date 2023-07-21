@@ -9,11 +9,11 @@ import Foundation
 
 protocol AdvancedSearchViewModelProtocol {
     var searchSetValue: String {get set}
-    var searchSetSegmentValue: String {get set}
-    var searchSubtypeSegmentValue: String {get set}
-    var searchTypeSegmentValue: String {get set}
-    var searchSupertypeSegmentValue: String {get set}
-    var searchFormatSegmentValue: String {get set}
+    var searchSetSegment: String {get set}
+    var searchSubtypeSegment: String {get set}
+    var searchTypeSegment: String {get set}
+    var searchSupertypeSegment: String {get set}
+    var searchFormatSegment: String {get set}
     
     var setsMTG: [SetMTG] {get}
     var subtypesMTG: [Subtypes] {get}
@@ -32,11 +32,11 @@ protocol AdvancedSearchViewModelProtocol {
 class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     
     var searchSetValue = ""
-    var searchSetSegmentValue = "&set="
-    var searchSubtypeSegmentValue = "&subtype"
-    var searchTypeSegmentValue = "&type"
-    var searchSupertypeSegmentValue = "&supertype"
-    var searchFormatSegmentValue = "&format"
+    var searchSetSegment = "&set="
+    var searchSubtypeSegment = "&subtype"
+    var searchTypeSegment = "&type"
+    var searchSupertypeSegment = "&supertype"
+    var searchFormatSegment = "&format"
     
     var setsMTG: [SetMTG] = NetworkManager.shared.mockSetArr
     var subtypesMTG: [Subtypes] = NetworkManager.shared.mockSubtypesArr
