@@ -17,6 +17,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     private var manager = NetworkManager.shared
     private var searchStringPickerValue = "set="
+    var mainSearchString = "https://api.magicthegathering.io/v1/cards?"
     
     private var arrSubs : [Subtypes] = NetworkManager.shared.mockSubtypesArr
     private var arrSets : [SetMTG] = NetworkManager.shared.mockSetArr
@@ -155,9 +156,18 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
-        let mainSearchString = "https://api.magicthegathering.io/v1/cards?"
-        print("\(mainSearchString)\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
-        self.dismiss(animated: true)
+        
+//        print("\(mainSearchString)\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
+//        self.dismiss(animated: true)
+        
+        if selectSegmentControl.selectedSegmentIndex == 0 {
+            mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
+            print(mainSearchString)
+        }
+        else if selectSegmentControl.selectedSegmentIndex == 1 {
+            mainSearchString.append("\(viewModel.searchSubtypeSegment)\(viewModel.searchSubtypeValue)")
+            print(mainSearchString)
+        }
     }
     
     @IBAction func clearFiltersPressed(_ sender: Any) {
