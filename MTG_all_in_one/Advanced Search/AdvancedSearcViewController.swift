@@ -110,7 +110,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectSegmentControl.selectedSegmentIndex == 0 {
-            viewModel.searchSetValue = arrSets[indexPath.row].name
+            viewModel.searchSetValue = arrSets[indexPath.row].code
             print(viewModel.searchSetValue)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {

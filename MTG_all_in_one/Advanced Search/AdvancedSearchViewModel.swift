@@ -42,9 +42,9 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
     var searchFormatValue = ""
     
     var searchSetSegment = "&set="
-    var searchSubtypeSegment = "&subtype="
-    var searchTypeSegment = "&type="
-    var searchSupertypeSegment = "&supertype="
+    var searchSubtypeSegment = "&subtypes="
+    var searchTypeSegment = "&types="
+    var searchSupertypeSegment = "&supertypes="
     var searchFormatSegment = "&format="
     
     var setsMTG: [SetMTG] = NetworkManager.shared.mockSetArr
