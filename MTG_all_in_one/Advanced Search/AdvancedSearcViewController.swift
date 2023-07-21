@@ -179,6 +179,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func clearFiltersPressed(_ sender: Any) {
+        //updateUI()
         let tempString = "https://api.magicthegathering.io/v1/cards?"
         mainSearchString = tempString
         print(mainSearchString)
