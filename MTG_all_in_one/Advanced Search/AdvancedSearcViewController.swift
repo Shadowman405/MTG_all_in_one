@@ -108,8 +108,14 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.searchSetValue = arrSubs[0].subtypes[indexPath.row]
-        print(viewModel.searchSetValue)
+        if selectSegmentControl.selectedSegmentIndex == 0 {
+            viewModel.searchSetValue = arrSets[indexPath.row].name
+            print(viewModel.searchSetValue)
+        }
+        else if selectSegmentControl.selectedSegmentIndex == 1 {
+            viewModel.searchSetValue = arrSubs[0].subtypes[indexPath.row]
+            print(viewModel.searchSubtypeValue)
+        }
     }
     
     class TableViewCell: UITableViewCell {}

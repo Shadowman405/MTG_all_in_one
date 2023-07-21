@@ -9,6 +9,11 @@ import Foundation
 
 protocol AdvancedSearchViewModelProtocol {
     var searchSetValue: String {get set}
+    var searchSubtypeValue: String {get set}
+    var searchTypeValue: String {get set}
+    var searchSupertypeValue: String {get set}
+    var searchFormatValue: String {get set}
+    
     var searchSetSegment: String {get set}
     var searchSubtypeSegment: String {get set}
     var searchTypeSegment: String {get set}
@@ -30,8 +35,12 @@ protocol AdvancedSearchViewModelProtocol {
 }
 
 class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
-    
     var searchSetValue = ""
+    var searchSubtypeValue = ""
+    var searchTypeValue = ""
+    var searchSupertypeValue = ""
+    var searchFormatValue = ""
+    
     var searchSetSegment = "&set="
     var searchSubtypeSegment = "&subtype"
     var searchTypeSegment = "&type"
