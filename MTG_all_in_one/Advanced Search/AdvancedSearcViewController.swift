@@ -121,22 +121,27 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectSegmentControl.selectedSegmentIndex == 0 {
             viewModel.searchSetValue = arrSets[indexPath.row].code
+            setLbl.text = "&set=\(viewModel.searchSetValue)"
             print(viewModel.searchSetValue)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
             viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
+            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
             print(viewModel.searchSubtypeValue)
         }
         else if selectSegmentControl.selectedSegmentIndex == 2 {
             viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
+            typeLbl.text = "&types=\(viewModel.searchTypeValue)"
             print(viewModel.searchTypeValue)
         }
         else if selectSegmentControl.selectedSegmentIndex == 3 {
             viewModel.searchSupertypeValue = arrSupertypes[0].supertypes[indexPath.row]
+            supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
             print(viewModel.searchSupertypeValue)
         }
         else if selectSegmentControl.selectedSegmentIndex == 4 {
             viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
+            formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
             print(viewModel.searchFormatValue)
         }
     }
@@ -169,27 +174,22 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 
         if selectSegmentControl.selectedSegmentIndex == 0 {
 //            mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
-            setLbl.text = "&set=\(viewModel.searchSetValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
 //            mainSearchString.append("\(viewModel.searchSubtypeSegment)\(viewModel.searchSubtypeValue)")
-            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 2 {
             //mainSearchString.append("\(viewModel.searchTypeSegment)\(viewModel.searchTypeValue)")
-            typeLbl.text = "&types=\(viewModel.searchTypeValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 3 {
             //mainSearchString.append("\(viewModel.searchSupertypeSegment)\(viewModel.searchSupertypeValue)")
-            supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 4 {
             //mainSearchString.append("\(viewModel.searchFormatSegment)\(viewModel.searchFormatValue)")
-            formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
             print(mainSearchString)
         }
     }
