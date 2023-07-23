@@ -14,6 +14,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var addFilterBtn: UIButton!
     @IBOutlet weak var clearFilterBtn: UIButton!
+    @IBOutlet weak var filtersLbl: UILabel!
     
     private var manager = NetworkManager.shared
     private var searchStringPickerValue = "set="
@@ -161,14 +162,15 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
+
         if selectSegmentControl.selectedSegmentIndex == 0 {
 //            mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
-            mainSearchString = updateSearchValue(segment: viewModel.searchSetSegment, value: viewModel.searchSetValue)
+            filtersLbl.text = "Set: \(viewModel.searchSetValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
 //            mainSearchString.append("\(viewModel.searchSubtypeSegment)\(viewModel.searchSubtypeValue)")
-            updateSearchValue(segment: viewModel.searchSubtypeSegment, value: viewModel.searchSubtypeValue)
+            filtersLbl.text! += " Subtype: \(viewModel.searchSubtypeValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 2 {
