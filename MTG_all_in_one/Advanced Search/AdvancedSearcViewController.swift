@@ -156,9 +156,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func updateSearchValue(segment: String, value: String) -> String {
-        let segmentString = segment
-        let valueString = value
-        return "\(mainSearchString)\(segmentString)\(valueString)"
+        let finalString = "\(mainSearchString)\(segment)\(value)"
+        return finalString
     }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
