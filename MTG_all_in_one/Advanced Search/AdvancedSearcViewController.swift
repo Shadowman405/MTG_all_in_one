@@ -156,12 +156,13 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func updateSearchValue(segment: String, value: String){
-        mainSearchString += "\(segment)\(value)"
+        mainSearchString = "\(mainSearchString)\(segment)\(value)"
     }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
         if selectSegmentControl.selectedSegmentIndex == 0 {
-            mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
+//            mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
+            updateSearchValue(segment: viewModel.searchSetSegment, value: viewModel.searchSetValue)
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
