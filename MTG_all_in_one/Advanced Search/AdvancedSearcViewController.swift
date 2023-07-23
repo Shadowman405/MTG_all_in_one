@@ -155,18 +155,21 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         selectSegmentControl.backgroundColor = .green
     }
     
-    func updateSearchValue(segment: String, value: String){
-        mainSearchString = "\(mainSearchString)\(segment)\(value)"
+    func updateSearchValue(segment: String, value: String) -> String {
+        let segmentString = segment
+        let valueString = value
+        return "\(mainSearchString)\(segmentString)\(valueString)"
     }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
         if selectSegmentControl.selectedSegmentIndex == 0 {
 //            mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
-            updateSearchValue(segment: viewModel.searchSetSegment, value: viewModel.searchSetValue)
+            mainSearchString = updateSearchValue(segment: viewModel.searchSetSegment, value: viewModel.searchSetValue)
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
-            mainSearchString.append("\(viewModel.searchSubtypeSegment)\(viewModel.searchSubtypeValue)")
+//            mainSearchString.append("\(viewModel.searchSubtypeSegment)\(viewModel.searchSubtypeValue)")
+            updateSearchValue(segment: viewModel.searchSubtypeSegment, value: viewModel.searchSubtypeValue)
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 2 {
