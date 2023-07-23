@@ -308,13 +308,6 @@
                                     <action selector="searchBtnPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="yZd-54-zt8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&amp;set=" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6v-mZ-7EA">
-                                <rect key="frame" x="16" y="443" width="358" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&amp;subtypes=" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43H-gJ-GRR">
                                 <rect key="frame" x="16" y="487" width="354" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -367,6 +360,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&amp;set=" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIr-zz-eqZ">
+                                <rect key="frame" x="16" y="443" width="354" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mnv-kJ-OcY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -374,9 +374,13 @@
                     <connections>
                         <outlet property="addFilterBtn" destination="4SB-ml-V6M" id="wal-4P-PcF"/>
                         <outlet property="clearFilterBtn" destination="Krd-eG-6qX" id="VtQ-6j-bru"/>
-                        <outlet property="filtersLbl" destination="R6v-mZ-7EA" id="Oob-60-IAa"/>
+                        <outlet property="formatLbl" destination="0OX-Dn-mfc" id="OsW-4t-CRI"/>
                         <outlet property="selectSegmentControl" destination="kKz-lH-a22" id="Unr-Nk-UoG"/>
+                        <outlet property="setLbl" destination="NIr-zz-eqZ" id="mWC-NW-u6i"/>
+                        <outlet property="subtypeLbl" destination="43H-gJ-GRR" id="LFq-tz-UHO"/>
                         <outlet property="subtypesTAbleView" destination="hRx-J8-qly" id="Z3b-fQ-WPr"/>
+                        <outlet property="supertypeLbl" destination="r2G-D3-2Ta" id="wxd-xP-u8K"/>
+                        <outlet property="typeLbl" destination="lZT-4Y-HxI" id="lH0-Vp-COZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hka-Um-oh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

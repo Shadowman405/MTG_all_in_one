@@ -14,7 +14,16 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var addFilterBtn: UIButton!
     @IBOutlet weak var clearFilterBtn: UIButton!
-    @IBOutlet weak var filtersLbl: UILabel!
+
+    
+    @IBOutlet weak var setLbl: UILabel!
+    @IBOutlet weak var subtypeLbl: UILabel!
+    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var supertypeLbl: UILabel!
+    @IBOutlet weak var formatLbl: UILabel!
+    
+    
+    
     
     private var manager = NetworkManager.shared
     private var searchStringPickerValue = "set="
@@ -160,24 +169,27 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 
         if selectSegmentControl.selectedSegmentIndex == 0 {
 //            mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
-            filtersLbl.text = "Set: \(viewModel.searchSetValue)"
+            setLbl.text = "&set=\(viewModel.searchSetValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
 //            mainSearchString.append("\(viewModel.searchSubtypeSegment)\(viewModel.searchSubtypeValue)")
-            filtersLbl.text! += " Subtype: \(viewModel.searchSubtypeValue)"
+            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 2 {
-            mainSearchString.append("\(viewModel.searchTypeSegment)\(viewModel.searchTypeValue)")
+            //mainSearchString.append("\(viewModel.searchTypeSegment)\(viewModel.searchTypeValue)")
+            typeLbl.text = "&types=\(viewModel.searchTypeValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 3 {
-            mainSearchString.append("\(viewModel.searchSupertypeSegment)\(viewModel.searchSupertypeValue)")
+            //mainSearchString.append("\(viewModel.searchSupertypeSegment)\(viewModel.searchSupertypeValue)")
+            supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
             print(mainSearchString)
         }
         else if selectSegmentControl.selectedSegmentIndex == 4 {
-            mainSearchString.append("\(viewModel.searchFormatSegment)\(viewModel.searchFormatValue)")
+            //mainSearchString.append("\(viewModel.searchFormatSegment)\(viewModel.searchFormatValue)")
+            formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
             print(mainSearchString)
         }
     }
