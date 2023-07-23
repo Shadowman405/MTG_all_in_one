@@ -154,6 +154,10 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         selectSegmentControl.setWidth(80, forSegmentAt: 2)
         selectSegmentControl.backgroundColor = .green
     }
+    
+    func updateSearchValue(segment: String, value: String){
+        mainSearchString += "\(segment)\(value)"
+    }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
         if selectSegmentControl.selectedSegmentIndex == 0 {
