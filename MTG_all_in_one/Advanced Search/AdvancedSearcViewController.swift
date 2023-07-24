@@ -68,7 +68,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(setLbl.text!)")
+        delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(setLbl.text!)&name")
     }
     
 //MARK: - Segmant control logic

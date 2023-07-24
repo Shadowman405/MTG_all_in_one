@@ -69,14 +69,15 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
                 detailsVC.activateButon = true
             }
         } else if segue.identifier == "toAdvancedSearch"{
-            let vc2 = AdvancedSearcViewController()
-            vc2.delegate = self
+            if let advSearchVC = segue.destination as? AdvancedSearcViewController {
+                advSearchVC.delegate = self
+            }
         }
     }
     
     //MARK: - Protocol method
     func updateSearchString(seacrhString: String) {
-        testUrl = seacrhString
+        searchUrl = seacrhString
         print(searchUrl)
     }
 }
@@ -102,7 +103,7 @@ extension CardsCollectionViewController: UISearchResultsUpdating {
         viewModel.fetchCards(url: "\(searchUrl)\(searchText)") {
             
             self.collectionView.reloadData()
-            //print("\(self.searchUrl)\(searchText)")
+            print("\(self.searchUrl)\(searchText)")
         }
         
         viewModel.cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0"
