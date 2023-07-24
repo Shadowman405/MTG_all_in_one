@@ -72,7 +72,8 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     
     //MARK: - Protocol method
     func updateSearchString(seacrhString: String) {
-        searchUrl = seacrhString
+        self.searchUrl = seacrhString
+        print(searchUrl)
     }
 }
 
@@ -95,7 +96,9 @@ extension CardsCollectionViewController: UISearchResultsUpdating {
     
     func filterContentForSearchText(_ searchText: String) {
         viewModel.fetchCards(url: "\(searchUrl)\(searchText)") {
+            
             self.collectionView.reloadData()
+            //print("\(self.searchUrl)\(searchText)")
         }
         
         viewModel.cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0"
