@@ -385,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hka-Um-oh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2218.4615384615386" y="-1545.4976303317535"/>
+            <point key="canvasLocation" x="2734" y="-1753"/>
         </scene>
         <!--Cards-->
         <scene sceneID="XVr-xB-ueB">
@@ -429,7 +429,7 @@
                     <navigationItem key="navigationItem" title="Cards" id="DK1-tE-Wxc">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="uc7-hv-SB7">
                             <connections>
-                                <segue destination="te8-Uw-71U" kind="popoverPresentation" popoverAnchorBarButtonItem="uc7-hv-SB7" id="EFJ-MC-Ufz">
+                                <segue destination="te8-Uw-71U" kind="popoverPresentation" identifier="toAdvancedSearch" popoverAnchorBarButtonItem="uc7-hv-SB7" id="EFJ-MC-Ufz">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -616,7 +616,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jyt-pY-5nX"/>
+        <segue reference="EVw-KN-kih"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="mtg_green" width="563" height="789"/>

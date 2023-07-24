@@ -111,3 +111,4 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
         }
     }
 }
+

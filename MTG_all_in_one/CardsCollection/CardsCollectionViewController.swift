@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CardsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class CardsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, {
     private let reuseIdentifier = "Cell"
     private let manager = NetworkManager.shared
     private let testUrl = "https://api.magicthegathering.io/v1/cards?page=311"
@@ -63,6 +63,9 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
                 detailsVC.viewModel = sender as? CardDetailsViewModelProtocol
                 detailsVC.activateButon = true
             }
+        } else if segue.identifier == "toAdvancedSearch"{
+            let vc2 = AdvancedSearcViewController()
+            
         }
     }
 }
