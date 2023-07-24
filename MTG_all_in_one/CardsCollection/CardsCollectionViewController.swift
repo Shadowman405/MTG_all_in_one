@@ -7,7 +7,8 @@
 
 import UIKit
 
-class CardsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, {
+class CardsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout,searchStringProtocol {
+    
     private let reuseIdentifier = "Cell"
     private let manager = NetworkManager.shared
     private let testUrl = "https://api.magicthegathering.io/v1/cards?page=311"
@@ -65,8 +66,13 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
             }
         } else if segue.identifier == "toAdvancedSearch"{
             let vc2 = AdvancedSearcViewController()
-            
+            vc2.delegate = self
         }
+    }
+    
+    //MARK: - Protocol method
+    func updateSearchString(seacrhString: String) {
+        searchUrl = seacrhString
     }
 }
 

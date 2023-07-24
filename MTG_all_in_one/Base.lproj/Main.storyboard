@@ -349,8 +349,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Clear Filters"/>
                                 <connections>
-                                    <action selector="clearFiltersPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="adb-zH-sZT"/>
-                                    <action selector="searchBtnPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="ngb-RM-eDS"/>
+                                    <action selector="clearFiltersPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="fjw-XD-zp1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&amp;formats=" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OX-Dn-mfc">
@@ -385,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hka-Um-oh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734" y="-1753"/>
+            <point key="canvasLocation" x="2733.8461538461538" y="-1753.080568720379"/>
         </scene>
         <!--Cards-->
         <scene sceneID="XVr-xB-ueB">
