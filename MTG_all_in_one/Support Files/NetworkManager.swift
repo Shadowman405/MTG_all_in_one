@@ -171,9 +171,5 @@ class ImageManager {
     }
 }
 
-protocol searchStringProtocol {
-    func updateSearchString(seacrhString: String)
-}
-
 
 

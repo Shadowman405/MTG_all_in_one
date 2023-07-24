@@ -11,7 +11,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     
     private let reuseIdentifier = "Cell"
     private let manager = NetworkManager.shared
-    private let testUrl = "https://api.magicthegathering.io/v1/cards?page=311"
+    var testUrl = "https://api.magicthegathering.io/v1/cards?page=311"
     var searchUrl = "https://api.magicthegathering.io/v1/cards?name="
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -33,6 +33,10 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
         UIApplication.shared.isIdleTimerDisabled = false
         collectionView.backgroundColor = .lightGray
         setupSearchController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(searchUrl)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -72,7 +76,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     
     //MARK: - Protocol method
     func updateSearchString(seacrhString: String) {
-        self.searchUrl = seacrhString
+        testUrl = seacrhString
         print(searchUrl)
     }
 }

@@ -67,6 +67,10 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         updateButtonsUI()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(setLbl.text!)")
+    }
+    
 //MARK: - Segmant control logic
     @IBAction func segmentControlPressed(_ sender: UISegmentedControl) {
         switch selectSegmentControl.selectedSegmentIndex {
@@ -171,10 +175,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
-        
-        dismiss(animated: true){
-            self.delegate?.updateSearchString(seacrhString: "\(self.mainSearchString)\(self.setLbl.text!)")
-        }
+        dismiss(animated: true)
 
 //        if selectSegmentControl.selectedSegmentIndex == 0 {
 ////            mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
@@ -204,4 +205,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 //        mainSearchString = tempString
         print("\(mainSearchString)\(setLbl.text ?? "")")
     }
+}
+
+
+protocol searchStringProtocol {
+    func updateSearchString(seacrhString: String)
 }
