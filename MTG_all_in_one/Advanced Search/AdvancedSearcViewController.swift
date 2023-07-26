@@ -8,22 +8,20 @@
 import UIKit
 
 class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+//TV & SC
     @IBOutlet weak var selectSegmentControl: UISegmentedControl!
     @IBOutlet weak var subtypesTAbleView: UITableView!
-    
+//Buttoms
     @IBOutlet weak var addFilterBtn: UIButton!
     @IBOutlet weak var clearFilterBtn: UIButton!
-
-    
+//Labels
     @IBOutlet weak var setLbl: UILabel!
     @IBOutlet weak var subtypeLbl: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var supertypeLbl: UILabel!
     @IBOutlet weak var formatLbl: UILabel!
-    
-    
-    
+ 
+//Variables
     var delegate: searchStringProtocol?
     private var manager = NetworkManager.shared
     private var searchStringPickerValue = "set="
@@ -40,7 +38,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             viewModel.fetchSets(url: NetworkManager.shared.testUrlSets) {
                     self.updateUI()
             }
-            
             viewModel.fetchSubtypes(url: NetworkManager.shared.testUrlSubtypes) {
                     self.updateUI()
             }
@@ -69,7 +66,11 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(setLbl.text!)\(subtypeLbl.text!)\(typeLbl.text!)\(supertypeLbl.text!)\(formatLbl.text!)&name=")
+        if let set = setLbl.text, let subtype = subtypeLbl.text,
+           let type = typeLbl.text,
+           let supertype = supertypeLbl.text, let format = formatLbl.text {
+            delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(set)\(subtype)\(type)\(supertype)\(format)&name=")
+        }
     }
     
 //MARK: - Segmant control logic
@@ -184,36 +185,13 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
+        
+        print("\(mainSearchString)\(setLbl.text!)\(subtypeLbl.text!)\(typeLbl.text!)\(supertypeLbl.text!)\(formatLbl.text!)&name=")
         dismiss(animated: true)
-
-//        if selectSegmentControl.selectedSegmentIndex == 0 {
-////            mainSearchString.append("\(viewModel.searchSetSegment)\(viewModel.searchSetValue)")
-//            print(mainSearchString)
-//        }
-//        else if selectSegmentControl.selectedSegmentIndex == 1 {
-////            mainSearchString.append("\(viewModel.searchSubtypeSegment)\(viewModel.searchSubtypeValue)")
-//            print(mainSearchString)
-//        }
-//        else if selectSegmentControl.selectedSegmentIndex == 2 {
-//            //mainSearchString.append("\(viewModel.searchTypeSegment)\(viewModel.searchTypeValue)")
-//            print(mainSearchString)
-//        }
-//        else if selectSegmentControl.selectedSegmentIndex == 3 {
-//            //mainSearchString.append("\(viewModel.searchSupertypeSegment)\(viewModel.searchSupertypeValue)")
-//            print(mainSearchString)
-//        }
-//        else if selectSegmentControl.selectedSegmentIndex == 4 {
-//            //mainSearchString.append("\(viewModel.searchFormatSegment)\(viewModel.searchFormatValue)")
-//            print(mainSearchString)
-//        }
     }
     
     @IBAction func clearFiltersPressed(_ sender: Any) {
-        //updateUI()
-//        let tempString = "https://api.magicthegathering.io/v1/cards?"
-//        mainSearchString = tempString
-        print("\(mainSearchString)\(setLbl.text!)\(subtypeLbl.text!)\(typeLbl.text!)\(supertypeLbl.text!)\(formatLbl.text!)&name=")
-        //clearLabel()
+        clearLabel()
     }
 }
 
