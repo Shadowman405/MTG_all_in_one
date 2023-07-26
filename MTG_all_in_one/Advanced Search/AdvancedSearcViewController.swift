@@ -173,6 +173,14 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         selectSegmentControl.setWidth(80, forSegmentAt: 2)
         selectSegmentControl.backgroundColor = .green
     }
+    
+    func clearLabel(){
+        setLbl.text = ""
+        subtypeLbl.text = ""
+        typeLbl.text = ""
+        subtypeLbl.text = ""
+        formatLbl.text = ""
+    }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
         dismiss(animated: true)
