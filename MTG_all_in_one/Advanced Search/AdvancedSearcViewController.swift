@@ -213,7 +213,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 //        let tempString = "https://api.magicthegathering.io/v1/cards?"
 //        mainSearchString = tempString
         print("\(mainSearchString)\(setLbl.text!)\(subtypeLbl.text!)\(typeLbl.text!)\(supertypeLbl.text!)\(formatLbl.text!)&name=")
-        clearLabel()
+        //clearLabel()
     }
 }
 
