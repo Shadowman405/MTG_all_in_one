@@ -35,8 +35,8 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
         setupSearchController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        print(searchUrl)
+    override func viewDidAppear(_ animated: Bool) {
+        searchController.isActive = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
