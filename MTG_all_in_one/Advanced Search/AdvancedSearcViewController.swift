@@ -185,8 +185,11 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
 //MARK: - Buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
-        
-        print("\(mainSearchString)\(setLbl.text!)\(subtypeLbl.text!)\(typeLbl.text!)\(supertypeLbl.text!)\(formatLbl.text!)&name=")
+        if let set = setLbl.text, let subtype = subtypeLbl.text,
+           let type = typeLbl.text,
+           let supertype = supertypeLbl.text, let format = formatLbl.text {
+            print("\(mainSearchString)\(set)\(subtype)\(type)\(supertype)\(format)&name=")
+        }
         dismiss(animated: true)
     }
     
