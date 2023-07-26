@@ -36,7 +36,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        searchController.isActive = true
+       // searchController.isActive = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -79,6 +79,10 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     func updateSearchString(seacrhString: String) {
         searchUrl = seacrhString
         print(searchUrl)
+    }
+    
+    func showSearchBar() {
+        searchController.isActive = true
     }
 }
 

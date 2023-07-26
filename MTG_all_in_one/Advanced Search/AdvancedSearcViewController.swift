@@ -71,6 +71,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
            let supertype = supertypeLbl.text, let format = formatLbl.text {
             delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(set)\(subtype)\(type)\(supertype)\(format)&name=")
         }
+        delegate?.showSearchBar()
     }
     
 //MARK: - Segmant control logic
@@ -201,4 +202,5 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 
 protocol searchStringProtocol {
     func updateSearchString(seacrhString: String)
+    func showSearchBar()
 }
