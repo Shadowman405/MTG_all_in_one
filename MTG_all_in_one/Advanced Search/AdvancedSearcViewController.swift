@@ -65,10 +65,11 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         viewModel = AdvancedSearchViewModel()
         configureSegmentControl()
         updateButtonsUI()
+        clearLabel()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(setLbl.text!)&name=")
+        delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(setLbl.text!)\(subtypeLbl.text!)\(typeLbl.text!)\(supertypeLbl.text!)\(formatLbl.text!)&name=")
     }
     
 //MARK: - Segmant control logic
@@ -211,7 +212,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         //updateUI()
 //        let tempString = "https://api.magicthegathering.io/v1/cards?"
 //        mainSearchString = tempString
-        print("\(mainSearchString)\(setLbl.text ?? "")")
+        print("\(mainSearchString)\(setLbl.text!)\(subtypeLbl.text!)\(typeLbl.text!)\(supertypeLbl.text!)\(formatLbl.text!)&name=")
+        clearLabel()
     }
 }
 
