@@ -180,7 +180,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         setLbl.text = ""
         subtypeLbl.text = ""
         typeLbl.text = ""
-        subtypeLbl.text = ""
+        supertypeLbl.text = ""
         formatLbl.text = ""
     }
 //MARK: - Buttons
