@@ -17,7 +17,6 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     let searchController = UISearchController(searchResultsController: nil)
     var selectedCard: CardMTG!
     
-    
     private var viewModel: CardCollectionViewModelProtocol! {
         didSet {
             viewModel.fetchCards(url: testUrl) {
@@ -33,10 +32,6 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
         UIApplication.shared.isIdleTimerDisabled = false
         collectionView.backgroundColor = .lightGray
         setupSearchController()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-       // searchController.isActive = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
