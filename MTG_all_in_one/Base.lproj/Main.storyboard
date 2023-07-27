@@ -21,49 +21,53 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mtg_green" translatesAutoresizingMaskIntoConstraints="NO" id="Txn-C1-01S">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-Vd-1dM">
-                                <rect key="frame" x="152" y="314" width="94" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cards">
-                                    <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="30"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="fYT-pC-YE9" kind="show" id="pg7-oT-M48"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoJ-Yu-cFw">
-                                <rect key="frame" x="94" y="405" width="210" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="My Collections">
-                                    <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="30"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="jik-cL-H7g" kind="show" id="UXK-C7-seR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGZ-lb-bQe">
-                                <rect key="frame" x="96" y="488" width="209" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Health Counter">
-                                    <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="30"/>
-                                    <color key="baseForegroundColor" red="1" green="0.61928155340000002" blue="0.22052652410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="NbS-hL-WAn" kind="show" id="6rT-ns-Dvh"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="1l6-mw-Gbr">
+                                <rect key="frame" x="73.5" y="314" width="210" height="220"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-Vd-1dM">
+                                        <rect key="frame" x="58" y="0.0" width="94" height="47.333333333333336"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Cards">
+                                            <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="30"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="fYT-pC-YE9" kind="show" id="pg7-oT-M48"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoJ-Yu-cFw">
+                                        <rect key="frame" x="0.0" y="86.333333333333314" width="210" height="47.333333333333343"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="My Collections">
+                                            <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="30"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="jik-cL-H7g" kind="show" id="UXK-C7-seR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGZ-lb-bQe">
+                                        <rect key="frame" x="1" y="172.66666666666669" width="208.33333333333334" height="47.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Health Counter">
+                                            <fontDescription key="titleFontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="30"/>
+                                            <color key="baseForegroundColor" red="1" green="0.61928155340000002" blue="0.22052652410000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="NbS-hL-WAn" kind="show" id="6rT-ns-Dvh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H2e-fc-yO8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Txn-C1-01S" firstAttribute="leading" secondItem="H2e-fc-yO8" secondAttribute="leading" id="2tP-hC-f1j"/>
                             <constraint firstItem="Txn-C1-01S" firstAttribute="trailing" secondItem="H2e-fc-yO8" secondAttribute="trailing" id="JjP-eG-GUt"/>
+                            <constraint firstItem="1l6-mw-Gbr" firstAttribute="centerY" secondItem="Txn-C1-01S" secondAttribute="centerY" id="LWS-lR-fb5"/>
                             <constraint firstAttribute="bottom" secondItem="Txn-C1-01S" secondAttribute="bottom" id="WK8-Hf-Qka"/>
+                            <constraint firstItem="1l6-mw-Gbr" firstAttribute="centerX" secondItem="Txn-C1-01S" secondAttribute="centerX" id="oDs-di-9nI"/>
                             <constraint firstItem="Txn-C1-01S" firstAttribute="top" secondItem="UcL-wm-gX8" secondAttribute="top" id="yrS-rr-G6s"/>
                         </constraints>
                     </view>
