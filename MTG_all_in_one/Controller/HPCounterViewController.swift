@@ -34,7 +34,7 @@ class HPCounterViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func editViewStyle(_ sender: Any) {
         let alert = UIAlertController(title: "Choose School", message: "", preferredStyle: .alert)
 
-        let pickeViewFrame: CGRect = CGRect(x: 0, y: 0, width: 250, height: 300)
+        let pickeViewFrame: CGRect = CGRect(x: 0, y: 0, width: 250, height: 220)
         let pickerViewRadius: UIPickerView = UIPickerView(frame: pickeViewFrame)
         pickerViewRadius.delegate = self
         pickerViewRadius.dataSource = self
