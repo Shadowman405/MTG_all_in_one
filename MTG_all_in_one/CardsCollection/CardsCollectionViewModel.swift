@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CardCollectionViewModelProtocol {
-    var cards: [CardMTG] { get set }
+    var cards: [CardMTG] { get }
     
     
     func fetchCards(url: String, completion: @escaping () -> Void)
@@ -27,9 +27,6 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
             self.cards = cards
             completion()
         }
-        
-        //cards = cards.filter {$0.imageURL == ""}
-        
 //        cards.filter {$0.imageURL == ""}.first?.imageURL = "https://preview.redd.it/fr7g5swymhc41.png?width=640&crop=smart&auto=webp&s=930c8edaa0acc0755c71c3d737840d08a9e9a0b0"
     }
     
