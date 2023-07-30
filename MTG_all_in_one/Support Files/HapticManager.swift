@@ -25,7 +25,7 @@ final class HapticManager {
             let notificationGenerator = UINotificationFeedbackGenerator()
             notificationGenerator.prepare()
             notificationGenerator.notificationOccurred(type)
-        }
+        } 
     }
 }
 
