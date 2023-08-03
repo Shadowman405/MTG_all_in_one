@@ -26,7 +26,7 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
         NetworkManager.shared.fetchCards(url: url) { cards in
             var uniquedCards = [CardMTG]()
             for card in cards {
-                if !uniquedCards.contains(where: {$0.name == card.name}){
+                if !uniquedCards.contains(where: {$0.imageURL != "" && $0.name == card.name}){
                     uniquedCards.append(card)
                 }
             }
