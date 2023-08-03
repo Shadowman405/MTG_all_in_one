@@ -24,7 +24,12 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
     
     func fetchCards(url: String, completion: @escaping () -> Void) {
         NetworkManager.shared.fetchCards(url: url) { cards in
-            let uniquedCards = Array(cards.uniqued())
+            var uniquedCards = [CardMTG]()
+            for card in cards {
+                if !uniquedCards.contains(where: {$0.name == card.name}){
+                    uniquedCards.append(card)
+                }
+            }
             self.cards = uniquedCards
             completion()
         }
