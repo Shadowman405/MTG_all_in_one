@@ -6,7 +6,7 @@
 //
 import Foundation
 import Alamofire
-import SwiftyJSON
+//import SwiftyJSON
 
 class NetworkManager {
     
