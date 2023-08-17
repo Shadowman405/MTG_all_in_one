@@ -27,11 +27,18 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CardCollectionViewModel()
+        if Connectivity.isConnectedToInternet {
+            viewModel = CardCollectionViewModel()
+            
+            UIApplication.shared.isIdleTimerDisabled = false
+            collectionView.backgroundColor = .lightGray
+            setupSearchController()
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert, animated: true)
+        }
         
-        UIApplication.shared.isIdleTimerDisabled = false
-        collectionView.backgroundColor = .lightGray
-        setupSearchController()
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
