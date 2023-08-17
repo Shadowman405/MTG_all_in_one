@@ -14,4 +14,10 @@ struct Connectivity {
     static var isConnectedToInternet: Bool {
         return self.sharedInstance.isReachable
     }
-}
+    
+    func reacheable() -> Bool {
+        let sharedInstance = NetworkReachabilityManager()!
+            return  sharedInstance.isReachable
+        }
+    }
+

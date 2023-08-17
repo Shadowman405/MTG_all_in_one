@@ -28,18 +28,18 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if Connectivity.isConnectedToInternet {
-//        } else {
-//            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: .default))
-//            self.present(alert, animated: true)
-//        }
+        if Connectivity.isConnectedToInternet {
+            viewModel = CardCollectionViewModel()
+            
+            UIApplication.shared.isIdleTimerDisabled = false
+            collectionView.backgroundColor = .lightGray
+            setupSearchController()
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert, animated: true)
+        }
         
-        viewModel = CardCollectionViewModel()
-        
-        UIApplication.shared.isIdleTimerDisabled = false
-        collectionView.backgroundColor = .lightGray
-        setupSearchController()
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -49,7 +49,15 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.numberOfRows()
+        
+        if Connectivity.isConnectedToInternet {
+            return viewModel.numberOfRows()
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert, animated: true)
+            return 0
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
