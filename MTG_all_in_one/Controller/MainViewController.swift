@@ -32,5 +32,7 @@ class MainViewController: UIViewController {
         cardsLbl.translatesAutoresizingMaskIntoConstraints = false
         cardsLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardsLbl.bottomAnchor.constraint(equalTo: collectionLbl.topAnchor, constant: -30).isActive = true
+        navigationController?.navigationBar.barTintColor = UIColor.black
+
     }
 }
