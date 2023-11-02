@@ -104,8 +104,11 @@ extension CardsCollectionViewController: UISearchResultsUpdating {
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        filterContentForSearchText(searchBar.text!)
+        if let searchBarText = searchController.searchBar.text {
+            filterContentForSearchText(searchBarText)
+        } else {
+            return
+        }
     }
     
     func filterContentForSearchText(_ searchText: String) {

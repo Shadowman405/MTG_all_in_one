@@ -34,7 +34,11 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     private var arrFormats: [Formats] = NetworkManager.shared.mockFormats
     
 //SearchController
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
     let searchController = UISearchController(searchResultsController: nil)
+    private var arrSetsFiltered = [SetMTG]()
     
     
 //ViewModel
@@ -221,14 +225,17 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     
     func filterContentForSearchText(_ searchText: String) {
         self.subtypesTAbleView.reloadData()
-        print(searchText)
+        for setNTG in arrSets {
+            print(setNTG.name)
+        }
     }
     
     func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Cards"
+        searchController.searchBar.placeholder = "Search..."
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        searchController.isActive = true
     }
 }

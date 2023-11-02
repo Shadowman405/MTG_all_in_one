@@ -108,7 +108,7 @@ class NetworkManager {
             }
         }
     }
-    
+
     //formats
     func fetchFormats(url: String, with completion: @escaping ([Formats]) -> ()) {
         AF.request(url, method: .get).validate().responseJSON { respaonseData in
