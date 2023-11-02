@@ -91,7 +91,7 @@ class AdvancedSearchViewModel: AdvancedSearchViewModelProtocol {
         }
     }
     
-    
+     
     //MARK: - Helpers
     
     func numberOfRows(segmnetedControlIndex: Int) -> Int {

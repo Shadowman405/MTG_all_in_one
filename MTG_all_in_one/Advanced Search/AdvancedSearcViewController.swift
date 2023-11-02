@@ -37,6 +37,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
     let searchController = UISearchController(searchResultsController: nil)
     private var arrSetsFiltered = [SetMTG]()
     
@@ -98,14 +101,26 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
 //MARK: - TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
+        //viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
+        
+        if isFiltering {
+            return arrSetsFiltered.count
+        }
+          
+        return viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
         if selectSegmentControl.selectedSegmentIndex == 0 {
-            let subType = arrSets[indexPath.row]
+            let subType: SetMTG
+            if isFiltering {
+                 subType = arrSetsFiltered[indexPath.row]
+              } else {
+                 subType = arrSets[indexPath.row]
+              }
+           // let subType = arrSets[indexPath.row]
             content.text = subType.name
             cell.contentConfiguration = content
             return cell
@@ -137,9 +152,18 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selectSegmentControl.selectedSegmentIndex == 0 {
-            viewModel.searchSetValue = arrSets[indexPath.row].code
-            setLbl.text = "&set=\(viewModel.searchSetValue)"
-            print(viewModel.searchSetValue)
+            if isFiltering {
+                viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
+                setLbl.text = "&set=\(viewModel.searchSetValue)"
+                print(viewModel.searchSetValue)
+              } else {
+                  viewModel.searchSetValue = arrSets[indexPath.row].code
+                  setLbl.text = "&set=\(viewModel.searchSetValue)"
+                  print(viewModel.searchSetValue)
+              }
+//            viewModel.searchSetValue = arrSets[indexPath.row].code
+//            setLbl.text = "&set=\(viewModel.searchSetValue)"
+//            print(viewModel.searchSetValue)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
             viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
@@ -224,10 +248,10 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(_ searchText: String) {
-        self.subtypesTAbleView.reloadData()
-        for setNTG in arrSets {
-            print(setNTG.name)
+        arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
+            return setMtg.name.lowercased().contains(searchText.lowercased())
         }
+        subtypesTAbleView.reloadData()
     }
     
     func setupSearchController() {
