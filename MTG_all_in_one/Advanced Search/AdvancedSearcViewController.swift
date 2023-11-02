@@ -210,7 +210,11 @@ protocol searchStringProtocol {
 extension AdvancedSearcViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text ?? "")
     }
     
-    
+    func filterContentForSearchText(_ searchText: String) {
+        self.subtypesTAbleView.reloadData()
+        print(searchText)
+    }
 }
