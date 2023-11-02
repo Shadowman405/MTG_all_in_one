@@ -26,7 +26,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     private var manager = NetworkManager.shared
     private var searchStringPickerValue = "set="
     var mainSearchString = "https://api.magicthegathering.io/v1/cards?"
-    
+
     private var arrSubs : [Subtypes] = NetworkManager.shared.mockSubtypesArr
     private var arrSets : [SetMTG] = NetworkManager.shared.mockSetArr
     private var arrTypes: [Types] = NetworkManager.shared.mockTypesArr
@@ -200,7 +200,17 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 }
 
 
+// MARK: - protocols and extensions
+
 protocol searchStringProtocol {
     func updateSearchString(seacrhString: String)
     func showSearchBar()
+}
+
+extension AdvancedSearcViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+    }
+    
+    
 }
