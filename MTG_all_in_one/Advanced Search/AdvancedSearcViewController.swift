@@ -33,6 +33,11 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     private var arrSupertypes: [Supertypes] = NetworkManager.shared.mockSupertypes
     private var arrFormats: [Formats] = NetworkManager.shared.mockFormats
     
+//SearchController
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    
+//ViewModel
     var viewModel: AdvancedSearchViewModelProtocol! {
         didSet {
             viewModel.fetchSets(url: NetworkManager.shared.testUrlSets) {
@@ -63,6 +68,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         configureSegmentControl()
         updateButtonsUI()
         clearLabel()
+        setupSearchController()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -216,5 +222,13 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     func filterContentForSearchText(_ searchText: String) {
         self.subtypesTAbleView.reloadData()
         print(searchText)
+    }
+    
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Cards"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 }
