@@ -186,8 +186,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             print(viewModel.searchFormatValue)
         }
     }
-    
-    class TableViewCell: UITableViewCell {}
 
 //MARK: - Other funcs
     func updateUI() {
@@ -242,6 +240,10 @@ protocol searchStringProtocol {
 }
 
 extension AdvancedSearcViewController: UISearchResultsUpdating {
+    class TableViewCell: UITableViewCell {}
+    
+    // MARK: - SearcController
+    
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text ?? "")
