@@ -157,43 +157,73 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if selectSegmentControl.selectedSegmentIndex == 0 {
-            if isFiltering {
-                viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
-                setLbl.text = "&set=\(viewModel.searchSetValue)"
-                print(viewModel.searchSetValue)
-              } else {
-                  viewModel.searchSetValue = arrSets[indexPath.row].code
-                  setLbl.text = "&set=\(viewModel.searchSetValue)"
-                  print(viewModel.searchSetValue)
-              }
-        }
-        else if selectSegmentControl.selectedSegmentIndex == 1 {
-            if isFiltering {
-                viewModel.searchSubtypeValue = arrSubtypesFiltered[0].subtypes[indexPath.row]
-                subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
-                print(viewModel.searchSubtypeValue)
-            } else {
-                viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
-                subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
-                print(viewModel.searchSubtypeValue)
-            }
-        }
-        else if selectSegmentControl.selectedSegmentIndex == 2 {
-            viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
-            typeLbl.text = "&types=\(viewModel.searchTypeValue)"
-            print(viewModel.searchTypeValue)
-        }
-        else if selectSegmentControl.selectedSegmentIndex == 3 {
-            viewModel.searchSupertypeValue = arrSupertypes[0].supertypes[indexPath.row]
-            supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
-            print(viewModel.searchSupertypeValue)
-        }
-        else if selectSegmentControl.selectedSegmentIndex == 4 {
+        switch selectSegmentControl.selectedSegmentIndex{
+        case 0:
+                        if isFiltering {
+                            viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
+                            setLbl.text = "&set=\(viewModel.searchSetValue)"
+                          } else {
+                              viewModel.searchSetValue = arrSets[indexPath.row].code
+                              setLbl.text = "&set=\(viewModel.searchSetValue)"
+                          }
+        case 1:
+                        if isFiltering {
+                            viewModel.searchSubtypeValue = arrSubtypesFiltered[0].subtypes[indexPath.row]
+                            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+                        } else {
+                            viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
+                            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+                        }
+        case 2:
+                        viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
+                        typeLbl.text = "&types=\(viewModel.searchTypeValue)"
+        case 3:
+                        viewModel.searchSupertypeValue = arrSupertypes[0].supertypes[indexPath.row]
+                        supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
+        case 4:
+                        viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
+                        formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
+        default:
             viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
             formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
-            print(viewModel.searchFormatValue)
         }
+//        if selectSegmentControl.selectedSegmentIndex == 0 {
+//            if isFiltering {
+//                viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
+//                setLbl.text = "&set=\(viewModel.searchSetValue)"
+//                print(viewModel.searchSetValue)
+//              } else {
+//                  viewModel.searchSetValue = arrSets[indexPath.row].code
+//                  setLbl.text = "&set=\(viewModel.searchSetValue)"
+//                  print(viewModel.searchSetValue)
+//              }
+//        }
+//        else if selectSegmentControl.selectedSegmentIndex == 1 {
+//            if isFiltering {
+//                viewModel.searchSubtypeValue = arrSubtypesFiltered[0].subtypes[indexPath.row]
+//                subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+//                print(viewModel.searchSubtypeValue)
+//            } else {
+//                viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
+//                subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+//                print(viewModel.searchSubtypeValue)
+//            }
+//        }
+//        else if selectSegmentControl.selectedSegmentIndex == 2 {
+//            viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
+//            typeLbl.text = "&types=\(viewModel.searchTypeValue)"
+//            print(viewModel.searchTypeValue)
+//        }
+//        else if selectSegmentControl.selectedSegmentIndex == 3 {
+//            viewModel.searchSupertypeValue = arrSupertypes[0].supertypes[indexPath.row]
+//            supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
+//            print(viewModel.searchSupertypeValue)
+//        }
+//        else if selectSegmentControl.selectedSegmentIndex == 4 {
+//            viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
+//            formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
+//            print(viewModel.searchFormatValue)
+//        }
     }
 
 //MARK: - Other funcs
