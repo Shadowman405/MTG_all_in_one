@@ -111,80 +111,11 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        switch selectSegmentControl.selectedSegmentIndex {
-        case 0:
-                        let setType: SetMTG
-                        if isFiltering {
-                            setType = arrSetsFiltered[indexPath.row]
-                          } else {
-                              setType = arrSets[indexPath.row]
-                          }
-                        content.text = setType.name
-                        cell.contentConfiguration = content
-                        return cell
-        case 1:
-                        var subType: [String]
-                        if isFiltering {
-                            subType = arrSubtypesFiltered[0].subtypes
-                        } else {
-                            subType = arrSubs[0].subtypes
-                        }
-                        content.text = subType[indexPath.row]
-                        cell.contentConfiguration = content
-                        return cell
-        case 2:
-                        let type = arrTypes[0].types[indexPath.row]
-                        content.text = type
-                        cell.contentConfiguration = content
-                        return cell
-        case 3:
-                        let supertype = arrSupertypes[0].supertypes[indexPath.row]
-                        content.text = supertype
-                        cell.contentConfiguration = content
-                        return cell
-        case 4:
-                        let format = arrFormats[0].formats[indexPath.row]
-                        content.text = format
-                        cell.contentConfiguration = content
-                        return cell
-        default:
-            return cell
-        }
+        returnCellHandler(tableView, cellForRowAt: indexPath) // logic move to extension for tableVC
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch selectSegmentControl.selectedSegmentIndex{
-        case 0:
-                        if isFiltering {
-                            viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
-                            setLbl.text = "&set=\(viewModel.searchSetValue)"
-                          } else {
-                              viewModel.searchSetValue = arrSets[indexPath.row].code
-                              setLbl.text = "&set=\(viewModel.searchSetValue)"
-                          }
-        case 1:
-                        if isFiltering {
-                            viewModel.searchSubtypeValue = arrSubtypesFiltered[0].subtypes[indexPath.row]
-                            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
-                        } else {
-                            viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
-                            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
-                        }
-        case 2:
-                        viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
-                        typeLbl.text = "&types=\(viewModel.searchTypeValue)"
-        case 3:
-                        viewModel.searchSupertypeValue = arrSupertypes[0].supertypes[indexPath.row]
-                        supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
-        case 4:
-                        viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
-                        formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
-        default:
-            viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
-            formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
-        }
+        returnSelectedRow(tableView, didSelectRowAt: indexPath) // logic move to extension for tableVC
     }
 
 //MARK: - Other funcs
@@ -269,5 +200,83 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.isActive = true
+    }
+    
+    //MARK: - Handlers for tablewview funcs
+    func returnCellHandler(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        switch selectSegmentControl.selectedSegmentIndex {
+        case 0:
+                        let setType: SetMTG
+                        if isFiltering {
+                            setType = arrSetsFiltered[indexPath.row]
+                          } else {
+                              setType = arrSets[indexPath.row]
+                          }
+                        content.text = setType.name
+                        cell.contentConfiguration = content
+                        return cell
+        case 1:
+                        var subType: [String]
+                        if isFiltering {
+                            subType = arrSubtypesFiltered[0].subtypes
+                        } else {
+                            subType = arrSubs[0].subtypes
+                        }
+                        content.text = subType[indexPath.row]
+                        cell.contentConfiguration = content
+                        return cell
+        case 2:
+                        let type = arrTypes[0].types[indexPath.row]
+                        content.text = type
+                        cell.contentConfiguration = content
+                        return cell
+        case 3:
+                        let supertype = arrSupertypes[0].supertypes[indexPath.row]
+                        content.text = supertype
+                        cell.contentConfiguration = content
+                        return cell
+        case 4:
+                        let format = arrFormats[0].formats[indexPath.row]
+                        content.text = format
+                        cell.contentConfiguration = content
+                        return cell
+        default:
+            return cell
+        }
+    }
+    //
+    func returnSelectedRow(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch selectSegmentControl.selectedSegmentIndex{
+        case 0:
+                        if isFiltering {
+                            viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
+                            setLbl.text = "&set=\(viewModel.searchSetValue)"
+                          } else {
+                              viewModel.searchSetValue = arrSets[indexPath.row].code
+                              setLbl.text = "&set=\(viewModel.searchSetValue)"
+                          }
+        case 1:
+                        if isFiltering {
+                            viewModel.searchSubtypeValue = arrSubtypesFiltered[0].subtypes[indexPath.row]
+                            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+                        } else {
+                            viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
+                            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+                        }
+        case 2:
+                        viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
+                        typeLbl.text = "&types=\(viewModel.searchTypeValue)"
+        case 3:
+                        viewModel.searchSupertypeValue = arrSupertypes[0].supertypes[indexPath.row]
+                        supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
+        case 4:
+                        viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
+                        formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
+        default:
+            viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
+            formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
+        }
     }
 }
