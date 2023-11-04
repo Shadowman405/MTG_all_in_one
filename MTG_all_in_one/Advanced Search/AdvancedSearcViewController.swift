@@ -42,7 +42,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     let searchController = UISearchController(searchResultsController: nil)
     private var arrSetsFiltered = [SetMTG]()
-    private var arrSubtypesFiltered = [Subtypes]()
+    private var arrSubtypesFiltered = [Subtypes(subtypes: ["Waiting for data..."])]
     
     
 //ViewModel
@@ -127,8 +127,14 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
             cell.contentConfiguration = content
             return cell
         } else if selectSegmentControl.selectedSegmentIndex == 1 {
-            let subType = arrSubs[0].subtypes[indexPath.row]
-            content.text = subType
+            var subType: [String]
+            //let subType = arrSubs[0].subtypes[indexPath.row]
+            if isFiltering {
+                subType = arrSubtypesFiltered[0].subtypes
+            } else {
+                subType = arrSubs[0].subtypes
+            }
+            content.text = subType[indexPath.row]
             cell.contentConfiguration = content
             return cell
         } else if selectSegmentControl.selectedSegmentIndex == 2 {
@@ -252,10 +258,18 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(_ searchText: String) {
-        arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
-            return setMtg.name.lowercased().contains(searchText.lowercased())
+        if selectSegmentControl.selectedSegmentIndex == 0 {
+            arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
+                return setMtg.name.lowercased().contains(searchText.lowercased())
+            }
+        } else {
+            arrSubtypesFiltered[0].subtypes = arrSubs[0].subtypes
+            arrSubtypesFiltered[0].subtypes.filter({ (subtype: String) -> Bool in
+                //print(subtype.lowercased().contains(searchText.lowercased()))
+                return subtype.lowercased().contains(searchText.lowercased())
+            })
+            subtypesTAbleView.reloadData()
         }
-        subtypesTAbleView.reloadData()
     }
     
     func setupSearchController() {
