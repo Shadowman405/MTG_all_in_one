@@ -42,6 +42,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     let searchController = UISearchController(searchResultsController: nil)
     private var arrSetsFiltered = [SetMTG]()
+    private var arrSubtypesFiltered = [Subtypes]()
     
     
 //ViewModel
