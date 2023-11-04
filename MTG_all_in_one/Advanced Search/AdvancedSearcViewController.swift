@@ -122,13 +122,11 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
               } else {
                   setType = arrSets[indexPath.row]
               }
-           // let subType = arrSets[indexPath.row]
             content.text = setType.name
             cell.contentConfiguration = content
             return cell
         } else if selectSegmentControl.selectedSegmentIndex == 1 {
             var subType: [String]
-            //let subType = arrSubs[0].subtypes[indexPath.row]
             if isFiltering {
                 subType = arrSubtypesFiltered[0].subtypes
             } else {
@@ -169,9 +167,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
                   setLbl.text = "&set=\(viewModel.searchSetValue)"
                   print(viewModel.searchSetValue)
               }
-//            viewModel.searchSetValue = arrSets[indexPath.row].code
-//            setLbl.text = "&set=\(viewModel.searchSetValue)"
-//            print(viewModel.searchSetValue)
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
             viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
