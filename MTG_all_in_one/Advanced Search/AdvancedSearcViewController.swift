@@ -102,8 +102,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     
 //MARK: - TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
-        
         if isFiltering && selectSegmentControl.selectedSegmentIndex == 0 {
             return arrSetsFiltered.count
         } else if isFiltering && selectSegmentControl.selectedSegmentIndex == 1 {
@@ -225,7 +223,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
            let supertype = supertypeLbl.text, let format = formatLbl.text {
             print("\(mainSearchString)\(set)\(subtype)\(type)\(supertype)\(format)&name=")
         }
-        dismiss(animated: true)
+        dismiss(animated: true) //didnt work after change segue from modal to Push
     }
     
     @IBAction func clearFiltersPressed(_ sender: Any) {
