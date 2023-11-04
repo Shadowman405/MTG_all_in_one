@@ -169,9 +169,15 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
               }
         }
         else if selectSegmentControl.selectedSegmentIndex == 1 {
-            viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
-            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
-            print(viewModel.searchSubtypeValue)
+            if isFiltering {
+                viewModel.searchSubtypeValue = arrSubtypesFiltered[0].subtypes[indexPath.row]
+                subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+                print(viewModel.searchSubtypeValue)
+            } else {
+                viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
+                subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+                print(viewModel.searchSubtypeValue)
+            }
         }
         else if selectSegmentControl.selectedSegmentIndex == 2 {
             viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
