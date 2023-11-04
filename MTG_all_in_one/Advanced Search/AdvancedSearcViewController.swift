@@ -104,7 +104,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
         
-        if isFiltering {
+        if isFiltering && selectSegmentControl.selectedSegmentIndex == 0 {
+            return arrSetsFiltered.count
+        } else if isFiltering && selectSegmentControl.selectedSegmentIndex == 1 {
             return arrSetsFiltered.count
         }
           
@@ -115,14 +117,14 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "subCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
         if selectSegmentControl.selectedSegmentIndex == 0 {
-            let subType: SetMTG
-            if isFiltering {
-                 subType = arrSetsFiltered[indexPath.row]
+            let setType: SetMTG
+            if isFiltering && selectSegmentControl.selectedSegmentIndex == 0 {
+                setType = arrSetsFiltered[indexPath.row]
               } else {
-                 subType = arrSets[indexPath.row]
+                setType = arrSets[indexPath.row]
               }
            // let subType = arrSets[indexPath.row]
-            content.text = subType.name
+            content.text = setType.name
             cell.contentConfiguration = content
             return cell
         } else if selectSegmentControl.selectedSegmentIndex == 1 {
