@@ -107,9 +107,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         if isFiltering && selectSegmentControl.selectedSegmentIndex == 0 {
             return arrSetsFiltered.count
         } else if isFiltering && selectSegmentControl.selectedSegmentIndex == 1 {
-            return arrSetsFiltered.count
+            return arrSubtypesFiltered.count
         }
-          
         return viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
     }
     
@@ -118,10 +117,10 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         var content = cell.defaultContentConfiguration()
         if selectSegmentControl.selectedSegmentIndex == 0 {
             let setType: SetMTG
-            if isFiltering && selectSegmentControl.selectedSegmentIndex == 0 {
+            if isFiltering {
                 setType = arrSetsFiltered[indexPath.row]
               } else {
-                setType = arrSets[indexPath.row]
+                  setType = arrSets[indexPath.row]
               }
            // let subType = arrSets[indexPath.row]
             content.text = setType.name
