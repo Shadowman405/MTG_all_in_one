@@ -107,7 +107,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
         if isFiltering && selectSegmentControl.selectedSegmentIndex == 0 {
             return arrSetsFiltered.count
         } else if isFiltering && selectSegmentControl.selectedSegmentIndex == 1 {
-            return arrSubtypesFiltered.count
+            return arrSubtypesFiltered[0].subtypes.count
         }
         return viewModel.numberOfRows(segmnetedControlIndex: selectSegmentControl.selectedSegmentIndex)
     }
@@ -263,9 +263,7 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
                 return setMtg.name.lowercased().contains(searchText.lowercased())
             }
         } else {
-            arrSubtypesFiltered[0].subtypes = arrSubs[0].subtypes
-            arrSubtypesFiltered[0].subtypes.filter({ (subtype: String) -> Bool in
-                //print(subtype.lowercased().contains(searchText.lowercased()))
+            arrSubtypesFiltered[0].subtypes = arrSubs[0].subtypes.filter({ subtype -> Bool in
                 return subtype.lowercased().contains(searchText.lowercased())
             })
             subtypesTAbleView.reloadData()
