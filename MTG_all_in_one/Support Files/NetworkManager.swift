@@ -170,7 +170,7 @@ class NetworkManager {
                 }
                 
                 guard let safeData = data else {return}
-                print("Data:  \(safeData.description)")
+                //print("Data:  \(safeData.description)")
                 do {
                     let decoder = JSONDecoder()
                     let res = try decoder.decode(T.self, from: safeData)

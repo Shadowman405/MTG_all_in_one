@@ -42,14 +42,17 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
             switch result {
             case .success(let cards):
                 print(cards.count)
-//                var uniquedCards = [CardMtgGen]()
-//                for card in cards {
-//                    for singleCard in card {
+                var uniquedCards = [Card]()
+                for card in cards {
+//                    for singleCard in card.cards! {
 //                        print(card)
 //                        uniquedCards.append(singleCard)
 //                    }
-//                }
-//                self.cardsGen = uniquedCards.filter{$0.imageURL != ""}
+                    if let card = card.cards {
+                        print(card[0])
+                    }
+                }
+                self.cardsGen = uniquedCards.filter{$0.imageURL != ""}
                 completion()
             case.failure(let error):
                 print("Error parsing")
