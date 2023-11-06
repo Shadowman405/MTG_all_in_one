@@ -44,7 +44,7 @@ struct Card: Codable {
     let foreignNames: [ForeignName]?
     let printings: [String]?
     let originalText, originalType: String?
-//    let legalities: [LegalityElement]?
+  //  let legalities: [LegalityElement]?
     let id: String?
     let variations: [String]?
 

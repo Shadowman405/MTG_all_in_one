@@ -48,8 +48,9 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
 //                        print(card)
 //                        uniquedCards.append(singleCard)
 //                    }
-                    if let card = card.cards {
-                        print(card[0])
+                    for singlCard in 0...card.cards!.count - 1{
+                        uniquedCards.append(card.cards![singlCard])
+                        print(uniquedCards[singlCard])
                     }
                 }
                 self.cardsGen = uniquedCards.filter{$0.imageURL != ""}
