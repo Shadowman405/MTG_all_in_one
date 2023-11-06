@@ -173,13 +173,13 @@ class NetworkManager {
                 print("Data:  \(safeData.description)")
                 do {
                     let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let res = try decoder.decode(T.self, from: safeData)
                     DispatchQueue.main.async {
                         print(res)
                         completion(.success([res]))
                     }
                 } catch {
+                    debugPrint(error)
                     print(error.localizedDescription)
                 }
             }

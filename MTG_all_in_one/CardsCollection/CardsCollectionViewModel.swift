@@ -10,7 +10,7 @@ import Algorithms
 
 protocol CardCollectionViewModelProtocol {
     var cards: [CardMTG] { get }
-    var cardsGen: [CardMtgGen] { get }
+    var cardsGen: [Card] { get }
     
     func fetchCards(url: String, completion: @escaping () -> Void)
     func numberOfRows() -> Int
@@ -22,7 +22,7 @@ protocol CardCollectionViewModelProtocol {
 
 class CardCollectionViewModel: CardCollectionViewModelProtocol {
     var cards: [CardMTG] = []
-    var cardsGen: [CardMtgGen] = []
+    var cardsGen: [Card] = []
     
     func fetchCards(url: String, completion: @escaping () -> Void) {
         NetworkManager.shared.fetchCards(url: url) { cards in
@@ -38,17 +38,18 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
         }
 
         
-        NetworkManager.shared.fetchData(url: url, type: [CardMtgGen].self) { result in
+        NetworkManager.shared.fetchData(url: url, type: CardMtgGenResponse.self) { result in
             switch result {
             case .success(let cards):
-                var uniquedCards = [CardMtgGen]()
-                for card in cards {
-                    for singleCard in card {
-                        print(card)
-                        uniquedCards.append(singleCard)
-                    }
-                }
-                self.cardsGen = uniquedCards.filter{$0.imageURL != ""}
+                print(cards.count)
+//                var uniquedCards = [CardMtgGen]()
+//                for card in cards {
+//                    for singleCard in card {
+//                        print(card)
+//                        uniquedCards.append(singleCard)
+//                    }
+//                }
+//                self.cardsGen = uniquedCards.filter{$0.imageURL != ""}
                 completion()
             case.failure(let error):
                 print("Error parsing")
