@@ -170,8 +170,10 @@ class NetworkManager {
                 }
                 
                 guard let safeData = data else {return}
+                print("Data:  \(safeData.description)")
                 do {
                     let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let res = try decoder.decode(T.self, from: safeData)
                     DispatchQueue.main.async {
                         print(res)
