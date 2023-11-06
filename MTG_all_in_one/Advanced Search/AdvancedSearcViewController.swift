@@ -163,6 +163,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 }
 
 
+
+
 // MARK: - protocols and extensions
 
 protocol searchStringProtocol {

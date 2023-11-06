@@ -153,6 +153,38 @@ class NetworkManager {
         return fullString
         
     }
+    
+    // Fetchig using Generics
+
+    func fetchData<T: Codable>(url: String, type: T.Type, with completion: @escaping (Result<[T], Error>) -> Void ) {
+        if let safeUrl = URL(string: url) {
+            let request = URLRequest(url: safeUrl)
+            let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+                if error != nil {
+                    print(error?.localizedDescription ?? "Error fetching func generic")
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse,(200...300) ~= response.statusCode else {
+                    return
+                }
+                
+                guard let safeData = data else {return}
+                do {
+                    let decoder = JSONDecoder()
+                    let res = try decoder.decode(T.self, from: safeData)
+                    DispatchQueue.main.async {
+                        print(res)
+                        completion(.success([res]))
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+            dataTask.resume()
+        }
+    }
+
 }
 
 
@@ -170,6 +202,4 @@ class ImageManager {
         }.resume()
     }
 }
-
-
 

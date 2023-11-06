@@ -34,6 +34,25 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
             self.cards = uniquedCards.filter{$0.imageURL != ""}
             completion()
         }
+
+        
+//        NetworkManager.shared.fetchData(url: url, type: [CardMTG].self) { result in
+//            switch result {
+//            case .success(let cards):
+//                var uniquedCards = [CardMTG]()
+//                for card in cards {
+//                    for singleCard in card {
+//                        print(singleCard)
+//                        uniquedCards.append(singleCard)
+//                    }
+//                }
+//                self.cards = uniquedCards.filter{$0.imageURL != ""}
+//                completion()
+//            case.failure(let error):
+//                print("Failure")
+//                print(error)
+//            }
+//        }
     }
     
     func numberOfRows() -> Int {

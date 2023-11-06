@@ -33,7 +33,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
             UIApplication.shared.isIdleTimerDisabled = false
             collectionView.backgroundColor = .lightGray
             setupSearchController()
-        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.barTintColor = UIColor.black        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
