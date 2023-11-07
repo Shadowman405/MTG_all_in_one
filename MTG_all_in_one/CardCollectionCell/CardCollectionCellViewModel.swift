@@ -10,17 +10,22 @@ import Foundation
 protocol CardCollectionCellViewModelProtocol {
     var cardImg: String {get}
     
-    init(card: CardMTG)
+    //init(card: CardMTG)
+    init(card: Card)
 }
 
 class CardCollectionCellViewModel:CardCollectionCellViewModelProtocol {
-    private let card : CardMTG
+    private let card : Card
     
     var cardImg: String {
-        card.imageURL
+        card.imageURL ?? ""
     }
     
-    required init(card: CardMTG) {
+//    required init(card: CardMTG) {
+//        self.card = card
+//    }
+    
+    required init(card: Card) {
         self.card = card
     }
     

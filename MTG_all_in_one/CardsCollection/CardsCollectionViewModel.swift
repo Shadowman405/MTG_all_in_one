@@ -67,12 +67,14 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
     }
     
     func cellViewModel(at indexPath: IndexPath) -> CardCollectionCellViewModelProtocol {
-        let card = cards[indexPath.row]
+        //let card = cards[indexPath.row]
+        let card = cardsGen[indexPath.row]
         return CardCollectionCellViewModel(card: card)
     }
     
     func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol {
-        let card = cards[indexPath.row]
+        //let card = cards[indexPath.row]
+        let card = cardsGen[indexPath.row]
         return CardDetailsViewModel(card: card)
     }
     
