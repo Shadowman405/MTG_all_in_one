@@ -29,6 +29,7 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
     override func viewDidLoad() {
         super.viewDidLoad()
             viewModel = CardCollectionViewModel()
+        print("load screen")
             
             UIApplication.shared.isIdleTimerDisabled = false
             collectionView.backgroundColor = .lightGray

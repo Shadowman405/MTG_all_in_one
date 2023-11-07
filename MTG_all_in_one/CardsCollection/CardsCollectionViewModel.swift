@@ -25,17 +25,17 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
     var cardsGen: [Card] = []
     
     func fetchCards(url: String, completion: @escaping () -> Void) {
-//        NetworkManager.shared.fetchCards(url: url) { cards in
-//            var uniquedCards = [CardMTG]()
-//            for card in cards {
-////                if !uniquedCards.contains(where: {$0.imageURL != "" && $0.name == card.name}){
-////                    uniquedCards.append(card)
-////                }
+        NetworkManager.shared.fetchCards(url: url) { cards in
+            var uniquedCards = [CardMTG]()
+            for card in cards {
+//                if !uniquedCards.contains(where: {$0.imageURL != "" && $0.name == card.name}){
 //                    uniquedCards.append(card)
-//            }
-//            self.cards = uniquedCards.filter{$0.imageURL != ""}
-//            completion()
-//        }
+//                }
+                    uniquedCards.append(card)
+            }
+            self.cards = uniquedCards.filter{$0.imageURL != ""}
+            completion()
+        }
 
         
         NetworkManager.shared.fetchData(url: url, type: CardMtgGenResponse.self) { result in
@@ -67,14 +67,12 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
     }
     
     func cellViewModel(at indexPath: IndexPath) -> CardCollectionCellViewModelProtocol {
-        //let card = cards[indexPath.row]
-        let card = cardsGen[indexPath.row]
+        let card = cards[indexPath.row]
         return CardCollectionCellViewModel(card: card)
     }
     
     func detailsViewModel(at indexPath: IndexPath) -> CardDetailsViewModelProtocol {
-        //let card = cards[indexPath.row]
-        let card = cardsGen[indexPath.row]
+        let card = cards[indexPath.row]
         return CardDetailsViewModel(card: card)
     }
     
