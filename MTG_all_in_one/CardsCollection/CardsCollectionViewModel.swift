@@ -25,17 +25,17 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
     var cardsGen: [Card] = []
     
     func fetchCards(url: String, completion: @escaping () -> Void) {
-        NetworkManager.shared.fetchCards(url: url) { cards in
-            var uniquedCards = [CardMTG]()
-            for card in cards {
-//                if !uniquedCards.contains(where: {$0.imageURL != "" && $0.name == card.name}){
+//        NetworkManager.shared.fetchCards(url: url) { cards in
+//            var uniquedCards = [CardMTG]()
+//            for card in cards {
+////                if !uniquedCards.contains(where: {$0.imageURL != "" && $0.name == card.name}){
+////                    uniquedCards.append(card)
+////                }
 //                    uniquedCards.append(card)
-//                }
-                    uniquedCards.append(card)
-            }
-            self.cards = uniquedCards.filter{$0.imageURL != ""}
-            completion()
-        }
+//            }
+//            self.cards = uniquedCards.filter{$0.imageURL != ""}
+//            completion()
+//        }
 
         
         NetworkManager.shared.fetchData(url: url, type: CardMtgGenResponse.self) { result in
