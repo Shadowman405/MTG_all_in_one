@@ -182,15 +182,30 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(_ searchText: String) {
+//        if selectSegmentControl.selectedSegmentIndex == 0 {
+//            arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
+//                return setMtg.name.lowercased().contains(searchText.lowercased())
+//            }
+//        } else {
+//            arrSubtypesFiltered[0].subtypes = arrSubs[0].subtypes.filter({ subtype -> Bool in
+//                return subtype.lowercased().contains(searchText.lowercased())
+//            })
+//            subtypesTAbleView.reloadData()
+//        }
+        
+        //new
         if selectSegmentControl.selectedSegmentIndex == 0 {
-            arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
-                return setMtg.name.lowercased().contains(searchText.lowercased())
+            for item in arrSets {
+                if (item.code.lowercased().contains(searchText.lowercased())) {
+                    print(item.code)
+                    //print(arrSetsFiltered)
+                    return arrSetsFiltered.append(item)
+                }
+                if searchText.isEmpty {
+                    arrSetsFiltered = arrSets
+                }
+                subtypesTAbleView.reloadData()
             }
-        } else {
-            arrSubtypesFiltered[0].subtypes = arrSubs[0].subtypes.filter({ subtype -> Bool in
-                return subtype.lowercased().contains(searchText.lowercased())
-            })
-            subtypesTAbleView.reloadData()
         }
     }
     
