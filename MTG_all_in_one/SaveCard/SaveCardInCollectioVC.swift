@@ -11,6 +11,7 @@ class SaveCardInCollectioVC: UITableViewController {
     
     private var cardCollection : Results<CardCollection>!
     var card: CardMTG?
+    @IBOutlet weak var createCollectionLbl: UIBarButtonItem!
     
     var viewModel: SaveCardViewModelProtocol! {
         didSet {
@@ -23,6 +24,11 @@ class SaveCardInCollectioVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = false
+        if viewModel.collection.isEmpty {
+            createCollectionLbl.isHidden = false
+        } else {
+            createCollectionLbl.isHidden = true
+        }
     }
 
     // MARK: - Table view data source
@@ -48,5 +54,6 @@ class SaveCardInCollectioVC: UITableViewController {
         return cell
     }
     
-
+    @IBAction func createCollectionTaped(_ sender: Any) {
+    }
 }

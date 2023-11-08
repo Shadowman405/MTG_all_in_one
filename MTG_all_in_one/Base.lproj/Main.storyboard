@@ -614,7 +614,16 @@
                             <outlet property="delegate" destination="BiR-6l-fE2" id="oCI-vY-968"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Save In Collection" id="cfH-3P-WvI"/>
+                    <navigationItem key="navigationItem" title="Save In Collection" id="cfH-3P-WvI">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="ygG-5H-fb9">
+                            <connections>
+                                <action selector="createCollectionTaped:" destination="BiR-6l-fE2" id="DuL-Tv-mfH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="createCollectionLbl" destination="ygG-5H-fb9" id="iGn-5h-Jk5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXu-IK-0nk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -645,6 +654,7 @@
     <resources>
         <image name="mtg_green" width="563" height="789"/>
         <image name="placeholder" width="340" height="471"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
