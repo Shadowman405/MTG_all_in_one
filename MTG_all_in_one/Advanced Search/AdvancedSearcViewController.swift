@@ -43,6 +43,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     let searchController = UISearchController(searchResultsController: nil)
     private var arrSetsFiltered = [SetMTG]()
     private var arrSubtypesFiltered = [Subtypes(subtypes: ["Waiting for data..."])]
+    // solving issues with search
+    private var arrSetsString = [String]()
+    private var arrSetsStringFiltered = [String]()
     
     
 //ViewModel
@@ -182,6 +185,13 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(_ searchText: String) {
+        //New logic
+        for setName in arrSets {
+            arrSetsString.append(setName.name)
+        }
+        
+        
+        // old Logic
         if selectSegmentControl.selectedSegmentIndex == 0 {
             if searchText.isEmpty {
                 arrSetsFiltered = arrSets
