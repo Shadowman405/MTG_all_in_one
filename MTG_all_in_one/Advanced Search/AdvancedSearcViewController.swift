@@ -190,7 +190,7 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
 //        for setName in arrSets {
 //            arrSetsString.append(setName.name)
 //        }
-//        
+//
 //        if selectSegmentControl.selectedSegmentIndex == 0 {
 //            searchData = searchText.isEmpty ? arrSetsString : arrSetsString.filter({ (item: String) in
 //                return item.range(of: searchText, options: .caseInsensitive) != nil
@@ -233,7 +233,8 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
         switch selectSegmentControl.selectedSegmentIndex {
         case 0:
                         let setType: SetMTG
-                        if isFiltering {
+            if isFiltering && arrSetsFiltered.count != 1{
+                            print(arrSetsFiltered.count)
                             setType = arrSetsFiltered[indexPath.row]
                           } else {
                               setType = arrSets[indexPath.row]
