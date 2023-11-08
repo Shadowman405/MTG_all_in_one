@@ -78,5 +78,6 @@ extension SaveCardInCollectioVC {
         StorageManager.shared.save(cardCollection: cardCollections)
         let rowIndex = IndexPath(row: viewModel.collection.count - 1, section: 0)
         tableView.insertRows(at: [rowIndex], with: .automatic)
+        createCollectionLbl.isHidden = true
     }
 }
