@@ -55,5 +55,28 @@ class SaveCardInCollectioVC: UITableViewController {
     }
     
     @IBAction func createCollectionTaped(_ sender: Any) {
+        showAlert()
+    }
+}
+
+
+extension SaveCardInCollectioVC {
+    private func showAlert() {
+        let alert = UIAlertController.createAlert(withTitle: "New Collection",
+                                                  andMessage: "Please enter collection name")
+        
+        alert.action { newValue in
+            self.save(cardCollections: newValue)
+        }
+        
+        present(alert, animated: true)
+    }
+    
+    private func save(cardCollections: String) {
+        let cardCollections = CardCollection(value: [cardCollections])
+        
+        StorageManager.shared.save(cardCollection: cardCollections)
+        let rowIndex = IndexPath(row: viewModel.collection.count - 1, section: 0)
+        tableView.insertRows(at: [rowIndex], with: .automatic)
     }
 }

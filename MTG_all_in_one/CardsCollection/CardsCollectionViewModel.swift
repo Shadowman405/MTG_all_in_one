@@ -10,7 +10,7 @@ import Algorithms
 
 protocol CardCollectionViewModelProtocol {
     var cards: [CardMTG] { get }
-    var cardsGen: [Card] { get }
+   // var cardsGen: [Card] { get }
     
     func fetchCards(url: String, completion: @escaping () -> Void)
     func numberOfRows() -> Int
@@ -22,7 +22,7 @@ protocol CardCollectionViewModelProtocol {
 
 class CardCollectionViewModel: CardCollectionViewModelProtocol {
     var cards: [CardMTG] = []
-    var cardsGen: [Card] = []
+   // var cardsGen: [Card] = []
     
     func fetchCards(url: String, completion: @escaping () -> Void) {
         NetworkManager.shared.fetchCards(url: url) { cards in
@@ -38,28 +38,24 @@ class CardCollectionViewModel: CardCollectionViewModelProtocol {
         }
 
         
-        NetworkManager.shared.fetchData(url: url, type: CardMtgGenResponse.self) { result in
-            switch result {
-            case .success(let cards):
-                print(cards.count)
-                var uniquedCards = [Card]()
-                for card in cards {
-//                    for singleCard in card.cards! {
-//                        print(card)
-//                        uniquedCards.append(singleCard)
+//        NetworkManager.shared.fetchData(url: url, type: CardMtgGenResponse.self) { result in
+//            switch result {
+//            case .success(let cards):
+//                print(cards.count)
+//                var uniquedCards = [Card]()
+//                for card in cards {
+//                    for singlCard in 0...card.cards!.count - 1{
+//                        uniquedCards.append(card.cards![singlCard])
+//                        print(uniquedCards[singlCard])
 //                    }
-                    for singlCard in 0...card.cards!.count - 1{
-                        uniquedCards.append(card.cards![singlCard])
-                        print(uniquedCards[singlCard])
-                    }
-                }
-                self.cardsGen = uniquedCards.filter{$0.imageURL != ""}
-                completion()
-            case.failure(let error):
-                print("Error parsing")
-                print(error)
-            }
-        }
+//                }
+//                self.cardsGen = uniquedCards.filter{$0.imageURL != ""}
+//                completion()
+//            case.failure(let error):
+//                print("Error parsing")
+//                print(error)
+//            }
+//        }
     }
     
     func numberOfRows() -> Int {

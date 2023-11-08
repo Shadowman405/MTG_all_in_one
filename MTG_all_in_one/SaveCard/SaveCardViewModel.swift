@@ -10,7 +10,7 @@ import RealmSwift
 
 protocol SaveCardViewModelProtocol {
     var card: CardMTG {get set}
-    var collection: Results<CardCollection>! {get set}
+    var collection: Results<CardCollection>! {get set} 
     
     init(card: CardMTG)
     
