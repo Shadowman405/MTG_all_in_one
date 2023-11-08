@@ -24,6 +24,7 @@ class SaveCardInCollectioVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = false
+        
         if viewModel.collection.isEmpty {
             createCollectionLbl.isHidden = false
         } else {
@@ -59,7 +60,7 @@ class SaveCardInCollectioVC: UITableViewController {
     }
 }
 
-
+//MARK: - Extension for VC
 extension SaveCardInCollectioVC {
     private func showAlert() {
         let alert = UIAlertController.createAlert(withTitle: "New Collection",
