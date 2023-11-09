@@ -20,7 +20,10 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var supertypeLbl: UILabel!
     @IBOutlet weak var formatLbl: UILabel!
- 
+    
+    //
+    @IBOutlet weak var searchBar: UISearchBar!
+    
 //Variables
     var delegate: searchStringProtocol?
     private var manager = NetworkManager.shared
@@ -40,6 +43,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     var isFiltering: Bool {
       return searchController.isActive && !isSearchBarEmpty
     }
+    
     let searchController = UISearchController(searchResultsController: nil)
     private var arrSetsFiltered = [SetMTG]()
     private var arrSubtypesFiltered = [Subtypes(subtypes: ["Waiting for data..."])]
@@ -71,9 +75,10 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.subtypesTAbleView.delegate = self
-        self.subtypesTAbleView.dataSource = self
-        self.subtypesTAbleView.register(TableViewCell.self, forCellReuseIdentifier: "subCell")
+        subtypesTAbleView.delegate = self
+        subtypesTAbleView.dataSource = self
+        searchBar.delegate = self
+        subtypesTAbleView.register(TableViewCell.self, forCellReuseIdentifier: "subCell")
         
         viewModel = AdvancedSearchViewModel()
         configureSegmentControl()
@@ -174,7 +179,7 @@ protocol searchStringProtocol {
     func showSearchBar()
 }
 
-extension AdvancedSearcViewController: UISearchResultsUpdating {
+extension AdvancedSearcViewController: UISearchResultsUpdating, UISearchBarDelegate {
     class TableViewCell: UITableViewCell {}
     
     // MARK: - SearcController
@@ -210,11 +215,12 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
                     return setMtg.name.lowercased().contains(searchText.lowercased())
                 }
             }
-        } else {
+        } else if selectSegmentControl.selectedSegmentIndex == 1 {
             arrSubtypesFiltered[0].subtypes = arrSubs[0].subtypes.filter({ subtype -> Bool in
                 return subtype.lowercased().contains(searchText.lowercased())
             })
         }
+        subtypesTAbleView.reloadData()
     }
     
     func setupSearchController() {
@@ -232,41 +238,40 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
         var content = cell.defaultContentConfiguration()
         switch selectSegmentControl.selectedSegmentIndex {
         case 0:
-                        let setType: SetMTG
+            let setType: SetMTG
             if isFiltering && arrSetsFiltered.count != 1{
-                            print(arrSetsFiltered.count)
-                            setType = arrSetsFiltered[indexPath.row]
-                          } else {
-                              setType = arrSets[indexPath.row]
-                          }
-                        content.text = setType.name
-                        cell.contentConfiguration = content
-                        return cell
+                setType = arrSetsFiltered[indexPath.row]
+            } else {
+                setType = arrSets[indexPath.row]
+            }
+            content.text = setType.name
+            cell.contentConfiguration = content
+            return cell
         case 1:
-                        var subType: [String]
-                        if isFiltering {
-                            subType = arrSubtypesFiltered[0].subtypes
-                        } else {
-                            subType = arrSubs[0].subtypes
-                        }
-                        content.text = subType[indexPath.row]
-                        cell.contentConfiguration = content
-                        return cell
+            var subType: [String]
+            if isFiltering {
+                subType = arrSubtypesFiltered[0].subtypes
+            } else {
+                subType = arrSubs[0].subtypes
+            }
+            content.text = subType[indexPath.row]
+            cell.contentConfiguration = content
+            return cell
         case 2:
-                        let type = arrTypes[0].types[indexPath.row]
-                        content.text = type
-                        cell.contentConfiguration = content
-                        return cell
+            let type = arrTypes[0].types[indexPath.row]
+            content.text = type
+            cell.contentConfiguration = content
+            return cell
         case 3:
-                        let supertype = arrSupertypes[0].supertypes[indexPath.row]
-                        content.text = supertype
-                        cell.contentConfiguration = content
-                        return cell
+            let supertype = arrSupertypes[0].supertypes[indexPath.row]
+            content.text = supertype
+            cell.contentConfiguration = content
+            return cell
         case 4:
-                        let format = arrFormats[0].formats[indexPath.row]
-                        content.text = format
-                        cell.contentConfiguration = content
-                        return cell
+            let format = arrFormats[0].formats[indexPath.row]
+            content.text = format
+            cell.contentConfiguration = content
+            return cell
         default:
             return cell
         }
