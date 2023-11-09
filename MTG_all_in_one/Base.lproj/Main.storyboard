@@ -304,14 +304,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="380" id="g46-QN-ycd"/>
                                 </constraints>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="SLA-se-LYG">
-                                    <rect key="frame" x="0.0" y="0.0" width="370" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="te8-Uw-71U" id="2cB-dT-zaR"/>
-                                    </connections>
-                                </searchBar>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SB-ml-V6M">
                                 <rect key="frame" x="10" y="541" width="93.333333333333329" height="34.333333333333371"/>
@@ -409,7 +401,6 @@
                         <outlet property="addFilterBtn" destination="4SB-ml-V6M" id="wal-4P-PcF"/>
                         <outlet property="clearFilterBtn" destination="Krd-eG-6qX" id="VtQ-6j-bru"/>
                         <outlet property="formatLbl" destination="0OX-Dn-mfc" id="OsW-4t-CRI"/>
-                        <outlet property="searchBar" destination="SLA-se-LYG" id="IuG-BI-Rvc"/>
                         <outlet property="selectSegmentControl" destination="kKz-lH-a22" id="Unr-Nk-UoG"/>
                         <outlet property="setLbl" destination="NIr-zz-eqZ" id="mWC-NW-u6i"/>
                         <outlet property="subtypeLbl" destination="43H-gJ-GRR" id="LFq-tz-UHO"/>

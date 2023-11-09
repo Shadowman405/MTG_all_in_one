@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 //TV & SC
     @IBOutlet weak var selectSegmentControl: UISegmentedControl!
     @IBOutlet weak var subtypesTAbleView: UITableView!
@@ -20,11 +20,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var supertypeLbl: UILabel!
     @IBOutlet weak var formatLbl: UILabel!
-    
-    //
-    @IBOutlet weak var searchBar: UISearchBar!
-    
+ 
 //Variables
+    
     var delegate: searchStringProtocol?
     private var manager = NetworkManager.shared
     private var searchStringPickerValue = "set="
@@ -43,7 +41,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     var isFiltering: Bool {
       return searchController.isActive && !isSearchBarEmpty
     }
-    
     let searchController = UISearchController(searchResultsController: nil)
     private var arrSetsFiltered = [SetMTG]()
     private var arrSubtypesFiltered = [Subtypes(subtypes: ["Waiting for data..."])]
@@ -75,10 +72,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        subtypesTAbleView.delegate = self
-        subtypesTAbleView.dataSource = self
-        searchBar.delegate = self
-        subtypesTAbleView.register(TableViewCell.self, forCellReuseIdentifier: "subCell")
+        self.subtypesTAbleView.delegate = self
+        self.subtypesTAbleView.dataSource = self
+        self.subtypesTAbleView.register(TableViewCell.self, forCellReuseIdentifier: "subCell")
         
         viewModel = AdvancedSearchViewModel()
         configureSegmentControl()
@@ -179,7 +175,7 @@ protocol searchStringProtocol {
     func showSearchBar()
 }
 
-extension AdvancedSearcViewController: UISearchResultsUpdating, UISearchBarDelegate {
+extension AdvancedSearcViewController: UISearchResultsUpdating {
     class TableViewCell: UITableViewCell {}
     
     // MARK: - SearcController
@@ -190,21 +186,6 @@ extension AdvancedSearcViewController: UISearchResultsUpdating, UISearchBarDeleg
     }
     
     func filterContentForSearchText(_ searchText: String) {
-        //New logic
-        
-//        for setName in arrSets {
-//            arrSetsString.append(setName.name)
-//        }
-//
-//        if selectSegmentControl.selectedSegmentIndex == 0 {
-//            searchData = searchText.isEmpty ? arrSetsString : arrSetsString.filter({ (item: String) in
-//                return item.range(of: searchText, options: .caseInsensitive) != nil
-//            })
-//            subtypesTAbleView.reloadData()
-//        }
-        
-        
-        // old Logic
         if selectSegmentControl.selectedSegmentIndex == 0 {
             if searchText.isEmpty {
                 arrSetsFiltered = arrSets
