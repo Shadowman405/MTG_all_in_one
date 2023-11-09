@@ -186,26 +186,10 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(_ searchText: String) {
-//        if selectSegmentControl.selectedSegmentIndex == 0 {
-//            if searchText.isEmpty {
-//                arrSetsFiltered = arrSets
-//                subtypesTAbleView.reloadData()
-//            } else {
-//                arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
-//                    subtypesTAbleView.reloadData()
-//                    return setMtg.name.lowercased().contains(searchText.lowercased())
-//                }
-//            }
-//        } else if selectSegmentControl.selectedSegmentIndex == 1 {
-//            arrSubtypesFiltered[0].subtypes = arrSubs[0].subtypes.filter({ subtype -> Bool in
-//                return subtype.lowercased().contains(searchText.lowercased())
-//            })
-//        }
         if selectSegmentControl.selectedSegmentIndex == 0 {
             if searchText.isEmpty == false {
                 arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
-                    //self.subtypesTAbleView.reloadData()
-                    print(arrSetsFiltered[0].name)
+                    print(arrSets[0].name)
                     return setMtg.name.lowercased().contains(searchText.lowercased())
                 }
             } else {
@@ -235,7 +219,7 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
         switch selectSegmentControl.selectedSegmentIndex {
         case 0:
             let setType: SetMTG
-            if isFiltering && arrSetsFiltered.count != 1{
+            if isFiltering && arrSetsFiltered.count != 0{
                 setType = arrSetsFiltered[indexPath.row]
             } else {
                 setType = arrSets[indexPath.row]
