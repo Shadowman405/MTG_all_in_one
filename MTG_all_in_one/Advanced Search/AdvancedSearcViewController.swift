@@ -42,12 +42,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
       return searchController.isActive && !isSearchBarEmpty
     }
     let searchController = UISearchController(searchResultsController: nil)
-    private var arrSetsFiltered = [SetMTG(code: "Search...", name: "", type: "", releaseDate: "", block: "", onlineOnly: false)]
+    private var arrSetsFiltered = [SetMTG]()
     private var arrSubtypesFiltered = [Subtypes(subtypes: ["Waiting for data..."])]
-    // solving issues with search
-    private var arrSetsString = [String]()
-    private var searchData = [String]()
-    
     
 //ViewModel
     var viewModel: AdvancedSearchViewModelProtocol! {
@@ -95,11 +91,11 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 //MARK: - Segmant control logic
     @IBAction func segmentControlPressed(_ sender: UISegmentedControl) {
         switch selectSegmentControl.selectedSegmentIndex {
-        case 0: searchStringPickerValue = viewModel.searchSetSegment; updateUI(); presentSearchBar(true)
-        case 1: searchStringPickerValue = viewModel.searchSubtypeSegment; updateUI(); presentSearchBar(true)
-        case 2: searchStringPickerValue = viewModel.searchTypeSegment; updateUI(); presentSearchBar(false)
-        case 3: searchStringPickerValue = viewModel.searchSupertypeSegment; updateUI(); presentSearchBar(false)
-        case 4: searchStringPickerValue = viewModel.searchFormatSegment; updateUI(); presentSearchBar(false)
+        case 0: searchStringPickerValue = viewModel.searchSetSegment; updateUI(); presentSearchBar(false)
+        case 1: searchStringPickerValue = viewModel.searchSubtypeSegment; updateUI(); presentSearchBar(false)
+        case 2: searchStringPickerValue = viewModel.searchTypeSegment; updateUI(); presentSearchBar(true)
+        case 3: searchStringPickerValue = viewModel.searchSupertypeSegment; updateUI(); presentSearchBar(true)
+        case 4: searchStringPickerValue = viewModel.searchFormatSegment; updateUI(); presentSearchBar(true)
         default: searchStringPickerValue = "&set="
         }
     }
@@ -189,7 +185,6 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
         if selectSegmentControl.selectedSegmentIndex == 0 {
             if searchText.isEmpty == false {
                 arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
-                    print(arrSets[0].name)
                     return setMtg.name.lowercased().contains(searchText.lowercased())
                 }
             } else {
