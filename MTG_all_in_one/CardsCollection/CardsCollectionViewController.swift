@@ -28,13 +28,13 @@ class CardsCollectionViewController: UICollectionViewController, UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            viewModel = CardCollectionViewModel()
+        viewModel = CardCollectionViewModel()
         print("load screen")
-            
-            UIApplication.shared.isIdleTimerDisabled = false
-            collectionView.backgroundColor = .lightGray
-            setupSearchController()
-        navigationController?.navigationBar.barTintColor = UIColor.black        
+        
+        UIApplication.shared.isIdleTimerDisabled = false
+        collectionView.backgroundColor = .lightGray
+        setupSearchController()
+        navigationController?.navigationBar.transparentNavigationBar()
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

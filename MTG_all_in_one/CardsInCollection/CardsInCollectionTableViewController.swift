@@ -115,6 +115,7 @@ class CardsInCollectionTableViewController: UITableViewController {
         if viewModel.collection.cards.count == 0 {
             sortBtnLbl.isHidden = true
         }
+        navigationController?.navigationBar.transparentNavigationBar()
     }
     
     //MARK: - Segue Logic

@@ -266,6 +266,7 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
             arrTypes = viewModel.typesMTG
             arrSupertypes = viewModel.supertypesMTG
             arrFormats = viewModel.formatsMTG
+            navigationController?.navigationBar.transparentNavigationBar()
         }
         
         func updateButtonsUI() {

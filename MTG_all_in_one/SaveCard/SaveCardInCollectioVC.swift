@@ -25,6 +25,7 @@ class SaveCardInCollectioVC: UITableViewController {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = false
         
+        navigationController?.navigationBar.transparentNavigationBar()
         if viewModel.collection.isEmpty {
             createCollectionLbl.isHidden = false
         } else {

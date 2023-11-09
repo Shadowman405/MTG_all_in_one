@@ -54,6 +54,8 @@ class CardDetailsViewController: UIViewController {
         if viewModel.manaCost.isEmpty {
             manaCostTextLbl.isHidden = true
         }
+        
+        navigationController?.navigationBar.transparentNavigationBar()
     }
     
     func hideButton() {
