@@ -124,7 +124,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
            let supertype = supertypeLbl.text, let format = formatLbl.text {
             print("\(mainSearchString)\(set)\(subtype)\(type)\(supertype)\(format)&name=")
         }
-        dismiss(animated: true) //didnt work after change segue from modal to Push
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func clearFiltersPressed(_ sender: Any) {
