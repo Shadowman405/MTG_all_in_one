@@ -117,37 +117,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         returnSelectedRow(tableView, didSelectRowAt: indexPath) // logic move to extension for tableVC
     }
-
-//MARK: - Other funcs
-    func updateUI() {
-        subtypesTAbleView.reloadData()
-        arrSubs = viewModel.subtypesMTG
-        arrSets = viewModel.setsMTG
-        arrTypes = viewModel.typesMTG
-        arrSupertypes = viewModel.supertypesMTG
-        arrFormats = viewModel.formatsMTG
-    }
-    
-    func updateButtonsUI() {
-        addFilterBtn.backgroundColor = .green
-        addFilterBtn.layer.cornerRadius = 10
-        clearFilterBtn.backgroundColor = .red
-        clearFilterBtn.layer.cornerRadius = 10
-    }
-    
-    func configureSegmentControl() {
-        selectSegmentControl.setWidth(80, forSegmentAt: 2)
-        selectSegmentControl.backgroundColor = .green
-    }
-    
-    func clearLabel(){
-        setLbl.text = ""
-        subtypeLbl.text = ""
-        typeLbl.text = ""
-        supertypeLbl.text = ""
-        formatLbl.text = ""
-    }
-//MARK: - Buttons
+//MARK: - buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
         if let set = setLbl.text, let subtype = subtypeLbl.text,
            let type = typeLbl.text,
@@ -164,7 +134,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 
  
 
-// MARK: - protocols and extensions
+// MARK: - PROTOCOLS & EXTENSIONS
 
 protocol searchStringProtocol {
     func updateSearchString(seacrhString: String)
@@ -174,7 +144,7 @@ protocol searchStringProtocol {
 extension AdvancedSearcViewController: UISearchResultsUpdating {
     class TableViewCell: UITableViewCell {}
     
-    // MARK: - SearcController
+    // MARK: - searchcontroller
     
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
@@ -288,4 +258,33 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
             formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
         }
     }
+    //MARK: - Other funcs
+        func updateUI() {
+            subtypesTAbleView.reloadData()
+            arrSubs = viewModel.subtypesMTG
+            arrSets = viewModel.setsMTG
+            arrTypes = viewModel.typesMTG
+            arrSupertypes = viewModel.supertypesMTG
+            arrFormats = viewModel.formatsMTG
+        }
+        
+        func updateButtonsUI() {
+            addFilterBtn.backgroundColor = .green
+            addFilterBtn.layer.cornerRadius = 10
+            clearFilterBtn.backgroundColor = .red
+            clearFilterBtn.layer.cornerRadius = 10
+        }
+        
+        func configureSegmentControl() {
+            selectSegmentControl.setWidth(80, forSegmentAt: 2)
+            selectSegmentControl.backgroundColor = .green
+        }
+        
+        func clearLabel(){
+            setLbl.text = ""
+            subtypeLbl.text = ""
+            typeLbl.text = ""
+            supertypeLbl.text = ""
+            formatLbl.text = ""
+        }
 }
