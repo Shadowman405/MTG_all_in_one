@@ -95,11 +95,11 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
 //MARK: - Segmant control logic
     @IBAction func segmentControlPressed(_ sender: UISegmentedControl) {
         switch selectSegmentControl.selectedSegmentIndex {
-        case 0: searchStringPickerValue = viewModel.searchSetSegment; updateUI()
-        case 1: searchStringPickerValue = viewModel.searchSubtypeSegment; updateUI()
-        case 2: searchStringPickerValue = viewModel.searchTypeSegment; updateUI()
-        case 3: searchStringPickerValue = viewModel.searchSupertypeSegment; updateUI()
-        case 4: searchStringPickerValue = viewModel.searchFormatSegment; updateUI()
+        case 0: searchStringPickerValue = viewModel.searchSetSegment; updateUI(); presentSearchBar(true)
+        case 1: searchStringPickerValue = viewModel.searchSubtypeSegment; updateUI(); presentSearchBar(true)
+        case 2: searchStringPickerValue = viewModel.searchTypeSegment; updateUI(); presentSearchBar(false)
+        case 3: searchStringPickerValue = viewModel.searchSupertypeSegment; updateUI(); presentSearchBar(false)
+        case 4: searchStringPickerValue = viewModel.searchFormatSegment; updateUI(); presentSearchBar(false)
         default: searchStringPickerValue = "&set="
         }
     }
@@ -210,6 +210,10 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.isActive = true
+    }
+    
+    func presentSearchBar(_ bool: Bool) {
+        searchController.searchBar.isHidden = bool
     }
     
     //MARK: - Handlers for tablewview funcs
