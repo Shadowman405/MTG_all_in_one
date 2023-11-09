@@ -42,7 +42,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
       return searchController.isActive && !isSearchBarEmpty
     }
     let searchController = UISearchController(searchResultsController: nil)
-    private var arrSetsFiltered = [SetMTG]()
+    private var arrSetsFiltered = [SetMTG(code: "Search...", name: "", type: "", releaseDate: "", block: "", onlineOnly: false)]
     private var arrSubtypesFiltered = [Subtypes(subtypes: ["Waiting for data..."])]
     // solving issues with search
     private var arrSetsString = [String]()
@@ -186,17 +186,32 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(_ searchText: String) {
+//        if selectSegmentControl.selectedSegmentIndex == 0 {
+//            if searchText.isEmpty {
+//                arrSetsFiltered = arrSets
+//                subtypesTAbleView.reloadData()
+//            } else {
+//                arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
+//                    subtypesTAbleView.reloadData()
+//                    return setMtg.name.lowercased().contains(searchText.lowercased())
+//                }
+//            }
+//        } else if selectSegmentControl.selectedSegmentIndex == 1 {
+//            arrSubtypesFiltered[0].subtypes = arrSubs[0].subtypes.filter({ subtype -> Bool in
+//                return subtype.lowercased().contains(searchText.lowercased())
+//            })
+//        }
         if selectSegmentControl.selectedSegmentIndex == 0 {
-            if searchText.isEmpty {
-                arrSetsFiltered = arrSets
-                subtypesTAbleView.reloadData()
-            } else {
+            if searchText.isEmpty == false {
                 arrSetsFiltered = arrSets.filter { (setMtg: SetMTG) -> Bool in
-                    subtypesTAbleView.reloadData()
+                    //self.subtypesTAbleView.reloadData()
+                    print(arrSetsFiltered[0].name)
                     return setMtg.name.lowercased().contains(searchText.lowercased())
                 }
+            } else {
+                arrSetsFiltered = arrSets
             }
-        } else if selectSegmentControl.selectedSegmentIndex == 1 {
+        } else {
             arrSubtypesFiltered[0].subtypes = arrSubs[0].subtypes.filter({ subtype -> Bool in
                 return subtype.lowercased().contains(searchText.lowercased())
             })
