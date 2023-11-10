@@ -268,6 +268,7 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
             arrFormats = viewModel.formatsMTG
         }
         
+    
         func updateButtonsUI() {
             addFilterBtn.backgroundColor = .green
             addFilterBtn.layer.cornerRadius = 10
