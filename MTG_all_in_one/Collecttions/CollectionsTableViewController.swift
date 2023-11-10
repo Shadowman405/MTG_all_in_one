@@ -15,7 +15,6 @@ class CollectionsTableViewController: UITableViewController {
         super.viewDidLoad()
         viewModel = CollectionsViewModel()
         UIApplication.shared.isIdleTimerDisabled = false
-        navigationController?.navigationBar.transparentNavigationBar()
     }
 
     // MARK: - Table view data source
