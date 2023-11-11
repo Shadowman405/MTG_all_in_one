@@ -266,6 +266,12 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
             arrTypes = viewModel.typesMTG
             arrSupertypes = viewModel.supertypesMTG
             arrFormats = viewModel.formatsMTG
+            
+            setLbl.isHidden = true
+            subtypeLbl.isHidden = true
+            typeLbl.isHidden = true
+            supertypeLbl.isHidden = true
+            formatLbl.isHidden = true
         }
         
     
