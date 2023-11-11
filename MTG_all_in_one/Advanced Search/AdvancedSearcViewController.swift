@@ -23,7 +23,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var infoLbl: UILabel!
     
 //Variables
-    
     var delegate: searchStringProtocol?
     private var manager = NetworkManager.shared
     private var searchStringPickerValue = "set="
@@ -228,16 +227,21 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     }
     //
     func returnSelectedRow(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var set = ""; var subtype = ""; var type = ""; var supertype = ""; var format = ""
+        ;
+        var infoText = " \("Set:" + set)\("Subtype:" + subtype)\("Type:" + type)\("Supertype:" + supertype)\("Format:" + format))"
+        
+        
         switch selectSegmentControl.selectedSegmentIndex{
         case 0:
                         if isFiltering {
                             viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
                             setLbl.text = "&set=\(viewModel.searchSetValue)"
-                            infoLbl.text = "Set: \(arrSetsFiltered[indexPath.row].name)"
+                            set = arrSetsFiltered[indexPath.row].name
                           } else {
                               viewModel.searchSetValue = arrSets[indexPath.row].code
                               setLbl.text = "&set=\(viewModel.searchSetValue)"
-                              infoLbl.text = "Set: \(arrSets[indexPath.row].name)"
+                              set = arrSets[indexPath.row].name
                           }
         case 1:
                         if isFiltering {
