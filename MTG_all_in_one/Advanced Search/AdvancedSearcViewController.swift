@@ -34,13 +34,6 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     private var arrSupertypes: [Supertypes] = NetworkManager.shared.mockSupertypes
     private var arrFormats: [Formats] = NetworkManager.shared.mockFormats
     
-    private var selectedSet: String?
-    private var selectedSubtype: String?
-    private var selectedType: String?
-    private var selectedSupertype: String?
-    private var selectedFormat: String?
-    
-    
 //SearchController
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
@@ -87,15 +80,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        if let set = setLbl.text, let subtype = subtypeLbl.text,
-//           let type = typeLbl.text,
-//           let supertype = supertypeLbl.text, let format = formatLbl.text {
-//            delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(set)\(subtype)\(type)\(supertype)\(format)&name=")
-//        }
-//        delegate?.showSearchBar()
-        if let set = selectedSet, let subtype = selectedSubtype,
-           let type = selectedType,
-           let supertype = selectedSupertype, let format = selectedFormat {
+        if let set = setLbl.text, let subtype = subtypeLbl.text,
+           let type = typeLbl.text,
+           let supertype = supertypeLbl.text, let format = formatLbl.text {
             delegate?.updateSearchString(seacrhString: "\(mainSearchString)\(set)\(subtype)\(type)\(supertype)\(format)&name=")
         }
         delegate?.showSearchBar()
@@ -132,15 +119,9 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     }
 //MARK: - buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
-//        if let set = setLbl.text, let subtype = subtypeLbl.text,
-//           let type = typeLbl.text,
-//           let supertype = supertypeLbl.text, let format = formatLbl.text {
-//            print("\(mainSearchString)\(set)\(subtype)\(type)\(supertype)\(format)&name=")
-//        }
-//        navigationController?.popViewController(animated: true)
-        if let set = selectedSet, let subtype = selectedSubtype,
-           let type = selectedType,
-           let supertype = selectedSupertype, let format = selectedFormat {
+        if let set = setLbl.text, let subtype = subtypeLbl.text,
+           let type = typeLbl.text,
+           let supertype = supertypeLbl.text, let format = formatLbl.text {
             print("\(mainSearchString)\(set)\(subtype)\(type)\(supertype)\(format)&name=")
         }
         navigationController?.popViewController(animated: true)
@@ -248,39 +229,30 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     func returnSelectedRow(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch selectSegmentControl.selectedSegmentIndex{
         case 0:
-            if isFiltering {
-                viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
-                //setLbl.text = "&set=\(viewModel.searchSetValue)"
-                selectedSet = "&set=\(viewModel.searchSetValue)"
-                print(selectedSet ?? "no value")
-            } else {
-                viewModel.searchSetValue = arrSets[indexPath.row].code
-                //setLbl.text = "&set=\(viewModel.searchSetValue)"
-                selectedSet = "&set=\(viewModel.searchSetValue)"
-                print(selectedSet ?? "no value")
-            }
+                        if isFiltering {
+                            viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
+                            setLbl.text = "&set=\(viewModel.searchSetValue)"
+                          } else {
+                              viewModel.searchSetValue = arrSets[indexPath.row].code
+                              setLbl.text = "&set=\(viewModel.searchSetValue)"
+                          }
         case 1:
-            if isFiltering {
-                viewModel.searchSubtypeValue = arrSubtypesFiltered[0].subtypes[indexPath.row]
-                //subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
-                selectedSubtype = "&subtypes=\(viewModel.searchSetValue)"
-            } else {
-                viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
-                //subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
-                selectedSubtype = "&subtypes=\(viewModel.searchSetValue)"
-            }
+                        if isFiltering {
+                            viewModel.searchSubtypeValue = arrSubtypesFiltered[0].subtypes[indexPath.row]
+                            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+                        } else {
+                            viewModel.searchSubtypeValue = arrSubs[0].subtypes[indexPath.row]
+                            subtypeLbl.text = "&subtypes=\(viewModel.searchSubtypeValue)"
+                        }
         case 2:
-            viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
-            //typeLbl.text = "&types=\(viewModel.searchTypeValue)"
-            selectedType = "&types=\(viewModel.searchSetValue)"
+                        viewModel.searchTypeValue = arrTypes[0].types[indexPath.row]
+                        typeLbl.text = "&types=\(viewModel.searchTypeValue)"
         case 3:
-            viewModel.searchSupertypeValue = arrSupertypes[0].supertypes[indexPath.row]
-            //supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
-            selectedSupertype = "&supertypes=\(viewModel.searchSupertypeValue)"
+                        viewModel.searchSupertypeValue = arrSupertypes[0].supertypes[indexPath.row]
+                        supertypeLbl.text = "&supertypes=\(viewModel.searchSupertypeValue)"
         case 4:
-            viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
-            //formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
-            selectedFormat = "&formats=\(viewModel.searchSupertypeValue)"
+                        viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
+                        formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
         default:
             viewModel.searchFormatValue = arrFormats[0].formats[indexPath.row]
             formatLbl.text = "&formats=\(viewModel.searchFormatValue)"
