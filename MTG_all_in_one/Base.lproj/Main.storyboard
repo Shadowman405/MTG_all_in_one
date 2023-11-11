@@ -290,7 +290,7 @@
             </objects>
             <point key="canvasLocation" x="1230.7692307692307" y="616.35071090047393"/>
         </scene>
-        <!--Advanced Searc View Controller-->
+        <!--Advanced Search-->
         <scene sceneID="oM9-vR-Ejc">
             <objects>
                 <viewController id="te8-Uw-71U" customClass="AdvancedSearcViewController" customModule="MTG_all_in_one" customModuleProvider="target" sceneMemberID="viewController">
@@ -299,8 +299,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hRx-J8-qly">
-                                <rect key="frame" x="10" y="151" width="370" height="618.66666666666663"/>
+                                <rect key="frame" x="10" y="151" width="370" height="583.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <scrollView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="p85-8y-6dd">
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <viewLayoutGuide key="contentLayoutGuide" id="rdP-U3-NYP"/>
+                                    <viewLayoutGuide key="frameLayoutGuide" id="E5W-r8-22m"/>
+                                </scrollView>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SB-ml-V6M">
                                 <rect key="frame" x="15" y="784.66666666666663" width="93.333333333333329" height="34.333333333333371"/>
@@ -369,13 +375,23 @@
                                     <action selector="clearFiltersPressed:" destination="te8-Uw-71U" eventType="touchUpInside" id="fjw-XD-zp1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4Z-if-eOw">
+                                <rect key="frame" x="0.0" y="740.66666666666663" width="390" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.82534395599999999" blue="0.70016261040000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mnv-kJ-OcY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mnv-kJ-OcY" firstAttribute="trailing" secondItem="Krd-eG-6qX" secondAttribute="trailing" constant="15" id="0mW-cn-Cfn"/>
+                            <constraint firstItem="s4Z-if-eOw" firstAttribute="leading" secondItem="mnv-kJ-OcY" secondAttribute="leading" id="3DS-kR-y3O"/>
+                            <constraint firstItem="s4Z-if-eOw" firstAttribute="trailing" secondItem="mnv-kJ-OcY" secondAttribute="trailing" id="5hi-tf-ZWg"/>
                             <constraint firstItem="mnv-kJ-OcY" firstAttribute="trailing" secondItem="hRx-J8-qly" secondAttribute="trailing" constant="10" id="BUq-5J-IZa"/>
-                            <constraint firstItem="4SB-ml-V6M" firstAttribute="top" secondItem="hRx-J8-qly" secondAttribute="bottom" constant="15" id="UFI-JP-ppO"/>
+                            <constraint firstItem="s4Z-if-eOw" firstAttribute="top" secondItem="hRx-J8-qly" secondAttribute="bottom" constant="6" id="J7Z-mf-JcJ"/>
+                            <constraint firstItem="4SB-ml-V6M" firstAttribute="top" secondItem="hRx-J8-qly" secondAttribute="bottom" constant="50" id="UFI-JP-ppO"/>
                             <constraint firstItem="mnv-kJ-OcY" firstAttribute="trailing" secondItem="kKz-lH-a22" secondAttribute="trailing" constant="10" id="WgU-zo-owN"/>
                             <constraint firstAttribute="bottom" secondItem="Krd-eG-6qX" secondAttribute="bottom" constant="25" id="Z4Y-SS-dsf"/>
                             <constraint firstItem="hRx-J8-qly" firstAttribute="top" secondItem="kKz-lH-a22" secondAttribute="bottom" constant="10" id="aBU-kN-Ov0"/>
@@ -384,13 +400,15 @@
                             <constraint firstItem="4SB-ml-V6M" firstAttribute="leading" secondItem="mnv-kJ-OcY" secondAttribute="leading" constant="15" id="e3P-C1-IJV"/>
                             <constraint firstAttribute="bottom" secondItem="4SB-ml-V6M" secondAttribute="bottom" constant="25" id="f7o-9I-QFs"/>
                             <constraint firstItem="kKz-lH-a22" firstAttribute="leading" secondItem="mnv-kJ-OcY" secondAttribute="leading" constant="10" id="fBE-TB-VxU"/>
+                            <constraint firstItem="4SB-ml-V6M" firstAttribute="top" secondItem="s4Z-if-eOw" secondAttribute="bottom" constant="8" id="uaS-fe-1av"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vz0-UV-UrT"/>
+                    <navigationItem key="navigationItem" title="Advanced Search" id="vz0-UV-UrT"/>
                     <connections>
                         <outlet property="addFilterBtn" destination="4SB-ml-V6M" id="wal-4P-PcF"/>
                         <outlet property="clearFilterBtn" destination="Krd-eG-6qX" id="VtQ-6j-bru"/>
                         <outlet property="formatLbl" destination="0OX-Dn-mfc" id="OsW-4t-CRI"/>
+                        <outlet property="infoLbl" destination="s4Z-if-eOw" id="2ub-J8-I3F"/>
                         <outlet property="selectSegmentControl" destination="kKz-lH-a22" id="Unr-Nk-UoG"/>
                         <outlet property="setLbl" destination="NIr-zz-eqZ" id="mWC-NW-u6i"/>
                         <outlet property="subtypeLbl" destination="43H-gJ-GRR" id="LFq-tz-UHO"/>
@@ -401,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hka-Um-oh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817" y="-1753"/>
+            <point key="canvasLocation" x="2816.9230769230767" y="-1753.080568720379"/>
         </scene>
         <!--Cards-->
         <scene sceneID="XVr-xB-ueB">

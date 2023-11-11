@@ -20,7 +20,8 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var supertypeLbl: UILabel!
     @IBOutlet weak var formatLbl: UILabel!
- 
+    @IBOutlet weak var infoLbl: UILabel!
+    
 //Variables
     
     var delegate: searchStringProtocol?
@@ -232,9 +233,11 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
                         if isFiltering {
                             viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
                             setLbl.text = "&set=\(viewModel.searchSetValue)"
+                            infoLbl.text = "Set: \(arrSetsFiltered[indexPath.row].name)"
                           } else {
                               viewModel.searchSetValue = arrSets[indexPath.row].code
                               setLbl.text = "&set=\(viewModel.searchSetValue)"
+                              infoLbl.text = "Set: \(arrSets[indexPath.row].name)"
                           }
         case 1:
                         if isFiltering {
