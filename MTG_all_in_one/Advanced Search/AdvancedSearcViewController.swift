@@ -34,6 +34,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     private var arrSupertypes: [Supertypes] = NetworkManager.shared.mockSupertypes
     private var arrFormats: [Formats] = NetworkManager.shared.mockFormats
     
+    
 //SearchController
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
@@ -117,6 +118,7 @@ class AdvancedSearcViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         returnSelectedRow(tableView, didSelectRowAt: indexPath) // logic move to extension for tableVC
     }
+
 //MARK: - buttons
     @IBAction func searchBtnPressed(_ sender: Any) {
         if let set = setLbl.text, let subtype = subtypeLbl.text,
@@ -227,21 +229,16 @@ extension AdvancedSearcViewController: UISearchResultsUpdating {
     }
     //
     func returnSelectedRow(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var set = ""; var subtype = ""; var type = ""; var supertype = ""; var format = ""
-        ;
-        var infoText = " \("Set:" + set)\("Subtype:" + subtype)\("Type:" + type)\("Supertype:" + supertype)\("Format:" + format))"
-        
-        
         switch selectSegmentControl.selectedSegmentIndex{
         case 0:
                         if isFiltering {
                             viewModel.searchSetValue = arrSetsFiltered[indexPath.row].code
                             setLbl.text = "&set=\(viewModel.searchSetValue)"
-                            set = arrSetsFiltered[indexPath.row].name
+                            infoLbl.text = "Set: \(arrSetsFiltered[indexPath.row].name) "
                           } else {
                               viewModel.searchSetValue = arrSets[indexPath.row].code
                               setLbl.text = "&set=\(viewModel.searchSetValue)"
-                              set = arrSets[indexPath.row].name
+                              infoLbl.text = "Set: \(arrSets[indexPath.row].name) "
                           }
         case 1:
                         if isFiltering {
